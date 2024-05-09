@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rectangle"
+        android:hint="아이디"
+        android:textSize="16sp"
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pw"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="229dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rectangle"
+        android:hint="비밀번호"
+        android:textSize="16sp"
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/auto_login"
+        android:layout_width="277dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="278dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="9dp"
+        android:paddingBottom="3dp"
+        android:text="@string/auto_login"
+        android:textAlignment="viewEnd"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/auto_login_btn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/auto_login_btn"
+        android:layout_width="51dp"
+        android:layout_height="25dp"
+        android:textOff=""
+        android:textOn=""
+        android:thumb="@drawable/switch_thumb"
+        app:layout_constraintEnd_toEndOf="@+id/pw"
+        app:layout_constraintTop_toTopOf="@+id/auto_login"
+        app:switchMinWidth="0dp"
+        app:thumbTextPadding="24dp"
+        app:track="@drawable/switch_track" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="343dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_custom"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/find_id"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_custom2"
+        android:textColor="@drawable/btn_text_color"
+        android:text="@string/find_id"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/find_pw"
+        app:layout_constraintRight_toRightOf="@id/find_pw"
+        app:layout_constraintTop_toTopOf="@id/find_pw" />
+
+    <Button
+        android:id="@+id/find_pw"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="403dp"
+        android:background="@drawable/button_custom2"
+        android:textColor="@drawable/btn_text_color"
+        android:text="@string/find_pw"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/join"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="18dp"
+        android:background="@drawable/button_custom2"
+        android:textColor="@drawable/btn_text_color"
+        android:text="@string/join"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/find_pw"
+        app:layout_constraintTop_toTopOf="@id/find_pw" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
