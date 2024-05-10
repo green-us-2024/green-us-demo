@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="46dp">
+
+
+    <ImageButton
+        android:id="@+id/btn_prev"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/btn_esc"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_idCheck"
+        android:layout_width="205dp"
+        android:layout_height="20dp"
+        android:text="@string/not_allowed"
+        android:layout_marginTop="47dp"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp">
+
+        <EditText
+            android:id="@+id/et_id"
+            android:paddingLeft="9dp"
+            android:layout_width="278dp"
+            android:layout_height="40dp"
+            android:background="@drawable/et_form_short"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/id"
+            android:textColor="#BFBFBF" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textSize="16sp"
+            android:text="중복확인"
+            android:background="@drawable/btn_search"
+            />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="9dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/pwd"
+        android:textColor="#BFBFBF"
+        android:background="@drawable/rectangle"
+        android:layout_marginTop="9dp"/>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="다음"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_custom"
+        android:layout_marginTop="60dp"
+        android:textStyle="bold"
+        />
+
+
+
+</LinearLayout>

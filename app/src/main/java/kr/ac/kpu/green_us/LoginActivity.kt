@@ -96,7 +96,7 @@ class LoginActivity: AppCompatActivity() {
 
         //회원가입 버튼 클릭 시
         binding.join.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
         }
     }
