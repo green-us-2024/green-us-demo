@@ -9,31 +9,24 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.graphics.Color
 import androidx.core.graphics.toColorInt
+import kr.ac.kpu.green_us.databinding.ActivityJoinBinding
 
 class JoinActivity : AppCompatActivity() {
+    private lateinit var join_binding : ActivityJoinBinding
+    val join_manager = supportFragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
+        join_binding = ActivityJoinBinding.inflate(layoutInflater)
+        setContentView(join_binding.root)
 
-        val btn_next : Button = findViewById(R.id.btn_next)
-        btn_next.setOnClickListener {
-            val intent = Intent(this,Join2Activity::class.java)
-            startActivity(intent)
-        }
-        val btn_prev : ImageButton = findViewById(R.id.btn_prev)
-        btn_prev.setOnClickListener {
-            val intent_prev = Intent(this,LoginActivity::class.java)
-            startActivity(intent_prev)
-        }
+        showInit()
 
-        val tv_idCheck : TextView = findViewById(R.id.tv_idCheck)
-/*val et_id : EditText = findViewById(R.id.et_id)*/
-        /*val userId : String = et_id.text.toString()*/
-        val btn_check : Button = findViewById(R.id.btn_check)
-        btn_check.setOnClickListener {
-            tv_idCheck.setText(R.string.not_allowed)
-            tv_idCheck.setTextColor("#000099".toColorInt())
-            tv_idCheck.visibility = View.VISIBLE
-        }
+
+    }
+    private fun showInit(){
+        val transaction = join_manager.beginTransaction()
+            .add(R.id.join_container,Join1Fragment())
+        transaction.commit()
     }
 }

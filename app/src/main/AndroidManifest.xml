@@ -37,7 +37,10 @@
             android:exported="false"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.Green_us" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:exported="false"
+            android:label="MainActivity"
+            android:theme="@style/Theme.Green_us"/>
         <activity
             android:name=".LoginActivity"
             android:exported="false"/>
