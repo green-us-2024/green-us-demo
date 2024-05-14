@@ -13,10 +13,9 @@ import kr.ac.kpu.green_us.databinding.ActivityJoinBinding
 
 class JoinActivity : AppCompatActivity() {
     private lateinit var join_binding : ActivityJoinBinding
-    val join_manager = supportFragmentManager
+    private val join_manager = supportFragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_join)
         join_binding = ActivityJoinBinding.inflate(layoutInflater)
         setContentView(join_binding.root)
 
