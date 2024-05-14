@@ -9,23 +9,34 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.graphics.Color
 import androidx.core.graphics.toColorInt
+import androidx.fragment.app.replace
 import kr.ac.kpu.green_us.databinding.ActivityJoinBinding
 
 class JoinActivity : AppCompatActivity() {
-    private lateinit var join_binding : ActivityJoinBinding
-    private val join_manager = supportFragmentManager
+    private lateinit var binding : ActivityJoinBinding
+    private val manager = supportFragmentManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        join_binding = ActivityJoinBinding.inflate(layoutInflater)
-        setContentView(join_binding.root)
+        binding = ActivityJoinBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         showInit()
-
-
     }
     private fun showInit(){
-        val transaction = join_manager.beginTransaction()
-            .add(R.id.join_container,Join1Fragment())
+        val transaction = manager.beginTransaction()
+            .replace(R.id.join_container,Join1Fragment())
         transaction.commit()
     }
+    fun changeFrag(index: Int){
+        when(index){
+            2 -> {
+                manager.beginTransaction().replace(R.id.join_container,Join2Fragment()).commit()
+            }
+            3 -> {
+                val intent = Intent(this, JoinCompltActivity::class.java)
+                startActivity(intent)
+            }
+        }
+    }
+
 }

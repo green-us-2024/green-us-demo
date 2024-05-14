@@ -75,7 +75,7 @@
         />
 
     <Button
-        android:id="@+id/btn_next"
+        android:id="@+id/btn_next1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="다음"
