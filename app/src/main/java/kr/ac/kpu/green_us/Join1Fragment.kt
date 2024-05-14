@@ -27,12 +27,9 @@ class Join1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentJoin1Binding.inflate(inflater,container,false)
+        binding = FragmentJoin1Binding.inflate(inflater, container, false)
         return binding.root
 
-        binding.btnNext.setOnClickListener {
-            overide
-        }
 
-
+    }
 }
