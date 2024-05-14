@@ -41,6 +41,10 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false"/>
+        <activity
+            android:name=".kr.ac.kpu.green_us.SelectMyGreeningMenuActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
