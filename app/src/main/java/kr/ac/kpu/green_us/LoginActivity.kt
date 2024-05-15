@@ -6,7 +6,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import kr.ac.kpu.green_us.databinding.ActivityLoginBinding
-import kr.ac.kpu.green_us.kr.ac.kpu.green_us.SelectMyGreeningMenuActivity
 
 class LoginActivity: AppCompatActivity() {
 
@@ -80,7 +79,7 @@ class LoginActivity: AppCompatActivity() {
 
         // 아이디 찾기 버튼 클릭 시
         binding.findId.setOnClickListener {
-            val intent = Intent(this, SelectMyGreeningMenuActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
