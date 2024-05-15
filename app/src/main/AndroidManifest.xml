@@ -11,11 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Green_us"
         tools:targetApi="31">
-
+        <activity
+            android:name=".FindPwActivity"
+            android:exported="false"
+            android:label="@string/title_activity_find_pw"
+            android:theme="@style/Theme.Green_us.NoActionBar" />
+        <activity
+            android:name=".FindEmailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_find_email"
+            android:theme="@style/Theme.Green_us.NoActionBar" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.Green_us"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Green_us">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,11 +37,6 @@
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.Green_us" />
         <activity
-            android:name=".Join2Activity"
-            android:exported="false"
-            android:label="@string/title_activity_join"
-            android:theme="@style/Theme.Green_us" />
-        <activity
             android:name=".JoinCompltActivity"
             android:exported="false"
             android:label="@string/title_activity_join"
@@ -40,11 +44,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".kr.ac.kpu.green_us.SelectMyGreeningMenuActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>
