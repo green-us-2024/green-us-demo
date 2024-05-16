@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     HomeFragment().changeFragment()
                 }
                 R.id.icon_mygreen -> {
-                    MypageFragment().changeFragment()
+                    MyGreenFragment().changeFragment()
                 }
                 R.id.icon_mypage -> {
                     MypageFragment().changeFragment()
