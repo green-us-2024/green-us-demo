@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kr.ac.kpu.green_us.databinding.FragmentTabHomeBinding
 import kr.ac.kpu.green_us.databinding.FragmentTabPopBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,20 +18,18 @@ import kr.ac.kpu.green_us.databinding.FragmentTabPopBinding
  */
 class TabPopFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    lateinit var binding:FragmentTabPopBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentTabPopBinding.inflate(inflater,container,false)
+        val binding = FragmentTabPopBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 

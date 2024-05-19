@@ -49,8 +49,8 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_area">
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/logo_area"
+        app:layout_constraintVertical_bias="0.0"></FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
@@ -68,7 +68,6 @@
         app:itemTextColor="@drawable/bottom_navi_color"
         app:labelVisibilityMode="labeled"
         />
-        <!--android:background="@color/white"-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

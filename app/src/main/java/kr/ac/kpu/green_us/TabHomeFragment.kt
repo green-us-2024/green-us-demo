@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kr.ac.kpu.green_us.databinding.FragmentHomeBinding
+import kr.ac.kpu.green_us.databinding.FragmentJoin1Binding
 import kr.ac.kpu.green_us.databinding.FragmentTabHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -16,23 +18,20 @@ import kr.ac.kpu.green_us.databinding.FragmentTabHomeBinding
  * create an instance of this fragment.
  */
 class TabHomeFragment : Fragment() {
-    // 홈화면의 홈탭 화면
-    lateinit var binding: FragmentTabHomeBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentTabHomeBinding.inflate(inflater,container,false)
-        return binding.root    }
+        val binding = FragmentTabHomeBinding.inflate(inflater, container, false)
+
+        return binding.root
+    }
 
 
 }

@@ -2,6 +2,7 @@ package kr.ac.kpu.green_us
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         initBottomNavi() //아이템 선택시
     }
     private fun initBottomNavi(){
-        binding.bottomNavigationView.itemIconTintList = null
+        binding.bottomNavigationView.itemIconTintList = null// 없으면 아이템 컬러 색 적용안됨
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.bottomNavigationView.setOnItemReselectedListener {  } // 재클릭 재생성 방지
+        Log.e("MainActivity","bottomNavi complt")
     }
     private fun Fragment.changeFragment(){
         manager.beginTransaction().replace(R.id.main_frame,this).commit()
@@ -46,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         val transaction = manager.beginTransaction()
             .add(R.id.main_frame,HomeFragment())
         transaction.commit()
+
     }
 }
 
