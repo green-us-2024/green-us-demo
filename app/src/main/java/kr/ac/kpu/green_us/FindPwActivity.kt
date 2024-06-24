@@ -57,7 +57,7 @@ class FindPwActivity : AppCompatActivity() {
         })
         
         binding.sendEmail.setOnClickListener { 
-            binding.showText.setText("메일이 발송되었습니다")
+            binding.showText.setText("메일이 전송되었습니다")
         }
 
     }

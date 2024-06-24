@@ -26,7 +26,14 @@
     <string name="check_phone">인증번호 발송</string>
     <string name="num">인증번호</string>
     <string name="check_num">인증번호 확인</string>
-    <string name="send_email">이메일 발송</string>
+    <string name="send_email">이메일 전송</string>
+    <string name="mypage">마이페이지</string>
+    <string name="go_to_charge_point">충전하러가기</string>
+    <string name="go_to_green_open">그리닝 개설하기</string>
+    <string name="my_review">내 리뷰</string>
+    <string name="notice">공지사항</string>
+    <string name="faq">FAQ</string>
+    <string name="csc">고객센터</string>
     <string name="title_activity_find_email">FindEmailActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

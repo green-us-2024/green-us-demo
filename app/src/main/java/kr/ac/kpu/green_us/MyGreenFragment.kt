@@ -1,62 +1,47 @@
 package kr.ac.kpu.green_us
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import kr.ac.kpu.green_us.databinding.FragmentMyGreenBinding
 
 class MyGreenFragment : Fragment() {
 
-    lateinit var myFragment: View
-    lateinit var viewPagers: ViewPager
-    lateinit var tabLayouts: TabLayout
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    private lateinit var greenAdapter: GreenAdapter
+    private lateinit var viewPager: ViewPager2
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        myFragment = inflater.inflate(R.layout.fragment_my_green, container, false)
-        return myFragment
+        return inflater.inflate(R.layout.fragment_my_green, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        greenAdapter = GreenAdapter(this)
+        viewPager = view.findViewById(R.id.green_view_page)
+        viewPager.setUserInputEnabled(false);
+        viewPager.adapter = greenAdapter
 
-        setUpViewPager()
-        tabLayouts.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {
+        val tabLayout = view.findViewById<TabLayout>(R.id.green_tap)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            if(position == 0){
+                tab.text = "진행중"
             }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            else if(position == 1){
+                tab.text = "진행완료"
             }
-
-            override fun onTabSelected(tab: TabLayout.Tab?) {
+            else{
+                tab.text = "개설"
             }
-        })
+        }.attach()
     }
 
-
-    private fun setUpViewPager() {
-        viewPagers = myFragment.findViewById(R.id.green_view_page)
-        tabLayouts = myFragment.findViewById(R.id.green_tap)
-
-        val adapter = GreenAdapter(fragmentManager!!)
-        adapter.addFragment(MyGreenIngFragment(), "진행중")
-        adapter.addFragment(MyGreenEndFragment(), "진행완료")
-        adapter.addFragment(MyGreenOpenFragment(), "개설")
-
-        viewPagers.setAdapter(adapter)
-
-        viewPagers.adapter = adapter
-        tabLayouts!!.setupWithViewPager(viewPagers)
-    }
 }

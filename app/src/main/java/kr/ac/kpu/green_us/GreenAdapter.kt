@@ -1,30 +1,27 @@
 package kr.ac.kpu.green_us
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-private const val FRAG_NUMS = 3
+private const val ARG_OBJECT = "object"
+class GreenAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+    override fun getItemCount(): Int = 3
 
-class GreenAdapter(manager: FragmentManager): FragmentPagerAdapter(manager) {
-    var fragmentList: MutableList<Fragment> = arrayListOf()
-    var titleList: MutableList<String> = arrayListOf()
-
-    override fun getItem(position: Int): Fragment {
-        return fragmentList[position]
-    }
-
-    override fun getCount(): Int {
-        return fragmentList.size
-    }
-
-    override fun getPageTitle(position: Int): CharSequence? {
-        return titleList[position]
-    }
-
-
-    fun addFragment(fragment: Fragment, title: String){
-        fragmentList.add(fragment)
-        titleList.add(title)
+    override fun createFragment(position: Int): Fragment {
+        if(position == 0){
+            val fragment = MyGreenIngFragment()
+            return fragment;
+        }
+        else if(position == 1){
+            val fragment = MyGreenEndFragment()
+            return fragment;
+        }
+        else{
+            val fragment = MyGreenOpenFragment()
+            return fragment;
+        }
     }
 }
