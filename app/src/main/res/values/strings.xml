@@ -16,6 +16,7 @@
     <string name="email">이메일</string>
     <string name="phone">휴대전화번호</string>
     <string name="address">주소</string>
+    <string name="find_address">주소찾기</string>
     <string name="address_detail">상세주소</string>
     <string name="welcome">환영합니다!</string>
     <string name="join_complt">회원가입이 완료되었습니다</string>
@@ -34,6 +35,10 @@
     <string name="notice">공지사항</string>
     <string name="faq">FAQ</string>
     <string name="csc">고객센터</string>
+    <string name="profile_setting">프로필관리</string>
+    <string name="complete">완료</string>
+    <string name="camera">카메라</string>
+    <string name="gallery">갤러리</string>
     <string name="title_activity_find_email">FindEmailActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

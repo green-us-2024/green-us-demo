@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".MypageFragment">
 
@@ -12,14 +12,14 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:id="@+id/top">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView"
@@ -72,14 +72,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_begin="16dp" />
+                    app:layout_constraintGuide_percent="0.04379562" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.95778364" />
+                    app:layout_constraintGuide_percent="0.96107054" />
 
                 <Button
                     android:id="@+id/user_img"
@@ -90,8 +90,7 @@
                     android:background="@drawable/user_img"
                     app:layout_constraintEnd_toStartOf="@+id/name"
                     app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/name"
@@ -99,136 +98,154 @@
                     android:layout_height="20dp"
                     android:layout_marginStart="9dp"
                     android:text="@string/name"
-                    app:layout_constraintBottom_toBottomOf="@+id/user_img"
-                    app:layout_constraintStart_toEndOf="@+id/user_img"
-                    app:layout_constraintTop_toTopOf="@+id/user_img"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    app:layout_constraintBottom_toBottomOf="@+id/user_img"
+                    app:layout_constraintStart_toEndOf="@+id/user_img"
+                    app:layout_constraintTop_toTopOf="@+id/user_img" />
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/point_v"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
+                    android:background="@drawable/point_layout"
+                    android:elevation="10dp"
                     android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
                     app:layout_constraintEnd_toStartOf="@+id/guideline2"
                     app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@+id/user_img"
-                    android:background="@drawable/point_layout"
-                    android:elevation="10dp">
+                    app:layout_constraintTop_toBottomOf="@+id/user_img">
 
                     <ImageView
+                        android:id="@+id/imageView2"
                         android:layout_width="52dp"
                         android:layout_height="46dp"
-                        android:background="@drawable/point" />
+                        android:layout_gravity="top|center"
+                        android:background="@drawable/point"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/point_v" />
 
                     <TextView
+                        android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
                         android:text="포인트"
                         android:textColor="@color/grey"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                     <TextView
                         android:id="@+id/point"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
                         android:text="0"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
                     android:id="@+id/adv"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
+                    android:layout_marginTop="16dp"
                     android:background="@color/green"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteY="244dp" />
+                    app:layout_constraintTop_toBottomOf="@+id/point_v" />
 
                 <Button
                     android:id="@+id/go_to_green_open"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@+id/adv"
                     android:background="@drawable/button_custom2"
+                    android:drawableRight="@drawable/forward_12"
                     android:text="@string/go_to_green_open"
                     android:textAlignment="viewStart"
-                    android:drawableRight="@drawable/forward_12"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/adv" />
 
                 <Button
                     android:id="@+id/my_review"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@+id/go_to_green_open"
                     android:background="@drawable/button_custom2"
+                    android:drawableRight="@drawable/forward_12"
                     android:text="@string/my_review"
                     android:textAlignment="viewStart"
-                    android:drawableRight="@drawable/forward_12"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/go_to_green_open" />
 
-                <ImageView
-                    android:id="@+id/blank"
+                <Button
+                    android:id="@+id/profile_setting"
                     android:layout_width="0dp"
-                    android:layout_height="9dp"
-                    android:background="@color/grey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/button_custom2"
+                    android:drawableRight="@drawable/forward_12"
+                    android:text="@string/profile_setting"
+                    android:textAlignment="viewStart"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
                     app:layout_constraintTop_toBottomOf="@+id/my_review" />
 
                 <Button
                     android:id="@+id/notice"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@+id/blank"
+                    android:layout_height="50dp"
                     android:background="@drawable/button_custom2"
+                    android:drawableRight="@drawable/forward_12"
                     android:text="@string/notice"
                     android:textAlignment="viewStart"
-                    android:drawableRight="@drawable/forward_12"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_setting" />
 
                 <Button
                     android:id="@+id/faq"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@+id/notice"
                     android:background="@drawable/button_custom2"
+                    android:drawableRight="@drawable/forward_12"
                     android:text="@string/faq"
                     android:textAlignment="viewStart"
-                    android:drawableRight="@drawable/forward_12"
                     android:textSize="14sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/notice" />
 
                 <Button
                     android:id="@+id/csc"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline1"
-                    app:layout_constraintTop_toBottomOf="@+id/faq"
                     android:background="@drawable/button_custom2"
+                    android:drawableRight="@drawable/forward_12"
                     android:text="@string/csc"
                     android:textAlignment="viewStart"
-                    android:drawableRight="@drawable/forward_12"
                     android:textSize="14dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/faq" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
