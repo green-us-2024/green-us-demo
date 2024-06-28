@@ -63,6 +63,9 @@
         <activity
             android:name=".PointActivity"
             android:exported="false" />
+        <activity
+            android:name=".NoticeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
