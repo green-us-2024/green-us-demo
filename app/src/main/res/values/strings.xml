@@ -29,7 +29,6 @@
     <string name="check_num">인증번호 확인</string>
     <string name="send_email">이메일 전송</string>
     <string name="mypage">마이페이지</string>
-    <string name="go_to_charge_point">충전하러가기</string>
     <string name="go_to_green_open">그리닝 개설하기</string>
     <string name="my_review">내 리뷰</string>
     <string name="notice">공지사항</string>
@@ -39,6 +38,10 @@
     <string name="complete">완료</string>
     <string name="camera">카메라</string>
     <string name="gallery">갤러리</string>
+    <string name="edit">편집</string>
+    <string name="point">포인트</string>
+    <string name="withdraw">충전하기</string>
+    <string name="point_notice">5,000원 이상부터 출금 가능합니다</string>
     <string name="title_activity_find_email">FindEmailActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

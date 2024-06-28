@@ -21,8 +21,14 @@ class MypageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater,container,false)
+
         binding.profileSetting.setOnClickListener {
             val intent = Intent(getActivity(), MyProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.pointV.setOnClickListener {
+            val intent = Intent(getActivity(), PointActivity::class.java)
             startActivity(intent)
         }
 
