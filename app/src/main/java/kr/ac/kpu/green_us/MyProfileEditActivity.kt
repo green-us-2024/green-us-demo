@@ -25,6 +25,12 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMyProfileEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 이전버튼
+        binding.btnEsc.setOnClickListener {
+            val intent = Intent(this, MyProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         // 카메라 버튼 클릭 시 카메라/갤러리 창 띄우기
         binding.camera.setOnClickListener(this)
 
