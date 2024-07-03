@@ -41,6 +41,10 @@
     <string name="edit">편집</string>
     <string name="point">포인트</string>
     <string name="withdraw">충전하기</string>
+    <string name="delete">삭제</string>
+    <string name="total">전체</string>
+    <string name="greening">그리닝</string>
+    <string name="certification">인증</string>
     <string name="point_notice">5,000원 이상부터 출금 가능합니다</string>
     <string name="title_activity_find_email">FindEmailActivity</string>
     <!-- Strings used for fragments for navigation -->

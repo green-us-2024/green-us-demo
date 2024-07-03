@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -40,7 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notice"
+            android:text="@string/my_review"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -55,7 +56,9 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -73,73 +76,49 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            android:text="그리닝 개설 제한일 변경 안내"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/btn_down"
+            android:textSize="12sp"
+            android:text="천연세제 사용하기"
+            android:textColor="@color/grey"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/btn_down"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="@+id/title"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/title"
-            app:srcCompat="@drawable/btn_down" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grey"
-        android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.04379562" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.96107054" />
-
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/review"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
             android:textSize="16sp"
-            android:text="기존: 주 1회 -> 변경: 제한 없음. 변경사항은 익일부터 실시됩니다."
+            android:text="너무 좋은 그리닝이었어요!! 다음에 또 참여하고 싶어요"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
             android:text="2024.5.7"
             android:textSize="12sp"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintTop_toBottomOf="@+id/content" />
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/review" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textAlignment="viewEnd"
+            android:textSize="12sp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:background="@drawable/button_custom2"
+            android:text="@string/delete"
+            android:textColor="@color/grey"
+            app:layout_constraintEnd_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/review" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

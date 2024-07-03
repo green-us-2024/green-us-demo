@@ -22,21 +22,33 @@ class MypageFragment : Fragment() {
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater,container,false)
 
-        // 프로필 관리
-        binding.profileSetting.setOnClickListener {
-            val intent = Intent(getActivity(), MyProfileActivity::class.java)
-            startActivity(intent)
-        }
-
         // 포인트
         binding.pointV.setOnClickListener {
             val intent = Intent(getActivity(), PointActivity::class.java)
             startActivity(intent)
         }
 
+        // 내 리뷰
+        binding.myReview.setOnClickListener {
+            val intent = Intent(getActivity(), MyReviewActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 프로필 관리
+        binding.profileSetting.setOnClickListener {
+            val intent = Intent(getActivity(), MyProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         // 공지사항
         binding.notice.setOnClickListener {
             val intent = Intent(getActivity(), NoticeActivity::class.java)
+            startActivity(intent)
+        }
+
+        // FAQ
+        binding.faq.setOnClickListener {
+            val intent = Intent(getActivity(), FaqActivity::class.java)
             startActivity(intent)
         }
 
