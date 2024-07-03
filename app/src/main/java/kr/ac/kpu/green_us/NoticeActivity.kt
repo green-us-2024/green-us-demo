@@ -14,6 +14,7 @@ class NoticeActivity:AppCompatActivity() {
         binding = ActivityNoticeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 공지사항
         binding.btnDown.setOnClickListener {
             if(binding.constraintLayout3.visibility == View.VISIBLE){
                 binding.btnDown.setImageResource(R.drawable.btn_down)
@@ -22,6 +23,13 @@ class NoticeActivity:AppCompatActivity() {
                 binding.btnDown.setImageResource(R.drawable.btn_up)
                 binding.constraintLayout3.visibility = View.VISIBLE
             }
+        }
+
+        // 이전버튼
+        binding.btnEsc.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("key3","mypage")
+            startActivity(intent)
         }
 
     }

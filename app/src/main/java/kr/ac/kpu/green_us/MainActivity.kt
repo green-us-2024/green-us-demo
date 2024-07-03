@@ -23,6 +23,11 @@ class MainActivity : AppCompatActivity() {
     private fun initBottomNavi(){
         binding.bottomNavigationView.itemIconTintList = null
 
+        val value1 = intent.getStringExtra("key3")
+        if(value1 == "mypage"){
+            MypageFragment().changeFragment()
+        }
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.icon_home -> {
