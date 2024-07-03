@@ -28,6 +28,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         // 이전버튼
         binding.btnEsc.setOnClickListener {
             val intent = Intent(this, MyProfileActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 

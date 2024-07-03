@@ -19,6 +19,7 @@ class PointActivity: AppCompatActivity() {
         binding.btnEsc.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("key3","mypage")
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
     }
