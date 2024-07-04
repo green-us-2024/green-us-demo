@@ -14,12 +14,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import kr.ac.kpu.green_us.databinding.ActivityMyProfileEditBinding
 
 
 class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMyProfileEditBinding
     lateinit var bitmap: Bitmap
+    var cameraOrGallery: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMyProfileEditBinding.inflate(layoutInflater)
@@ -49,6 +51,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
                 val dlg = CameraGalleryActivity(this)
                 dlg.setOnCameraClickedListener { content ->
                     if (content == 1) {
+                        cameraOrGallery = 1
                         val cameraPermissionCheck = ContextCompat.checkSelfPermission(
                             this@MyProfileEditActivity,
                             android.Manifest.permission.CAMERA
@@ -66,7 +69,24 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                     if (content == 2) {
+                        cameraOrGallery = 2
 
+                        val galleryPermissionCheck = ContextCompat.checkSelfPermission(
+                            this@MyProfileEditActivity,
+                            android.Manifest.permission.READ_MEDIA_IMAGES
+                        )
+                        if (galleryPermissionCheck != PackageManager.PERMISSION_GRANTED) { // 권한이 없는 경우
+                            ActivityCompat.requestPermissions(
+                                this,
+                                arrayOf(android.Manifest.permission.READ_MEDIA_IMAGES),
+                                1000
+                            )
+                        }
+                        if (galleryPermissionCheck == PackageManager.PERMISSION_GRANTED) { //권한이 있는 경우
+                            val intent = Intent(Intent.ACTION_PICK)
+                            intent.type = "image/*"
+                            activityResult.launch(intent)
+                        }
                     }
                 }
                 dlg.show()
@@ -78,9 +98,19 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == RESULT_OK && it.data != null) {
-            val extras = it.data!!.extras
-            bitmap = extras?.get("data") as Bitmap
-            binding.userImg.setImageBitmap(bitmap)
+            if(cameraOrGallery == 1){
+                val extras = it.data!!.extras
+                bitmap = extras?.get("data") as Bitmap
+                binding.userImg.setImageBitmap(bitmap)
+                binding.userImg.clipToOutline = true
+            }
+            if(cameraOrGallery == 2){
+                val uri = it.data!!.data
+                Glide.with(this)
+                    .load(uri)
+                    .into(binding.userImg)
+                binding.userImg.clipToOutline = true
+            }
         }
     }
 
