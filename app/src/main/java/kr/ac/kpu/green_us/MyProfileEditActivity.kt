@@ -38,6 +38,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         // 완료 버튼 클릭 시 activity_my_profile로 이동
         binding.complete.setOnClickListener {
             val intent = Intent(this, MyProfileActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
     }

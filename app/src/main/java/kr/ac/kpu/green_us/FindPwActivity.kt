@@ -26,6 +26,7 @@ class FindPwActivity : AppCompatActivity() {
         // 뒤로가기 버튼 클릭 시 로그인 화면으로
         binding.btnEsc.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
 

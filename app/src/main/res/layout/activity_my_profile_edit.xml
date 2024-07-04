@@ -79,7 +79,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/name"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/user_img" />
 
@@ -100,7 +100,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/email"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/name2" />
 
@@ -121,7 +121,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/phone"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/email2" />
 
@@ -142,14 +142,14 @@
         android:layout_marginTop="16dp"
         android:text="@string/address"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/phone2" />
 
     <TextView
         android:id="@+id/address2"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/et_form_short"
         android:ems="10"
@@ -157,9 +157,9 @@
         android:textColor="@color/black"
         android:text="경기도 시흥시 산기대학로 237"
         android:paddingLeft="9dp"
-        android:paddingTop="8dp"
+        android:paddingTop="10dp"
         android:paddingRight="9dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="10dp"
         app:layout_constraintEnd_toStartOf="@id/btn_search_address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address1" />
@@ -168,7 +168,7 @@
         android:id="@+id/btn_search_address"
         android:layout_width="0dp"
         app:layout_constraintWidth_percent="0.27"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@+id/address2"
         app:layout_constraintBottom_toBottomOf="@id/address2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,15 +176,22 @@
         android:layout_marginEnd="16dp"
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="10dp"
         android:scaleType="centerCrop"
         android:background="@drawable/btn_search"
         android:text="@string/find_address"
+        android:textSize="16sp"
         android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/address_detail"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/rectangle"
         android:text="G동 412호"
         android:paddingLeft="9dp"
@@ -200,7 +207,13 @@
     <Button
         android:id="@+id/complete"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="10dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_custom"
         android:text="@string/complete"
