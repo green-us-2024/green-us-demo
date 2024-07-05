@@ -74,6 +74,9 @@
             android:name=".CameraGalleryActivity"
             android:exported="false" />
         <activity
+            android:name=".DeleteCheckActivity"
+            android:exported="false" />
+        <activity
             android:name=".PointActivity"
             android:exported="false" />
         <activity
