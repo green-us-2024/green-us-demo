@@ -58,7 +58,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         android:paddingTop="9dp"
-        android:paddingBottom="9dp">
+        android:paddingBottom="9dp"
+        android:background="@drawable/border_only_bottom">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
