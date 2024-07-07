@@ -49,6 +49,9 @@
     <string name="certification">인증</string>
     <string name="point_notice">5,000원 이상부터 출금 가능합니다</string>
     <string name="title_activity_find_email">FindEmailActivity</string>
+    <string name="greening_degree">그리닝 진척도</string>
+    <string name="total_degree">전체 진행률</string>
+    <string name="ing_total_greening_num">진행중인 그리닝:</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
