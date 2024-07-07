@@ -1,18 +1,19 @@
 package kr.ac.kpu.green_us
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import kr.ac.kpu.green_us.databinding.ActivityFaqBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.databinding.ActivityMyReviewBinding
+import kr.ac.kpu.green_us.databinding.ActivityMyReviewCardviewBinding
 
-class MyReviewActivity : AppCompatActivity(), View.OnClickListener {
+class MyReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyReviewBinding
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,23 +28,21 @@ class MyReviewActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(intent)
         }
 
-        // 삭제 버튼 클릭 시 삭제확인 창 띄우기
-        binding.delete.setOnClickListener(this)
-    }
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            binding.delete.id -> {
-                val dlg = DeleteCheckActivity(this)
-                dlg.setOnDeleteClickedListener { content ->
-                    if (content == 3) {
+        // 1
+        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, true)
+        // 2
+        viewAdapter = MyReviewAdapter()
+        // 3
+        recyclerView = findViewById<RecyclerView>(R.id.recyclerview_review).apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            setHasFixedSize(true)
+            // use a linear layout manager
+            layoutManager = viewManager
+            // specify an viewAdapter (see also next example)
+            adapter = viewAdapter
 
-                    }
-                    if (content == 4) {
-
-                    }
-                }
-                dlg.show()
-            }
         }
     }
+
 }
