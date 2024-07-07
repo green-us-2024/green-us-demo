@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04379562" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.96107054" />
+        app:layout_constraintGuide_end="16dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -56,32 +56,34 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:background="@drawable/border_only_bottom"
         android:paddingTop="9dp"
         android:paddingBottom="9dp"
-        android:background="@drawable/border_only_bottom">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.04379562" />
+            app:layout_constraintGuide_begin="16dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.96107054" />
+            app:layout_constraintGuide_end="16dp" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
             android:text="천연세제 사용하기"
             android:textColor="@color/grey"
+            android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,10 +91,10 @@
             android:id="@+id/review"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
             android:layout_marginTop="9dp"
             android:text="너무 좋은 그리닝이었어요!! 다음에 또 참여하고 싶어요"
             android:textColor="@color/black"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -101,11 +103,11 @@
             android:id="@+id/date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
             android:gravity="center_vertical"
             android:text="2024.5.7"
-            android:textSize="10sp"
-            android:layout_marginTop="9dp"
             android:textColor="@color/black"
+            android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/review" />
 
@@ -113,14 +115,14 @@
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="viewEnd"
-            android:textSize="10sp"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
             android:layout_marginTop="9dp"
             android:background="@drawable/button_custom2"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
             android:text="@string/delete"
+            android:textAlignment="viewEnd"
             android:textColor="@color/grey"
+            android:textSize="10sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/review" />
 
