@@ -51,6 +51,4 @@ class Join1Fragment : Fragment() {
     }
 
 
-
-
 }
