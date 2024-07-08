@@ -9,10 +9,10 @@ import kr.ac.kpu.green_us.adapter.PointAdapter
 import kr.ac.kpu.green_us.databinding.ActivityPointBinding
 
 class PointActivity: AppCompatActivity() {
-    private lateinit var binding: ActivityPointBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+    lateinit var binding: ActivityPointBinding
+    lateinit var recyclerView: RecyclerView
+    lateinit var viewAdapter: RecyclerView.Adapter<*>
+    lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
