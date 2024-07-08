@@ -5,16 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.MyGreenDegreeAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenIngBinding
 
 class MyGreenIngFragment : Fragment() {
     lateinit var binding: FragmentMyGreenIngBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+    lateinit var recyclerView: RecyclerView
+    lateinit var viewAdapter: RecyclerView.Adapter<*>
+    lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,20 +24,24 @@ class MyGreenIngFragment : Fragment() {
     ): View? {
         binding = FragmentMyGreenIngBinding.inflate(inflater)
 
-        // 1
-        viewManager = LinearLayoutManager(context, RecyclerView.VERTICAL, true)
-        // 2
+        // 진행중인 그리닝
+        viewManager = GridLayoutManager(requireContext(),2)
         viewAdapter = MyGreenIngAdapter()
-        // 3
-        recyclerView = binding.recyclerviewGreenDegree.apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
+        recyclerView = binding.recyclerviewIngGreening.apply {
             setHasFixedSize(true)
-            // use a linear layout manager
+            suppressLayout(true)
             layoutManager = viewManager
-            // specify an viewAdapter (see also next example)
             adapter = viewAdapter
+        }
 
+        // 그리닝 개별 진척도
+        viewManager = LinearLayoutManager(context, RecyclerView.VERTICAL, true)
+        viewAdapter = MyGreenDegreeAdapter()
+        recyclerView = binding.recyclerviewGreenDegree.apply {
+            setHasFixedSize(true)
+            suppressLayout(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
         }
 
         return binding.root

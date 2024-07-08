@@ -27,18 +27,12 @@ class PointActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 1
         viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, true)
-        // 2
         viewAdapter = PointAdapter()
-        // 3
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview_point).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
             setHasFixedSize(true)
-            // use a linear layout manager
+            suppressLayout(true)
             layoutManager = viewManager
-            // specify an viewAdapter (see also next example)
             adapter = viewAdapter
 
         }

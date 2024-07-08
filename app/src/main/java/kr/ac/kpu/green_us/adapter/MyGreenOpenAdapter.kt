@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
 
-class MyGreenIngAdapter() :
-    RecyclerView.Adapter<MyGreenIngAdapter.GreenCardHolder>(){
+class MyGreenOpenAdapter() :
+    RecyclerView.Adapter<MyGreenOpenAdapter.GreenCardHolder>(){
         class GreenCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var itemimage: ImageView = itemView.findViewById(R.id.greening_img)
             var itemtitle: TextView = itemView.findViewById(R.id.greeng_title)
@@ -17,7 +17,7 @@ class MyGreenIngAdapter() :
 
         // 1. Create new views (invoked by the layout manager)
         override fun onCreateViewHolder(parent: ViewGroup,
-                                        viewType: Int): MyGreenIngAdapter.GreenCardHolder {
+                                        viewType: Int): MyGreenOpenAdapter.GreenCardHolder {
             // create a new view
             val cardView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.cardview_greening, parent, false)
@@ -35,6 +35,6 @@ class MyGreenIngAdapter() :
 
         // 3. Return the size of your dataset (invoked by the layout manager)
         override fun getItemCount(): Int {
-            return 4
+            return 10
         }
 }

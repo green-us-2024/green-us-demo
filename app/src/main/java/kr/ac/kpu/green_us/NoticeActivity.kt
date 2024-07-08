@@ -9,10 +9,10 @@ import kr.ac.kpu.green_us.adapter.NoticeAdapter
 import kr.ac.kpu.green_us.databinding.ActivityNoticeBinding
 
 class NoticeActivity:AppCompatActivity() {
-    private lateinit var binding: ActivityNoticeBinding
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+    lateinit var binding: ActivityNoticeBinding
+    lateinit var recyclerView: RecyclerView
+    lateinit var viewAdapter: RecyclerView.Adapter<*>
+    lateinit var viewManager: RecyclerView.LayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNoticeBinding.inflate(layoutInflater)
