@@ -28,7 +28,7 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_esc" />
+        app:srcCompat="@drawable/btn_back" />
 
     <ImageView
         android:id="@+id/logo"

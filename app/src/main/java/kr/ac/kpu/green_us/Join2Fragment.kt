@@ -26,7 +26,7 @@ class Join2Fragment : Fragment() {
 
         val binding = FragmentJoin2Binding.inflate(inflater,container,false)
         val joinActivity = activity as JoinActivity
-        binding.btnNext2.setOnClickListener { joinActivity.changeFrag(3) }
+        binding.btnTojoin3.setOnClickListener { joinActivity.changeFrag(3) }
         return binding.root
 
         }
