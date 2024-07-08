@@ -3,11 +3,10 @@ package kr.ac.kpu.green_us
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.MyReviewAdapter
 import kr.ac.kpu.green_us.databinding.ActivityMyReviewBinding
-import kr.ac.kpu.green_us.databinding.ActivityMyReviewCardviewBinding
 
 class MyReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyReviewBinding

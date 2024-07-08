@@ -1,12 +1,11 @@
 package kr.ac.kpu.green_us
 
-import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.PointAdapter
 import kr.ac.kpu.green_us.databinding.ActivityPointBinding
 
 class PointActivity: AppCompatActivity() {

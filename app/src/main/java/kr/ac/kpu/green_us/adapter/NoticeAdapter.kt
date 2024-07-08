@@ -1,14 +1,13 @@
-package kr.ac.kpu.green_us
+package kr.ac.kpu.green_us.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.R
 
 class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -21,10 +20,10 @@ class NoticeAdapter: RecyclerView.Adapter<NoticeAdapter.MyViewHolder>() {
     }
     // 1. Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): NoticeAdapter.MyViewHolder {
+                                    viewType: Int): MyViewHolder {
         // create a new view
         val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_notice_cardview, parent, false)
+            .inflate(R.layout.cardview_notice, parent, false)
 
         return MyViewHolder(cardView)
     }
