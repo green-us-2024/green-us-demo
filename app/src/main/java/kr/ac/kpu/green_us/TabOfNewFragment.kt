@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.GreenCardAdapter
+import kr.ac.kpu.green_us.databinding.FragmentTabOfNewBinding
+import kr.ac.kpu.green_us.databinding.FragmentTabOfPopularBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,24 +22,27 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class TabOfNewFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentTabOfNewBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab_of_new, container, false)
+        _binding = FragmentTabOfNewBinding.inflate(inflater,container,false)
+        viewManager = GridLayoutManager(requireContext(),2)
+        viewAdapter = GreenCardAdapter()
+        recyclerView = binding.recyclerviewNewGreening.apply {
+            setHasFixedSize(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
+        return binding.root
     }
 
     companion object {

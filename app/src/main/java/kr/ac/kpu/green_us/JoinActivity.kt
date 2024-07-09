@@ -21,7 +21,9 @@ class JoinActivity : AppCompatActivity() {
         binding = ActivityJoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         showInit()
+
     }
     private fun showInit(){
         val transaction = manager.beginTransaction()

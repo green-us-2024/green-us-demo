@@ -86,6 +86,10 @@
         <activity
             android:name=".MyReviewActivity"
             android:exported="false" />
+        <activity
+            android:name=".GreeningDetailActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

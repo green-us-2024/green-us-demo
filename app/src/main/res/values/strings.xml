@@ -65,4 +65,23 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_find_pw">FindPwActivity</string>
+    <!--그리닝 상세페이지 strings-->
+    <string name="greening_title">그리닝명</string>
+    <string name="term">기간</string>
+    <string name="freq">인증빈도</string>
+    <string name="certifi_method">인증수단</string>
+    <string name="start_date">5월 26일부터 시작</string>
+    <string name="feeInfo">예치금</string>
+    <string name="fee">5,000</string>
+    <string name="informations">안내사항</string>
+    <string name="howto">버스, 지하철 카드 이용 내역을 통해 인증 가능합니다.\n일회용 교통카드의 경우 카드 발급 사진을 찍어서 인증가능합니다.\nk-패스, 기후동행카드 이용내역 인증 가능합니다.</string>
+    <string name="award_inofs">그리닝 보상 안내</string>
+    <string name="acheive_100_result">예치금 전액 환급 + 상금</string>
+    <string name="acheive_85_result">예치금 전액 환급</string>
+    <string name="acheive_under_85_result">예치금 환급 불가 </string>
+    <string name="acheive_100">100% 달성</string>
+    <string name="acheive_85">85% 이상 달성</string>
+    <string name="acheive_under_85">85% 미만 달성</string>
+    <string name="certifi_notice">인증 유의사항</string>
+    <string name="certifi_notice_important">*인증 조건에 부적합할 경우 삭제/경고 조치 됨*</string>
 </resources>

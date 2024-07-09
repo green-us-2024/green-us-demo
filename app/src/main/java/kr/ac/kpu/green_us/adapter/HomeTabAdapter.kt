@@ -1,9 +1,12 @@
-package kr.ac.kpu.green_us
+package kr.ac.kpu.green_us.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import kr.ac.kpu.green_us.TabOfHomeFragment
+import kr.ac.kpu.green_us.TabOfNewFragment
+import kr.ac.kpu.green_us.TabOfPopularFragment
 
-private const val ARG_OBJECT = "object"
+//private const val ARG_OBJECT = "object"
 class HomeTabAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = 3
 
