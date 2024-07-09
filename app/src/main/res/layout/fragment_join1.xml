@@ -59,7 +59,7 @@
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="@string/check_phone"
+        android:text="@string/next"
         android:background="@drawable/button_custom"
         android:textColor="@color/white"
         android:textStyle="bold"
