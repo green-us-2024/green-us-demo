@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,7 +23,7 @@ class MyGreenIngFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyGreenIngBinding.inflate(inflater)
+        binding = FragmentMyGreenIngBinding.inflate(inflater,container,false)
 
         // 진행중인 그리닝
         viewManager = GridLayoutManager(requireContext(),2)
@@ -32,6 +33,12 @@ class MyGreenIngFragment : Fragment() {
             suppressLayout(true)
             layoutManager = viewManager
             adapter = viewAdapter
+        }
+
+        // 더보기 버튼 클릭 시
+        binding.btnMore.setOnClickListener {
+            val intent = Intent(getActivity(), MyGreenIngMoreActivity::class.java)
+            startActivity(intent)
         }
 
         // 그리닝 개별 진척도
