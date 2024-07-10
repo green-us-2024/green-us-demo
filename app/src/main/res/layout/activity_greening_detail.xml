@@ -65,6 +65,6 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="그리닝 참여하기" />
+            android:text="button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

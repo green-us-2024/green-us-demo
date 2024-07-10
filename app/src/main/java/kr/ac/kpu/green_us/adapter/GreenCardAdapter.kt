@@ -19,7 +19,9 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
     // 카트 클릭 위한 인터페이스 지정
     interface OnItemClickListener {
         //onItemClick(position: Int)
-        fun onItemClick() {}
+        // 매개변수에다 그리닝의 상태(진행중인지 아닌지를 포함하여 상세페이지 버튼 값이 달라져야 함)
+//         fun onItemClick(position:Int,status:String ) {}
+        fun onItemClick(status:String){}
     }
     var itemClickListener: OnItemClickListener? = null
 
@@ -55,8 +57,8 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
 
         init{
             itemView.setOnClickListener{
-                //onItemClick(adapterPosition)
-                itemClickListener?.onItemClick()
+
+                itemClickListener?.onItemClick("notIn")
             }
         }
 

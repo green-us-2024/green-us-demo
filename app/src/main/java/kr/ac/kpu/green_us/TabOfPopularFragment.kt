@@ -23,12 +23,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class TabOfPopularFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var _binding: FragmentTabOfPopularBinding? = null
     private val binding get() = _binding!!
-//    private lateinit var recyclerView: RecyclerView
-//    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-//    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,10 +49,21 @@ class TabOfPopularFragment : Fragment() {
 
         viewAdapter.itemClickListener = object : GreenCardAdapter.OnItemClickListener{
             //onItemClick(position: Int)
-            override fun onItemClick() {
-                Log.e("check", "카드뷰 클릭")
-                val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
-                startActivity(intent)
+            override fun onItemClick(status:String) {
+                val status = "$status"
+//                Log.d("status check",status)
+                if (status == "notIn"){ // 참여 안 한 상태 -> 상세화면으로 넘어감
+//                    Log.e("check", "카드뷰 클릭")
+                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","notIn")
+                    startActivity(intent)
+                }
+                 else if (status == "in"){ // 참여 상태 -> 인증화면으로 넘어감
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","in")
+                    startActivity(intent)
+                }
             }
 
         }

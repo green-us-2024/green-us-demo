@@ -1,6 +1,8 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,9 +27,6 @@ class TabOfNewFragment : Fragment() {
 
     private var _binding: FragmentTabOfNewBinding? = null
     private val binding get() = _binding!!
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
 
 
     override fun onCreateView(
@@ -35,33 +34,39 @@ class TabOfNewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTabOfNewBinding.inflate(inflater,container,false)
-        viewManager = GridLayoutManager(requireContext(),2)
-        viewAdapter = GreenCardAdapter()
-        recyclerView = binding.recyclerviewNewGreening.apply {
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val viewManager = GridLayoutManager(requireContext(),2)
+        val viewAdapter = GreenCardAdapter()
+        //        viewAdapter.notifyDataSetChanged()
+
+        val recyclerView = binding.recyclerviewNewGreening.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }
-        return binding.root
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TabOfNewFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TabOfNewFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        viewAdapter.itemClickListener = object : GreenCardAdapter.OnItemClickListener{
+            //onItemClick(position: Int)
+            override fun onItemClick(status:String) {
+                val status = "$status"
+                if (status == "notIn"){
+                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","notIn")
+                    startActivity(intent)
+                }
+                else if (status == "in"){
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","in")
+                    startActivity(intent)
                 }
             }
+
+        }
     }
+
+
 }
