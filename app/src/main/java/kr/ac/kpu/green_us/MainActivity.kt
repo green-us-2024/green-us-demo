@@ -60,8 +60,14 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.itemIconTintList = null
 
         // 이전 버튼을 눌러서 main으로 나왔을 경우
-        val value1 = intent.getStringExtra("key3")
-        if(value1 == "mypage"){
+        val value1 = intent.getStringExtra("key2")
+        if(value1 == "mygreen"){
+            MyGreenFragment().changeFragment()
+            binding.bottomNavigationView.selectedItemId = R.id.icon_mygreen
+        }
+
+        val value2 = intent.getStringExtra("key3")
+        if(value2 == "mypage"){
             MypageFragment().changeFragment()
             binding.bottomNavigationView.selectedItemId = R.id.icon_mypage
         }

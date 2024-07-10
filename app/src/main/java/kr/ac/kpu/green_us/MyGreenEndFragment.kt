@@ -1,12 +1,15 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.GreenCardAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenEndBinding
 
@@ -32,11 +35,11 @@ class MyGreenEndFragment : Fragment() {
             adapter = viewAdapter
         }
 
-        binding.logo.background = getResources().getDrawable(R.drawable.radius_10_img_green, null)
-        binding.logo.setClipToOutline(true)
-
-        binding.pointImg.background = getResources().getDrawable(R.drawable.radius_10_img_yellow, null)
-        binding.pointImg.setClipToOutline(true)
+        // 더보기 버튼 클릭 시
+        binding.btnMore.setOnClickListener {
+            val intent = Intent(getActivity(), MyGreenEndMoreActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
     }

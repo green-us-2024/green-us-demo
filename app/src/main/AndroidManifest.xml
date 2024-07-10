@@ -22,6 +22,15 @@
             android:name=".FaqActivity"
             android:exported="false" />
         <activity
+            android:name=".PointWithdrawActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyGreenIngMoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyGreenEndMoreActivity"
+            android:exported="false" />
+        <activity
             android:name=".FindPwActivity"
             android:exported="false"
             android:label="@string/title_activity_find_pw"

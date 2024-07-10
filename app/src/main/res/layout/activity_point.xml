@@ -79,17 +79,15 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/complete"
+                android:id="@+id/point_withdraw"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/button_custom"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:paddingLeft="9dp"
-                android:paddingTop="10dp"
-                android:paddingRight="9dp"
-                android:paddingBottom="10dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="9dp"
                 android:text="@string/withdraw"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -107,8 +105,8 @@
                 android:text="@string/point_notice"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/complete"
-                app:layout_constraintTop_toBottomOf="@+id/complete" />
+                app:layout_constraintStart_toStartOf="@+id/point_withdraw"
+                app:layout_constraintTop_toBottomOf="@+id/point_withdraw" />
 
             <View
                 android:id="@+id/view2"
