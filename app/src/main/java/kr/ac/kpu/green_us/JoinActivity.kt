@@ -34,25 +34,4 @@ class JoinActivity : AppCompatActivity() {
             .replace(R.id.join_container,Join1Fragment())
         transaction.commit()
     }
-    fun changeFrag(index: Int){
-        when(index){
-            2 -> {
-                manager.beginTransaction().replace(R.id.join_container,Join2Fragment()).addToBackStack(null).commit()
-            }
-            3 -> {
-                manager.beginTransaction().replace(R.id.join_container,Join3Fragment()).addToBackStack(null).commit()
-
-            }
-            4-> {
-                manager.beginTransaction().replace(R.id.join_container,JoinAddressFragment()).addToBackStack(null).commit()
-            }
-            5 -> {
-                manager.beginTransaction().replace(R.id.join_container,JoinCompltFragment()).addToBackStack(null).commit()
-            }
-            6 -> {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            }
-        }
-    }
 }

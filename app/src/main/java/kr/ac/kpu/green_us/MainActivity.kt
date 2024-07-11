@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,10 +12,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.replace
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import kr.ac.kpu.green_us.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private  lateinit var binding : ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
     val manager = supportFragmentManager
     private val multiplePermissionsCode = 100
 
@@ -28,12 +33,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        // Initialize Firebase Auth
+        auth = Firebase.auth
         setContentView(binding.root)
 
         checkPermissions()
 
         showInit() //최초 프래그먼트
         initBottomNavi() //아이템 선택시
+    }
+    //활동을 초기화할 때 사용자가 현재 로그인되어 있는지 확인
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            reload()
+        }
+    }
+    private fun reload() {
     }
 
     //퍼미션 체크 및 권한 요청 함수

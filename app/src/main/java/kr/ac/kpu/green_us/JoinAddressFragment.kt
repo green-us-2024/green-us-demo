@@ -3,6 +3,7 @@ package kr.ac.kpu.green_us
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,8 +24,12 @@ class JoinAddressFragment : Fragment() {
 
     private var _binding: FragmentJoinAddressBinding? = null
     private val binding get() = _binding!!
+    private var email = ""
+    private var pw = ""
+    private var phoneNumber = ""
     private var address = ""
     private var address_detail = ""
+    private var name = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +37,13 @@ class JoinAddressFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentJoinAddressBinding.inflate(inflater, container, false)
+        // 이전 프래그먼트로부터 온 bundle 데이터 받기
+        email = arguments?.getString("email").toString()
+        pw = arguments?.getString("pw").toString()
+        phoneNumber = arguments?.getString("phone").toString()
+//        Log.d("email",email)
+//        Log.d("pw",pw)
+//        Log.d("phoneNumber",phoneNumber)
         return binding.root
     }
 
@@ -44,17 +56,29 @@ class JoinAddressFragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                address = binding.etAddress.text.toString()
-                address_detail = binding.etAddressDetail.text.toString()
-                if (address.isNotEmpty()&&address_detail.isNotEmpty()){
+                //주소 찾기 api 추가하면 주소까지 입력해야 넘어가는 것으로 바꿀 예정
+                //현재는 이름만 입력하면 넘어가도록
+                name = binding.etName.text.toString()
+//                address = binding.etAddress.text.toString()
+//                address_detail = binding.etAddressDetail.text.toString()
+                if (name.isNotEmpty()){
                     binding.btnToJoinComplt.isEnabled = true
                     binding.btnToJoinComplt.alpha = 1f
                 }
             }
         })
-        //다음
-        val joinActivity = activity as JoinActivity
-        binding.btnToJoinComplt.setOnClickListener { joinActivity.changeFrag(5) }
+        //다음버튼 클릭시
+        binding.btnToJoinComplt.setOnClickListener {
+            // 사용자 데이터 번들에 담아서 전송
+            val bundle3 = Bundle()
+            bundle3.putString("email",email)
+            bundle3.putString("pw",pw)
+            bundle3.putString("phone",phoneNumber)
+            bundle3.putString("name",name)
+            val joinLast = JoinCompltFragment()
+            joinLast.arguments = bundle3
+            parentFragmentManager.beginTransaction().replace(R.id.join_container,joinLast).addToBackStack(null).commit()
+        }
         //이전
         binding.btnEsc.setOnClickListener{
             parentFragmentManager.popBackStack()

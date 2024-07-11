@@ -1,19 +1,38 @@
 package kr.ac.kpu.green_us
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import kr.ac.kpu.green_us.databinding.ActivityLoginBinding
 
 class LoginActivity: AppCompatActivity() {
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(getLayoutInflater())
         setContentView(binding.root)
+        // Initialize Firebase Auth
+        auth = Firebase.auth
 
+        val user = Firebase.auth.currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            val email = it.email.toString()
+            Log.d("useremail",email)
+            // Check if user's email is verified
+            val emailVerified = it.isEmailVerified.toString()
+            Log.d("useremail",emailVerified)
+
+        }
         var id_msg = ""
         var pw_msg = ""
 
@@ -75,10 +94,29 @@ class LoginActivity: AppCompatActivity() {
         })
 
 
-        // 로그인 버튼 클릭 시
+        // 로그인 버튼 클릭 시 이메일 주소와 비밀번호를 가져와 유효성을 검사한 후 로그인
         binding.login.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val email = binding.id.text.toString()
+            val password = binding.pw.text.toString()
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // 로그인 성공
+                        Log.d("로그인", "성공")
+                        Log.d("로그인한 이메일", email)
+                        Log.d("로그인한 비번", password)
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(
+                            baseContext,
+                            "로그인에 실패했습니다.\n이메일 및 비밀번호를 다시 확인해주세요.",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+                    }
+                }
         }
 
         // 아이디 찾기 버튼 클릭 시
@@ -99,4 +137,5 @@ class LoginActivity: AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

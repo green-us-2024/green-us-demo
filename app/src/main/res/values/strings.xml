@@ -24,9 +24,10 @@
     <string name="green_ing">진행중</string>
     <string name="green_end">진행완료</string>
     <string name="green_open">개설</string>
-    <string name="check_phone">인증번호 발송</string>
+    <string name="check_phone">인증번호 받기</string>
     <string name="num">인증번호</string>
     <string name="check_num">인증번호 확인</string>
+    <string name="input_num">인증번호 입력란</string>
     <string name="yes">예</string>
     <string name="no">아니요</string>
     <string name="send_email">이메일 전송</string>
@@ -91,4 +92,5 @@
     <string name="certifi_notice_important">*인증 조건에 부적합할 경우 삭제/경고 조치 됨*</string>
     <!--회원가입-->
     <string name="num_validation">잘못된 인증번호입니다</string>
+    <string name="email_exist">이미 존재하는 이메일입니다</string>
 </resources>

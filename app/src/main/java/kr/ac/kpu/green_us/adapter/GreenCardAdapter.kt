@@ -58,7 +58,7 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
         init{
             itemView.setOnClickListener{
 
-                itemClickListener?.onItemClick("notIn")
+                itemClickListener?.onItemClick("in")
             }
         }
 
