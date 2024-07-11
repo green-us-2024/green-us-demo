@@ -2,17 +2,16 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kr.ac.kpu.green_us.adapter.GreenCardAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenEndBinding
 
+// 완료한 그리닝 - 완료한 그리닝, 완료한 그리닝 수, 총 획득 포인트 확인 가능
 class MyGreenEndFragment : Fragment() {
     lateinit var binding: FragmentMyGreenEndBinding
     lateinit var recyclerView: RecyclerView
@@ -25,7 +24,7 @@ class MyGreenEndFragment : Fragment() {
     ): View? {
         binding = FragmentMyGreenEndBinding.inflate(inflater)
 
-        // 진행중인 그리닝
+        // 진행 완료한 그리닝
         viewManager = GridLayoutManager(requireContext(),2)
         viewAdapter = MyGreenIngAdapter()
         recyclerView = binding.recyclerviewEndGreening.apply {

@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.MyGreenOpenAdapter
-import kr.ac.kpu.green_us.databinding.FragmentMyGreenIngBinding
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenOpenBinding
 
+// 개설 그리닝 - 개설한 그리닝 볼 수 있음
 class MyGreenOpenFragment : Fragment() {
 
     lateinit var binding: FragmentMyGreenOpenBinding

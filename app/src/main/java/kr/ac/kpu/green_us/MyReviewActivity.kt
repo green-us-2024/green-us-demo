@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.MyReviewAdapter
 import kr.ac.kpu.green_us.databinding.ActivityMyReviewBinding
 
+// 내리뷰 - 리뷰 리스트로 확인, 삭제 가능
 class MyReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyReviewBinding
     private lateinit var recyclerView: RecyclerView

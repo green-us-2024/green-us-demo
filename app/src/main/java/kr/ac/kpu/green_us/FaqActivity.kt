@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kr.ac.kpu.green_us.databinding.ActivityFaqBinding
-import kr.ac.kpu.green_us.databinding.ActivityPointBinding
 
+// FAQ 정보 나타냄
 class FaqActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFaqBinding
 

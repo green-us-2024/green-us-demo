@@ -5,6 +5,7 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import kr.ac.kpu.green_us.databinding.ActivityCameraGalleryBinding
 
+// 카메라, 갤러리 다이얼로그 띄우기
 class CameraGalleryActivity(private val context : AppCompatActivity) {
     private lateinit var binding : ActivityCameraGalleryBinding
     private val dlg = Dialog(context)   //부모 액티비티의 context 가 들어감

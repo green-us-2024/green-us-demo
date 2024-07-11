@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.view.Window
 import kr.ac.kpu.green_us.databinding.ActivityDeleteCheckBinding
 
+// 리뷰 삭제 다이얼로그 띄우기
 class DeleteCheckActivity(private val context: MyReviewActivity) {
     private lateinit var binding : ActivityDeleteCheckBinding
     private val dlg = Dialog(context)   //부모 액티비티의 context 가 들어감

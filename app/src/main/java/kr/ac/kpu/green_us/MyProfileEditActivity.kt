@@ -15,9 +15,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kr.ac.kpu.green_us.databinding.ActivityMyProfileEditBinding
+import java.io.File
 
-
+// 프로필 정보 수정 - 주소만 수정 가능
 class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMyProfileEditBinding
     lateinit var bitmap: Bitmap
@@ -45,6 +47,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // 카메라/갤러리 창 띄우기
     override fun onClick(view: View?) {
         when (view?.id) {
             binding.camera.id -> {
@@ -94,6 +97,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // 카메라/ 갤러리 이미지 이미지뷰에 띄우기
     private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
@@ -108,6 +112,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
                 val uri = it.data!!.data
                 Glide.with(this)
                     .load(uri)
+                    .apply(RequestOptions().circleCrop())
                     .into(binding.userImg)
                 binding.userImg.clipToOutline = true
             }

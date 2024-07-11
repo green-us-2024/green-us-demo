@@ -13,6 +13,7 @@ import kr.ac.kpu.green_us.adapter.MyGreenDegreeAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenIngBinding
 
+// 진행중인 그리닝 - 진행중인 그리닝, 전체 그리닝 진척도, 개별 그리닝 진척도 확인 가능
 class MyGreenIngFragment : Fragment() {
     lateinit var binding: FragmentMyGreenIngBinding
     lateinit var recyclerView: RecyclerView

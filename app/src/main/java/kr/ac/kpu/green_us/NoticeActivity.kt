@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.NoticeAdapter
 import kr.ac.kpu.green_us.databinding.ActivityNoticeBinding
 
+// 공지사항 - 공지사항 보여주는 곳
 class NoticeActivity:AppCompatActivity() {
     lateinit var binding: ActivityNoticeBinding
     lateinit var recyclerView: RecyclerView

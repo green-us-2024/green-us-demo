@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import kr.ac.kpu.green_us.databinding.ActivityFindPwBinding
 
+// 비밀번호 찾기 - 이메일 입력 시 비밀번호 바꾸는 메일 전송
 class FindPwActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFindPwBinding
