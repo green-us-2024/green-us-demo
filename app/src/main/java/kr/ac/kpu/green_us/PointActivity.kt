@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.PointAdapter
 import kr.ac.kpu.green_us.databinding.ActivityPointBinding
 
+// 포인트 - 포인트 잔액, 포인트 획득 내역 달마다 확인 가능
 class PointActivity: AppCompatActivity() {
     lateinit var binding: ActivityPointBinding
     lateinit var recyclerView: RecyclerView

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.MyGreenEndAdapter
 import kr.ac.kpu.green_us.databinding.ActivityMyGreenEndMoreBinding
 
+// 완료한 그리닝 - 더 많은 그리닝을 보여줌
 class MyGreenEndMoreActivity:AppCompatActivity() {
     lateinit var binding: ActivityMyGreenEndMoreBinding
     lateinit var recyclerView: RecyclerView

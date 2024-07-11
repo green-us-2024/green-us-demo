@@ -2,11 +2,10 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import kr.ac.kpu.green_us.databinding.ActivityFindEmailCompltBinding
 
+// 이메일 찾기 - 가입한 이메일 띄움
 class FindEmailCompltActivity:AppCompatActivity() {
     private lateinit var binding: ActivityFindEmailCompltBinding
 

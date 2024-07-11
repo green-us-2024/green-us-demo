@@ -10,6 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kr.ac.kpu.green_us.adapter.GreenAdapter
 
+// 내그리닝 - 진행중, 진행완료, 개설 탭 생성
 class MyGreenFragment : Fragment() {
 
     private lateinit var greenAdapter: GreenAdapter

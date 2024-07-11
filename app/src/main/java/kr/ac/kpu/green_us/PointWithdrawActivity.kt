@@ -3,12 +3,9 @@ package kr.ac.kpu.green_us
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kr.ac.kpu.green_us.adapter.PointAdapter
-import kr.ac.kpu.green_us.databinding.ActivityPointBinding
 import kr.ac.kpu.green_us.databinding.ActivityPointWithdrawBinding
 
+// 출금하기 - 은행, 예금주, 출금액 받음
 class PointWithdrawActivity: AppCompatActivity() {
     lateinit var binding: ActivityPointWithdrawBinding
 

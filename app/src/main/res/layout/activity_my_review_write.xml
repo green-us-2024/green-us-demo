@@ -4,7 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    tools:context=".MyReviewWriteActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -27,7 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/withdraw"
+            android:text="@string/write_review"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -38,72 +52,62 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/bank"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/green_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/rectangle"
-        android:hint="@string/bank"
-        android:paddingHorizontal="9dp"
-        android:paddingVertical="10dp"
+        android:layout_marginTop="16dp"
+        android:text="그리닝 명"
+        android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <EditText
-        android:id="@+id/account_holder"
+        android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:inputType="textMultiLine"
         android:background="@drawable/rectangle"
-        android:hint="@string/account_holder"
-        android:paddingHorizontal="9dp"
-        android:paddingVertical="10dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bank" />
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/green_name" />
 
-    <EditText
-        android:id="@+id/withdraw_point"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/text_num"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/rectangle"
-        android:hint="@string/withdraw_point"
-        android:inputType="number"
-        android:paddingHorizontal="9dp"
-        android:paddingVertical="10dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_holder" />
+        android:text="0/200"
+        android:textColor="@color/grey"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <Button
-        android:id="@+id/complete"
+        android:id="@+id/write_review_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:background="@drawable/button_custom"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:paddingHorizontal="9dp"
-        android:paddingVertical="10dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/withdraw"
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="10dp"
+        android:text="@string/write_review"
         android:textColor="@color/white"
-        android:layout_marginTop="32dp"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/withdraw_point" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/text_num" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

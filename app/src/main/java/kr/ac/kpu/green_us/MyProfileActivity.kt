@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kr.ac.kpu.green_us.databinding.ActivityMyProfileBinding
 
+// 프리필 정보 확인 가능
 class MyProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.compose.ui.graphics.Color
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.replace
@@ -88,6 +89,12 @@ class MainActivity : AppCompatActivity() {
         if(value2 == "mypage"){
             MypageFragment().changeFragment()
             binding.bottomNavigationView.selectedItemId = R.id.icon_mypage
+        }
+
+        val value3 = intent.getStringExtra("key2_3")
+        if(value3 == "open"){
+            MyGreenFragment().changeFragment()
+            binding.bottomNavigationView.selectedItemId = R.id.icon_mygreen
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener {

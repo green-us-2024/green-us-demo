@@ -6,8 +6,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import kr.ac.kpu.green_us.databinding.ActivityFindEmail2Binding
-import kr.ac.kpu.green_us.databinding.ActivityFindEmailBinding
 
+// 이메일 찾기 -  인증번호 입력
 class FindEmail2Activity: AppCompatActivity() {
 
     private lateinit var binding: ActivityFindEmail2Binding
