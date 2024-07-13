@@ -108,6 +108,9 @@
         <activity
             android:name=".GreeningDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".GreeningDetailSubActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
