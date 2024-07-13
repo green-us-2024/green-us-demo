@@ -55,6 +55,12 @@ class MypageFragment : Fragment() {
             startActivity(intent)
         }
 
+        // 일단 만보기 연결
+        binding.csc.setOnClickListener {
+            val intent = Intent(getActivity(), PedometerActivity::class.java)
+            startActivity(intent)
+        }
+
         // Inflate the layout for this fragment
         return binding.root
     }

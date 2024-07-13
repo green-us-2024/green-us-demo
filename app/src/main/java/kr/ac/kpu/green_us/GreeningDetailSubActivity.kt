@@ -2,13 +2,13 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.GreeningDetailSubAdapter
 import kr.ac.kpu.green_us.databinding.ActivityGreeningDetailSubBinding
 
+// 간단한 그리닝 정보만 담은 상세페이지 보여줌
 class GreeningDetailSubActivity : AppCompatActivity() {
     private lateinit var binding : ActivityGreeningDetailSubBinding
     private lateinit var recyclerView: RecyclerView

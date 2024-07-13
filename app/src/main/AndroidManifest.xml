@@ -4,7 +4,9 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
+    <uses-feature android:name="android.hardware.SensorEventListener"/>
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -111,6 +113,9 @@
         <activity
             android:name=".GreeningDetailSubActivity"
             android:exported="false" />
+        <activity
+            android:name=".PedometerActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
