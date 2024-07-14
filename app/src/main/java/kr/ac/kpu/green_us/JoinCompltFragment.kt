@@ -39,8 +39,6 @@ class JoinCompltFragment : Fragment() {
         binding.tvUserId.text = name
         // 버튼 클릭시
         binding.btnGotoLogin.setOnClickListener {
-            // db에 정보 저장?? 하고 ??
-
             // 로그인 화면으로 이동
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)

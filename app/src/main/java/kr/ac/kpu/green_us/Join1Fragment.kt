@@ -81,30 +81,17 @@ class Join1Fragment : Fragment() {
         binding.btnNext.setOnClickListener {
             email = binding.etEmail.text.toString().trim()
             pw = binding.etPw.text.toString().trim()
-//            Log.d("email",email)
-//            Log.d("pw",pw)
-            createUser(email,pw) //파이어베이스에 신규 사용자 추가 함수
-            }
-    }
-    private fun createUser(userEmail:String,userPw:String){
-        auth.createUserWithEmailAndPassword(email, pw)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // 가입 성공
-                    Log.d(TAG, "createUserWithEmail:success")
-                    // 이메일,비번 데이터 bundle에 담기
-                    val bundle = Bundle()
-                    bundle.putString("email", email)
-                    bundle.putString("pw", pw)
 
-                    val fragmentJoin2 = Join2Fragment()
-                    fragmentJoin2.arguments = bundle
-                    parentFragmentManager.beginTransaction().replace(R.id.join_container,fragmentJoin2).addToBackStack(null).commit()
-                } else {
-                    //존재하는 이메일일 경우
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    binding.tvExist.isVisible = true
-                }
+            // db에 중복된 이메일이 있는지 확인. 중복된 이메일이 아니라면 번들에 데이터를 담아 다음 프래그먼트로 이동
+            val bundle = Bundle()
+            bundle.putString("email", email)
+            bundle.putString("pw", pw)
+            val fragmentJoin2 = Join2Fragment()
+            fragmentJoin2.arguments = bundle
+            parentFragmentManager.beginTransaction().replace(R.id.join_container,fragmentJoin2).addToBackStack(null).commit()
+
+            // 중복된 이메일이라면 이를 알리는 textview를 세팅
+//            binding.tvExist.isVisible = true
             }
     }
 

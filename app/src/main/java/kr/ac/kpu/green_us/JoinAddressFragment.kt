@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import kr.ac.kpu.green_us.databinding.FragmentJoinAddressBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,6 +27,7 @@ private const val ARG_PARAM2 = "param2"
 class JoinAddressFragment : Fragment() {
 
     private var _binding: FragmentJoinAddressBinding? = null
+    private lateinit var auth: FirebaseAuth
     private val binding get() = _binding!!
     private var email = ""
     private var pw = ""
@@ -35,15 +40,16 @@ class JoinAddressFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentJoinAddressBinding.inflate(inflater, container, false)
+
+        // 인스턴스 초기화
+        auth = Firebase.auth
+
         // 이전 프래그먼트로부터 온 bundle 데이터 받기
         email = arguments?.getString("email").toString()
         pw = arguments?.getString("pw").toString()
         phoneNumber = arguments?.getString("phone").toString()
-//        Log.d("email",email)
-//        Log.d("pw",pw)
-//        Log.d("phoneNumber",phoneNumber)
+
         return binding.root
     }
 
@@ -69,20 +75,34 @@ class JoinAddressFragment : Fragment() {
         })
         //다음버튼 클릭시
         binding.btnToJoinComplt.setOnClickListener {
-            // 사용자 데이터 번들에 담아서 전송
-            val bundle3 = Bundle()
-            bundle3.putString("email",email)
-            bundle3.putString("pw",pw)
-            bundle3.putString("phone",phoneNumber)
-            bundle3.putString("name",name)
-            val joinLast = JoinCompltFragment()
-            joinLast.arguments = bundle3
-            parentFragmentManager.beginTransaction().replace(R.id.join_container,joinLast).addToBackStack(null).commit()
+            // 이름(닉네임?)까지 받으면 신규 가입자를 생성
+            createUser(email,pw)
         }
         //이전
         binding.btnEsc.setOnClickListener{
             parentFragmentManager.popBackStack()
         }
+    }
+    private fun createUser(userEmail:String,userPw:String){
+        auth.createUserWithEmailAndPassword(email, pw)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // 신규 가입 성공
+                    Log.d(ContentValues.TAG, "createUserWithEmail:success")
+                    // 사용자 데이터 번들에 담아서 전송
+                    val bundle3 = Bundle()
+                    bundle3.putString("email",email)
+                    bundle3.putString("pw",pw)
+                    bundle3.putString("phone",phoneNumber)
+                    bundle3.putString("name",name)
+                    val joinLast = JoinCompltFragment()
+                    joinLast.arguments = bundle3
+                    parentFragmentManager.beginTransaction().replace(R.id.join_container,joinLast).addToBackStack(null).commit()
+                } else {
+                    //신규 생성 실패
+                    Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
+                }
+            }
     }
     override fun onDestroyView() {
         super.onDestroyView()
