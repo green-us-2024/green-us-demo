@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -69,6 +70,15 @@ class TabOfHomeFragment : Fragment() {
                     binding.currentBannerNum.text = posiText
                 }
             })
+        }
+        // 빠른 접근을 위한 버튼들 클릭 구현
+        binding.btnManbo.setOnClickListener {
+            val intent = Intent(requireActivity(), PedometerActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnOpen.setOnClickListener {
+            val intent = Intent(requireActivity(), GreenOpenActivity::class.java)
+            startActivity(intent)
         }
 
     }
