@@ -1,18 +1,18 @@
 package kr.ac.kpu.green_us
 
+import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import org.json.JSONObject
 
-class AddressSearchFragment : Fragment() {
+class AddressDialogFragment : DialogFragment() {
 
     private lateinit var webView: WebView
 
@@ -23,22 +23,43 @@ class AddressSearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_address_search, container, false)
         webView = view.findViewById(R.id.webView)
 
+        // WebView 초기화 및 설정
+        setupWebView()
+
+        // WebView에 URL 로드
+        webView.loadUrl("http://192.168.25.6:8080/address")
+
+        return view
+    }
+
+    private fun setupWebView() {
         val webSettings: WebSettings = webView.settings
+
+        // JavaScript 활성화
         webSettings.javaScriptEnabled = true
 
-        webView.webChromeClient = WebChromeClient()
+        // DOM Storage 활성화
+        webSettings.domStorageEnabled = true
+
+        // Mixed content 모드 설정
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true)
+        }
+
+        // WebViewClient 설정
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                // 페이지 로딩 완료 후 추가 작업 필요한 경우
+                // 필요 시 추가 설정
             }
         }
 
+        // WebChromeClient 설정
+        webView.webChromeClient = WebChromeClient()
+
         // JavaScript 인터페이스 추가
         webView.addJavascriptInterface(WebAppInterface(), "Android")
-            //여기 주소도 마찬가지로 본인 pc주소로 맞춰줘야함.
-        webView.loadUrl("http://192.168.25.6:8080/address")
-        return view
     }
 
     inner class WebAppInterface {
@@ -51,8 +72,17 @@ class AddressSearchFragment : Fragment() {
             bundle.putString("address", address)
             parentFragmentManager.setFragmentResult("addressData", bundle)
 
-            // Fragment를 닫기 위해
-            parentFragmentManager.popBackStack()
+            dismiss() // Close the dialog fragment
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Dialog 크기 조절
+        dialog?.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 1).toInt(),  // 가로 크기
+            (resources.displayMetrics.heightPixels * 0.8).toInt()  // 세로 크기
+        )
+        dialog?.window?.setGravity(Gravity.CENTER)
     }
 }
