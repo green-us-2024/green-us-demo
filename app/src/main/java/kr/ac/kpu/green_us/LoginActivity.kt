@@ -1,7 +1,9 @@
 package kr.ac.kpu.green_us
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -21,9 +23,8 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(getLayoutInflater())
         setContentView(binding.root)
-        // Initialize Firebase Auth
-        auth = Firebase.auth
 
+        auth = Firebase.auth
         val user = Firebase.auth.currentUser
         user?.let {
             // Name, email address, and profile photo Url
@@ -34,6 +35,8 @@ class LoginActivity: AppCompatActivity() {
             Log.d("useremail",emailVerified)
 
         }
+
+
         var id_msg = ""
         var pw_msg = ""
 
@@ -137,6 +140,17 @@ class LoginActivity: AppCompatActivity() {
             val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)
         }
-    }
 
+        // 자동로그인 버튼 클릭하면
+        binding.autoLoginBtn.setOnCheckedChangeListener { compoundButton, onSwitch ->
+            if (onSwitch){
+                Log.d("switch","on")
+                PreferApplication.prefer.setString("switch","on")
+            }
+            else{
+                Log.d("switch","off")
+                PreferApplication.prefer.setString("switch","off")
+            }
+        }
+    }
 }
