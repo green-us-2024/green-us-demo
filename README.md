@@ -4,7 +4,7 @@
  - cmd켜서 ipconfig 입력후에 IPv4에 있는 주소를 :8080 앞에 입력<br>
 2. AddressDialogFragment 안의 26번째 줄의 주소도 마찬가지로 변경 필요.
 3. 실행 시에는 spring의 서버를 먼저 실행시키고, 안드로이드 실행
-
+4. db를 만들고 나서 user테이블의 admin은 null허용을 해줘야함. 아직은 admin 구현이 안됐기 때문.
 
 
 
