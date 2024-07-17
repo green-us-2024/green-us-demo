@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.GreenCardAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenDegreeAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenIngBinding
@@ -22,12 +23,12 @@ class MyGreenIngFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        binding = FragmentMyGreenIngBinding.inflate(inflater,container,false)
+        binding = FragmentMyGreenIngBinding.inflate(inflater, container, false)
 
         // 진행중인 그리닝
-        viewManager = GridLayoutManager(requireContext(),2)
+        viewManager = GridLayoutManager(requireContext(), 2)
         viewAdapter = MyGreenIngAdapter()
         recyclerView = binding.recyclerviewIngGreening.apply {
             setHasFixedSize(true)

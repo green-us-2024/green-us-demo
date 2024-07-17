@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -36,10 +37,11 @@ class GreenOpenActivity : AppCompatActivity() {
 
         // 이전버튼
         binding.btnEsc.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("key3", "mypage")
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+//            val intent = Intent(this, MainActivity::class.java)
+//            intent.putExtra("key3", "mypage")
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//            startActivity(intent)
+            onBackPressedCallback.handleOnBackPressed()
         }
 
         // 개설하기 버튼
@@ -97,6 +99,12 @@ class GreenOpenActivity : AppCompatActivity() {
     ) {
         val uri = it.data!!.data
         binding.uploadPictureEt.setText(uri?.getLastPathSegment())
+    }
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            isEnabled = false // 콜백 비활성화 -> 뒤로가기가 한 번만 실행되도록
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
 }

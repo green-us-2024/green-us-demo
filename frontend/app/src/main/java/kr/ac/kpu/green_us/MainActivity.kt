@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     private val requiredPermissions = arrayOf(
         android.Manifest.permission.CAMERA,
-        android.Manifest.permission.READ_MEDIA_IMAGES)
+        android.Manifest.permission.READ_MEDIA_IMAGES,
+        android.Manifest.permission.ACTIVITY_RECOGNITION)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,6 +96,12 @@ class MainActivity : AppCompatActivity() {
         if(value3 == "open"){
             MyGreenFragment().changeFragment()
             binding.bottomNavigationView.selectedItemId = R.id.icon_mygreen
+        }
+
+        val value4 = intent.getStringExtra("key1")
+        if(value4 == "home"){
+            HomeFragment().changeFragment()
+            binding.bottomNavigationView.selectedItemId = R.id.icon_home
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener {

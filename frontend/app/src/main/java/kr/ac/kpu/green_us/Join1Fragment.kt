@@ -11,11 +11,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.graphics.toColorInt
 import androidx.core.view.isVisible
+import androidx.fragment.app.replace
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import kr.ac.kpu.green_us.databinding.FragmentHomeBinding
 import kr.ac.kpu.green_us.databinding.FragmentJoin1Binding
+import org.w3c.dom.Text
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,20 +32,14 @@ class Join1Fragment : Fragment() {
 
     private var _binding: FragmentJoin1Binding? = null
     private val binding get() = _binding!!
-    private lateinit var auth: FirebaseAuth
     private var email = ""
     private var pw = ""
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentJoin1Binding.inflate(inflater, container, false)
-
-        // 인스턴스 초기화
-        auth = Firebase.auth
         return binding.root
     }
 
@@ -52,8 +53,8 @@ class Join1Fragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {} //입력전
             override fun afterTextChanged(p0: Editable?) {} // 입력후
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { //입력중
-                val et_email = binding.etEmail.text.toString()
-                val et_pw = binding.etPw.text.toString()
+                val et_email = binding.etEmail.text.toString().trim()
+                val et_pw = binding.etPw.text.toString().trim()
                 if (et_email.isNotEmpty()&&et_pw.isNotEmpty()){
                     binding.btnNext.isEnabled = true
                     binding.btnNext.alpha = 1f
@@ -76,31 +77,17 @@ class Join1Fragment : Fragment() {
         binding.btnNext.setOnClickListener {
             email = binding.etEmail.text.toString().trim()
             pw = binding.etPw.text.toString().trim()
-//            Log.d("email",email)
-//            Log.d("pw",pw)
-            createUser(email,pw) //파이어베이스에 신규 사용자 추가 함수
 
-            }
-    }
-    private fun createUser(userEmail:String,userPw:String){
-        auth.createUserWithEmailAndPassword(email, pw)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // 가입 성공
-                    Log.d(TAG, "createUserWithEmail:success")
-                    // 이메일,비번 데이터 bundle에 담기
-                    val bundle = Bundle()
-                    bundle.putString("email", email)
-                    bundle.putString("pw", pw)
+            // db에 중복된 이메일이 있는지 확인. 중복된 이메일이 아니라면 번들에 데이터를 담아 다음 프래그먼트로 이동
+            val bundle = Bundle()
+            bundle.putString("email", email)
+            bundle.putString("pw", pw)
+            val fragmentJoin2 = Join2Fragment()
+            fragmentJoin2.arguments = bundle
+            parentFragmentManager.beginTransaction().replace(R.id.join_container,fragmentJoin2).addToBackStack(null).commit()
 
-                    val fragmentJoin2 = Join2Fragment()
-                    fragmentJoin2.arguments = bundle
-                    parentFragmentManager.beginTransaction().replace(R.id.join_container,fragmentJoin2).addToBackStack(null).commit()
-                } else {
-                    //존재하는 이메일일 경우
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    binding.tvExist.isVisible = true
-                }
+            // 중복된 이메일이라면 이를 알리는 textview를 세팅
+//            binding.tvExist.isVisible = true
             }
     }
 

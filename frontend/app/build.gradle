@@ -80,13 +80,11 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
     implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-    //retrofit2 사용하기 위한 gradle 추가
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     // for firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
@@ -95,5 +93,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-auth-ktx")
 
-
+    //retrofit2 사용하기 위한 gradle 추가
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }

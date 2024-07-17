@@ -1,5 +1,8 @@
 package kr.ac.kpu.green_us
 
+import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,6 +19,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.auth
+import kr.ac.kpu.green_us.databinding.FragmentJoin1Binding
 import kr.ac.kpu.green_us.databinding.FragmentJoin2Binding
 import java.util.concurrent.TimeUnit
 
@@ -41,6 +45,8 @@ class Join2Fragment : Fragment() {
 
         // 인스턴스 초기화
         auth = Firebase.auth
+        // reCAPTCHA로 강제 적용
+        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
         // 이전 프래그먼트로부터 온 bundle 데이터 받기
         email = arguments?.getString("email").toString()
         pw = arguments?.getString("pw").toString()
@@ -63,7 +69,7 @@ class Join2Fragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                val user_phone = binding.etPhone.text.toString()
+                val user_phone = binding.etPhone.text.toString().trim()
                 if(user_phone.isNotEmpty()){
                     binding.btnSentCode.isEnabled = true
                     binding.btnSentCode.alpha = 1f
@@ -85,7 +91,7 @@ class Join2Fragment : Fragment() {
         // 인증번호 받기 버튼 클릭시
         binding.btnSentCode.setOnClickListener {
 
-            phoneNumber = binding.etPhone.text.toString()
+            phoneNumber = binding.etPhone.text.toString().trim()
             // 번호를 국제코드로 변환
             val editedNum = replacePhoneNum(phoneNumber)
             // 콜백 정의
@@ -97,22 +103,22 @@ class Join2Fragment : Fragment() {
                 override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
                     this@Join2Fragment.verificationId = verificationId
                 }
-        }
-        // 인증번호 전송에 대한 코드
-        val optionsCompat =  PhoneAuthOptions.newBuilder(auth)
+            }
+            // 인증번호 전송에 대한 코드
+            val optionsCompat =  PhoneAuthOptions.newBuilder(auth)
 //               .setPhoneNumber(editedNum) //실제 작동하는 코드입니다
-            .setPhoneNumber("+821020192024") //실제 실행 환경에선 인증코드 발송 횟수가 정해져 있어서 테스트 시에는 이 번호로 테스트해주세요 인증번호는 789078입니다
-            .setTimeout(60L, TimeUnit.SECONDS)
-            .setActivity(requireActivity())
-            .setCallbacks(callbacks)
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(optionsCompat)
-        auth.setLanguageCode("kr") // sms 언어를 한국어로 정의
+                .setPhoneNumber("+821020192024") //실제 실행 환경에선 인증코드 발송 횟수가 정해져 있어서 테스트 시에는 이 번호로 테스트해주세요 인증번호는 789078입니다
+                .setTimeout(60L, TimeUnit.SECONDS)
+                .setActivity(requireActivity())
+                .setCallbacks(callbacks)
+                .build()
+            PhoneAuthProvider.verifyPhoneNumber(optionsCompat)
+            auth.setLanguageCode("kr") // sms 언어를 한국어로 정의
 
         }
         //인증여부 확인
         binding.btnPhoneCheck.setOnClickListener {
-            val codeInput = binding.etCodeInput.text.toString()
+            val codeInput = binding.etCodeInput.text.toString().trim()
             val credential = PhoneAuthProvider.getCredential(verificationId, codeInput)
             signInWithPhoneAuthCredential(credential)
         }
@@ -133,7 +139,7 @@ class Join2Fragment : Fragment() {
         Log.d("국가코드로 변경된 번호 ",lastNumber)
         return lastNumber
     }
-    //인증여부 확인하는 함수
+    //인증여부 확인한 후 신규가입시키는 함수
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
@@ -159,6 +165,4 @@ class Join2Fragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }
