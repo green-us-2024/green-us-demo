@@ -69,7 +69,7 @@ class Join2Fragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                val user_phone = binding.etPhone.text.toString()
+                val user_phone = binding.etPhone.text.toString().trim()
                 if(user_phone.isNotEmpty()){
                     binding.btnSentCode.isEnabled = true
                     binding.btnSentCode.alpha = 1f
@@ -91,7 +91,7 @@ class Join2Fragment : Fragment() {
         // 인증번호 받기 버튼 클릭시
         binding.btnSentCode.setOnClickListener {
 
-            phoneNumber = binding.etPhone.text.toString()
+            phoneNumber = binding.etPhone.text.toString().trim()
             // 번호를 국제코드로 변환
             val editedNum = replacePhoneNum(phoneNumber)
             // 콜백 정의
@@ -118,7 +118,7 @@ class Join2Fragment : Fragment() {
         }
         //인증여부 확인
         binding.btnPhoneCheck.setOnClickListener {
-            val codeInput = binding.etCodeInput.text.toString()
+            val codeInput = binding.etCodeInput.text.toString().trim()
             val credential = PhoneAuthProvider.getCredential(verificationId, codeInput)
             signInWithPhoneAuthCredential(credential)
         }

@@ -53,8 +53,8 @@ class Join1Fragment : Fragment() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {} //입력전
             override fun afterTextChanged(p0: Editable?) {} // 입력후
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { //입력중
-                val et_email = binding.etEmail.text.toString()
-                val et_pw = binding.etPw.text.toString()
+                val et_email = binding.etEmail.text.toString().trim()
+                val et_pw = binding.etPw.text.toString().trim()
                 if (et_email.isNotEmpty()&&et_pw.isNotEmpty()){
                     binding.btnNext.isEnabled = true
                     binding.btnNext.alpha = 1f

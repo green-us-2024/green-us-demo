@@ -73,7 +73,7 @@ class JoinAddressFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //주소 찾기 api 추가하면 주소까지 입력해야 넘어가는 것으로 바꿀 예정
                 //현재는 이름만 입력하면 넘어가도록
-                name = binding.etName.text.toString()
+                name = binding.etName.text.toString().trim()
                 address = binding.etAddress.text.toString()
                 address_detail = binding.etAddressDetail.text.toString()
                 if (name.isNotEmpty()){
