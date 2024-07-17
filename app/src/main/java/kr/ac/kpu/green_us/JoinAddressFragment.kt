@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResultListener
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -41,15 +42,12 @@ class JoinAddressFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentJoinAddressBinding.inflate(inflater, container, false)
-
         // 인스턴스 초기화
         auth = Firebase.auth
-
         // 이전 프래그먼트로부터 온 bundle 데이터 받기
         email = arguments?.getString("email").toString()
         pw = arguments?.getString("pw").toString()
         phoneNumber = arguments?.getString("phone").toString()
-
         return binding.root
     }
 
@@ -58,6 +56,17 @@ class JoinAddressFragment : Fragment() {
 
         binding.btnToJoinComplt.isEnabled = false
         binding.btnToJoinComplt.alpha = 0.5f
+
+        binding.btnSearchAddress.setOnClickListener {
+            val dialogFragment = AddressDialogFragment()
+            dialogFragment.show(parentFragmentManager, "AddressDialog")
+        }
+        setFragmentResultListener("addressData") { _, bundle ->
+            address = bundle.getString("address", "")
+            address?.let {
+                binding.etAddress.setText(it)
+            }
+        }
         binding.etAddressDetail.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
@@ -65,8 +74,8 @@ class JoinAddressFragment : Fragment() {
                 //주소 찾기 api 추가하면 주소까지 입력해야 넘어가는 것으로 바꿀 예정
                 //현재는 이름만 입력하면 넘어가도록
                 name = binding.etName.text.toString()
-//                address = binding.etAddress.text.toString()
-//                address_detail = binding.etAddressDetail.text.toString()
+                address = binding.etAddress.text.toString()
+                address_detail = binding.etAddressDetail.text.toString()
                 if (name.isNotEmpty()){
                     binding.btnToJoinComplt.isEnabled = true
                     binding.btnToJoinComplt.alpha = 1f
@@ -75,8 +84,18 @@ class JoinAddressFragment : Fragment() {
         })
         //다음버튼 클릭시
         binding.btnToJoinComplt.setOnClickListener {
-            // 이름(닉네임?)까지 받으면 신규 가입자를 생성
+            // 이메일, 휴대폰 인증, 이름받기 성공하면 파이어베이스에 신규 사용자 생성
             createUser(email,pw)
+            val bundle3 = Bundle()
+            bundle3.putString("email", email)
+            bundle3.putString("pw", pw)
+            bundle3.putString("phone", phoneNumber)
+            bundle3.putString("name", name)
+            bundle3.putString("address", address)
+            bundle3.putString("address_detail", address_detail)
+            val joinLast = JoinCompltFragment()
+            joinLast.arguments = bundle3
+            parentFragmentManager.beginTransaction().replace(R.id.join_container, joinLast).addToBackStack(null).commit()
         }
         //이전
         binding.btnEsc.setOnClickListener{
@@ -87,19 +106,10 @@ class JoinAddressFragment : Fragment() {
         auth.createUserWithEmailAndPassword(email, pw)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // 신규 가입 성공
+                    // 가입 성공
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
-                    // 사용자 데이터 번들에 담아서 전송
-                    val bundle3 = Bundle()
-                    bundle3.putString("email",email)
-                    bundle3.putString("pw",pw)
-                    bundle3.putString("phone",phoneNumber)
-                    bundle3.putString("name",name)
-                    val joinLast = JoinCompltFragment()
-                    joinLast.arguments = bundle3
-                    parentFragmentManager.beginTransaction().replace(R.id.join_container,joinLast).addToBackStack(null).commit()
                 } else {
-                    //신규 생성 실패
+                    // 가입 실패
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
                 }
             }

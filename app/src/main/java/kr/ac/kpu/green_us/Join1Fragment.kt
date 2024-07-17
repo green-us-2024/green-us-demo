@@ -32,7 +32,6 @@ class Join1Fragment : Fragment() {
 
     private var _binding: FragmentJoin1Binding? = null
     private val binding get() = _binding!!
-    private lateinit var auth: FirebaseAuth
     private var email = ""
     private var pw = ""
 
@@ -41,9 +40,6 @@ class Join1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentJoin1Binding.inflate(inflater, container, false)
-
-        // 인스턴스 초기화
-        auth = Firebase.auth
         return binding.root
     }
 
