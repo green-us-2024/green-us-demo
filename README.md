@@ -16,7 +16,9 @@
 4. JoinAddressFragment도 확인 필요
 5. Join1Fragment도 확인 필요
 6. layout에 fragment_address_search.xml 만들었습니다.
-
+7. build.gradle에 
+ implementation 'com.squareup.retrofit2:retrofit:2.9.0'<br>
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' <-이거 두줄 추가해주세요<br>
 제가 최대한 안건드리고 건들부분만 건드린 것 같긴한데 정확히 어딘지 기억이 잘 안나서 Join 관련된 부분들 한번씩 더블체크해주세요<br>
 여기서 언급한 부분을 유진님, 세진님이 지금까지 하신거에 코드만 긁어서 추가해주시고, 완성되면 front에다가 push 해주시면 제가 pull 받겠습니다. <br>
 <br><br>
