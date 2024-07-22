@@ -126,6 +126,7 @@
     <string name="acheive_under_85">85% 미만 달성</string>
     <string name="certifi_notice">인증 유의사항</string>
     <string name="certifi_notice_important">*인증 조건에 부적합할 경우 삭제/경고 조치 됨*</string>
+    <string name="around_me">내 주변</string>
     <!--회원가입-->
     <string name="num_validation">잘못된 인증번호입니다</string>
     <string name="email_exist">이미 존재하는 이메일입니다</string>
