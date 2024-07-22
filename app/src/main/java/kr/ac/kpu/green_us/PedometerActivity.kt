@@ -33,22 +33,22 @@ class PedometerActivity: AppCompatActivity(), SensorEventListener {
         }
         binding.stepCounter.setText(currentSteps.toString())
         binding.pedometerDegree.setProgress(currentSteps)
-//        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-//        stepCountSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)!!
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        stepCountSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)!!
 
         // 디바이스에 걸음 센서의 존재 여부 체크
-//        if (stepCountSensor == null) {
-//            Toast.makeText(this, "No Step Sensor", Toast.LENGTH_SHORT).show();
-//        }
+        if (stepCountSensor == null) {
+            Toast.makeText(this, "No Step Sensor", Toast.LENGTH_SHORT).show();
+       }
 
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        if(stepCountSensor != null){
-//            sensorManager.registerListener(this,stepCountSensor,SensorManager.SENSOR_DELAY_FASTEST);
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        if(stepCountSensor != null){
+            sensorManager.registerListener(this,stepCountSensor,SensorManager.SENSOR_DELAY_FASTEST);
+        }
+    }
 
     override fun onSensorChanged(event: SensorEvent?) {
         // 걸음 센서 이벤트 발생시
