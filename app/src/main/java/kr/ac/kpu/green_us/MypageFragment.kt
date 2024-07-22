@@ -13,13 +13,15 @@ import kr.ac.kpu.green_us.databinding.FragmentMypageBinding
 
 // 마이페이지 - 포인트, 개설하기, 내리뷰, 프로필관리, 공지사항, FAQ, 고객센터 화면으로 이동 가능
 class MypageFragment : Fragment() {
-
+    private lateinit var auth: FirebaseAuth
     lateinit var binding: FragmentMypageBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater,container,false)
+
+        auth = Firebase.auth
 
         // 개설하기
         binding.goToGreenOpen.setOnClickListener {
@@ -57,9 +59,17 @@ class MypageFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 일단 만보기 연결
+        // 고객센터
         binding.csc.setOnClickListener {
 
+        }
+
+        // 로그아웃
+        binding.logout.setOnClickListener {
+            auth.signOut()
+            val intent = Intent(getActivity(), LoginActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
 
         // Inflate the layout for this fragment
