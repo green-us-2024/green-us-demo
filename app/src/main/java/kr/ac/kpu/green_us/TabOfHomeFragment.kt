@@ -72,14 +72,22 @@ class TabOfHomeFragment : Fragment() {
             })
         }
         // 빠른 접근을 위한 버튼들 클릭 구현
+        // 만보기 버튼
         binding.btnManbo.setOnClickListener {
             val intent = Intent(requireActivity(), PedometerActivity::class.java)
             startActivity(intent)
         }
+        // 개설하기 버튼
         binding.btnOpen.setOnClickListener {
             val intent = Intent(requireActivity(), GreenOpenActivity::class.java)
             startActivity(intent)
         }
+        // 내주변 버튼
+        binding.btnNearMarket.setOnClickListener {
+            val intent = Intent(requireActivity(), MapActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
     //뷰페이저에 들어갈 아이템(이미지)

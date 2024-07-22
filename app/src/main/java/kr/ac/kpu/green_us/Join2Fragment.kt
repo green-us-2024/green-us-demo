@@ -139,7 +139,7 @@ class Join2Fragment : Fragment() {
         Log.d("국가코드로 변경된 번호 ",lastNumber)
         return lastNumber
     }
-    //인증여부 확인한 후 신규가입시키는 함수
+    //인증여부 확인
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
