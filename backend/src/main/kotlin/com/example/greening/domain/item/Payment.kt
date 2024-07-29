@@ -5,25 +5,25 @@ import java.time.LocalDate
 
 @Entity
 @Table(name = "payment")
-data class Payment(
+open class Payment(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "payment_seq")
-        val paymentSeq: Int = 0,
+        var paymentSeq: Int = 0,
 
-        @ManyToOne
+        @ManyToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
-        val user: User? = null,
+        var user: User? = null,
 
         @Column(name = "payment_content")
-        val paymentContent: String? = null,
+        var paymentContent: String? = null,
 
         @Column(name = "payment_method")
-        val paymentMethod: String? = null,
+        var paymentMethod: String? = null,
 
         @Column(name = "payment_date")
-        val paymentDate: LocalDate? = null,
+        var paymentDate: LocalDate? = null,
 
         @Column(name = "payment_money")
-        val paymentMoney: Int? = null
+        var paymentMoney: Int? = null
 )

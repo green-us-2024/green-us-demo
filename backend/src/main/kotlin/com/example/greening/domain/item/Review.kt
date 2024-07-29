@@ -5,26 +5,26 @@ import java.time.LocalDate
 
 @Entity
 @Table(name = "review")
-data class Review(
+open class Review(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "review_seq")
-        val reviewSeq: Int = 0,
+        var reviewSeq: Int = 0,
 
-        @ManyToOne
+        @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
-        val user: User,
+        var user: User? = null,
 
-        @ManyToOne
+        @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
         @JoinColumn(name = "g_seq", referencedColumnName = "g_seq")
-        val greening: Greening,
+        var greening: Greening? = null,
 
         @Column(name = "review_content")
-        val reviewContent: String? = null,
+        var reviewContent: String? = null,
 
         @Column(name = "review_date")
-        val reviewDate: LocalDate? = null,
+        var reviewDate: LocalDate? = null,
 
         @Column(name = "review_rate")
-        val reviewRate: Float? = null
+        var reviewRate: Float? = null
 )

@@ -5,19 +5,19 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name = "report")
-data class Report(
+open class Report(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "report_seq")
-        val reportSeq: Int = 0,
+        var reportSeq: Int = 0,
 
         @OneToOne
         @JoinColumn(name = "certify_seq", referencedColumnName = "certify_seq")
-        val certify: Certify,
+        var certify: Certify? = null,
 
         @Column(name = "report_date")
-        val reportDate: LocalDateTime? = null,
+        var reportDate: LocalDateTime? = null,
 
         @Column(name = "report_result")
-        val reportResult: String? = null
+        var reportResult: String? = null
 )

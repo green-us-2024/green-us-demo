@@ -4,37 +4,46 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name="user")
-data class User (
+open class User (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_seq")
-    val userSeq : Int=0,
+    var userSeq : Int=0,
 
     @Column(name="user_name")
-    val userName : String?=null,
+    var userName : String?=null,
 
     @Column(name="user_pwd")
-    val userPwd : String?=null,
+    var userPwd : String?=null,
 
     @Column(name="user_email")
-    val userEmail : String?=null,
+    var userEmail : String?=null,
 
     @Column(name="user_addr")
-    val userAddr : String?=null,
+    var userAddr : String?=null,
 
     @Column(name="user_phone")
-    val userPhone : String?=null,
+    var userPhone : String?=null,
+
+    @Column(name="user_photo")
+    var userPhoto : String?=null,
 
     @Column(name="user_account")
-    val userAccount : String?=null,
-//
-//    @ManyToOne
-//    @JoinColumn(name = "admin_seq", referencedColumnName = "admin_seq", nullable = true)
-//    val admins: Admin? = null,
-//
-//    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-//    val reviews: List<Review> = emptyList(),
-//
-//    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-//    val payments: List<Payment> = emptyList()
+    var userAccount : String?=null,
+
+    @Column(name="user_w_count")
+    var userWCount : Int?=null,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_seq", referencedColumnName = "admin_seq", nullable = false)
+    var admins: Admin? = null,
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)
+    val reviews: List<Review> = mutableListOf(),
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)
+    val payments: List<Payment> = mutableListOf(),
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.DETACH, CascadeType.MERGE], orphanRemoval = true, fetch = FetchType.LAZY)
+    val greenings: List<Greening> = mutableListOf()
 )

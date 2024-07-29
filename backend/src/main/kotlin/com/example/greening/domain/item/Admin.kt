@@ -4,15 +4,15 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "admin")
-data class Admin(
+open class Admin(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="admin_seq")
-    val adminSeq:Int = 0,
+    var adminSeq:Int = 0,
 
     @Column(name="admin_id")
-    var adminId:String="",
+    var adminId:String?=null,
 
     @Column(name="admin_pwd")
-    var adminPwd:String=""
+    var adminPwd:String?=null
 )

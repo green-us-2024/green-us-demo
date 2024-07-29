@@ -5,47 +5,47 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name="greening")
-data class Greening (
+open class Greening (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="g_seq")
-        val gSeq:Int=0,
+        var gSeq:Int=0,
 
-        @ManyToOne
-        @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
-        val user: User? = null,
+        @ManyToOne(cascade = [CascadeType.PERSIST, CascadeType.MERGE])
+        @JoinColumn(name = "user_seq", referencedColumnName = "user_seq", nullable = true)
+        var user: User? = null,
 
         @Column(name="g_name")
-        val gName:String?=null,
+        var gName:String?=null,
 
         @Column(name="g_start_date")
-        val gStartDate:LocalDateTime?=null,
+        var gStartDate:LocalDateTime?=null,
 
         @Column(name="g_end_date")
-        val gEndDate:LocalDateTime?=null,
+        var gEndDate:LocalDateTime?=null,
 
         @Column(name="g_certi_way")
-        val gCertiWay:String?=null,
+        var gCertiWay:String?=null,
 
         @Column(name="g_info")
-        val gInfo:String?=null,
+        var gInfo:String?=null,
 
         @Column(name="g_member_num")
-        val gMemberNum:Int?=null,
+        var gMemberNum:Int?=null,
 
         @Column(name="g_freq")
-        val gFreq:String?=null,
+        var gFreq:String?=null,
 
         @Column(name = "g_deposit")
-        val gDeposit: Int? = null,
+        var gDeposit: Int? = null,
 
         @Column(name = "g_total_count")
-        val gTotalCount: Int? = null,
+        var gTotalCount: Int? = null,
 
         @Column(name = "g_number")
-        val gNumber: Int? = null,
+        var gNumber: Int? = null,
 
         @OneToMany(mappedBy = "greening", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
-        val reviews: List<Review> = emptyList()
+        val reviews: List<Review> = mutableListOf()
 
 )

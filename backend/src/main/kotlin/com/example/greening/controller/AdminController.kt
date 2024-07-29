@@ -1,45 +1,49 @@
 package com.example.greening.controller
 
-import com.example.greening.domain.item.Admin
-import com.example.greening.repository.AdminRepository
 import com.example.greening.service.AdminService
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import jakarta.servlet.http.HttpServletRequest
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 
-@RestController
+@Controller
 @RequestMapping("/admins")
-class AdminController(
-    private val adminRepository: AdminRepository,
-    private val adminService: AdminService
-) {
+class AdminController(private val adminService: AdminService) {
 
-    @GetMapping("/byId/{id}")
-    fun getAdminById(@PathVariable id: Int): ResponseEntity<Admin> {
-        val admin = adminRepository.findOne(id)
+    @PostMapping("/login")
+    fun login(@RequestParam adminId: String, @RequestParam adminPwd: String, request: HttpServletRequest, model: Model): String {
+        val admin = adminService.authenticateAdmin(adminId, adminPwd)
         return if (admin != null) {
-            ResponseEntity.ok(admin)
+            request.session.setAttribute("adminId", admin.adminId)
+            "redirect:/admins/home"  // 로그인 성공 시 홈으로 리디렉션
         } else {
-            ResponseEntity.notFound().build()
+            model.addAttribute("error", "Invalid credentials")
+            "login"  // 로그인 페이지를 반환
         }
     }
 
-//    @GetMapping("/new")
-//    fun createForm(model: Model): String {
-//        model.addAttribute("adminForm", AdminForm())
-//        return "admins/createUserForm"
-//    }
-
-
-    @PostMapping("/new")
-    fun createAdmin(@RequestBody admin : Admin): ResponseEntity<Admin> {
-        adminService.saveAdmin(admin)
-        return ResponseEntity.status(HttpStatus.CREATED).body(admin)
+    @GetMapping("/home")
+    fun home(request: HttpServletRequest, model: Model): String {
+        val adminId = request.session.getAttribute("adminId") as? String
+        return if (adminId != null) {
+            model.addAttribute("adminId", adminId)
+            "home"  // home.html을 반환
+        } else {
+            "redirect:/admins/login"  // 로그인 필요 시 로그인 페이지로 리디렉션
+        }
     }
 
-    @GetMapping("/list")
-    fun getAllAdmins(): ResponseEntity<List<Admin>> {
-        val admins = adminRepository.findAll()
-        return ResponseEntity.ok(admins)
+    @GetMapping("/login")
+    fun loginPage(): String {
+        return "login"  // login.html을 반환
+    }
+
+    @PostMapping("/logout")
+    fun logout(request: HttpServletRequest): String {
+        request.session.invalidate()  // 세션 무효화
+        return "redirect:/admins/login"  // 로그인 페이지로 리디렉션
     }
 }

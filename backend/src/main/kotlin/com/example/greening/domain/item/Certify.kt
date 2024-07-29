@@ -5,28 +5,28 @@ import java.time.LocalDateTime
 
 @Entity
 @Table(name="certify")
-data class Certify (
+open class Certify (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="certify_seq")
-        val certifySeq:Int=0,
+        var certifySeq:Int=0,
 
         @Column(name="certify_img")
-        val certifyImg:String?= null,
+        var certifyImg:String?= null,
 
         @Column(name="certify_date")
-        val certifyDate:LocalDateTime? = null,
+        var certifyDate:LocalDateTime? = null,
 
         @Column(name="user_seq")
-        val userSeq:Int,
+        var userSeq:Int? = null,
 
         @Column(name="g_seq")
-        val gSeq: Int,
+        var gSeq: Int? = null,
 
         @JoinColumn(name="p_seq", referencedColumnName = "p_seq")
-        val pSeq:Int,
+        var pSeq:Int? = null,
 
         @OneToOne(mappedBy = "certify")
-        val report: Report
+        var report: Report? = null
 
 )

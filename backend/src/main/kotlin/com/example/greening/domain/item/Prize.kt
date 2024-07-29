@@ -1,30 +1,38 @@
 package com.example.greening.domain.item
 
 import jakarta.persistence.*
+import org.hibernate.annotations.OnDelete
+import org.hibernate.annotations.OnDeleteAction
 import java.time.LocalDate
 
 @Entity
 @Table(name = "prize")
-data class Prize(
+open class Prize(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "prize_seq")
-        val prizeSeq: Int = 0,
+        var prizeSeq: Int = 0,
 
-        @ManyToOne
-        @JoinColumns(
-                JoinColumn(name = "user_seq", referencedColumnName = "user_seq"),
-                JoinColumn(name = "g_seq", referencedColumnName = "g_seq"),
-                JoinColumn(name = "p_seq", referencedColumnName = "p_seq")
-        )
-        val participate: Participate,
+        @ManyToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+        @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
+        var user: User? = null,
+
+        @ManyToOne(cascade = [CascadeType.PERSIST, CascadeType.MERGE], fetch = FetchType.LAZY)
+        @JoinColumn(name = "g_seq", referencedColumnName = "g_seq")
+        @OnDelete(action = OnDeleteAction.SET_NULL)
+        var greening: Greening? = null,
+
+        @ManyToOne(cascade = [CascadeType.PERSIST, CascadeType.MERGE], fetch = FetchType.LAZY)
+        @JoinColumn(name = "p_seq", referencedColumnName = "p_seq")
+        @OnDelete(action = OnDeleteAction.SET_NULL)
+        var participate: Participate? = null,
 
         @Column(name = "prize_name")
-        val prizeName: String? = null,
+        var prizeName: String? = null,
 
         @Column(name = "prize_money")
-        val prizeMoney: Int? = null,
+        var prizeMoney: Int? = null,
 
         @Column(name = "prize_date")
-        val prizeDate: LocalDate? = null
+        var prizeDate: LocalDate? = null
 )

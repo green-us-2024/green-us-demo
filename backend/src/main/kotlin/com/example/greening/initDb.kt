@@ -9,20 +9,19 @@ import jakarta.persistence.EntityManager
 import lombok.RequiredArgsConstructor
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
-/*
-@Component
-class initDb(private val initService: InitService) {
+/*@Component
 
+class initDb(private val initService: InitService) {
+    //초반에 테스트용으로 만들어놓은거라서 삭제하셔도 됩니다~!
     @PostConstruct
     fun init() {
         initService.dbInit1()
         initService.dbInit2()
     }
-
     @Component
     @Transactional
     class InitService(private val em: EntityManager) {
-/
+
         fun dbInit1() {
             println("Init1" + this)
 
@@ -68,5 +67,4 @@ class initDb(private val initService: InitService) {
 
     }
 
-}
-*/
+}*/

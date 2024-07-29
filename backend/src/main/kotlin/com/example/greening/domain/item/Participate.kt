@@ -4,22 +4,23 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "participate")
-data class Participate(
+open class Participate(
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "p_seq")
-        val pSeq: Int = 0,
+        var pSeq: Int = 0,
 
-        @ManyToOne
+        @ManyToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
-        val user: User? = null,
+        var user: User? = null,
 
-        @ManyToOne
+        @ManyToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "g_seq", referencedColumnName = "g_seq")
-        val greening: Greening? = null,
+        var greening: Greening? = null,
 
         @Column(name = "p_complete")
-        val pComplete: String? = null,
+        var pComplete: String? = null,
 
         @Column(name = "p_count")
-        val pCount: Int? = null
+        var pCount: Int? = null
 )
