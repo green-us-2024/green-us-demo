@@ -6,14 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.NoticeAdapter
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.dto.Notice
 import kr.ac.kpu.green_us.databinding.ActivityNoticeBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // 공지사항 - 공지사항 보여주는 곳
 class NoticeActivity:AppCompatActivity() {
     lateinit var binding: ActivityNoticeBinding
     lateinit var recyclerView: RecyclerView
-    lateinit var viewAdapter: RecyclerView.Adapter<*>
-    lateinit var viewManager: RecyclerView.LayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNoticeBinding.inflate(layoutInflater)
@@ -27,13 +30,25 @@ class NoticeActivity:AppCompatActivity() {
             startActivity(intent)
         }
 
-        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, true)
-        viewAdapter = NoticeAdapter()
-        recyclerView = findViewById<RecyclerView>(R.id.recyclerview_notice).apply {
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
+        recyclerView = binding.recyclerviewNotice
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
+        // 공지사항 데이터 가져오기
+        fetchNotices()
+    }
+
+    private fun fetchNotices() {
+        RetrofitManager.api.getNotices().enqueue(object : Callback<List<Notice>> {
+            override fun onResponse(call: Call<List<Notice>>, response: Response<List<Notice>>) {
+                if (response.isSuccessful) {
+                    val notices = response.body() ?: emptyList()
+                    recyclerView.adapter = NoticeAdapter(notices)
+                }
+            }
+
+            override fun onFailure(call: Call<List<Notice>>, t: Throwable) {
+                // 실패 처리
+            }
+        })
     }
 }

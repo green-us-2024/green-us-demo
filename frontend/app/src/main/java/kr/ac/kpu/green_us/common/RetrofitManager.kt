@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us.common
 
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,5 +14,7 @@ class RetrofitManager {
             .baseUrl("http://192.168.25.6:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+    val api: RetrofitAPI = retrofit.create(RetrofitAPI::class.java)
     }
+
 }
