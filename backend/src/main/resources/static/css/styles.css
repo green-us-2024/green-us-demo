@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #a8e063, #56ab2f);
+    background: linear-gradient(to right, #003220, #003220);
     margin: 0;
 }
 
@@ -63,4 +63,9 @@ body {
 .message {
     color: #d9534f;
     margin-top: 1rem;
+}
+
+.login-image {
+    width: auto;
+    height: auto;
 }
