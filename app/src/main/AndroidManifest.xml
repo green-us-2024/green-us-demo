@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-feature android:name="android.hardware.SensorEventListener" />
     <uses-feature
         android:name="android.hardware.camera"
@@ -27,10 +26,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ViewAllCertifiedImgActivity"
+            android:name=".MyReviewActivity"
             android:exported="false" />
         <activity
             android:name=".CertifyGreeningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SubActivity"
             android:exported="false" />
         <activity
             android:name=".MapActivity"
@@ -39,19 +41,10 @@
             android:name=".MyReviewWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".GreenOpenActivity"
-            android:exported="false" />
-        <activity
             android:name=".FaqActivity"
             android:exported="false" />
         <activity
             android:name=".PointWithdrawActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyGreenIngMoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyGreenEndMoreActivity"
             android:exported="false" />
         <activity
             android:name=".FindPwActivity"
@@ -111,21 +104,11 @@
             android:name=".NoticeActivity"
             android:exported="false" />
         <activity
-            android:name=".MyReviewActivity"
-            android:exported="false" />
-        <activity
             android:name=".GreeningDetailActivity"
             android:exported="false" />
         <activity
             android:name=".GreeningDetailSubActivity"
             android:exported="false" />
-        <activity
-            android:name=".PedometerActivity"
-            android:exported="false" />
-
-        <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="dt86obehkg" />
     </application>
 
 </manifest>

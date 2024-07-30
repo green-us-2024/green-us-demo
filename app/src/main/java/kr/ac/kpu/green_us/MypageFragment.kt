@@ -25,7 +25,8 @@ class MypageFragment : Fragment() {
 
         // 개설하기
         binding.goToGreenOpen.setOnClickListener {
-            val intent = Intent(getActivity(), GreenOpenActivity::class.java)
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("2","open_green")
             startActivity(intent)
         }
 
@@ -38,6 +39,7 @@ class MypageFragment : Fragment() {
         // 내 리뷰
         binding.myReview.setOnClickListener {
             val intent = Intent(getActivity(), MyReviewActivity::class.java)
+            // intent.putExtra("3","my_review")
             startActivity(intent)
         }
 

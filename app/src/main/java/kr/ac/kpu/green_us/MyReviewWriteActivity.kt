@@ -16,8 +16,9 @@ class MyReviewWriteActivity : AppCompatActivity() {
 
         // 리뷰 작성 버튼
         binding.writeReviewBtn.setOnClickListener {
-            val intent = Intent(this, MyReviewActivity::class.java)
+            val intent = Intent(this, SubActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.putExtra("3","my_review")
             startActivity(intent)
         }
     }
