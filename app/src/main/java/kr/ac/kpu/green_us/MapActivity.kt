@@ -51,21 +51,24 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, state: Int) {
                 when (state) {
+                    // 바텀시트가 확장된 상태라면 화살표 버튼이 아래로 향하게 이미지 변경
                     BottomSheetBehavior.STATE_COLLAPSED -> binding.bottomLayout.btnArrow.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
+                    //접혔을 시 화살표 버튼이 위로 향하게 이미지 변경
                     BottomSheetBehavior.STATE_EXPANDED -> binding.bottomLayout.btnArrow.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
                 }
             }
             override fun onSlide(bottomSheet: View, slideOffset: Float) {}
         })
-
+        // 이전 버튼
         binding.btnEsc.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-
+        // 바텀 시트 화살표 버튼 클릭시
         binding.bottomLayout.btnArrow.setOnClickListener {
+            // 접힌 상태에서 클릭하면 확장시킴
             if (behavior.state == BottomSheetBehavior.STATE_COLLAPSED) {
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
-            } else {
+            } else { // 확장상태에서 클릭하면 접힘
                 behavior.state = BottomSheetBehavior.STATE_COLLAPSED
             }
         }
