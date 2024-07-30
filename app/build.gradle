@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id("com.google.gms.google-services")
 }
-
 android {
     namespace 'kr.ac.kpu.green_us'
     compileSdk 34
@@ -86,6 +85,9 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
+    //네이버 지도 api
+    implementation("com.naver.maps:map-sdk:3.19.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
     // for firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
     implementation("com.google.firebase:firebase-analytics")
