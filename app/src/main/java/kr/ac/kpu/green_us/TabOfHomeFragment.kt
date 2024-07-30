@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -30,7 +31,7 @@ class TabOfHomeFragment : Fragment() {
         binding = FragmentTabOfHomeBinding.inflate(inflater,container,false)
 
         // hero banner
-        binding.heroSection.adapter = HeroAdapter(getHeroList())
+        binding.heroSection.adapter = HeroAdapter(getHeroList(), requireActivity())
         binding.heroSection.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 스크롤
         binding.heroSection.currentItem =  current_banner_position
         binding.totalBannerNum.text = total_banner_num.toString()// 전체 배너(이미지) 개수 세팅
@@ -70,16 +71,21 @@ class TabOfHomeFragment : Fragment() {
                     binding.currentBannerNum.text = posiText
                 }
             })
+            binding.heroSection.setOnClickListener{
+
+            }
         }
         // 빠른 접근을 위한 버튼들 클릭 구현
         // 만보기 버튼
         binding.btnManbo.setOnClickListener {
-            val intent = Intent(requireActivity(), PedometerActivity::class.java)
+            val intent = Intent(requireActivity(), SubActivity::class.java)
+            intent.putExtra("8","pedometer")
             startActivity(intent)
         }
         // 개설하기 버튼
         binding.btnOpen.setOnClickListener {
-            val intent = Intent(requireActivity(), GreenOpenActivity::class.java)
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("2","open_green")
             startActivity(intent)
         }
         // 내주변 버튼

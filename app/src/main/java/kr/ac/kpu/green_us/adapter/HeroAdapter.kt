@@ -1,19 +1,46 @@
 package kr.ac.kpu.green_us.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.SubActivity
 
-class HeroAdapter(bannerList:ArrayList<Int>): RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() { //이미지 리스트 가져오는 어댑터
+class HeroAdapter(bannerList:ArrayList<Int>, private val mContext: Context): RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() { //이미지 리스트 가져오는 어댑터
     val itemList = bannerList // 이미지 배열 리스트가 될 것
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         val heroImgView = LayoutInflater.from(parent.context).inflate(R.layout.hero_item,parent,false)
-
-        return HeroViewHolder(heroImgView)
+        // return HeroViewHolder(heroImgView)
+        return HeroViewHolder(heroImgView).apply {
+            itemView.setOnClickListener {
+                val curPosition = absoluteAdapterPosition%3
+                Toast.makeText(mContext, "${curPosition}번째 배너 클릭됨", Toast.LENGTH_SHORT).show()
+                if(curPosition == 0){
+                    val intent = Intent(mContext, SubActivity::class.java)
+                    intent.putExtra("10","hero_detail")
+                    intent.putExtra("10_num", curPosition)
+                    mContext.startActivity(intent)
+                }
+                else if(curPosition == 1){
+                    val intent = Intent(mContext, SubActivity::class.java)
+                    intent.putExtra("10","hero_detail")
+                    intent.putExtra("10_num", curPosition)
+                    mContext.startActivity(intent)
+                }
+                else{
+                    val intent = Intent(mContext, SubActivity::class.java)
+                    intent.putExtra("10","hero_detail")
+                    intent.putExtra("10_num", curPosition)
+                    mContext.startActivity(intent)
+                }
+            }
+        }
     }
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {

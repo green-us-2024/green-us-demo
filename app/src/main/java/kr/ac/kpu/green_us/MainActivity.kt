@@ -19,7 +19,7 @@ import com.google.firebase.auth.auth
 import kr.ac.kpu.green_us.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private  lateinit var binding : ActivityMainBinding
+    private lateinit var binding : ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     val manager = supportFragmentManager
     private val multiplePermissionsCode = 100

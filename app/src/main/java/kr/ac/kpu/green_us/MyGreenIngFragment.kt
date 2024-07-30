@@ -20,6 +20,7 @@ class MyGreenIngFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var viewAdapter: RecyclerView.Adapter<*>
     lateinit var viewManager: RecyclerView.LayoutManager
+    var greenExist = true // 데이터에 따라 달라지게
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,30 +28,44 @@ class MyGreenIngFragment : Fragment() {
     ): View? {
         binding = FragmentMyGreenIngBinding.inflate(inflater, container, false)
 
-        // 진행중인 그리닝
-        viewManager = GridLayoutManager(requireContext(), 2)
-        viewAdapter = MyGreenIngAdapter()
-        recyclerView = binding.recyclerviewIngGreening.apply {
-            setHasFixedSize(true)
-            suppressLayout(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
+        // 리사이클러뷰 중복 스크롤 막기
+        binding.recyclerviewIngGreening.isNestedScrollingEnabled = false
+        binding.recyclerviewGreenDegree.isNestedScrollingEnabled = false
 
-        // 더보기 버튼 클릭 시
-        binding.btnMore.setOnClickListener {
-            val intent = Intent(getActivity(), MyGreenIngMoreActivity::class.java)
-            startActivity(intent)
-        }
+        // 진행중인 그리닝 존재 여부에 따라
+        if(greenExist) { // 존재 할 경우
+            // 진행중인 그리닝
+            viewManager = GridLayoutManager(requireContext(), 2)
+            viewAdapter = MyGreenIngAdapter()
+            recyclerView = binding.recyclerviewIngGreening.apply {
+                setHasFixedSize(true)
+                suppressLayout(true)
+                layoutManager = viewManager
+                adapter = viewAdapter
+            }
 
-        // 그리닝 개별 진척도
-        viewManager = LinearLayoutManager(context, RecyclerView.VERTICAL, true)
-        viewAdapter = MyGreenDegreeAdapter()
-        recyclerView = binding.recyclerviewGreenDegree.apply {
-            setHasFixedSize(true)
-            suppressLayout(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
+            // 더보기 버튼 클릭 시
+            binding.btnMore.setOnClickListener {
+                val intent = Intent(getActivity(), SubActivity::class.java)
+                intent.putExtra("0","green_ing_more")
+                startActivity(intent)
+            }
+
+            // 그리닝 개별 진척도
+            viewManager = LinearLayoutManager(context, RecyclerView.VERTICAL, true)
+            viewAdapter = MyGreenDegreeAdapter()
+            recyclerView = binding.recyclerviewGreenDegree.apply {
+                setHasFixedSize(true)
+                suppressLayout(true)
+                layoutManager = viewManager
+                adapter = viewAdapter
+            }
+        }
+        else { // 존재하지 않을 경우
+            binding.notExistIng.visibility = View.VISIBLE
+            binding.recyclerviewIngGreening.visibility = View.GONE
+            binding.moreBtn.visibility = View.GONE
+            binding.greenDegree.visibility = View.GONE
         }
 
         return binding.root
