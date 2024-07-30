@@ -21,7 +21,6 @@ class HeroSectionDetailFragment : Fragment() {
         arguments?.let{
             data = it.getInt("img_num")
         }
-        Toast.makeText(requireContext(), "${data}번째 배너", Toast.LENGTH_SHORT).show()
 
         if(data == 0) {
             binding.heroSection.setImageResource(R.drawable.hero_img_1)

@@ -48,6 +48,14 @@ class TabOfHomeFragment : Fragment() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
+
+        // 더보기 버튼 클릭 시
+        binding.imageView3.setOnClickListener {
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("11","buy_green")
+            startActivity(intent)
+        }
+
         // 활동형
         viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         viewAdapter = HomeDoAdapter()
@@ -55,6 +63,13 @@ class TabOfHomeFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
+        }
+
+        // 더보기 버튼 클릭 시
+        binding.imageView5.setOnClickListener {
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("12","do_green")
+            startActivity(intent)
         }
 
         return binding.root

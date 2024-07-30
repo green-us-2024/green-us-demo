@@ -73,12 +73,25 @@ class SubActivity : AppCompatActivity() {
         if(value10 == "hero_detail"){
             binding.subject.setText(value10)
             val value10_0 = intent.getIntExtra("10_num",0)
-            Toast.makeText(this, "${value10_0}번", Toast.LENGTH_SHORT).show()
             var bundle = Bundle()
             bundle.putInt("img_num", value10_0)
             val fm = HeroSectionDetailFragment() //프래그먼트 선언
             fm.arguments = bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
             fm.changeFragment()
+        }
+
+        // 11 구매형 그리닝 전체보기
+        val value11 = intent.getStringExtra("11")
+        if(value11 == "buy_green"){
+            binding.subject.setText("구매형 그리닝")
+            MyGreenBuyMoreFragment().changeFragment()
+        }
+
+        // 12 활동형 그리닝 전체보기
+        val value12 = intent.getStringExtra("12")
+        if(value12 == "do_green"){
+            binding.subject.setText("활동형 그리닝")
+            MyGreenDoMoreFragment().changeFragment()
         }
     }
 

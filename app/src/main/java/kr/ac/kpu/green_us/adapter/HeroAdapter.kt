@@ -20,7 +20,6 @@ class HeroAdapter(bannerList:ArrayList<Int>, private val mContext: Context): Rec
         return HeroViewHolder(heroImgView).apply {
             itemView.setOnClickListener {
                 val curPosition = absoluteAdapterPosition%3
-                Toast.makeText(mContext, "${curPosition}번째 배너 클릭됨", Toast.LENGTH_SHORT).show()
                 if(curPosition == 0){
                     val intent = Intent(mContext, SubActivity::class.java)
                     intent.putExtra("10","hero_detail")

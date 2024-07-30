@@ -127,6 +127,7 @@
                 app:layout_constraintTop_toTopOf="@+id/feeInfo" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <ImageView
             android:id="@+id/img_when_official"
             android:layout_width="match_parent"
