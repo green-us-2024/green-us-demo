@@ -1,74 +1,102 @@
 package kr.ac.kpu.green_us
-
-import android.content.Intent
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet.Layout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.firebase.auth.FirebaseAuth
+import com.naver.maps.map.CameraUpdate
+import com.naver.maps.map.LocationTrackingMode
+import com.naver.maps.map.MapFragment
+import com.naver.maps.map.NaverMap
+import com.naver.maps.map.OnMapReadyCallback
+import com.naver.maps.map.UiSettings
+import com.naver.maps.map.util.FusedLocationSource
 import kr.ac.kpu.green_us.adapter.MarketAdapter
 import kr.ac.kpu.green_us.databinding.ActivityMapBinding
 
-class MapActivity : AppCompatActivity() {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityMapBinding
+    private lateinit var locationSource: FusedLocationSource
+    private lateinit var naverMap: NaverMap
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // bottom sheet 어댑팅
+        // 위치 권한 요청
+        val requestPermissionLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                // 권한이 부여되었으면 지도 초기화
+                initializeMap()
+            }
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        } else {
+            initializeMap()
+        }
+
+        // bottom sheet 설정
         binding.bottomLayout.recyclerviewMarketList.adapter = MarketAdapter()
-        binding.bottomLayout.recyclerviewMarketList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        // 바텀 시트 행동에 따른 조절
+        binding.bottomLayout.recyclerviewMarketList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val behavior = BottomSheetBehavior.from(binding.bottomLayout.root)
-        behavior.apply {
-            addBottomSheetCallback(object :BottomSheetBehavior.BottomSheetCallback(){ // 콜백으로써 상태값에 따른 동작을 조절함
-                override fun onStateChanged(bottomSheet: View, state: Int) { // 상태가 변화했을 때
-                    when(state){
-                        BottomSheetBehavior.STATE_COLLAPSED -> { // 바텀 시트가 접혔을 때
-                            //arrow 아이콘 위로 향함
-                            binding.bottomLayout.btnArrow.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
-                        }
-                        BottomSheetBehavior.STATE_EXPANDED -> { // 바텀 시트가 펼쳐졌을 때
-                            // arrow 아이콘 아래로 향함
-                            binding.bottomLayout.btnArrow.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
-                        }
-                    }
+        behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, state: Int) {
+                when (state) {
+                    BottomSheetBehavior.STATE_COLLAPSED -> binding.bottomLayout.btnArrow.setImageResource(R.drawable.baseline_keyboard_arrow_up_24)
+                    BottomSheetBehavior.STATE_EXPANDED -> binding.bottomLayout.btnArrow.setImageResource(R.drawable.baseline_keyboard_arrow_down_24)
                 }
-                override fun onSlide(bottomSheet: View, slide: Float) {
-                    //
-                }
+            }
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+        })
 
-            })
-        }
-        // 이전 버튼
         binding.btnEsc.setOnClickListener {
-            onBackPressedCallback.handleOnBackPressed()
-        }
-
-        // arrow 버튼 클릭시
-        binding.bottomLayout.btnArrow.setOnClickListener {
-             //바텀시트가 접혀있는 상태라면 확장시킴
-            if (behavior.state == BottomSheetBehavior.STATE_COLLAPSED){behavior.state = BottomSheetBehavior.STATE_EXPANDED }
-            // 접혀있지 않다면 (확장상태라면) 접음
-            else{behavior.state = BottomSheetBehavior.STATE_COLLAPSED}
-        }
-    }
-    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            isEnabled = false // 콜백 비활성화 -> 뒤로가기가 한 번만 실행되도록
             onBackPressedDispatcher.onBackPressed()
         }
+
+        binding.bottomLayout.btnArrow.setOnClickListener {
+            if (behavior.state == BottomSheetBehavior.STATE_COLLAPSED) {
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            } else {
+                behavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
+    }
+
+    private fun initializeMap() {
+        locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+        val fm = supportFragmentManager
+        val mapFragment = fm.findFragmentById(R.id.map_fragment) as MapFragment?
+            ?: MapFragment.newInstance().also {
+                fm.beginTransaction().add(R.id.map_fragment, it).commit()
+            }
+        mapFragment.getMapAsync(this)
+    }
+
+    override fun onMapReady(naverMap: NaverMap) {
+        this.naverMap = naverMap
+        naverMap.locationSource = locationSource
+        naverMap.locationTrackingMode = LocationTrackingMode.Follow
+
+        val uiSettings: UiSettings = naverMap.uiSettings
+        uiSettings.isLocationButtonEnabled = true
+
+        // 현재 위치로 카메라 이동
+        val cameraUpdate = CameraUpdate.scrollTo(locationSource.lastLocation?.let {
+            com.naver.maps.geometry.LatLng(it.latitude, it.longitude)
+        } ?: com.naver.maps.geometry.LatLng(37.5666102, 126.9783881)) // 기본 위치는 서울로 설정
+        naverMap.moveCamera(cameraUpdate)
+    }
+
+    companion object {
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
     }
 }
