@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.GreenCardAdapter
+import kr.ac.kpu.green_us.adapter.TabNewAdapter
 import kr.ac.kpu.green_us.databinding.FragmentTabOfNewBinding
 import kr.ac.kpu.green_us.databinding.FragmentTabOfPopularBinding
 
@@ -38,18 +39,18 @@ class TabOfNewFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewInit()
+    }
+    fun viewInit(){
         val viewManager = GridLayoutManager(requireContext(),2)
-        val viewAdapter = GreenCardAdapter()
-        //        viewAdapter.notifyDataSetChanged()
-
-        val recyclerView = binding.recyclerviewNewGreening.apply {
+        val viewAdapter = TabNewAdapter()
+        binding.recyclerviewNewGreening.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }
 
-        viewAdapter.itemClickListener = object : GreenCardAdapter.OnItemClickListener{
-            //onItemClick(position: Int)
+        viewAdapter.itemClickListener = object : TabNewAdapter.OnItemClickListener{
             override fun onItemClick(status:String) {
                 val status = "$status"
                 if (status == "notIn"){

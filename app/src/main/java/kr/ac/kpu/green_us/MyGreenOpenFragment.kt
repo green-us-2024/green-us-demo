@@ -22,14 +22,13 @@ class MyGreenOpenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyGreenOpenBinding.inflate(inflater)
-
+        binding = FragmentMyGreenOpenBinding.inflate(inflater,container,false)
         // 진행중인 그리닝
         viewManager = GridLayoutManager(requireContext(),2)
         viewAdapter = MyGreenOpenAdapter()
         recyclerView = binding.recyclerviewOpenGreening.apply {
             setHasFixedSize(true)
-            suppressLayout(true)
+//            suppressLayout(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }

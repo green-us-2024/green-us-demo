@@ -11,6 +11,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         android:id="@+id/recyclerview_popular_greening"
         app:spanCount="2"
+        tools:listitem="@layout/cardview_greening"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

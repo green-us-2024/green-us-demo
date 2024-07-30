@@ -25,7 +25,6 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
     }
     var itemClickListener: OnItemClickListener? = null
 
-    // 1. Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): GreenCardHolder {
         // view 생성
@@ -56,10 +55,7 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
          var itemtitle: TextView = itemView.findViewById(R.id.greeng_title)
 
         init{
-            itemView.setOnClickListener{
-
-                itemClickListener?.onItemClick("in")
-            }
+            itemView.setOnClickListener{ itemClickListener?.onItemClick("notIn") }
         }
 
     }

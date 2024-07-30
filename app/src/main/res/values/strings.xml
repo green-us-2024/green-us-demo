@@ -113,6 +113,7 @@
     <string name="freq">인증빈도</string>
     <string name="certifi_method">인증수단</string>
     <string name="certify">인증하기</string>
+    <string name="participate">그리닝 참여하기</string>
     <string name="start_date">5월 26일부터 시작</string>
     <string name="feeInfo">예치금</string>
     <string name="fee">5,000</string>
