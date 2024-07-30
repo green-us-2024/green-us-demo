@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,9 +26,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_open_greening"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        tools:listitem="@layout/cardview_greening"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2">
 
