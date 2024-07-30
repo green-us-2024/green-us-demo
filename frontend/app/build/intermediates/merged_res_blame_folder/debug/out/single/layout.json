@@ -1,0 +1,190 @@
+[
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_greening.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_greening.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_greening_detail.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_greening_detail.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/hero_item.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/hero_item.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join2.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join2.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_email2.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email2.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green_open.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_open.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_point_withdraw.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_point_withdraw.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_profile.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_profile.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_main.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_main.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_point.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_point.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_tab_of_popular.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_popular.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_camera_gallery.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_camera_gallery.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_profile_edit.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_profile_edit.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_home.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_email_complt.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email_complt.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_point.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_point.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_notice.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_notice.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_green_ing_more.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_green_ing_more.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join_address.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join_address.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_green_end_more.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_green_end_more.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green_ing.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_ing.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_green_open.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_green_open.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_review.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_review.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_notice.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_notice.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_delete_check.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_delete_check.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_pw.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_pw.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_tab_of_new.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_new.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/recyclerview_item_greening_detail.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/recyclerview_item_greening_detail.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join_complt.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join_complt.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_greening_detail_sub.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_greening_detail_sub.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_login.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_login.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_address_search.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_address_search.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_my_review.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_my_review.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_join_complt.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_join_complt.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_pedometer.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_pedometer.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_tab_of_home.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_home.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_review_write.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_review_write.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green_end.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_end.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join1.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join1.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_splash.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_green_degree.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_green_degree.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_faq.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_faq.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_mypage.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_mypage.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_email.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/recyclerview_item_greening_detail_sub.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/recyclerview_item_greening_detail_sub.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_join.xml",
+        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_join.xml"
+    }
+]

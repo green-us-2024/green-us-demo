@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-83:/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\danbi\\.gradle\\caches\\transforms-3\\d87da1b9b6ab6da3d5d48e678f8a928a\\transformed\\jetified-core-splashscreen-1.0.0-beta01\\res\\values-v29\\values-v29.xml",
+                    "from": {
+                        "startLines": "2,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,374",
+                        "endLines": "6,8",
+                        "endColumns": "12,12",
+                        "endOffsets": "369,464"
+                    }
+                }
+            ]
+        }
+    ]
+}

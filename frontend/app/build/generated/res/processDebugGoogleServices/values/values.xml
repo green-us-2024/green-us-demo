@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">369481686994</string>
+    <string name="google_api_key" translatable="false">AIzaSyAUBD8EohVTOz3224Hv4FMBqUb-3aZ5wxA</string>
+    <string name="google_app_id" translatable="false">1:369481686994:android:923b3a3023b94660a1b20b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAUBD8EohVTOz3224Hv4FMBqUb-3aZ5wxA</string>
+    <string name="google_storage_bucket" translatable="false">greenus-e1888.appspot.com</string>
+    <string name="project_id" translatable="false">greenus-e1888</string>
+</resources>

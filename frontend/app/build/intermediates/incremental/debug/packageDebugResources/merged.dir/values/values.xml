@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="green">#003220</color>
+    <color name="grey">#BFBFBF</color>
+    <color name="grey2">#464646</color>
+    <color name="ic_launcher_background">#023422</color>
+    <color name="none">#797979</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="represent">#003220</color>
+    <color name="shadow">#7080B0</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="transparency">#00ff0000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFD15C</color>
+    <dimen name="fab_margin">16dp</dimen>
+    <string name="account_holder">예금주</string>
+    <string name="acheive_100">100% 달성</string>
+    <string name="acheive_100_result">예치금 전액 환급 + 상금</string>
+    <string name="acheive_85">85% 이상 달성</string>
+    <string name="acheive_85_result">예치금 전액 환급</string>
+    <string name="acheive_under_85">85% 미만 달성</string>
+    <string name="acheive_under_85_result">예치금 환급 불가 </string>
+    <string name="address">주소</string>
+    <string name="address_detail">상세주소</string>
+    <string name="allowed">사용가능한 아이디입니다</string>
+    <string name="app_name">Green_us</string>
+    <string name="authentication_means">*인증수단</string>
+    <string name="auto_login">자동로그인</string>
+    <string name="award_inofs">그리닝 보상 안내</string>
+    <string name="bank">은행</string>
+    <string name="camera">카메라</string>
+    <string name="certifi_method">인증수단</string>
+    <string name="certifi_notice">인증 유의사항</string>
+    <string name="certifi_notice_important">*인증 조건에 부적합할 경우 삭제/경고 조치 됨*</string>
+    <string name="certification">인증</string>
+    <string name="check_id">중복확인</string>
+    <string name="check_num">인증번호 확인</string>
+    <string name="check_phone">인증번호 받기</string>
+    <string name="complete">완료</string>
+    <string name="csc">고객센터</string>
+    <string name="delete">삭제</string>
+    <string name="deposit">*예치금</string>
+    <string name="deposit_ex">예) 10,000</string>
+    <string name="edit">편집</string>
+    <string name="email">이메일</string>
+    <string name="email_exist">이미 존재하는 이메일입니다</string>
+    <string name="end_greening">완료한 그리닝</string>
+    <string name="end_greening_statistics">완료 그리닝 통계</string>
+    <string name="end_total_greening_more">완료 그리닝 더보기</string>
+    <string name="faq">FAQ</string>
+    <string name="fee">5,000</string>
+    <string name="feeInfo">예치금</string>
+    <string name="find_address">주소찾기</string>
+    <string name="find_email">이메일 찾기</string>
+    <string name="find_pw">비밀번호 찾기</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="freq">인증빈도</string>
+    <string name="frequency">*인증빈도</string>
+    <string name="frequency1">주 1회</string>
+    <string name="frequency2">주 2회</string>
+    <string name="frequency3">주 3회</string>
+    <string name="frequency4">주 4회</string>
+    <string name="frequency5">주 5회</string>
+    <string name="frequency6">주 6회</string>
+    <string name="frequency7">주 7회</string>
+    <string name="gallery">갤러리</string>
+    <string name="gcm_defaultSenderId" translatable="false">369481686994</string>
+    <string name="go_to_green_open">그리닝 개설하기</string>
+    <string name="go_to_login">로그인하러 가기</string>
+    <string name="google_api_key" translatable="false">AIzaSyAUBD8EohVTOz3224Hv4FMBqUb-3aZ5wxA</string>
+    <string name="google_app_id" translatable="false">1:369481686994:android:923b3a3023b94660a1b20b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAUBD8EohVTOz3224Hv4FMBqUb-3aZ5wxA</string>
+    <string name="google_storage_bucket" translatable="false">greenus-e1888.appspot.com</string>
+    <string name="green_detail">*그리닝 설명</string>
+    <string name="green_detail_ex">예) 이 그리닝에 참가하면 쓰레기를 줄일 수 있습니다</string>
+    <string name="green_end">진행완료</string>
+    <string name="green_ing">진행중</string>
+    <string name="green_name_ex">예) 텀블러 사용하기</string>
+    <string name="green_open">개설</string>
+    <string name="greening">그리닝</string>
+    <string name="greening_degree">그리닝 진척도</string>
+    <string name="greening_end">완료한 그리닝</string>
+    <string name="greening_ing">진행중인 그리닝</string>
+    <string name="greening_title">그리닝명</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="howto">버스, 지하철 카드 이용 내역을 통해 인증 가능합니다.\n일회용 교통카드의 경우 카드 발급 사진을 찍어서 인증가능합니다.\nk-패스, 기후동행카드 이용내역 인증 가능합니다.</string>
+    <string name="id">아이디</string>
+    <string name="informations">안내사항</string>
+    <string name="ing_total_greening_more">진행중인 그리닝 더보기</string>
+    <string name="ing_total_greening_num">진행중인 그리닝:</string>
+    <string name="input_num">인증번호 입력란</string>
+    <string name="join">회원가입</string>
+    <string name="join_complt">회원가입이 완료되었습니다</string>
+    <string name="login">로그인</string>
+    <string name="my_review">내 리뷰</string>
+    <string name="mypage">마이페이지</string>
+    <string name="name">이름</string>
+    <string name="name_star">*이름</string>
+    <string name="next">다음</string>
+    <string name="no">아니요</string>
+    <string name="not_allowed">사용중인 아이디입니다</string>
+    <string name="notice">공지사항</string>
+    <string name="num">인증번호</string>
+    <string name="num_validation">잘못된 인증번호입니다</string>
+    <string name="open_green">개설하기</string>
+    <string name="pedometer">만보기</string>
+    <string name="period">기간</string>
+    <string name="phone">휴대전화번호</string>
+    <string name="point">포인트</string>
+    <string name="point_notice">5,000원 이상부터 출금 가능합니다</string>
+    <string name="previous">Previous</string>
+    <string name="profile_setting">프로필관리</string>
+    <string name="project_id" translatable="false">greenus-e1888</string>
+    <string name="pwd">비밀번호</string>
+    <string name="required_input">* 필수 입력 사항</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="send_email">이메일 전송</string>
+    <string name="start_date">5월 26일부터 시작</string>
+    <string name="start_date_">*시작일</string>
+    <string name="start_date_fm">YYYY-MM-DD</string>
+    <string name="term">기간</string>
+    <string name="tiotal_gain_point">총 획득 포인트</string>
+    <string name="title_activity_find_email">FindEmailActivity</string>
+    <string name="title_activity_find_pw">FindPwActivity</string>
+    <string name="title_activity_join">JoinActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="total">전체</string>
+    <string name="total_degree">전체 진행률</string>
+    <string name="upload_picture">사진 업로드</string>
+    <string name="upload_picture_ex">그리닝 설명 사진</string>
+    <string name="use_camera">카메라 사용</string>
+    <string name="use_camera_gallery">카메라, 갤러리 사용</string>
+    <string name="week1">1주</string>
+    <string name="week2">2주</string>
+    <string name="week3">3주</string>
+    <string name="week4">4주</string>
+    <string name="week5">5주</string>
+    <string name="week6">6주</string>
+    <string name="week7">7주</string>
+    <string name="week8">8주</string>
+    <string name="welcome">환영합니다!</string>
+    <string name="withdraw">출금하기</string>
+    <string name="withdraw_point">출금액</string>
+    <string name="write_review">리뷰 작성</string>
+    <string name="yes">예</string>
+    <style name="Theme.Green_us" parent="Theme.AppCompat.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/represent</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+
+        
+        <item name="android:windowIsTranslucent">true</item>
+        
+
+    </style>
+    <style name="Theme.Green_us.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.Green_us.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Green_us.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="bottomNaviView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:color">#797979</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+    <style name="bottomNaviView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:color">@color/represent</item>
+    </style>
+    <style name="dialog_custom_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/style_round_corner_btn</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
