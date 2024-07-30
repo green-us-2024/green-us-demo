@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
+    android:orientation="vertical"
+    android:background="@drawable/border_only_bottom">
+
+
+    <TextView
+        android:id="@+id/market_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="제로웨이스트샵" />
+
+    <TextView
+        android:id="@+id/time_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/market_name"
+        app:layout_constraintStart_toStartOf="@+id/market_name"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:text="09:00" />
+
+    <TextView
+        android:id="@+id/from_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/time_open"
+        app:layout_constraintTop_toTopOf="@+id/time_open"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:text="~" />
+    <TextView
+        android:id="@+id/time_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/from_to"
+        app:layout_constraintStart_toEndOf="@+id/from_to"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:text="21:00" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
