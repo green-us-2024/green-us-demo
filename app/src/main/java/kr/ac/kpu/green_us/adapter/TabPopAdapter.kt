@@ -42,9 +42,10 @@ class TabPopAdapter():RecyclerView.Adapter<TabPopAdapter.TabPopViewHolder>() {
         var term : TextView = view.findViewById(R.id.tag_term)// 진행기간
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
+        var type : TextView = view.findViewById(R.id.type) //그리닝 유형
 
         init{
-            view.setOnClickListener{ itemClickListener?.onItemClick("in") }
+            view.setOnClickListener{ itemClickListener?.onItemClick("notIn") }
         }
     }
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -29,14 +30,19 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: TabNewViewHolder, position: Int) {
-        holder.itemimage.setImageResource(R.drawable.card_test_img)
-        holder.itemtitle.setText("테스트 그리닝")
+        holder.img.setImageResource(R.drawable.card_test_img)
+        holder.title.setText("테스트 그리닝")
     }
 
     inner class TabNewViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val cardView: ConstraintLayout = view.findViewById(R.id.card_container)
-        var itemimage: ImageView = view.findViewById(R.id.greening_img)
-        var itemtitle: TextView = view.findViewById(R.id.greeng_title)
+        var img: ImageView = view.findViewById(R.id.greening_img) // 대표이미지
+        var title: TextView = view.findViewById(R.id.greeng_title) // 그리닝명
+        var deadLine : TextView = view.findViewById(R.id.tv_time) // 마감시간
+        var deadLineLayout : LinearLayout = view.findViewById(R.id.deadline_layout) // 마감시간 표시 영역
+        var term : TextView = view.findViewById(R.id.tag_term)// 진행기간
+        var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
+        var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
+        var type : TextView = view.findViewById(R.id.type) //그리닝 유형
         init{
             view.setOnClickListener{ itemClickListener?.onItemClick("in") }
         }
