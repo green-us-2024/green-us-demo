@@ -93,6 +93,14 @@ class SubActivity : AppCompatActivity() {
             binding.subject.setText("활동형 그리닝")
             MyGreenDoMoreFragment().changeFragment()
         }
+
+        // 13 히어로 섹션 리스트
+        val value13 = intent.getStringExtra("13")
+        if(value13 == "hero_list"){
+            binding.subject.setText("정보")
+            HeroSectionListFragment().changeFragment()
+        }
+
     }
 
     private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {

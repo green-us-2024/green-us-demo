@@ -108,7 +108,12 @@ class TabOfHomeFragment : Fragment() {
             val intent = Intent(requireActivity(), MapActivity::class.java)
             startActivity(intent)
         }
-
+        // 히어로 섹션 전체보기
+        binding.adPaging.setOnClickListener {
+            val intent = Intent(requireActivity(), SubActivity::class.java)
+            intent.putExtra("13","hero_list")
+            startActivity(intent)
+        }
 
     }
     //뷰페이저에 들어갈 아이템(이미지)

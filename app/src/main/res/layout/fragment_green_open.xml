@@ -52,15 +52,78 @@
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
-            android:id="@+id/start_date_"
+            android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:text="@string/type"
             android:textColor="@color/black"
             android:textSize="12sp"
-            android:text="@string/start_date_"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name_et" />
+
+        <LinearLayout
+            android:id="@+id/type_radio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type">
+
+            <RadioGroup
+                android:id="@+id/radio_group4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/do_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_radio_btn"
+                    android:button="@null"
+                    android:minWidth="156dp"
+                    android:padding="9dp"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/do_green"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/buy_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_radio_btn"
+                    android:button="@null"
+                    android:minWidth="156dp"
+                    android:padding="9dp"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="5dp"
+                    android:text="@string/buy_green"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_radio_text"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/start_date_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_date_"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_radio" />
 
         <EditText
             android:id="@+id/start_date_et"
@@ -354,7 +417,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_num" />
+            app:layout_constraintTop_toBottomOf="@+id/green_detail_et" />
 
         <EditText
             android:id="@+id/upload_picture_et"

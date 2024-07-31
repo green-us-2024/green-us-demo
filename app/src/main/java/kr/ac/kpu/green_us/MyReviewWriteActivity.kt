@@ -1,8 +1,9 @@
 package kr.ac.kpu.green_us
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kr.ac.kpu.green_us.databinding.ActivityMyReviewWriteBinding
 
 
@@ -16,10 +17,11 @@ class MyReviewWriteActivity : AppCompatActivity() {
 
         // 리뷰 작성 버튼
         binding.writeReviewBtn.setOnClickListener {
-            val intent = Intent(this, SubActivity::class.java)
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intent.putExtra("3","my_review")
+            val intent = Intent(this, MyReviewActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            //intent.putExtra("3","my_review")
             startActivity(intent)
         }
     }
+
 }
