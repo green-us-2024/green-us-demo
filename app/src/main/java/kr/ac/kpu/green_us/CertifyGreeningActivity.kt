@@ -37,6 +37,8 @@ import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 class CertifyGreeningActivity : AppCompatActivity() {
 
@@ -188,42 +190,54 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private fun imageUpload(uri: Uri) {
         val uid = auth.uid.toString()
 
-        if (uri != null){
+        if (uri != null) {
             val storage = Firebase.storage
+            //현재 로그인 한 사용자 이메일 가져오기
+            val user = Firebase.auth.currentUser
+//            user?.let { val email = it.email }
+            val userEmail = user?.email.toString()
+            Log.d("currentEmail", userEmail)
 
-            // storage에 저장할 파일명 선언 (uid+시간)
-            val fileName = uid+SimpleDateFormat("yyyyMMddHHmmss").format(Date())
+            // storage에 저장할 파일명 선언 (email+시간)
+
+            val fileName = userEmail + getFormattedDate()
 
             // storage 및 store에 업로드 작업 certifiedImgs에 fileName으로 이미지 저장
             // 스토리지에 저장후 url을 다운로드 받아 스토어에 저장
             storage.getReference("certificationImgs/").child(fileName).putFile(uri)
-                .addOnSuccessListener {
-                        taskSnapshot ->
-                    Log.d("storageUploadSuccess","인증사진 스토리지 업로드 성공")
+                .addOnSuccessListener { taskSnapshot ->
+                    Log.d("storageUploadSuccess", "인증사진 스토리지 업로드 성공")
                     taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener {
                         val store = Firebase.firestore
                         val url = it.toString()
-                        val data = CertifiedImgs(uid,url)
+                        val data = CertifiedImgs(uid, url, userEmail)
                         store.collection("certificationImgs").document()
                             .set(data).addOnSuccessListener {
                                 Toast.makeText(this, "사진이 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
-                                Log.d("storeUploadSuccess","인증사진 db 업로드 성공")
+                                Log.d("storeUploadSuccess", "인증사진 db 업로드 성공")
                             }.addOnFailureListener {
-                                Log.d("storeUploadFail","인증사진 db 업로드 실패")
+                                Log.d("storeUploadFail", "인증사진 db 업로드 실패")
                             }
                     }
-                }.addOnFailureListener{
+                }.addOnFailureListener {
                     Toast.makeText(this, "사진 업로드에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                    Log.d("storageUploadFail","인증사진 스토리지 업로드 실패")
+                    Log.d("storageUploadFail", "인증사진 스토리지 업로드 실패")
                 }
-        }else{
+        } else {
             Toast.makeText(this, "사진을 불러올 수 없습니다.", Toast.LENGTH_SHORT).show();
-            Log.d("UriError","uri null 에러")
+            Log.d("UriError", "uri null 에러")
         }
-
     }
+    private fun getFormattedDate() : String {
+        //format 설정
+        val format = SimpleDateFormat("yyyy-MM-dd kk:mm:ss E", Locale.KOREA)
+        //TimeZone  설정 (GMT +9)
+        format.timeZone = TimeZone.getTimeZone("Asia/Seoul")
 
-
+        //현재시간에 적용
+        return format.format(Date().time)
+    }
 }
+
 
 

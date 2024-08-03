@@ -59,12 +59,12 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
                 val aimData = data.data.get("url").toString()
                 storageUrlList.add(aimData)
                 if (aimData == url){ // 선택된 이미지와 같은 url을 찾아 그것의 uid를 가져옴
-                    val result = data.data.get("uid").toString() // result = 찾은 uid 값
-                    if (result != null){ // uid가 null이 아니라면 reportedUid라는 태그로 로그에 찍음
-                        Log.d("reportedUid",result)
+                    val result = data.data.get("userEmail").toString() // result = 찾은 email 값
+                    if (result != null){ // email이 null이 아니라면 reportedEmail 이라는 태그로 로그에 찍음
+                        Log.d("reportedEmail",result)
                         Toast.makeText(this, "신고되었습니다.", Toast.LENGTH_SHORT).show();
-                    }else{ // url은 있는데 uid가 없는 경우
-                        Log.d("reportedUid","null Error")
+                    }else{ // url은 있는데 email이 없는 경우
+                        Log.d("reportedEmail","null Error")
                         Toast.makeText(this, "삭제된 회원입니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
