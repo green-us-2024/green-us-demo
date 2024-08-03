@@ -19,11 +19,11 @@ class SplashActivity : AppCompatActivity() {
 
         //이전에 로그인한 사용자 정보를 가져옴
         val user = Firebase.auth.currentUser
-        Log.d("user",user.toString())
 
         // 이전에 자동로그인 버튼 클릭 여부를 확인함
         PreferApplication.prefer = SharedPreferencesUtil(applicationContext)
         val switchStatus = PreferApplication.prefer.getString("switch","")
+        Log.d("switchStatus",switchStatus)
 
         // 자동 로그인 기능 구현 코드
         if (switchStatus == "on"){ // 자동로그인을 클릭했었다면

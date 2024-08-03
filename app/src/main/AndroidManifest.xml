@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-feature android:name="android.hardware.SensorEventListener" />
     <uses-feature
         android:name="android.hardware.camera"
@@ -25,6 +26,9 @@
         android:theme="@style/Theme.Green_us"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".CertificationImgDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".ViewAllCertifiedImgActivity"
             android:exported="false" />

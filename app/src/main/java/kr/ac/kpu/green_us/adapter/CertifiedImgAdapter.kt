@@ -5,13 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kr.ac.kpu.green_us.R
 
-class CertifiedImgAdapter: RecyclerView.Adapter<CertifiedImgAdapter.CertifiedImgViewHolder>(){
+class CertifiedImgAdapter(private val representImgList: MutableList<String>): RecyclerView.Adapter<CertifiedImgAdapter.CertifiedImgViewHolder>(){
 
-    // 카트 클릭 위한 인터페이스 지정
+    // 이미지 클릭 위한 인터페이스 지정
     interface OnItemClickListener {
-        fun onItemClick(){}
+        fun onItemClick(url:String){}
     }
     var itemClickListener: OnItemClickListener? = null
 
@@ -25,14 +26,13 @@ class CertifiedImgAdapter: RecyclerView.Adapter<CertifiedImgAdapter.CertifiedImg
     }
 
     override fun onBindViewHolder(holder: CertifiedImgViewHolder, position: Int) {
-
-        holder.certifiedImg.setImageResource(R.drawable.card_test_img)
+        // 인증이미지 스토리지에 있는 사진들을 불러와 붙임
+        Glide.with(holder.itemView.context).load(representImgList[position]).into(holder.certifiedImg)
 
     }
 
     override fun getItemCount(): Int {
-        // datalist.count() -> 데이터에 있는 만큼
-        return 20
+        return representImgList.count()
     }
 
     inner class CertifiedImgViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -40,7 +40,7 @@ class CertifiedImgAdapter: RecyclerView.Adapter<CertifiedImgAdapter.CertifiedImg
         var certifiedImg: ImageView = itemView.findViewById(R.id.imageView4)
 
         init{
-            itemView.setOnClickListener{ itemClickListener?.onItemClick() }
+            certifiedImg.setOnClickListener{ itemClickListener?.onItemClick(representImgList[position]) }
         }
 
     }

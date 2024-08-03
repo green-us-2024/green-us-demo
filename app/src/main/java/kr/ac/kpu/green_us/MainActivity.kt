@@ -50,6 +50,11 @@ class MainActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
+            /* 현재로그인한 사용자 이메일 가져오는 코드
+            val user = Firebase.auth.currentUser
+            user?.let { val email = it.email}
+            Log.d("email", user?.email.toString())
+ㄱ             */
             reload()
         }
     }

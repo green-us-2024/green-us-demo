@@ -25,17 +25,18 @@ class LoginActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         auth = Firebase.auth
-        val user = Firebase.auth.currentUser
-        user?.let {
-            // Name, email address, and profile photo Url
-            val email = it.email.toString()
-            Log.d("useremail",email)
-            // Check if user's email is verified
-            val emailVerified = it.isEmailVerified.toString()
-            Log.d("useremail",emailVerified)
-
-        }
-
+//        val user = Firebase.auth.currentUser
+//        user?.let {
+//            // Name, email address, and profile photo Url
+//            val email = it.email.toString()
+////            Log.d("useremail",email)
+//            // Check if user's email is verified
+//            val emailVerified = it.isEmailVerified.toString()
+////            Log.d("useremail",emailVerified)
+//
+//        }
+        // 진입시 자동로그인버튼 초기화
+        btnAutoInit()
 
         var id_msg = ""
         var pw_msg = ""
@@ -141,7 +142,7 @@ class LoginActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 자동로그인 버튼 클릭하면
+        //자동로그인 버튼 클릭
         binding.autoLoginBtn.setOnCheckedChangeListener { compoundButton, onSwitch ->
             if (onSwitch){
                 Log.d("switch","on")
@@ -152,5 +153,8 @@ class LoginActivity: AppCompatActivity() {
                 PreferApplication.prefer.setString("switch","off")
             }
         }
+    }
+    private fun btnAutoInit(){
+        PreferApplication.prefer.setString("switch","off")
     }
 }

@@ -5,12 +5,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -54,6 +56,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     // 카메라/갤러리 창 띄우기
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onClick(view: View?) {
         when (view?.id) {
             binding.camera.id -> {

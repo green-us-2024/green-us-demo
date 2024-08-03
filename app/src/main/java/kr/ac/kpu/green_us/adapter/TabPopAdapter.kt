@@ -45,7 +45,7 @@ class TabPopAdapter():RecyclerView.Adapter<TabPopAdapter.TabPopViewHolder>() {
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
 
         init{
-            view.setOnClickListener{ itemClickListener?.onItemClick("notIn") }
+            view.setOnClickListener{ itemClickListener?.onItemClick("in") }
         }
     }
 
