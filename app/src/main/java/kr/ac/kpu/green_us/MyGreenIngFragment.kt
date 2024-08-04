@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.GreenCardAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenDegreeAdapter
+import kr.ac.kpu.green_us.adapter.MyGreenEndAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenIngBinding
 
@@ -29,7 +30,6 @@ class MyGreenIngFragment : Fragment() {
         binding = FragmentMyGreenIngBinding.inflate(inflater, container, false)
 
         // 리사이클러뷰 중복 스크롤 막기
-        binding.recyclerviewIngGreening.isNestedScrollingEnabled = false
         binding.recyclerviewGreenDegree.isNestedScrollingEnabled = false
 
         // 진행중인 그리닝 존재 여부에 따라
@@ -42,6 +42,15 @@ class MyGreenIngFragment : Fragment() {
                 suppressLayout(true)
                 layoutManager = viewManager
                 adapter = viewAdapter
+            }
+
+            (viewAdapter as MyGreenIngAdapter).itemClickListener = object : MyGreenIngAdapter.OnItemClickListener {
+                //onItemClick(position: Int)
+                override fun onItemClick() {
+                    val intent = Intent(requireActivity(), GreeningDetailSubActivity::class.java)
+                    intent.putExtra("ing","ing_state")
+                    startActivity(intent)
+                }
             }
 
             // 더보기 버튼 클릭 시

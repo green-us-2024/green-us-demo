@@ -18,11 +18,25 @@ class GreeningDetailSubActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGreeningDetailSubBinding.inflate(layoutInflater)
+        var green_state1 = intent.getStringExtra("ing")
+        var green_state2 = intent.getStringExtra("end")
 
-        // 리뷰 작성 버튼 클릭 시
-        binding.button.setOnClickListener{
-            val intent = Intent(this, MyReviewWriteActivity::class.java)
-            startActivity(intent)
+        if(green_state1 == "ing_state"){
+            binding.button.setText("인증하기")
+            // 리뷰 작성 버튼 클릭 시
+            binding.button.setOnClickListener{
+                val intent = Intent(this, CertifyGreeningActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        else if(green_state2 == "end_state"){
+            binding.button.setText("리뷰 작성")
+            // 리뷰 작성 버튼 클릭 시
+            binding.button.setOnClickListener{
+                val intent = Intent(this, SubActivity::class.java)
+                intent.putExtra("3","my_review_write")
+                startActivity(intent)
+            }
         }
 
         setContentView(binding.root)

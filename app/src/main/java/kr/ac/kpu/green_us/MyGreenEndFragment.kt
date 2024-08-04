@@ -44,6 +44,7 @@ class MyGreenEndFragment : Fragment() {
                 //onItemClick(position: Int)
                 override fun onItemClick() {
                     val intent = Intent(requireActivity(), GreeningDetailSubActivity::class.java)
+                    intent.putExtra("end","end_state")
                     startActivity(intent)
                 }
             }
