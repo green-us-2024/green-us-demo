@@ -2,6 +2,7 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,7 @@ class GreeningDetailSubActivity : AppCompatActivity() {
         binding = ActivityGreeningDetailSubBinding.inflate(layoutInflater)
         var green_state1 = intent.getStringExtra("ing")
         var green_state2 = intent.getStringExtra("end")
+        var green_state3 = intent.getStringExtra("open")
 
         if(green_state1 == "ing_state"){
             binding.button.setText("인증하기")
@@ -37,6 +39,9 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                 intent.putExtra("3","my_review_write")
                 startActivity(intent)
             }
+        }
+        else if(green_state3 == "open_state"){
+            binding.button.visibility = View.GONE
         }
 
         setContentView(binding.root)

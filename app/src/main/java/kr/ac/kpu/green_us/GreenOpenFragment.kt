@@ -34,10 +34,15 @@ class GreenOpenFragment : Fragment() {
 
         // 개설하기 버튼
         binding.openGreenBtn.setOnClickListener {
-            val intent = Intent(getActivity(), MainActivity::class.java)
-            intent.putExtra("key2_3", "open")
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+            if(binding.nameEt.text.toString().trim().isEmpty()){
+                binding.nameEt.requestFocus()
+            }
+            else{
+                val intent = Intent(getActivity(), MainActivity::class.java)
+                intent.putExtra("key2_3", "open")
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+            }
         }
 
         // 달력 이미지 클릭

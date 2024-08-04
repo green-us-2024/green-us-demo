@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kr.ac.kpu.green_us.adapter.MyGreenIngAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenOpenAdapter
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenOpenBinding
 
@@ -35,6 +37,15 @@ class MyGreenOpenFragment : Fragment() {
                 suppressLayout(true)
                 layoutManager = viewManager
                 adapter = viewAdapter
+            }
+
+            (viewAdapter as MyGreenOpenAdapter).itemClickListener = object : MyGreenOpenAdapter.OnItemClickListener {
+                //onItemClick(position: Int)
+                override fun onItemClick() {
+                    val intent = Intent(requireActivity(), GreeningDetailSubActivity::class.java)
+                    intent.putExtra("open","open_state")
+                    startActivity(intent)
+                }
             }
         }
         else { // 존재하지 않을 경우
