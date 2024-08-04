@@ -9,8 +9,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
 
-class MyGreenOpenAdapter() :
-    RecyclerView.Adapter<MyGreenOpenAdapter.GreenCardHolder>() {
+class MyGreenIngMoreAdapter() :
+    RecyclerView.Adapter<MyGreenIngMoreAdapter.GreenCardHolder>() {
 
     interface OnItemClickListener {
         //onItemClick(position: Int)
@@ -19,16 +19,14 @@ class MyGreenOpenAdapter() :
         fun onItemClick() {}
     }
 
-    var itemClickListener: MyGreenOpenAdapter.OnItemClickListener? = null
-
+    var itemClickListener: MyGreenIngMoreAdapter.OnItemClickListener? = null
 
     inner class GreenCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val cardView: ConstraintLayout = itemView.findViewById(R.id.card_container)
         var itemimage: ImageView = itemView.findViewById(R.id.greening_img)
         var itemtitle: TextView = itemView.findViewById(R.id.greeng_title)
-
-        init {
-            itemView.setOnClickListener {
+        init{
+            itemView.setOnClickListener{
 
                 itemClickListener?.onItemClick()
             }
@@ -39,7 +37,7 @@ class MyGreenOpenAdapter() :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): MyGreenOpenAdapter.GreenCardHolder {
+    ): MyGreenIngMoreAdapter.GreenCardHolder {
         // create a new view
         val cardView = LayoutInflater.from(parent.context)
             .inflate(R.layout.cardview_greening, parent, false)
@@ -55,6 +53,6 @@ class MyGreenOpenAdapter() :
 
     // 3. Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
-        return 10
+        return 20
     }
 }

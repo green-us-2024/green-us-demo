@@ -43,14 +43,13 @@ class SubActivity : AppCompatActivity() {
             GreenOpenFragment().changeFragment()
         }
 
-        // 3 내리뷰
-/*
+        // 3 내리뷰 작성
         val value3 = intent.getStringExtra("3")
-        if(value3 == "my_review"){
-            binding.subject.setText("내리뷰")
-            MyReviewActivity().changeFragment()
+        if(value3 == "my_review_write"){
+            binding.subject.setText("리뷰 작성")
+            MyReviewWriteFragment().changeFragment()
         }
-*/
+
         // 4 프로필관리
 
         // 5 공지사항
