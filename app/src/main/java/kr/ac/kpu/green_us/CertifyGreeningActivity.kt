@@ -198,11 +198,9 @@ class CertifyGreeningActivity : AppCompatActivity() {
             val userEmail = user?.email.toString()
             Log.d("currentEmail", userEmail)
 
-            // storage에 저장할 파일명 선언 (email+시간)
-
-            val fileName = userEmail + getFormattedDate()
-
-            // storage 및 store에 업로드 작업 certifiedImgs에 fileName으로 이미지 저장
+            // storage에 저장할 파일명 선언 (시간)
+            val fileName = getFormattedDate()
+            // storage 및 store에 업로드 작업 certifiedImgs/userEmail에 시간으로 이미지 저장
             // 스토리지에 저장후 url을 다운로드 받아 스토어에 저장
             storage.getReference("certificationImgs/").child(fileName).putFile(uri)
                 .addOnSuccessListener { taskSnapshot ->

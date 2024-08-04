@@ -50,7 +50,7 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
         // 클릭한 이미지 url 받아와서 이미지뷰에 붙임
         Glide.with(this).load(url).into(binding.selectedImg)
     }
-    // 다이얼로그에서 신고 버튼 클릭시 해당 url의 uid 값 받아옴
+    // 다이얼로그에서 신고 버튼 클릭시 해당 url의 이메일 값 받아옴
     private fun searchUrlUid(url: String) {
         val store = Firebase.firestore
         val storageUrlList = arrayListOf<String>() //firestore에 저장된 이미지 url 담을 리스트
