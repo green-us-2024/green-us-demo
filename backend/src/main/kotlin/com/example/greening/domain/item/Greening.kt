@@ -49,6 +49,9 @@ open class Greening (
         @Column(name = "g_number")
         var gNumber: Int? = null,
 
+        @Column(name = "g_kind")
+        var gKind: Int? = null,
+
         @JsonManagedReference
         @OneToMany(mappedBy = "greening", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
         val reviews: List<Review> = mutableListOf()

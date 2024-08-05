@@ -125,6 +125,16 @@
           <theme>@style/Theme.Green_us</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sub.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_all_certified_img.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/bottom_sheet_layout.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
@@ -136,6 +146,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_greening.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_hero.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
         </config>
@@ -160,12 +175,32 @@
           <theme>@style/Theme.Green_us</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_green_open.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_hero_section_detail.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_hero_section_list.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_join1.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_join2.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
         </config>
@@ -185,7 +220,22 @@
           <theme>@style/Theme.Green_us</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_green_buy_more.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_green_do_more.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_green_end.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_green_end_more.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
         </config>
@@ -195,7 +245,22 @@
           <theme>@style/Theme.Green_us</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_green_ing_more.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_my_green_open.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_mypage.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pedometer.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
         </config>
@@ -216,6 +281,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/hero_item.xml">
+        <config>
+          <theme>@style/Theme.Green_us</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_certified_img.xml">
         <config>
           <theme>@style/Theme.Green_us</theme>
         </config>
@@ -278,6 +348,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -297,14 +370,17 @@
     "cidr.known.project.marker": "true",
     "com.google.services.firebase.aqiPopupShown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/danbi/Downloads/green-us-demo-personal_lee (1)/green-us-demo-personal_lee/frontend/app/src/main/res/layout"
+    "last_directory_selection": "C:/Users/danbi/Downloads/green-us-demo-personal_lee (1)/green-us-demo-personal_lee/frontend/app/src/main/java",
+    "last_opened_file_path": "C:/Users/danbi/Downloads/green-us-demo-personal_lee (1)/green-us-demo-personal_lee/frontend/app/src/main/java/kr/ac/kpu/green_us/adapter"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\java\kr\ac\kpu\green_us\adapter" />
+      <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\java\kr\ac\kpu\green_us" />
+      <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\java" />
       <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\res\layout" />
-      <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\res\drawable" />
-      <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\java\kr\ac\kpu\green_us\common\dto" />
+      <recent name="C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\java\kr\ac\kpu\green_us\util" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="kr.ac.kpu.green_us.adapter" />

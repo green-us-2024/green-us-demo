@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Greening
 
-class HomeDoAdapter(private var greeningList: List<Greening>) :
+class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
     RecyclerView.Adapter<HomeDoAdapter.GreenCardHolder>(){
         class GreenCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var itemimage: ImageView = itemView.findViewById(R.id.greening_img)

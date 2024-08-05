@@ -2,11 +2,21 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.GreeningDetailSubAdapter
+import kr.ac.kpu.green_us.adapter.TabNewAdapter
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.databinding.ActivityGreeningDetailSubBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // 간단한 그리닝 정보만 담은 상세페이지 보여줌
 class GreeningDetailSubActivity : AppCompatActivity() {
@@ -34,10 +44,18 @@ class GreeningDetailSubActivity : AppCompatActivity() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
+
+        //loadGreeningDate(viewAdapter)
+
         //이전 화면으로
         binding.btnEsc.setOnClickListener {
             this.finish()
         }
+    }
+
+    private fun loadGreeningDate(adapter: GreeningDetailSubAdapter){
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+
     }
 
 }

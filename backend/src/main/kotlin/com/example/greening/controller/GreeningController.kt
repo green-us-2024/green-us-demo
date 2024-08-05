@@ -48,6 +48,36 @@ class GreeningController(private val greeningService: GreeningService) {
         return ResponseEntity.ok(greening)
     }
 
+    @GetMapping("/byGKind/{gKind}")
+    fun getGreeningBygKind(@PathVariable gKind: Int): ResponseEntity<List<Greening>> {
+        val greening = greeningService.findBygKind(gKind)
+        return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/list/do")
+    fun getDoGreeningBygKind(): ResponseEntity<List<Greening>> {
+        val greening = greeningService.findDoGreenBygKind()
+        return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/list/buy")
+    fun getBuyGreeningBygKind(): ResponseEntity<List<Greening>> {
+        val greening = greeningService.findBuyGreenBygKind()
+        return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/list/new")
+    fun getNewGreening(): ResponseEntity<List<Greening>> {
+        val greening = greeningService.findNewGreen()
+        return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/list/pop")
+    fun getPopGreening(): ResponseEntity<List<Greening>> {
+        val greening = greeningService.findPopGreen()
+        return ResponseEntity.ok(greening)
+    }
+
     @GetMapping("/byUserSeq/{userSeq}")
     fun getGreeningByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Greening>> {
         val greening = greeningService.findByUserId(userSeq)

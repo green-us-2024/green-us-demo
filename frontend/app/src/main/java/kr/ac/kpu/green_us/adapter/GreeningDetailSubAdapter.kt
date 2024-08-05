@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.common.dto.Greening
 
 class GreeningDetailSubAdapter() : RecyclerView.Adapter<GreeningDetailSubAdapter.GreeningDetailSubViewHolder>(){
     class GreeningDetailSubViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -18,6 +19,8 @@ class GreeningDetailSubAdapter() : RecyclerView.Adapter<GreeningDetailSubAdapter
         public var itemStartDate: TextView = itemView.findViewById(R.id.tv_start_date)
         public var itemParticiFee: TextView = itemView.findViewById(R.id.tv_participate_fee)
     }
+
+    private var greening: Greening? = null
 
     override fun onBindViewHolder(holder: GreeningDetailSubViewHolder, position: Int) {
         holder.itemimage.setImageResource(R.drawable.card_test_img)
@@ -40,6 +43,11 @@ class GreeningDetailSubAdapter() : RecyclerView.Adapter<GreeningDetailSubAdapter
 
     override fun getItemCount(): Int {
         return 1
+    }
+
+    fun updateData(newGreening: Greening?) {
+        greening = newGreening
+        notifyDataSetChanged()
     }
 
 }

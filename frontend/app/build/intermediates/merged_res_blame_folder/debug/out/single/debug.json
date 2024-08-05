@@ -1,542 +1,666 @@
 [
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_hold.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_hold.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_green_open.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_green_open.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_dialog_back.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/dialog_back.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_my_green_ing_more.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_green_ing_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_point.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_point.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_greening_view.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/greening_view.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_logo.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\logo.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_find_email.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_selector_radio_btn.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/selector_radio_btn.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_recyclerview_item_greening_detail_sub.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\recyclerview_item_greening_detail_sub.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_address_search.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_address_search.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_notification.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\notification.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_splash_img.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/splash_img.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_camera_btn.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\camera_btn.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/xml_backup_rules.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_hero_item.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\hero_item.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_img_splash.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/img_splash.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_point.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\point.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_circle.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/circle.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_point_withdraw.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_point_withdraw.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_main.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_main.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_cardview_notice.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_notice.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_cardview_point.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_point.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_forward_12.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/forward_12.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_hashtag.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\hashtag.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_delete_check.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_delete_check.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_img.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\img.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_hero_img_1.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/hero_img_1.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_rectangle.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\rectangle.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_hero_img_2.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/hero_img_2.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_deadline_form.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\deadline_form.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_navi_selector_home.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_navi_selector_home.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_stamp.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\stamp.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_ic_launcher_background.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/ic_launcher_background.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_fragment_my_green_end.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_my_green_end.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_my_review_write.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_review_write.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-hdpi_logo.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-hdpi\\logo.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_greening.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/greening.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_splash.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\splash.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_back.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_back.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_text_color.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_text_color.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_camera_gallery.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_camera_gallery.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_pedometer.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_pedometer.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_hero_section_list.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_hero_section_list.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_my_review.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_review.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_my_green_end_more.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_green_end_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_mypage.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_mypage.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_pedo.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_pedo.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-hdpi_logo.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-hdpi/logo.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_login.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xhdpi/ic_launcher_foreground.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_navi_selector_mypage.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_navi_selector_mypage.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_logo.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/logo.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_type_card.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\type_card.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_switch_thumb.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/switch_thumb.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_greening_detail.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_greening_detail.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_back.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_back.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_my_profile_edit.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_profile_edit.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_hero_section_detail.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_hero_section_detail.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_hero_img_3.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/hero_img_3.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_selector_radio_btn.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\selector_radio_btn.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_home_false.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_home_false.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_forward_12.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\forward_12.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_hero_banner_counts.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/hero_banner_counts.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_down.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_down.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_dialog_btn2.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\dialog_btn2.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_my_profile.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_profile.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_forward_10.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/forward_10.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_switch_thumb.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\switch_thumb.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_my_green_ing.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_ing.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_find_email2.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email2.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_radius_rectangle.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/radius_rectangle.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_style_round_corner_btn.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\style_round_corner_btn.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/xml_data_extraction_rules.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_greening_test_img.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\greening_test_img.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_mygreen_false.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_mygreen_false.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_recyclerview_stamps.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/recyclerview_stamps.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_my_review_write.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_review_write.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_calendar.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_calendar.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_navi_selector_mygreen.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_navi_selector_mygreen.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_fragment_join1.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_join1.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_button_custom.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/button_custom.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_buy_more.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_buy_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_upload_file.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\upload_file.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_up.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_up.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_find_email2.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_email2.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_cardview_point.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_point.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_tab_of_home.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_tab_of_home.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_pedo.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_pedo.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_prev_32.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_prev_32.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_cardview_green_degree.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_green_degree.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_bottom_sheet_layout.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/bottom_sheet_layout.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_tab_of_popular.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_popular.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_do_more.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_do_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_mypage_false.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_mypage_false.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_hero_img_2.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\hero_img_2.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_join2.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join2.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_home_false.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_home_false.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_faq.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_faq.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_cardview_greening.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_greening.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_radius_10_img_green.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/radius_10_img_green.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_green_open.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_green_open.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-mdpi/ic_launcher_foreground.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_mypage.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_mypage.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_my_green_end.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_end.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_navi_selector_home.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_navi_selector_home.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_user_img.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/user_img.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_recyclerview_item_greening_detail.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/recyclerview_item_greening_detail.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-mdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-hdpi/ic_launcher.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_faq.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_faq.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_camera.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/camera.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_join2.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join2.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_upload_file.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/upload_file.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_setting.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\setting.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_tab_of_new.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_new.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_ing_more.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_ing_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_my_green.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_address_search.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_address_search.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_notice.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_notice.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_cardview_hero.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_hero.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_search.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_search.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_cardview_my_review.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_my_review.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_selector_radio_text.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/selector_radio_text.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_join_complt.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join_complt.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_market.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_market.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_join_address.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join_address.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_setting.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/setting.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_recyclerview_item_greening_detail.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\recyclerview_item_greening_detail.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_my_green_open.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_open.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_join_complt.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_join_complt.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_deadline_form.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/deadline_form.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_activity_view_all_certified_img.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/activity_view_all_certified_img.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xxhdpi/ic_launcher_foreground.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_pedometer.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_pedometer.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_greening_test_img.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/greening_test_img.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_tab_of_new.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_tab_of_new.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_border_only_bottom.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/border_only_bottom.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_my_profile_edit.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_profile_edit.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_point.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/point.png"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_activity_certify_greening.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/activity_certify_greening.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_greening_detail.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_greening_detail.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_img.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/img.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_forward_10.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\forward_10.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_green_open.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_green_open.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_button_custom.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\button_custom.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/menu_menu_bottom_navi.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/menu/menu_bottom_navi.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_end_more.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_end_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_greening_detail_sub.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_greening_detail_sub.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_fragment_my_green_open.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_my_green_open.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_my_green_ing_more.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_green_ing_more.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_test_greening_detail_official.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\test_greening_detail_official.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_splash.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/splash.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_rectangle.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/rectangle.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_baseline_keyboard_arrow_down_24.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\baseline_keyboard_arrow_down_24.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_join.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_join.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_pedometer.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_pedometer.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_home.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_home.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_style_round_corner_btn.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/style_round_corner_btn.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_my_review.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_review.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_mygreen.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_mygreen.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_mygreen_false.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_mygreen_false.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_radius_10_img_yellow.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/radius_10_img_yellow.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_border_only_bottom.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\border_only_bottom.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-hdpi_ic_launcher_foreground.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-hdpi/ic_launcher_foreground.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_find_email_complt.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email_complt.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_hero_img_3.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\hero_img_3.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_point_layout.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/point_layout.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_fragment_my_green_ing.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_my_green_ing.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_search.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_search.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_login.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_login.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_items_market.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\items_market.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_notice.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_notice.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_splash.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_splash.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_market.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_market.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_home.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_home.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_delete_check.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_delete_check.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_button_custom2.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\button_custom2.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_tab_of_home.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_home.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_calendar.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_calendar.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_hashtag.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/hashtag.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_navi_selector_mygreen.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_navi_selector_mygreen.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_greening.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\greening.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_join1.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join1.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_join.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_join.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_circle.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\circle.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_dialog_btn2.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/dialog_btn2.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_camera.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\camera.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_cardview_my_review.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_my_review.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_radius_10_img_yellow.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\radius_10_img_yellow.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_add.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_add.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_navi_selector_mypage.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_navi_selector_mypage.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_camera_btn.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/camera_btn.xml"
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_cardview_greening.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/cardview_greening.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_mypage.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_mypage.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_mygreen.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_mygreen.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_et_form_short.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/et_form_short.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_item_certified_img.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\item_certified_img.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_join_complt.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_join_complt.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_find_pw.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_pw.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_join_address.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join_address.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_greening_view.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\greening_view.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_find_pw.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_pw.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_my_profile.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_profile.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_camera_gallery.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_camera_gallery.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_point_layout.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\point_layout.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_cardview_greening.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_greening.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_down.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_down.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_my_green_end_more.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_green_end_more.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_img_splash.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\img_splash.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable-v24/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_sub.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_sub.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_switch_track.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/switch_track.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_notification.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/notification.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_test_greening_detail_official.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/test_greening_detail_official.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_main.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_card_test_img.png.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/card_test_img.png"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_tab_of_popular.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_tab_of_popular.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_recyclerview_item_greening_detail_sub.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/recyclerview_item_greening_detail_sub.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_bottom_sheet_layout.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\bottom_sheet_layout.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_prev_32.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_prev_32.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_dialog_btn.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\dialog_btn.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_front.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_front.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_ing.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_ing.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_hero_item.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/hero_item.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_up.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_up.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_button_custom2.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/button_custom2.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_map.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_map.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_fragment_join_complt.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join_complt.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\menu_menu_bottom_navi.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\menu\\menu_bottom_navi.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_btn_text_color.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/btn_text_color.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_splash.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_point_withdraw.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_point_withdraw.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_hold.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_hold.png"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_bottom_navi_color.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/bottom_navi_color.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_dialog_back.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\dialog_back.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/drawable_dialog_btn.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/drawable/dialog_btn.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_et_form_short.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\et_form_short.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-merged_res-85:/layout_activity_point.xml.flat",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_point.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_mypage.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_mypage.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_activity_delete_check.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/activity_delete_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_cardview_green_degree.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_green_degree.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_user_img.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\user_img.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_splash_img.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\splash_img.png"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_selector_radio_text.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\selector_radio_text.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_find_email_complt.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_email_complt.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_front.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_front.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_hero_img_1.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\hero_img_1.png"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_fragment_join2.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_join2.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_home.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_mypage_false.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_mypage_false.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_radius_10_img_green.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\radius_10_img_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_end.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_end.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_card_test_img.png.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\card_test_img.png"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_hero_banner_counts.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\hero_banner_counts.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_cardview_notice.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_notice.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_find_email.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_baseline_keyboard_arrow_up_24.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\baseline_keyboard_arrow_up_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_join1.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join1.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_switch_track.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\switch_track.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_fragment_my_green_open.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_open.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-merged_res-87:/layout_fragment_mypage.xml.flat",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_mypage.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_radius_rectangle.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\radius_rectangle.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_sheet_form.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_sheet_form.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_bottom_navi_color.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\bottom_navi_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\drawable_btn_add.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\drawable\\btn_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-merged_res-87:\\layout_activity_greening_detail_sub.xml.flat",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_greening_detail_sub.xml"
     }
 ]

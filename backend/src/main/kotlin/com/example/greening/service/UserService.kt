@@ -70,4 +70,8 @@ class UserService(private val userRepository: UserRepository) {
     fun findByEmail(userEmail: String): User?{
         return userRepository.findByEmail(userEmail)
     }
+
+    fun findUserSeqByEmail(userEmail: String): Int? {
+        return userRepository.findUserSeqByEmail(userEmail)
+    }
 }

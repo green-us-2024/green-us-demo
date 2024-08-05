@@ -1,190 +1,294 @@
 [
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_greening.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_greening.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\cardview_point.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_point.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_greening_detail.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_greening_detail.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\cardview_greening.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_greening.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/hero_item.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/hero_item.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\items_market.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\items_market.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join2.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join2.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_ing_more.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_ing_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_email2.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email2.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_find_email.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_email.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_my_review_write.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_review_write.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green_open.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_open.xml"
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/fragment_join1.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_join1.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_point_withdraw.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_point_withdraw.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_hero_section_list.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_hero_section_list.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_profile.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_profile.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_home.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_main.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_main.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_ing.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_ing.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_point.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_point.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_delete_check.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_delete_check.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_tab_of_popular.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_popular.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_point_withdraw.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_point_withdraw.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_camera_gallery.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_camera_gallery.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_find_pw.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_pw.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_profile_edit.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_profile_edit.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_end.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_end.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_home.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_home.xml"
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/cardview_greening.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/cardview_greening.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_email_complt.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email_complt.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_splash.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_point.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_point.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_point.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_point.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_notice.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_notice.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_end_more.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_end_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_green_ing_more.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_green_ing_more.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_hero_section_detail.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_hero_section_detail.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join_address.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join_address.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\recyclerview_item_greening_detail_sub.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\recyclerview_item_greening_detail_sub.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_green_end_more.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_green_end_more.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\recyclerview_item_greening_detail.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\recyclerview_item_greening_detail.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green_ing.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_ing.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_tab_of_new.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_tab_of_new.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_green_open.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_green_open.xml"
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/fragment_my_green_open.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_my_green_open.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_review.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_review.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_map.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_map.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_notice.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_notice.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_delete_check.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_delete_check.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\cardview_my_review.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_my_review.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_pw.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_pw.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_find_email2.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_email2.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_tab_of_new.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_new.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_join_address.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join_address.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/recyclerview_item_greening_detail.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/recyclerview_item_greening_detail.xml"
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/activity_view_all_certified_img.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/activity_view_all_certified_img.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join_complt.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join_complt.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_join.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_join.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_greening_detail_sub.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_greening_detail_sub.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_notice.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_notice.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_login.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_login.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_my_review.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_review.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_address_search.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_address_search.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\cardview_hero.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_hero.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_my_review.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_my_review.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_join2.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join2.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_join_complt.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_join_complt.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_find_email_complt.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_find_email_complt.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_pedometer.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_pedometer.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_do_more.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_do_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_tab_of_home.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_tab_of_home.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_pedometer.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_pedometer.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_my_review_write.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_my_review_write.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_sub.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_sub.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_my_green_end.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_my_green_end.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_mypage.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_mypage.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_join1.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_join1.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_tab_of_home.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_tab_of_home.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_splash.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_splash.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_tab_of_popular.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_tab_of_popular.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/cardview_green_degree.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/cardview_green_degree.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_faq.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_faq.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_faq.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_faq.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_login.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/fragment_mypage.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/fragment_mypage.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_join1.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join1.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_find_email.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_find_email.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_open.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_open.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/recyclerview_item_greening_detail_sub.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/recyclerview_item_greening_detail_sub.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_my_green_buy_more.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_my_green_buy_more.xml"
     },
     {
-        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-84:/layout/activity_join.xml",
-        "source": "kr.ac.kpu.green_us.app-main-87:/layout/activity_join.xml"
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_my_profile_edit.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_profile_edit.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_green_open.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_green_open.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\cardview_green_degree.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_green_degree.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/recyclerview_stamps.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/recyclerview_stamps.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/fragment_mypage.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_mypage.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\cardview_notice.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\cardview_notice.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_my_profile.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_green_open.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_green_open.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_address_search.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_address_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_greening_detail.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_greening_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_join_complt.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_join_complt.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/fragment_join2.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_join2.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_greening_detail_sub.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_greening_detail_sub.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/activity_certify_greening.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/activity_certify_greening.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/fragment_my_green_end.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_my_green_end.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/activity_delete_check.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/activity_delete_check.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/bottom_sheet_layout.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/bottom_sheet_layout.xml"
+    },
+    {
+        "merged": "kr.ac.kpu.green_us.app-mergeDebugResources-86:/layout/fragment_my_green_ing.xml",
+        "source": "kr.ac.kpu.green_us.app-main-89:/layout/fragment_my_green_ing.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\bottom_sheet_layout.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\bottom_sheet_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_camera_gallery.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_camera_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_pedometer.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_pedometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_my_green_ing_more.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_green_ing_more.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\hero_item.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\hero_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\item_certified_img.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\item_certified_img.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\activity_my_green_end_more.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\activity_my_green_end_more.xml"
+    },
+    {
+        "merged": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-mergeDebugResources-86:\\layout\\fragment_join_complt.xml",
+        "source": "C:\\Users\\danbi\\.gradle\\daemon\\7.5\\kr.ac.kpu.green_us.app-main-89:\\layout\\fragment_join_complt.xml"
     }
 ]

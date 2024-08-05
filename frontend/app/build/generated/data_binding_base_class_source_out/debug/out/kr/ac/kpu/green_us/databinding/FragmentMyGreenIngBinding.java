@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Guideline;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +29,9 @@ public final class FragmentMyGreenIngBinding implements ViewBinding {
   public final ImageView btnMore;
 
   @NonNull
+  public final ConstraintLayout greenDegree;
+
+  @NonNull
   public final TextView greeningDegree;
 
   @NonNull
@@ -42,6 +47,12 @@ public final class FragmentMyGreenIngBinding implements ViewBinding {
   public final TextView ingTotalGreeningNum;
 
   @NonNull
+  public final ConstraintLayout moreBtn;
+
+  @NonNull
+  public final LinearLayout notExistIng;
+
+  @NonNull
   public final RecyclerView recyclerviewGreenDegree;
 
   @NonNull
@@ -54,18 +65,22 @@ public final class FragmentMyGreenIngBinding implements ViewBinding {
   public final TextView totalDegreePercentage;
 
   private FragmentMyGreenIngBinding(@NonNull NestedScrollView rootView, @NonNull ImageView btnMore,
-      @NonNull TextView greeningDegree, @NonNull Guideline guideline5,
-      @NonNull Guideline guideline6, @NonNull TextView ingGreeningNum,
-      @NonNull TextView ingTotalGreeningNum, @NonNull RecyclerView recyclerviewGreenDegree,
-      @NonNull RecyclerView recyclerviewIngGreening, @NonNull CircularProgressIndicator totalDegree,
-      @NonNull TextView totalDegreePercentage) {
+      @NonNull ConstraintLayout greenDegree, @NonNull TextView greeningDegree,
+      @NonNull Guideline guideline5, @NonNull Guideline guideline6,
+      @NonNull TextView ingGreeningNum, @NonNull TextView ingTotalGreeningNum,
+      @NonNull ConstraintLayout moreBtn, @NonNull LinearLayout notExistIng,
+      @NonNull RecyclerView recyclerviewGreenDegree, @NonNull RecyclerView recyclerviewIngGreening,
+      @NonNull CircularProgressIndicator totalDegree, @NonNull TextView totalDegreePercentage) {
     this.rootView = rootView;
     this.btnMore = btnMore;
+    this.greenDegree = greenDegree;
     this.greeningDegree = greeningDegree;
     this.guideline5 = guideline5;
     this.guideline6 = guideline6;
     this.ingGreeningNum = ingGreeningNum;
     this.ingTotalGreeningNum = ingTotalGreeningNum;
+    this.moreBtn = moreBtn;
+    this.notExistIng = notExistIng;
     this.recyclerviewGreenDegree = recyclerviewGreenDegree;
     this.recyclerviewIngGreening = recyclerviewIngGreening;
     this.totalDegree = totalDegree;
@@ -105,6 +120,12 @@ public final class FragmentMyGreenIngBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.green_degree;
+      ConstraintLayout greenDegree = ViewBindings.findChildViewById(rootView, id);
+      if (greenDegree == null) {
+        break missingId;
+      }
+
       id = R.id.greening_degree;
       TextView greeningDegree = ViewBindings.findChildViewById(rootView, id);
       if (greeningDegree == null) {
@@ -135,6 +156,18 @@ public final class FragmentMyGreenIngBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.more_btn;
+      ConstraintLayout moreBtn = ViewBindings.findChildViewById(rootView, id);
+      if (moreBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.not_exist_ing;
+      LinearLayout notExistIng = ViewBindings.findChildViewById(rootView, id);
+      if (notExistIng == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerview_green_degree;
       RecyclerView recyclerviewGreenDegree = ViewBindings.findChildViewById(rootView, id);
       if (recyclerviewGreenDegree == null) {
@@ -159,9 +192,10 @@ public final class FragmentMyGreenIngBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMyGreenIngBinding((NestedScrollView) rootView, btnMore, greeningDegree,
-          guideline5, guideline6, ingGreeningNum, ingTotalGreeningNum, recyclerviewGreenDegree,
-          recyclerviewIngGreening, totalDegree, totalDegreePercentage);
+      return new FragmentMyGreenIngBinding((NestedScrollView) rootView, btnMore, greenDegree,
+          greeningDegree, guideline5, guideline6, ingGreeningNum, ingTotalGreeningNum, moreBtn,
+          notExistIng, recyclerviewGreenDegree, recyclerviewIngGreening, totalDegree,
+          totalDegreePercentage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

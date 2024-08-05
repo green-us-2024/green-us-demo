@@ -1,11 +1,11 @@
 package com.example.greening.repository
 
-import com.example.greening.domain.item.Certify
 import com.example.greening.domain.item.Greening
 import jakarta.persistence.EntityManager
 import jakarta.persistence.NoResultException
 import jakarta.persistence.PersistenceContext
 import org.springframework.stereotype.Repository
+import java.time.LocalDate
 
 @Repository
 class GreeningRepository {
@@ -59,6 +59,46 @@ class GreeningRepository {
                     .singleResult
         } catch (e: NoResultException) {
             null
+        }
+    }
+
+    fun findBygKind(gKind: Int): List<Greening> {
+        return try {
+            em.createQuery("select g from Greening g where g.gKind = :gKind", Greening::class.java).resultList
+        }catch(e: Exception){
+            emptyList()
+        }
+    }
+
+    fun findDoGreenBygKind(): List<Greening> {
+        return try {
+            em.createQuery("select g from Greening g where g.gKind in (1,3)", Greening::class.java).resultList
+        }catch(e: Exception){
+            emptyList()
+        }
+    }
+
+    fun findBuyGreenBygKind(): List<Greening> {
+        return try {
+            em.createQuery("select g from Greening g where g.gKind in (2,4)", Greening::class.java).resultList
+        }catch(e: Exception){
+            emptyList()
+        }
+    }
+
+    fun findNewGreen(): List<Greening> {
+        return try {
+            em.createQuery("select g from Greening g order by g.gSeq desc", Greening::class.java).resultList
+        }catch(e: Exception){
+            emptyList()
+        }
+    }
+
+    fun findPopGreen(): List<Greening> {
+        return try {
+            em.createQuery("select g from Greening g where g.gStartDate > CURRENT_DATE order by g.gMemberNum desc", Greening::class.java).resultList
+        }catch(e: Exception){
+            emptyList()
         }
     }
 

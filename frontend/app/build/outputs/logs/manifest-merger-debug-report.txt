@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
 MERGED from [androidx.databinding:databinding-adapters:7.4.1] C:\Users\danbi\.gradle\caches\transforms-3\db90ec2ed9a7b5efd905880ba7aa5d88\transformed\databinding-adapters-7.4.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:7.4.1] C:\Users\danbi\.gradle\caches\transforms-3\7ff0522e34a4f2ff279d7965c1b367a9\transformed\jetified-databinding-ktx-7.4.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:7.4.1] C:\Users\danbi\.gradle\caches\transforms-3\c421eeb6f9205e0a7b4801c1e650faf6\transformed\databinding-runtime-7.4.1\AndroidManifest.xml:2:1-7:12
@@ -11,6 +11,7 @@ MERGED from [androidx.databinding:viewbinding:7.4.1] C:\Users\danbi\.gradle\cach
 MERGED from [androidx.navigation:navigation-ui-ktx:2.3.5] C:\Users\danbi\.gradle\caches\transforms-3\63bea13a47096f866792f6cfe0e36764\transformed\navigation-ui-ktx-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\danbi\.gradle\caches\transforms-3\aff69b9abcece1a590224010ee421f14\transformed\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\danbi\.gradle\caches\transforms-3\35bf8cd4a91a662c8048d01bbe83e9c1\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:2:1-36:12
 MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.firebase:firebase-analytics:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\dcc4a6a8fc25c50222cff53349becdb5\transformed\jetified-firebase-analytics-22.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:17:1-43:12
@@ -49,9 +50,18 @@ MERGED from [androidx.compose.ui:ui-android:1.5.0] C:\Users\danbi\.gradle\caches
 MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\danbi\.gradle\caches\transforms-3\60ad2742467bc83c46aec234bf309670\transformed\jetified-activity-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity-compose:1.9.0] C:\Users\danbi\.gradle\caches\transforms-3\faba50318a03fe554b1328d881a01cfd\transformed\jetified-activity-compose-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\danbi\.gradle\caches\transforms-3\e1d28b4dd181219ce78aded945c3ef53\transformed\jetified-glide-4.12.0\AndroidManifest.xml:2:1-12:12
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\34dcc2172248053d71e0b5bcf47188ae\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.prolificinteractive:material-calendarview:1.4.3] C:\Users\danbi\.gradle\caches\transforms-3\15d89031bee54acb996f8227c1e4b23c\transformed\jetified-material-calendarview-1.4.3\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\fe48a570f8c5b7329d82606b05e7f451\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\danbi\.gradle\caches\transforms-3\48bdab415568f744fcffb7e0bdac68ac\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\danbi\.gradle\caches\transforms-3\928f02fd9c3596b6132f23114912c7b5\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:15:1-25:12
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\danbi\.gradle\caches\transforms-3\78d321053855689b15a168e0ac1488fc\transformed\jetified-play-services-auth-base-18.0.4\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:16:1-24:12
+MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc03] C:\Users\danbi\.gradle\caches\transforms-3\b17a14ebc969364bf064c9fea3e7c1ce\transformed\recyclerview-selection-1.1.0-rc03\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\danbi\.gradle\caches\transforms-3\6e3b77550a5a94ce2990f8131ed60448\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\danbi\.gradle\caches\transforms-3\9ee83bc863896e417283d15b9f60bafd\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:17:1-46:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\42afaf7089ef35a18602f33f0abdda56\transformed\jetified-play-services-measurement-sdk-22.0.2\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\danbi\.gradle\caches\transforms-3\1b8af06316c1a056dbac7de2f0e13e99\transformed\jetified-firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
@@ -61,15 +71,9 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\d400b89873e01e62bbaec5105a7ae948\transformed\jetified-play-services-measurement-sdk-api-22.0.2\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.gms:play-services-measurement-base:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\a8ed02e5f17c05173a8cbb6cdd0ba8aa\transformed\jetified-play-services-measurement-base-22.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\danbi\.gradle\caches\transforms-3\3e25818138e52f5b8b5327871e693aa6\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:17:1-40:12
-MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\danbi\.gradle\caches\transforms-3\928f02fd9c3596b6132f23114912c7b5\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\051ef73ad11e29c8d953752b8f857b55\transformed\jetified-integrity-1.2.0\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:15:1-25:12
 MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users\danbi\.gradle\caches\transforms-3\7926eed3bb2dd6232080f8f9419a85c0\transformed\jetified-firebase-installations-interop-17.1.1\AndroidManifest.xml:15:1-19:12
-MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\danbi\.gradle\caches\transforms-3\78d321053855689b15a168e0ac1488fc\transformed\jetified-play-services-auth-base-18.0.4\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.5.3] C:\Users\danbi\.gradle\caches\transforms-3\0daa5552ad406c92657d4aa61e74a7bc\transformed\navigation-common-ktx-2.5.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-common:2.5.3] C:\Users\danbi\.gradle\caches\transforms-3\9cab939594e4142927bd7b9a23689511\transformed\navigation-common-2.5.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\danbi\.gradle\caches\transforms-3\e77df49bc7686995162d9a296f4bab0c\transformed\jetified-savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
@@ -97,12 +101,11 @@ MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users
 MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\danbi\.gradle\caches\transforms-3\fa8e65e2074dd176eb8b8d1ad5957d7c\transformed\fragment-1.4.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\danbi\.gradle\caches\transforms-3\8ae41d88aa55d6208ff3e8f806083e18\transformed\jetified-activity-1.9.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc03] C:\Users\danbi\.gradle\caches\transforms-3\b17a14ebc969364bf064c9fea3e7c1ce\transformed\recyclerview-selection-1.1.0-rc03\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\99da156e5f34f738fd82fa7487543486\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\fdac3471e5de3de9758099d7f2de5e86\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\cd70e4db683797a08f6ec31f9abe4d30\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\98fe9cd5c21c085cdbc9243a9bd8f058\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\b190b4accd24c795ae70e927d7af6cf5\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\a33fe6d552732b6db298023d698ce8df\transformed\swiperefreshlayout-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\cdfe08ae1b13273e9febf8fcf9c95a9d\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\afc5939bb5f5b7ca65754ec9b14a4148\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\384cf24e542c2bb4c24b04ae39996d12\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -112,7 +115,6 @@ MERGED from [androidx.media:media:1.0.0] C:\Users\danbi\.gradle\caches\transform
 MERGED from [androidx.transition:transition:1.3.0] C:\Users\danbi\.gradle\caches\transforms-3\74c40caace41a9c138cf1f41328df705\transformed\transition-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\eab5d834bab66aa70ca94b71508ed8aa\transformed\jetified-autofill-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\da892f628fbf6dd5efb71aaf49a6dc20\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2211336d56dcce2f8c5a8743136fe8be\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\a82823093dddd42e400ef473b89d6c59\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\e9fa8b13fad24c92ab696ed82616fc6e\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:2:1-7:12
@@ -126,6 +128,7 @@ MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\danbi\.gradle\caches\trans
 MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\danbi\.gradle\caches\transforms-3\de93e9e6eadc1a0173890c57ebfc3331\transformed\jetified-gifdecoder-4.12.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\fd5b4edc733efbdebf04845ce03eaca0\transformed\exifinterface-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\78ac03b8fe1d7833513d13c9eb06143f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.naver.maps:geometry:1.3.0] C:\Users\danbi\.gradle\caches\transforms-3\55892f56e52034acd640006315aac286\transformed\jetified-geometry-1.3.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\c97ad00220f97618b45075ba71d19c4c\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:15:1-20:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\danbi\.gradle\caches\transforms-3\7938da114d27ce64962d4a8baa26f381\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\27ffccb19e3e4da845451043800dd6ad\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -133,22 +136,23 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\8026776d3fe922095f5b97c4a9d3ffe5\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\9aee6e7f0e5966fb55877dd13fc82e04\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\2de880da95f032f85bc4afb548e977d6\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\danbi\.gradle\caches\transforms-3\8413617debd6c3644d688825a4284ee5\transformed\jetified-relinker-1.4.4\AndroidManifest.xml:2:1-7:12
+INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
 	package
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-118:12
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:1-117:12
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:2:11-69
@@ -164,18 +168,28 @@ uses-permission#android.permission.ACTIVITY_RECOGNITION
 ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:7:5-79
 	android:name
 		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:22-78
 uses-feature#android.hardware.SensorEventListener
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:5-72
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:10:5-73
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:19-70
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:10:19-70
 uses-feature#android.hardware.camera
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:10:5-12:35
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:11:5-13:35
 	android:required
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:12:9-32
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:13:9-32
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:11:9-47
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:12:9-47
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:14:5-67
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:15:5-67
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:14:5-67
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:14:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:25:5-67
@@ -191,11 +205,13 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.2] C:
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:14:22-64
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:15:22-64
 application
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:16:5-116:19
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:17:5-115:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\danbi\.gradle\caches\transforms-3\35bf8cd4a91a662c8048d01bbe83e9c1\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\danbi\.gradle\caches\transforms-3\35bf8cd4a91a662c8048d01bbe83e9c1\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:18:5-34:19
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:18:5-34:19
 MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:7:5-15:19
 MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:7:5-15:19
 MERGED from [com.google.firebase:firebase-analytics:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\dcc4a6a8fc25c50222cff53349becdb5\transformed\jetified-firebase-analytics-22.0.2\AndroidManifest.xml:7:5-20
@@ -220,6 +236,16 @@ MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\danbi\.gradle\cach
 MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\danbi\.gradle\caches\transforms-3\e1d28b4dd181219ce78aded945c3ef53\transformed\jetified-glide-4.12.0\AndroidManifest.xml:10:5-20
 MERGED from [com.prolificinteractive:material-calendarview:1.4.3] C:\Users\danbi\.gradle\caches\transforms-3\15d89031bee54acb996f8227c1e4b23c\transformed\jetified-material-calendarview-1.4.3\AndroidManifest.xml:12:5-20
 MERGED from [com.prolificinteractive:material-calendarview:1.4.3] C:\Users\danbi\.gradle\caches\transforms-3\15d89031bee54acb996f8227c1e4b23c\transformed\jetified-material-calendarview-1.4.3\AndroidManifest.xml:12:5-20
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\danbi\.gradle\caches\transforms-3\48bdab415568f744fcffb7e0bdac68ac\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\danbi\.gradle\caches\transforms-3\48bdab415568f744fcffb7e0bdac68ac\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:23:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:28:5-44:19
 MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:28:5-44:19
 MERGED from [com.google.android.gms:play-services-measurement-sdk:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\42afaf7089ef35a18602f33f0abdda56\transformed\jetified-play-services-measurement-sdk-22.0.2\AndroidManifest.xml:22:5-23:19
@@ -236,16 +262,8 @@ MERGED from [com.google.android.gms:play-services-measurement-base:22.0.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-base:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\a8ed02e5f17c05173a8cbb6cdd0ba8aa\transformed\jetified-play-services-measurement-base-22.0.2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\danbi\.gradle\caches\transforms-3\3e25818138e52f5b8b5327871e693aa6\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\danbi\.gradle\caches\transforms-3\3e25818138e52f5b8b5327871e693aa6\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\051ef73ad11e29c8d953752b8f857b55\transformed\jetified-integrity-1.2.0\AndroidManifest.xml:5:5-6:19
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\051ef73ad11e29c8d953752b8f857b55\transformed\jetified-integrity-1.2.0\AndroidManifest.xml:5:5-6:19
-MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:23:5-20
-MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:23:5-20
-MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
 MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
@@ -269,201 +287,201 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.12.0] C:\Users\danbi\.gradle
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\78ac03b8fe1d7833513d13c9eb06143f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\78ac03b8fe1d7833513d13c9eb06143f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 	android:requestLegacyExternalStorage
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:22:9-52
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:23:9-52
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:23:9-35
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:24:9-35
 	android:label
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:21:9-41
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:22:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:19:9-54
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:20:9-54
 	tools:targetApi
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:26:9-29
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:27:9-29
 	android:icon
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:20:9-43
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:21:9-43
 	android:allowBackup
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:18:9-35
 	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:24:9-46
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:25:9-46
 	android:dataExtractionRules
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:18:9-65
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:19:9-65
 	android:usesCleartextTraffic
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:25:9-44
-activity#kr.ac.kpu.green_us.MyReviewWriteActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:27:9-29:40
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:26:9-44
+activity#kr.ac.kpu.green_us.ViewAllCertifiedImgActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:28:9-30:40
 	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:29:13-37
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:28:13-50
-activity#kr.ac.kpu.green_us.GreenOpenActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:30:9-32:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:32:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:31:13-46
-activity#kr.ac.kpu.green_us.FaqActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:33:9-35:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:35:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:34:13-40
-activity#kr.ac.kpu.green_us.PointWithdrawActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:36:9-38:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:38:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:37:13-50
-activity#kr.ac.kpu.green_us.MyGreenIngMoreActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:39:9-41:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:41:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:40:13-51
-activity#kr.ac.kpu.green_us.MyGreenEndMoreActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:42:9-44:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:44:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:43:13-51
-activity#kr.ac.kpu.green_us.FindPwActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:45:9-49:65
-	android:label
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:48:13-59
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:47:13-37
-	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:49:13-62
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:46:13-43
-activity#kr.ac.kpu.green_us.FindEmailActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:50:9-54:65
-	android:label
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:53:13-62
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:52:13-37
-	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:54:13-62
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:51:13-46
-activity#kr.ac.kpu.green_us.FindEmail2Activity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:55:9-59:65
-	android:label
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:58:13-62
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:57:13-37
-	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:59:13-62
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:56:13-47
-activity#kr.ac.kpu.green_us.FindEmailCompltActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:60:9-64:65
-	android:label
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:63:13-62
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:62:13-37
-	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:64:13-62
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:61:13-52
-activity#kr.ac.kpu.green_us.SplashActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:65:9-74:20
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:67:13-36
-	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:68:13-50
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:66:13-43
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:69:13-73:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:70:17-69
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:70:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:72:17-77
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:72:27-74
-activity#kr.ac.kpu.green_us.JoinActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:76:9-80:53
-	android:label
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:79:13-56
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:78:13-37
-	android:theme
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:80:13-50
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:77:13-41
-activity#kr.ac.kpu.green_us.MainActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:82:9-50
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:82:19-47
-activity#kr.ac.kpu.green_us.LoginActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:83:9-85:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:85:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:84:13-42
-activity#kr.ac.kpu.green_us.MyProfileActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:86:9-88:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:88:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:87:13-46
-activity#kr.ac.kpu.green_us.MyProfileEditActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:89:9-91:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:91:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:90:13-50
-activity#kr.ac.kpu.green_us.CameraGalleryActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:92:9-94:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:94:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:93:13-50
-activity#kr.ac.kpu.green_us.DeleteCheckActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:95:9-97:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:97:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:96:13-48
-activity#kr.ac.kpu.green_us.PointActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:98:9-100:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:100:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:99:13-42
-activity#kr.ac.kpu.green_us.NoticeActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:101:9-103:40
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:103:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:102:13-43
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:29:13-56
 activity#kr.ac.kpu.green_us.MyReviewActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:104:9-106:40
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:31:9-33:40
 	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:106:13-37
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:105:13-45
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:32:13-45
+activity#kr.ac.kpu.green_us.CertifyGreeningActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:34:9-36:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:36:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:35:13-52
+activity#kr.ac.kpu.green_us.SubActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:37:9-39:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:38:13-40
+activity#kr.ac.kpu.green_us.MapActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:40:9-42:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:41:13-40
+activity#kr.ac.kpu.green_us.MyReviewWriteActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:43:9-45:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:45:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:44:13-50
+activity#kr.ac.kpu.green_us.FaqActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:46:9-48:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:48:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:47:13-40
+activity#kr.ac.kpu.green_us.PointWithdrawActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:49:9-51:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:51:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:50:13-50
+activity#kr.ac.kpu.green_us.FindPwActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:52:9-56:65
+	android:label
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:55:13-59
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:54:13-37
+	android:theme
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:56:13-62
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:53:13-43
+activity#kr.ac.kpu.green_us.FindEmailActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:57:9-61:65
+	android:label
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:60:13-62
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:59:13-37
+	android:theme
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:61:13-62
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:58:13-46
+activity#kr.ac.kpu.green_us.FindEmail2Activity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:62:9-66:65
+	android:label
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:65:13-62
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:64:13-37
+	android:theme
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:66:13-62
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:63:13-47
+activity#kr.ac.kpu.green_us.FindEmailCompltActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:67:9-71:65
+	android:label
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:70:13-62
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:69:13-37
+	android:theme
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:71:13-62
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:68:13-52
+activity#kr.ac.kpu.green_us.SplashActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:72:9-81:20
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:74:13-36
+	android:theme
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:75:13-50
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:73:13-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:76:13-80:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:77:17-69
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:77:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:79:17-77
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:79:27-74
+activity#kr.ac.kpu.green_us.JoinActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:82:9-86:53
+	android:label
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:85:13-56
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:84:13-37
+	android:theme
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:86:13-50
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:83:13-41
+activity#kr.ac.kpu.green_us.MainActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:87:9-50
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:87:19-47
+activity#kr.ac.kpu.green_us.LoginActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:88:9-90:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:90:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:89:13-42
+activity#kr.ac.kpu.green_us.MyProfileActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:91:9-93:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:93:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:92:13-46
+activity#kr.ac.kpu.green_us.MyProfileEditActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:94:9-96:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:96:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:95:13-50
+activity#kr.ac.kpu.green_us.CameraGalleryActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:97:9-99:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:99:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:98:13-50
+activity#kr.ac.kpu.green_us.DeleteCheckActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:100:9-102:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:102:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:101:13-48
+activity#kr.ac.kpu.green_us.PointActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:103:9-105:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:105:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:104:13-42
+activity#kr.ac.kpu.green_us.NoticeActivity
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:106:9-108:40
+	android:exported
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:108:13-37
+	android:name
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:107:13-43
 activity#kr.ac.kpu.green_us.GreeningDetailActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:107:9-109:40
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:109:9-111:40
 	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:109:13-37
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:111:13-37
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:108:13-51
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:110:13-51
 activity#kr.ac.kpu.green_us.GreeningDetailSubActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:110:9-112:40
+ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:112:9-114:40
 	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:112:13-37
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:114:13-37
 	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:111:13-54
-activity#kr.ac.kpu.green_us.PedometerActivity
-ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:113:9-115:39
-	android:exported
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:115:13-37
-	android:name
-		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:114:13-46
+		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:113:13-54
 uses-sdk
 INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
@@ -482,6 +500,8 @@ MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\danbi\.gradle\cac
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\danbi\.gradle\caches\transforms-3\aff69b9abcece1a590224010ee421f14\transformed\navigation-ui-2.3.5\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\danbi\.gradle\caches\transforms-3\35bf8cd4a91a662c8048d01bbe83e9c1\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\danbi\.gradle\caches\transforms-3\35bf8cd4a91a662c8048d01bbe83e9c1\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:5:5-44
+MERGED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\dcc4a6a8fc25c50222cff53349becdb5\transformed\jetified-firebase-analytics-22.0.2\AndroidManifest.xml:5:5-44
@@ -558,12 +578,30 @@ MERGED from [androidx.activity:activity-compose:1.9.0] C:\Users\danbi\.gradle\ca
 MERGED from [androidx.activity:activity-compose:1.9.0] C:\Users\danbi\.gradle\caches\transforms-3\faba50318a03fe554b1328d881a01cfd\transformed\jetified-activity-compose-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\danbi\.gradle\caches\transforms-3\e1d28b4dd181219ce78aded945c3ef53\transformed\jetified-glide-4.12.0\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.12.0] C:\Users\danbi\.gradle\caches\transforms-3\e1d28b4dd181219ce78aded945c3ef53\transformed\jetified-glide-4.12.0\AndroidManifest.xml:6:5-8:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\34dcc2172248053d71e0b5bcf47188ae\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\34dcc2172248053d71e0b5bcf47188ae\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.prolificinteractive:material-calendarview:1.4.3] C:\Users\danbi\.gradle\caches\transforms-3\15d89031bee54acb996f8227c1e4b23c\transformed\jetified-material-calendarview-1.4.3\AndroidManifest.xml:8:5-10:41
 MERGED from [com.prolificinteractive:material-calendarview:1.4.3] C:\Users\danbi\.gradle\caches\transforms-3\15d89031bee54acb996f8227c1e4b23c\transformed\jetified-material-calendarview-1.4.3\AndroidManifest.xml:8:5-10:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\fe48a570f8c5b7329d82606b05e7f451\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\fe48a570f8c5b7329d82606b05e7f451\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\danbi\.gradle\caches\transforms-3\48bdab415568f744fcffb7e0bdac68ac\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\danbi\.gradle\caches\transforms-3\48bdab415568f744fcffb7e0bdac68ac\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\danbi\.gradle\caches\transforms-3\928f02fd9c3596b6132f23114912c7b5\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\danbi\.gradle\caches\transforms-3\928f02fd9c3596b6132f23114912c7b5\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\danbi\.gradle\caches\transforms-3\78d321053855689b15a168e0ac1488fc\transformed\jetified-play-services-auth-base-18.0.4\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\danbi\.gradle\caches\transforms-3\78d321053855689b15a168e0ac1488fc\transformed\jetified-play-services-auth-base-18.0.4\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc03] C:\Users\danbi\.gradle\caches\transforms-3\b17a14ebc969364bf064c9fea3e7c1ce\transformed\recyclerview-selection-1.1.0-rc03\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc03] C:\Users\danbi\.gradle\caches\transforms-3\b17a14ebc969364bf064c9fea3e7c1ce\transformed\recyclerview-selection-1.1.0-rc03\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\danbi\.gradle\caches\transforms-3\6e3b77550a5a94ce2990f8131ed60448\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\danbi\.gradle\caches\transforms-3\6e3b77550a5a94ce2990f8131ed60448\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\danbi\.gradle\caches\transforms-3\9ee83bc863896e417283d15b9f60bafd\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\danbi\.gradle\caches\transforms-3\9ee83bc863896e417283d15b9f60bafd\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-sdk:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\42afaf7089ef35a18602f33f0abdda56\transformed\jetified-play-services-measurement-sdk-22.0.2\AndroidManifest.xml:20:5-44
@@ -582,24 +620,12 @@ MERGED from [com.google.android.gms:play-services-measurement-base:22.0.2] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-base:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\a8ed02e5f17c05173a8cbb6cdd0ba8aa\transformed\jetified-play-services-measurement-base-22.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\danbi\.gradle\caches\transforms-3\3e25818138e52f5b8b5327871e693aa6\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\danbi\.gradle\caches\transforms-3\3e25818138e52f5b8b5327871e693aa6\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\danbi\.gradle\caches\transforms-3\928f02fd9c3596b6132f23114912c7b5\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\danbi\.gradle\caches\transforms-3\928f02fd9c3596b6132f23114912c7b5\transformed\jetified-play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\051ef73ad11e29c8d953752b8f857b55\transformed\jetified-integrity-1.2.0\AndroidManifest.xml:4:5-44
 MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\051ef73ad11e29c8d953752b8f857b55\transformed\jetified-integrity-1.2.0\AndroidManifest.xml:4:5-44
-MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.firebase:firebase-appcheck-interop:17.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b04d08f5269959e24fe452383ab9e4e4\transformed\jetified-firebase-appcheck-interop-17.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users\danbi\.gradle\caches\transforms-3\7926eed3bb2dd6232080f8f9419a85c0\transformed\jetified-firebase-installations-interop-17.1.1\AndroidManifest.xml:17:5-44
 MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users\danbi\.gradle\caches\transforms-3\7926eed3bb2dd6232080f8f9419a85c0\transformed\jetified-firebase-installations-interop-17.1.1\AndroidManifest.xml:17:5-44
-MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\danbi\.gradle\caches\transforms-3\7e8fb7db29fde52018819912aff8bc3d\transformed\jetified-play-services-fido-20.1.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\danbi\.gradle\caches\transforms-3\78d321053855689b15a168e0ac1488fc\transformed\jetified-play-services-auth-base-18.0.4\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\danbi\.gradle\caches\transforms-3\78d321053855689b15a168e0ac1488fc\transformed\jetified-play-services-auth-base-18.0.4\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
 MERGED from [androidx.navigation:navigation-common-ktx:2.5.3] C:\Users\danbi\.gradle\caches\transforms-3\0daa5552ad406c92657d4aa61e74a7bc\transformed\navigation-common-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-common-ktx:2.5.3] C:\Users\danbi\.gradle\caches\transforms-3\0daa5552ad406c92657d4aa61e74a7bc\transformed\navigation-common-ktx-2.5.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-common:2.5.3] C:\Users\danbi\.gradle\caches\transforms-3\9cab939594e4142927bd7b9a23689511\transformed\navigation-common-2.5.3\AndroidManifest.xml:20:5-22:41
@@ -654,10 +680,6 @@ MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\danbi\.gradle\caches\tra
 MERGED from [androidx.fragment:fragment:1.4.1] C:\Users\danbi\.gradle\caches\transforms-3\fa8e65e2074dd176eb8b8d1ad5957d7c\transformed\fragment-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\danbi\.gradle\caches\transforms-3\8ae41d88aa55d6208ff3e8f806083e18\transformed\jetified-activity-1.9.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\danbi\.gradle\caches\transforms-3\8ae41d88aa55d6208ff3e8f806083e18\transformed\jetified-activity-1.9.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc03] C:\Users\danbi\.gradle\caches\transforms-3\b17a14ebc969364bf064c9fea3e7c1ce\transformed\recyclerview-selection-1.1.0-rc03\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc03] C:\Users\danbi\.gradle\caches\transforms-3\b17a14ebc969364bf064c9fea3e7c1ce\transformed\recyclerview-selection-1.1.0-rc03\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\99da156e5f34f738fd82fa7487543486\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\99da156e5f34f738fd82fa7487543486\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\fdac3471e5de3de9758099d7f2de5e86\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\fdac3471e5de3de9758099d7f2de5e86\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\cd70e4db683797a08f6ec31f9abe4d30\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -666,6 +688,8 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\dan
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\98fe9cd5c21c085cdbc9243a9bd8f058\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\b190b4accd24c795ae70e927d7af6cf5\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\b190b4accd24c795ae70e927d7af6cf5\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\a33fe6d552732b6db298023d698ce8df\transformed\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] C:\Users\danbi\.gradle\caches\transforms-3\a33fe6d552732b6db298023d698ce8df\transformed\swiperefreshlayout-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\cdfe08ae1b13273e9febf8fcf9c95a9d\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\cdfe08ae1b13273e9febf8fcf9c95a9d\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\afc5939bb5f5b7ca65754ec9b14a4148\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -684,8 +708,6 @@ MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\danbi\.gradle\caches\tra
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\eab5d834bab66aa70ca94b71508ed8aa\transformed\jetified-autofill-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\da892f628fbf6dd5efb71aaf49a6dc20\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\da892f628fbf6dd5efb71aaf49a6dc20\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2211336d56dcce2f8c5a8743136fe8be\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2211336d56dcce2f8c5a8743136fe8be\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\a82823093dddd42e400ef473b89d6c59\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\a82823093dddd42e400ef473b89d6c59\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:20:5-44
@@ -712,6 +734,8 @@ MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\danbi\.gradle\
 MERGED from [androidx.exifinterface:exifinterface:1.2.0] C:\Users\danbi\.gradle\caches\transforms-3\fd5b4edc733efbdebf04845ce03eaca0\transformed\exifinterface-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\78ac03b8fe1d7833513d13c9eb06143f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danbi\.gradle\caches\transforms-3\78ac03b8fe1d7833513d13c9eb06143f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.naver.maps:geometry:1.3.0] C:\Users\danbi\.gradle\caches\transforms-3\55892f56e52034acd640006315aac286\transformed\jetified-geometry-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.naver.maps:geometry:1.3.0] C:\Users\danbi\.gradle\caches\transforms-3\55892f56e52034acd640006315aac286\transformed\jetified-geometry-1.3.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\c97ad00220f97618b45075ba71d19c4c\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-components:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\c97ad00220f97618b45075ba71d19c4c\transformed\jetified-firebase-components-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\danbi\.gradle\caches\transforms-3\7938da114d27ce64962d4a8baa26f381\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
@@ -726,6 +750,8 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\danbi\.gradle\caches\transform
 MERGED from [androidx.print:print:1.0.0] C:\Users\danbi\.gradle\caches\transforms-3\9aee6e7f0e5966fb55877dd13fc82e04\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\2de880da95f032f85bc4afb548e977d6\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\2de880da95f032f85bc4afb548e977d6\transformed\jetified-annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\danbi\.gradle\caches\transforms-3\8413617debd6c3644d688825a4284ee5\transformed\jetified-relinker-1.4.4\AndroidManifest.xml:5:5-43
+MERGED from [com.getkeepsafe.relinker:relinker:1.4.4] C:\Users\danbi\.gradle\caches\transforms-3\8413617debd6c3644d688825a4284ee5\transformed\jetified-relinker-1.4.4\AndroidManifest.xml:5:5-43
 INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
@@ -738,6 +764,70 @@ INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-d
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml
+uses-feature#0x00020000
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:7:5-9:35
+	android:glEsVersion
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:8:9-41
+	android:required
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:9:9-32
+uses-feature#android.hardware.wifi
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:10:5-12:36
+	android:required
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:12:9-33
+	android:name
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:11:9-45
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:15:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\cec5f1706019da8db521a12cadbac80f\transformed\jetified-play-services-measurement-impl-22.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\cec5f1706019da8db521a12cadbac80f\transformed\jetified-play-services-measurement-impl-22.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\d400b89873e01e62bbaec5105a7ae948\transformed\jetified-play-services-measurement-sdk-api-22.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\d400b89873e01e62bbaec5105a7ae948\transformed\jetified-play-services-measurement-sdk-api-22.0.2\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:15:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:16:5-76
+	android:name
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:16:22-73
+activity#com.naver.maps.map.app.LegendActivity
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:19:9-23:51
+	android:label
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:22:13-52
+	android:configChanges
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:21:13-91
+	android:theme
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:23:13-48
+	android:name
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:20:13-65
+activity#com.naver.maps.map.app.LegalNoticeActivity
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:24:9-28:51
+	android:label
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:27:13-58
+	android:configChanges
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:26:13-91
+	android:theme
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:28:13-48
+	android:name
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:25:13-70
+activity#com.naver.maps.map.app.OpenSourceLicenseActivity
+ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:29:9-33:51
+	android:label
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:32:13-65
+	android:configChanges
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:31:13-91
+	android:theme
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:33:13-48
+	android:name
+		ADDED from [com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:30:13-76
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:8:9-14:19
 MERGED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:34:9-40:19
@@ -764,22 +854,6 @@ ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle
 		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:12:17-119
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\cec5f1706019da8db521a12cadbac80f\transformed\jetified-play-services-measurement-impl-22.0.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\cec5f1706019da8db521a12cadbac80f\transformed\jetified-play-services-measurement-impl-22.0.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\d400b89873e01e62bbaec5105a7ae948\transformed\jetified-play-services-measurement-sdk-api-22.0.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\d400b89873e01e62bbaec5105a7ae948\transformed\jetified-play-services-measurement-sdk-api-22.0.2\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:8:5-79
-	android:name
-		ADDED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:23:22-76
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:24:5-68
 MERGED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:25:5-68
@@ -938,6 +1012,34 @@ ADDED from [androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\c
 		ADDED from [androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:25:13-36
 	android:name
 		ADDED from [androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:24:13-63
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\cec5f1706019da8db521a12cadbac80f\transformed\jetified-play-services-measurement-impl-22.0.2\AndroidManifest.xml:26:5-110
@@ -988,38 +1090,10 @@ ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\c
 		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
-activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
-	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
-	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
-service#com.google.android.gms.auth.api.signin.RevocationBoundService
-ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
-	android:visibleToInstantApps
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
-	android:permission
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
 ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
 	android:name
 		ADDED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20

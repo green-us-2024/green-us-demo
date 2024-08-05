@@ -19,582 +19,633 @@
 13    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 13-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:7:5-79
 13-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:7:22-76
-14
-15    <uses-feature android:name="android.hardware.SensorEventListener" />
-15-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:5-72
-15-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:19-70
-16    <uses-feature
-16-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:10:5-12:35
-17        android:name="android.hardware.camera"
-17-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:11:9-47
-18        android:required="true" />
-18-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:12:9-32
-19
-20    <uses-permission android:name="android.permission.INTERNET" />
-20-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:14:5-67
-20-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:14:22-64
-21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-21-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:23:5-79
-21-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:23:22-76
-22    <uses-permission android:name="android.permission.WAKE_LOCK" />
-22-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:24:5-68
-22-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:24:22-65
-23    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
-23-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:25:5-79
-23-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:25:22-76
-24    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
-24-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:26:5-88
-24-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:26:22-85
-25    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
-25-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:27:5-82
-25-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:27:22-79
-26    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-26-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:26:5-110
-26-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:26:22-107
-27    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-27-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
-27-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
-28
-29    <permission
-29-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
-30        android:name="kr.ac.kpu.green_us.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-30-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
-31        android:protectionLevel="signature" />
-31-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
-32
-33    <uses-permission android:name="kr.ac.kpu.green_us.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-33-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
-33-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
-34
-35    <application
-35-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:16:5-116:19
-36        android:allowBackup="true"
-36-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:17:9-35
-37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-37-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
-38        android:dataExtractionRules="@xml/data_extraction_rules"
-38-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:18:9-65
-39        android:debuggable="true"
-40        android:extractNativeLibs="false"
-41        android:fullBackupContent="@xml/backup_rules"
-41-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:19:9-54
-42        android:icon="@mipmap/ic_launcher"
-42-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:20:9-43
-43        android:label="@string/app_name"
-43-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:21:9-41
-44        android:requestLegacyExternalStorage="true"
-44-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:22:9-52
-45        android:supportsRtl="true"
-45-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:23:9-35
-46        android:testOnly="true"
-47        android:theme="@style/Theme.Green_us"
-47-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:24:9-46
-48        android:usesCleartextTraffic="true" >
-48-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:25:9-44
-49        <activity
-49-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:27:9-29:40
-50            android:name="kr.ac.kpu.green_us.MyReviewWriteActivity"
-50-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:28:13-50
-51            android:exported="false" />
-51-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:29:13-37
-52        <activity
-52-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:30:9-32:40
-53            android:name="kr.ac.kpu.green_us.GreenOpenActivity"
-53-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:31:13-46
-54            android:exported="false" />
-54-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:32:13-37
-55        <activity
-55-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:33:9-35:40
-56            android:name="kr.ac.kpu.green_us.FaqActivity"
-56-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:34:13-40
-57            android:exported="false" />
-57-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:35:13-37
-58        <activity
-58-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:36:9-38:40
-59            android:name="kr.ac.kpu.green_us.PointWithdrawActivity"
-59-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:37:13-50
-60            android:exported="false" />
-60-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:38:13-37
-61        <activity
-61-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:39:9-41:40
-62            android:name="kr.ac.kpu.green_us.MyGreenIngMoreActivity"
-62-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:40:13-51
-63            android:exported="false" />
-63-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:41:13-37
-64        <activity
-64-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:42:9-44:40
-65            android:name="kr.ac.kpu.green_us.MyGreenEndMoreActivity"
-65-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:43:13-51
-66            android:exported="false" />
-66-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:44:13-37
-67        <activity
-67-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:45:9-49:65
-68            android:name="kr.ac.kpu.green_us.FindPwActivity"
-68-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:46:13-43
-69            android:exported="false"
-69-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:47:13-37
-70            android:label="@string/title_activity_find_pw"
-70-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:48:13-59
-71            android:theme="@style/Theme.Green_us.NoActionBar" />
-71-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:49:13-62
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:8:5-79
+14-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:8:22-76
+15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+15-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:5-81
+15-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:9:22-78
+16
+17    <uses-feature android:name="android.hardware.SensorEventListener" />
+17-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:10:5-73
+17-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:10:19-70
+18    <uses-feature
+18-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:11:5-13:35
+19        android:name="android.hardware.camera"
+19-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:12:9-47
+20        android:required="true" />
+20-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:13:9-32
+21
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:15:5-67
+22-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:15:22-64
+23
+24    <uses-feature
+24-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:7:5-9:35
+25        android:glEsVersion="0x00020000"
+25-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:8:9-41
+26        android:required="true" />
+26-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:9:9-32
+27    <uses-feature
+27-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:10:5-12:36
+28        android:name="android.hardware.wifi"
+28-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:11:9-45
+29        android:required="false" />
+29-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:12:9-33
+30
+31    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+31-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:15:5-79
+31-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:15:22-76
+32    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+32-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:16:5-76
+32-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:16:22-73
+33    <uses-permission android:name="android.permission.WAKE_LOCK" />
+33-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:24:5-68
+33-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:24:22-65
+34    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+34-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:25:5-79
+34-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:25:22-76
+35    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+35-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:26:5-88
+35-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:26:22-85
+36    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+36-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:27:5-82
+36-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:27:22-79
+37    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+37-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:26:5-110
+37-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:26:22-107
+38    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+38-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
+38-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\a3616e292d9a66e4d1c3f7bdbc29181d\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
+39
+40    <permission
+40-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+41        android:name="kr.ac.kpu.green_us.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+41-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+42        android:protectionLevel="signature" />
+42-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+43
+44    <uses-permission android:name="kr.ac.kpu.green_us.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+44-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+44-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+45
+46    <application
+46-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:17:5-115:19
+47        android:allowBackup="true"
+47-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:18:9-35
+48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+48-->[androidx.core:core:1.13.0] C:\Users\danbi\.gradle\caches\transforms-3\07d5b08f9d67bf846ddf76e0a5e16245\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+49        android:dataExtractionRules="@xml/data_extraction_rules"
+49-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:19:9-65
+50        android:debuggable="true"
+51        android:extractNativeLibs="false"
+52        android:fullBackupContent="@xml/backup_rules"
+52-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:20:9-54
+53        android:icon="@mipmap/ic_launcher"
+53-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:21:9-43
+54        android:label="@string/app_name"
+54-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:22:9-41
+55        android:requestLegacyExternalStorage="true"
+55-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:23:9-52
+56        android:supportsRtl="true"
+56-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:24:9-35
+57        android:testOnly="true"
+58        android:theme="@style/Theme.Green_us"
+58-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:25:9-46
+59        android:usesCleartextTraffic="true" >
+59-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:26:9-44
+60        <activity
+60-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:28:9-30:40
+61            android:name="kr.ac.kpu.green_us.ViewAllCertifiedImgActivity"
+61-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:29:13-56
+62            android:exported="false" />
+62-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:30:13-37
+63        <activity
+63-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:31:9-33:40
+64            android:name="kr.ac.kpu.green_us.MyReviewActivity"
+64-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:32:13-45
+65            android:exported="false" />
+65-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:33:13-37
+66        <activity
+66-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:34:9-36:40
+67            android:name="kr.ac.kpu.green_us.CertifyGreeningActivity"
+67-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:35:13-52
+68            android:exported="false" />
+68-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:36:13-37
+69        <activity
+69-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:37:9-39:40
+70            android:name="kr.ac.kpu.green_us.SubActivity"
+70-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:38:13-40
+71            android:exported="false" />
+71-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:39:13-37
 72        <activity
-72-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:50:9-54:65
-73            android:name="kr.ac.kpu.green_us.FindEmailActivity"
-73-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:51:13-46
-74            android:exported="false"
-74-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:52:13-37
-75            android:label="@string/title_activity_find_email"
-75-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:53:13-62
-76            android:theme="@style/Theme.Green_us.NoActionBar" />
-76-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:54:13-62
-77        <activity
-77-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:55:9-59:65
-78            android:name="kr.ac.kpu.green_us.FindEmail2Activity"
-78-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:56:13-47
-79            android:exported="false"
-79-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:57:13-37
-80            android:label="@string/title_activity_find_email"
-80-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:58:13-62
-81            android:theme="@style/Theme.Green_us.NoActionBar" />
-81-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:59:13-62
-82        <activity
-82-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:60:9-64:65
-83            android:name="kr.ac.kpu.green_us.FindEmailCompltActivity"
-83-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:61:13-52
-84            android:exported="false"
-84-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:62:13-37
-85            android:label="@string/title_activity_find_email"
-85-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:63:13-62
-86            android:theme="@style/Theme.Green_us.NoActionBar" />
-86-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:64:13-62
-87        <activity
-87-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:65:9-74:20
-88            android:name="kr.ac.kpu.green_us.SplashActivity"
-88-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:66:13-43
-89            android:exported="true"
-89-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:67:13-36
-90            android:theme="@style/Theme.Green_us" >
-90-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:68:13-50
-91            <intent-filter>
-91-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:69:13-73:29
-92                <action android:name="android.intent.action.MAIN" />
-92-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:70:17-69
-92-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:70:25-66
-93
-94                <category android:name="android.intent.category.LAUNCHER" />
-94-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:72:17-77
-94-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:72:27-74
-95            </intent-filter>
-96        </activity>
-97        <activity
-97-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:76:9-80:53
-98            android:name="kr.ac.kpu.green_us.JoinActivity"
-98-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:77:13-41
-99            android:exported="false"
-99-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:78:13-37
-100            android:label="@string/title_activity_join"
-100-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:79:13-56
-101            android:theme="@style/Theme.Green_us" />
-101-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:80:13-50
-102        <activity android:name="kr.ac.kpu.green_us.MainActivity" />
-102-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:82:9-50
-102-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:82:19-47
-103        <activity
-103-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:83:9-85:40
-104            android:name="kr.ac.kpu.green_us.LoginActivity"
-104-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:84:13-42
-105            android:exported="false" />
-105-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:85:13-37
-106        <activity
-106-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:86:9-88:40
-107            android:name="kr.ac.kpu.green_us.MyProfileActivity"
-107-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:87:13-46
-108            android:exported="false" />
-108-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:88:13-37
-109        <activity
-109-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:89:9-91:40
-110            android:name="kr.ac.kpu.green_us.MyProfileEditActivity"
-110-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:90:13-50
-111            android:exported="false" />
-111-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:91:13-37
-112        <activity
-112-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:92:9-94:40
-113            android:name="kr.ac.kpu.green_us.CameraGalleryActivity"
-113-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:93:13-50
-114            android:exported="false" />
-114-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:94:13-37
-115        <activity
-115-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:95:9-97:40
-116            android:name="kr.ac.kpu.green_us.DeleteCheckActivity"
-116-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:96:13-48
-117            android:exported="false" />
-117-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:97:13-37
-118        <activity
-118-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:98:9-100:40
-119            android:name="kr.ac.kpu.green_us.PointActivity"
-119-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:99:13-42
-120            android:exported="false" />
-120-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:100:13-37
-121        <activity
-121-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:101:9-103:40
-122            android:name="kr.ac.kpu.green_us.NoticeActivity"
-122-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:102:13-43
-123            android:exported="false" />
-123-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:103:13-37
-124        <activity
-124-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:104:9-106:40
-125            android:name="kr.ac.kpu.green_us.MyReviewActivity"
-125-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:105:13-45
-126            android:exported="false" />
-126-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:106:13-37
-127        <activity
-127-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:107:9-109:40
-128            android:name="kr.ac.kpu.green_us.GreeningDetailActivity"
-128-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:108:13-51
-129            android:exported="false" />
-129-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:109:13-37
-130        <activity
-130-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:110:9-112:40
-131            android:name="kr.ac.kpu.green_us.GreeningDetailSubActivity"
-131-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:111:13-54
-132            android:exported="false" />
-132-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:112:13-37
-133        <activity
-133-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:113:9-115:39
-134            android:name="kr.ac.kpu.green_us.PedometerActivity"
-134-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:114:13-46
-135            android:exported="false" />
-135-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:115:13-37
-136
-137        <service
-137-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:8:9-14:19
-138            android:name="com.google.firebase.components.ComponentDiscoveryService"
-138-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:9:13-84
-139            android:directBootAware="true"
-139-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:32:13-43
-140            android:exported="false" >
-140-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:10:13-37
-141            <meta-data
-141-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:11:13-13:85
-142                android:name="com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar"
-142-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:12:17-119
-143                android:value="com.google.firebase.components.ComponentRegistrar" />
-143-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:13:17-82
-144            <meta-data
-144-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:37:13-39:85
-145                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-145-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:38:17-139
-146                android:value="com.google.firebase.components.ComponentRegistrar" />
-146-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:39:17-82
-147            <meta-data
-147-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:69:13-71:85
-148                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-148-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:70:17-109
-149                android:value="com.google.firebase.components.ComponentRegistrar" />
-149-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:71:17-82
-150            <meta-data
-150-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
-151                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
-151-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
-152                android:value="com.google.firebase.components.ComponentRegistrar" />
-152-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
-153            <meta-data
-153-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
-154                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-154-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
-155                android:value="com.google.firebase.components.ComponentRegistrar" />
-155-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
-156            <meta-data
-156-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2ddfdf396fd9b08fc070069bb91648ad\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
-157                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
-157-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2ddfdf396fd9b08fc070069bb91648ad\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
-158                android:value="com.google.firebase.components.ComponentRegistrar" />
-158-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2ddfdf396fd9b08fc070069bb91648ad\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
-159            <meta-data
-159-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
-160                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
-160-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
-161                android:value="com.google.firebase.components.ComponentRegistrar" />
-161-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
-162        </service>
-163
-164        <property
-164-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:30:9-32:61
-165            android:name="android.adservices.AD_SERVICES_CONFIG"
-165-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:31:13-65
-166            android:resource="@xml/ga_ad_services_config" />
-166-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:32:13-58
-167
-168        <activity
-168-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
-169            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-169-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:30:13-80
-170            android:excludeFromRecents="true"
-170-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:31:13-46
-171            android:exported="true"
-171-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:32:13-36
-172            android:launchMode="singleTask"
-172-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:33:13-44
-173            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-173-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:34:13-72
-174            <intent-filter>
-174-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:35:13-45:29
-175                <action android:name="android.intent.action.VIEW" />
-175-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
-175-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
-176
-177                <category android:name="android.intent.category.DEFAULT" />
-177-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
-177-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
-178                <category android:name="android.intent.category.BROWSABLE" />
-178-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
-178-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
-179
-180                <data
-180-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
-181                    android:host="firebase.auth"
-181-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
-182                    android:path="/"
-182-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
-183                    android:scheme="genericidp" />
-183-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
-184            </intent-filter>
-185        </activity>
-186        <activity
-186-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:47:9-64:20
-187            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-187-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:48:13-79
-188            android:excludeFromRecents="true"
-188-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:49:13-46
-189            android:exported="true"
-189-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:50:13-36
-190            android:launchMode="singleTask"
-190-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:51:13-44
-191            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-191-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:52:13-72
-192            <intent-filter>
-192-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:53:13-63:29
-193                <action android:name="android.intent.action.VIEW" />
-193-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
-193-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
-194
-195                <category android:name="android.intent.category.DEFAULT" />
-195-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
-195-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
-196                <category android:name="android.intent.category.BROWSABLE" />
-196-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
-196-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
-197
-198                <data
-198-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
-199                    android:host="firebase.auth"
-199-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
-200                    android:path="/"
-200-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
-201                    android:scheme="recaptcha" />
-201-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
-202            </intent-filter>
-203        </activity>
-204
-205        <service
-205-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
-206            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
-206-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
-207            android:enabled="true"
-207-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
-208            android:exported="false" >
-208-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
-209            <meta-data
-209-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
-210                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
-210-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
-211                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
-211-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
-212        </service>
-213
-214        <activity
-214-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
-215            android:name="androidx.credentials.playservices.HiddenActivity"
-215-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
-216            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-216-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
-217            android:enabled="true"
-217-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
-218            android:exported="false"
-218-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
-219            android:fitsSystemWindows="true"
-219-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
-220            android:theme="@style/Theme.Hidden" >
-220-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
-221        </activity>
-222        <activity
-222-->[androidx.compose.ui:ui-tooling-android:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\8ed1f5b27a4e4c4644c0ee09990e3173\transformed\jetified-ui-tooling-release\AndroidManifest.xml:23:9-25:39
-223            android:name="androidx.compose.ui.tooling.PreviewActivity"
-223-->[androidx.compose.ui:ui-tooling-android:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\8ed1f5b27a4e4c4644c0ee09990e3173\transformed\jetified-ui-tooling-release\AndroidManifest.xml:24:13-71
-224            android:exported="true" />
-224-->[androidx.compose.ui:ui-tooling-android:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\8ed1f5b27a4e4c4644c0ee09990e3173\transformed\jetified-ui-tooling-release\AndroidManifest.xml:25:13-36
-225        <activity
-225-->[androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:23:9-25:39
-226            android:name="androidx.activity.ComponentActivity"
-226-->[androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:24:13-63
-227            android:exported="true" />
-227-->[androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:25:13-36
-228
-229        <receiver
-229-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:29:9-33:20
-230            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-230-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:30:13-85
-231            android:enabled="true"
-231-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:31:13-35
-232            android:exported="false" >
-232-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:32:13-37
-233        </receiver>
-234
-235        <service
-235-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:35:9-38:40
-236            android:name="com.google.android.gms.measurement.AppMeasurementService"
-236-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:36:13-84
-237            android:enabled="true"
-237-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:37:13-35
-238            android:exported="false" />
-238-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:38:13-37
-239        <service
-239-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:39:9-43:72
-240            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-240-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:40:13-87
-241            android:enabled="true"
-241-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:41:13-35
-242            android:exported="false"
-242-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:42:13-37
-243            android:permission="android.permission.BIND_JOB_SERVICE" />
-243-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:43:13-69
-244
-245        <provider
-245-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
-246            android:name="com.google.firebase.provider.FirebaseInitProvider"
-246-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:24:13-77
-247            android:authorities="kr.ac.kpu.green_us.firebaseinitprovider"
-247-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:25:13-72
-248            android:directBootAware="true"
-248-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:26:13-43
-249            android:exported="false"
-249-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:27:13-37
-250            android:initOrder="100" />
-250-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:28:13-36
-251
-252        <activity
-252-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
-253            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-253-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
-254            android:excludeFromRecents="true"
-254-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
-255            android:exported="false"
-255-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
-256            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-256-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
-257        <!--
-258            Service handling Google Sign-In user revocation. For apps that do not integrate with
-259            Google Sign-In, this service will never be started.
-260        -->
-261        <service
-261-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
-262            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-262-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
-263            android:exported="true"
-263-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
-264            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-264-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
-265            android:visibleToInstantApps="true" />
-265-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
-266
-267        <activity
-267-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-268            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-268-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
-269            android:exported="false"
-269-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-270            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-270-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\danbi\.gradle\caches\transforms-3\2d66f0e8e6dd9fd97d35da243731c3a6\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-271
-272        <provider
-272-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
-273            android:name="androidx.startup.InitializationProvider"
-273-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:25:13-67
-274            android:authorities="kr.ac.kpu.green_us.androidx-startup"
-274-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:26:13-68
-275            android:exported="false" >
-275-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:27:13-37
-276            <meta-data
-276-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
-277                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-277-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:30:17-75
-278                android:value="androidx.startup" />
-278-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:31:17-49
-279            <meta-data
-279-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
-280                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-280-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
-281                android:value="androidx.startup" />
-281-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
-282            <meta-data
-282-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-283                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-283-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-284                android:value="androidx.startup" />
-284-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-285        </provider>
-286
-287        <uses-library
-287-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\danbi\.gradle\caches\transforms-3\74413876fb73ba7baed31bab7b99fd2b\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:23:9-25:40
-288            android:name="android.ext.adservices"
-288-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\danbi\.gradle\caches\transforms-3\74413876fb73ba7baed31bab7b99fd2b\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:24:13-50
-289            android:required="false" />
-289-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\danbi\.gradle\caches\transforms-3\74413876fb73ba7baed31bab7b99fd2b\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:25:13-37
-290
-291        <meta-data
-291-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
-292            android:name="com.google.android.gms.version"
-292-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
-293            android:value="@integer/google_play_services_version" />
-293-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
-294
-295        <receiver
-295-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-296            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-296-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-297            android:directBootAware="false"
-297-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-298            android:enabled="true"
-298-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-299            android:exported="true"
-299-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-300            android:permission="android.permission.DUMP" >
-300-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-301            <intent-filter>
-301-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-302                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-302-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-302-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-303            </intent-filter>
-304            <intent-filter>
-304-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-305                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-305-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-305-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-306            </intent-filter>
-307            <intent-filter>
-307-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-308                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-308-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-308-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-309            </intent-filter>
-310            <intent-filter>
-310-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-311                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-311-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-311-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-312            </intent-filter>
-313        </receiver>
-314    </application>
-315
-316</manifest>
+72-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:40:9-42:40
+73            android:name="kr.ac.kpu.green_us.MapActivity"
+73-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:41:13-40
+74            android:exported="false" />
+74-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:42:13-37
+75        <activity
+75-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:43:9-45:40
+76            android:name="kr.ac.kpu.green_us.MyReviewWriteActivity"
+76-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:44:13-50
+77            android:exported="false" />
+77-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:45:13-37
+78        <activity
+78-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:46:9-48:40
+79            android:name="kr.ac.kpu.green_us.FaqActivity"
+79-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:47:13-40
+80            android:exported="false" />
+80-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:48:13-37
+81        <activity
+81-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:49:9-51:40
+82            android:name="kr.ac.kpu.green_us.PointWithdrawActivity"
+82-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:50:13-50
+83            android:exported="false" />
+83-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:51:13-37
+84        <activity
+84-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:52:9-56:65
+85            android:name="kr.ac.kpu.green_us.FindPwActivity"
+85-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:53:13-43
+86            android:exported="false"
+86-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:54:13-37
+87            android:label="@string/title_activity_find_pw"
+87-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:55:13-59
+88            android:theme="@style/Theme.Green_us.NoActionBar" />
+88-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:56:13-62
+89        <activity
+89-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:57:9-61:65
+90            android:name="kr.ac.kpu.green_us.FindEmailActivity"
+90-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:58:13-46
+91            android:exported="false"
+91-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:59:13-37
+92            android:label="@string/title_activity_find_email"
+92-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:60:13-62
+93            android:theme="@style/Theme.Green_us.NoActionBar" />
+93-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:61:13-62
+94        <activity
+94-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:62:9-66:65
+95            android:name="kr.ac.kpu.green_us.FindEmail2Activity"
+95-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:63:13-47
+96            android:exported="false"
+96-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:64:13-37
+97            android:label="@string/title_activity_find_email"
+97-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:65:13-62
+98            android:theme="@style/Theme.Green_us.NoActionBar" />
+98-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:66:13-62
+99        <activity
+99-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:67:9-71:65
+100            android:name="kr.ac.kpu.green_us.FindEmailCompltActivity"
+100-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:68:13-52
+101            android:exported="false"
+101-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:69:13-37
+102            android:label="@string/title_activity_find_email"
+102-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:70:13-62
+103            android:theme="@style/Theme.Green_us.NoActionBar" />
+103-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:71:13-62
+104        <activity
+104-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:72:9-81:20
+105            android:name="kr.ac.kpu.green_us.SplashActivity"
+105-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:73:13-43
+106            android:exported="true"
+106-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:74:13-36
+107            android:theme="@style/Theme.Green_us" >
+107-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:75:13-50
+108            <intent-filter>
+108-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:76:13-80:29
+109                <action android:name="android.intent.action.MAIN" />
+109-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:77:17-69
+109-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:77:25-66
+110
+111                <category android:name="android.intent.category.LAUNCHER" />
+111-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:79:17-77
+111-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:79:27-74
+112            </intent-filter>
+113        </activity>
+114        <activity
+114-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:82:9-86:53
+115            android:name="kr.ac.kpu.green_us.JoinActivity"
+115-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:83:13-41
+116            android:exported="false"
+116-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:84:13-37
+117            android:label="@string/title_activity_join"
+117-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:85:13-56
+118            android:theme="@style/Theme.Green_us" />
+118-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:86:13-50
+119        <activity android:name="kr.ac.kpu.green_us.MainActivity" />
+119-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:87:9-50
+119-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:87:19-47
+120        <activity
+120-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:88:9-90:40
+121            android:name="kr.ac.kpu.green_us.LoginActivity"
+121-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:89:13-42
+122            android:exported="false" />
+122-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:90:13-37
+123        <activity
+123-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:91:9-93:40
+124            android:name="kr.ac.kpu.green_us.MyProfileActivity"
+124-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:92:13-46
+125            android:exported="false" />
+125-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:93:13-37
+126        <activity
+126-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:94:9-96:40
+127            android:name="kr.ac.kpu.green_us.MyProfileEditActivity"
+127-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:95:13-50
+128            android:exported="false" />
+128-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:96:13-37
+129        <activity
+129-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:97:9-99:40
+130            android:name="kr.ac.kpu.green_us.CameraGalleryActivity"
+130-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:98:13-50
+131            android:exported="false" />
+131-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:99:13-37
+132        <activity
+132-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:100:9-102:40
+133            android:name="kr.ac.kpu.green_us.DeleteCheckActivity"
+133-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:101:13-48
+134            android:exported="false" />
+134-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:102:13-37
+135        <activity
+135-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:103:9-105:40
+136            android:name="kr.ac.kpu.green_us.PointActivity"
+136-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:104:13-42
+137            android:exported="false" />
+137-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:105:13-37
+138        <activity
+138-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:106:9-108:40
+139            android:name="kr.ac.kpu.green_us.NoticeActivity"
+139-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:107:13-43
+140            android:exported="false" />
+140-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:108:13-37
+141        <activity
+141-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:109:9-111:40
+142            android:name="kr.ac.kpu.green_us.GreeningDetailActivity"
+142-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:110:13-51
+143            android:exported="false" />
+143-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:111:13-37
+144        <activity
+144-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:112:9-114:40
+145            android:name="kr.ac.kpu.green_us.GreeningDetailSubActivity"
+145-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:113:13-54
+146            android:exported="false" />
+146-->C:\Users\danbi\Downloads\green-us-demo-personal_lee (1)\green-us-demo-personal_lee\frontend\app\src\main\AndroidManifest.xml:114:13-37
+147        <activity
+147-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:19:9-23:51
+148            android:name="com.naver.maps.map.app.LegendActivity"
+148-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:20:13-65
+149            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+149-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:21:13-91
+150            android:label="@string/navermap_legend"
+150-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:22:13-52
+151            android:theme="@style/navermap_app" />
+151-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:23:13-48
+152        <activity
+152-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:24:9-28:51
+153            android:name="com.naver.maps.map.app.LegalNoticeActivity"
+153-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:25:13-70
+154            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+154-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:26:13-91
+155            android:label="@string/navermap_legal_notice"
+155-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:27:13-58
+156            android:theme="@style/navermap_app" />
+156-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:28:13-48
+157        <activity
+157-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:29:9-33:51
+158            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
+158-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:30:13-76
+159            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+159-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:31:13-91
+160            android:label="@string/navermap_open_source_license"
+160-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:32:13-65
+161            android:theme="@style/navermap_app" />
+161-->[com.naver.maps:map-sdk:3.19.0] C:\Users\danbi\.gradle\caches\transforms-3\a7716f889840c1befa15be5746c28054\transformed\jetified-map-sdk-3.19.0\AndroidManifest.xml:33:13-48
+162
+163        <service
+163-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:8:9-14:19
+164            android:name="com.google.firebase.components.ComponentDiscoveryService"
+164-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:9:13-84
+165            android:directBootAware="true"
+165-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+166            android:exported="false" >
+166-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:10:13-37
+167            <meta-data
+167-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:11:13-13:85
+168                android:name="com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar"
+168-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:12:17-119
+169                android:value="com.google.firebase.components.ComponentRegistrar" />
+169-->[com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\13f5c87cf9c88dce69c62d63fa647f15\transformed\jetified-firebase-auth-ktx-23.0.0\AndroidManifest.xml:13:17-82
+170            <meta-data
+170-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:37:13-39:85
+171                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+171-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:38:17-139
+172                android:value="com.google.firebase.components.ComponentRegistrar" />
+172-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:39:17-82
+173            <meta-data
+173-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:69:13-71:85
+174                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+174-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:70:17-109
+175                android:value="com.google.firebase.components.ComponentRegistrar" />
+175-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:71:17-82
+176            <meta-data
+176-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
+177                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+177-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
+178                android:value="com.google.firebase.components.ComponentRegistrar" />
+178-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
+179            <meta-data
+179-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
+180                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+180-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
+181                android:value="com.google.firebase.components.ComponentRegistrar" />
+181-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\danbi\.gradle\caches\transforms-3\b2c2575d7238548a0604570901859645\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
+182            <meta-data
+182-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2ddfdf396fd9b08fc070069bb91648ad\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+183                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+183-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2ddfdf396fd9b08fc070069bb91648ad\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+184                android:value="com.google.firebase.components.ComponentRegistrar" />
+184-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\2ddfdf396fd9b08fc070069bb91648ad\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+185            <meta-data
+185-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+186                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+186-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+187                android:value="com.google.firebase.components.ComponentRegistrar" />
+187-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+188        </service>
+189
+190        <property
+190-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:30:9-32:61
+191            android:name="android.adservices.AD_SERVICES_CONFIG"
+191-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:31:13-65
+192            android:resource="@xml/ga_ad_services_config" />
+192-->[com.google.android.gms:play-services-measurement-api:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\b2bd695e5522680b695f8f5ddf826229\transformed\jetified-play-services-measurement-api-22.0.2\AndroidManifest.xml:32:13-58
+193
+194        <activity
+194-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
+195            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+195-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:30:13-80
+196            android:excludeFromRecents="true"
+196-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:31:13-46
+197            android:exported="true"
+197-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:32:13-36
+198            android:launchMode="singleTask"
+198-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:33:13-44
+199            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+199-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:34:13-72
+200            <intent-filter>
+200-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:35:13-45:29
+201                <action android:name="android.intent.action.VIEW" />
+201-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
+201-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
+202
+203                <category android:name="android.intent.category.DEFAULT" />
+203-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
+203-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
+204                <category android:name="android.intent.category.BROWSABLE" />
+204-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
+204-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
+205
+206                <data
+206-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
+207                    android:host="firebase.auth"
+207-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
+208                    android:path="/"
+208-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
+209                    android:scheme="genericidp" />
+209-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
+210            </intent-filter>
+211        </activity>
+212        <activity
+212-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:47:9-64:20
+213            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+213-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:48:13-79
+214            android:excludeFromRecents="true"
+214-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:49:13-46
+215            android:exported="true"
+215-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:50:13-36
+216            android:launchMode="singleTask"
+216-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:51:13-44
+217            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+217-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:52:13-72
+218            <intent-filter>
+218-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:53:13-63:29
+219                <action android:name="android.intent.action.VIEW" />
+219-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
+219-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
+220
+221                <category android:name="android.intent.category.DEFAULT" />
+221-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
+221-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
+222                <category android:name="android.intent.category.BROWSABLE" />
+222-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
+222-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
+223
+224                <data
+224-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
+225                    android:host="firebase.auth"
+225-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
+226                    android:path="/"
+226-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
+227                    android:scheme="recaptcha" />
+227-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\danbi\.gradle\caches\transforms-3\d3f558b24a5de3e3bc89961de9a8466a\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
+228            </intent-filter>
+229        </activity>
+230
+231        <service
+231-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
+232            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
+232-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
+233            android:enabled="true"
+233-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
+234            android:exported="false" >
+234-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
+235            <meta-data
+235-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
+236                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
+236-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
+237                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
+237-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
+238        </service>
+239
+240        <activity
+240-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
+241            android:name="androidx.credentials.playservices.HiddenActivity"
+241-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
+242            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+242-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
+243            android:enabled="true"
+243-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
+244            android:exported="false"
+244-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
+245            android:fitsSystemWindows="true"
+245-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
+246            android:theme="@style/Theme.Hidden" >
+246-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\danbi\.gradle\caches\transforms-3\96f022ef198162d51291079f40da7cd9\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
+247        </activity>
+248        <activity
+248-->[androidx.compose.ui:ui-tooling-android:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\8ed1f5b27a4e4c4644c0ee09990e3173\transformed\jetified-ui-tooling-release\AndroidManifest.xml:23:9-25:39
+249            android:name="androidx.compose.ui.tooling.PreviewActivity"
+249-->[androidx.compose.ui:ui-tooling-android:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\8ed1f5b27a4e4c4644c0ee09990e3173\transformed\jetified-ui-tooling-release\AndroidManifest.xml:24:13-71
+250            android:exported="true" />
+250-->[androidx.compose.ui:ui-tooling-android:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\8ed1f5b27a4e4c4644c0ee09990e3173\transformed\jetified-ui-tooling-release\AndroidManifest.xml:25:13-36
+251        <activity
+251-->[androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:23:9-25:39
+252            android:name="androidx.activity.ComponentActivity"
+252-->[androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:24:13-63
+253            android:exported="true" />
+253-->[androidx.compose.ui:ui-test-manifest:1.5.0] C:\Users\danbi\.gradle\caches\transforms-3\f020e9002e3f587167cc02df07cdb3d3\transformed\jetified-ui-test-manifest-1.5.0\AndroidManifest.xml:25:13-36
+254        <activity
+254-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
+255            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+255-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
+256            android:excludeFromRecents="true"
+256-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
+257            android:exported="false"
+257-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
+258            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+258-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
+259        <!--
+260            Service handling Google Sign-In user revocation. For apps that do not integrate with
+261            Google Sign-In, this service will never be started.
+262        -->
+263        <service
+263-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
+264            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+264-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
+265            android:exported="true"
+265-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
+266            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+266-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
+267            android:visibleToInstantApps="true" />
+267-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\danbi\.gradle\caches\transforms-3\80358f804dc5f80fa6808b20a1ec2d02\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
+268
+269        <activity
+269-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+270            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+270-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+271            android:exported="false"
+271-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+272            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+272-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\danbi\.gradle\caches\transforms-3\42753c53d381843ebb24378b7ba6c273\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+273
+274        <receiver
+274-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:29:9-33:20
+275            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+275-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:30:13-85
+276            android:enabled="true"
+276-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:31:13-35
+277            android:exported="false" >
+277-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:32:13-37
+278        </receiver>
+279
+280        <service
+280-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:35:9-38:40
+281            android:name="com.google.android.gms.measurement.AppMeasurementService"
+281-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:36:13-84
+282            android:enabled="true"
+282-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:37:13-35
+283            android:exported="false" />
+283-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:38:13-37
+284        <service
+284-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:39:9-43:72
+285            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+285-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:40:13-87
+286            android:enabled="true"
+286-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:41:13-35
+287            android:exported="false"
+287-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:42:13-37
+288            android:permission="android.permission.BIND_JOB_SERVICE" />
+288-->[com.google.android.gms:play-services-measurement:22.0.2] C:\Users\danbi\.gradle\caches\transforms-3\f467e2397a960fe1353b1783127c7899\transformed\jetified-play-services-measurement-22.0.2\AndroidManifest.xml:43:13-69
+289
+290        <provider
+290-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+291            android:name="com.google.firebase.provider.FirebaseInitProvider"
+291-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+292            android:authorities="kr.ac.kpu.green_us.firebaseinitprovider"
+292-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+293            android:directBootAware="true"
+293-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+294            android:exported="false"
+294-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+295            android:initOrder="100" />
+295-->[com.google.firebase:firebase-common:21.0.0] C:\Users\danbi\.gradle\caches\transforms-3\5f5a5d9c77915f27ec004397da5a9aba\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+296        <provider
+296-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+297            android:name="androidx.startup.InitializationProvider"
+297-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:25:13-67
+298            android:authorities="kr.ac.kpu.green_us.androidx-startup"
+298-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:26:13-68
+299            android:exported="false" >
+299-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:27:13-37
+300            <meta-data
+300-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+301                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+301-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:30:17-75
+302                android:value="androidx.startup" />
+302-->[androidx.emoji2:emoji2:1.4.0] C:\Users\danbi\.gradle\caches\transforms-3\52ccc3ec2bb12fd8f526be2ac9a44ad9\transformed\jetified-emoji2-1.4.0\AndroidManifest.xml:31:17-49
+303            <meta-data
+303-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+304                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+304-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+305                android:value="androidx.startup" />
+305-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\danbi\.gradle\caches\transforms-3\b14ed78522faa7f0fd45ddf85c9ab0a1\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+306            <meta-data
+306-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+307                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+307-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+308                android:value="androidx.startup" />
+308-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+309        </provider>
+310
+311        <uses-library
+311-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\danbi\.gradle\caches\transforms-3\74413876fb73ba7baed31bab7b99fd2b\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:23:9-25:40
+312            android:name="android.ext.adservices"
+312-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\danbi\.gradle\caches\transforms-3\74413876fb73ba7baed31bab7b99fd2b\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:24:13-50
+313            android:required="false" />
+313-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] C:\Users\danbi\.gradle\caches\transforms-3\74413876fb73ba7baed31bab7b99fd2b\transformed\jetified-ads-adservices-1.0.0-beta05\AndroidManifest.xml:25:13-37
+314
+315        <meta-data
+315-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+316            android:name="com.google.android.gms.version"
+316-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+317            android:value="@integer/google_play_services_version" />
+317-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\danbi\.gradle\caches\transforms-3\16f0d3a78bb27d8e27e2609dce0cca1c\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+318
+319        <receiver
+319-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+320            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+320-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+321            android:directBootAware="false"
+321-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+322            android:enabled="true"
+322-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+323            android:exported="true"
+323-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+324            android:permission="android.permission.DUMP" >
+324-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+325            <intent-filter>
+325-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+326                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+326-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+326-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+327            </intent-filter>
+328            <intent-filter>
+328-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+329                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+329-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+329-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+330            </intent-filter>
+331            <intent-filter>
+331-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+332                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+332-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+332-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+333            </intent-filter>
+334            <intent-filter>
+334-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+335                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+335-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+335-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\danbi\.gradle\caches\transforms-3\87fb426b472cbc7bd065331718cccd6d\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+336            </intent-filter>
+337        </receiver>
+338    </application>
+339
+340</manifest>

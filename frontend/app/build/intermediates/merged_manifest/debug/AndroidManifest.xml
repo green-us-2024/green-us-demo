@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature android:name="android.hardware.SensorEventListener" />
     <uses-feature
@@ -18,7 +20,16 @@
         android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
@@ -47,22 +58,28 @@
         android:theme="@style/Theme.Green_us"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="kr.ac.kpu.green_us.MyReviewWriteActivity"
+            android:name="kr.ac.kpu.green_us.ViewAllCertifiedImgActivity"
             android:exported="false" />
         <activity
-            android:name="kr.ac.kpu.green_us.GreenOpenActivity"
+            android:name="kr.ac.kpu.green_us.MyReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name="kr.ac.kpu.green_us.CertifyGreeningActivity"
+            android:exported="false" />
+        <activity
+            android:name="kr.ac.kpu.green_us.SubActivity"
+            android:exported="false" />
+        <activity
+            android:name="kr.ac.kpu.green_us.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name="kr.ac.kpu.green_us.MyReviewWriteActivity"
             android:exported="false" />
         <activity
             android:name="kr.ac.kpu.green_us.FaqActivity"
             android:exported="false" />
         <activity
             android:name="kr.ac.kpu.green_us.PointWithdrawActivity"
-            android:exported="false" />
-        <activity
-            android:name="kr.ac.kpu.green_us.MyGreenIngMoreActivity"
-            android:exported="false" />
-        <activity
-            android:name="kr.ac.kpu.green_us.MyGreenEndMoreActivity"
             android:exported="false" />
         <activity
             android:name="kr.ac.kpu.green_us.FindPwActivity"
@@ -122,17 +139,26 @@
             android:name="kr.ac.kpu.green_us.NoticeActivity"
             android:exported="false" />
         <activity
-            android:name="kr.ac.kpu.green_us.MyReviewActivity"
-            android:exported="false" />
-        <activity
             android:name="kr.ac.kpu.green_us.GreeningDetailActivity"
             android:exported="false" />
         <activity
             android:name="kr.ac.kpu.green_us.GreeningDetailSubActivity"
             android:exported="false" />
         <activity
-            android:name="kr.ac.kpu.green_us.PedometerActivity"
-            android:exported="false" />
+            android:name="com.naver.maps.map.app.LegendActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/navermap_legend"
+            android:theme="@style/navermap_app" />
+        <activity
+            android:name="com.naver.maps.map.app.LegalNoticeActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/navermap_legal_notice"
+            android:theme="@style/navermap_app" />
+        <activity
+            android:name="com.naver.maps.map.app.OpenSourceLicenseActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:label="@string/navermap_open_source_license"
+            android:theme="@style/navermap_app" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
@@ -225,6 +251,25 @@
         <activity
             android:name="androidx.activity.ComponentActivity"
             android:exported="true" />
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+            Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+            android:visibleToInstantApps="true" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
@@ -248,27 +293,6 @@
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
-
-        <activity
-            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--
-            Service handling Google Sign-In user revocation. For apps that do not integrate with
-            Google Sign-In, this service will never be started.
-        -->
-        <service
-            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-            android:exported="true"
-            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-            android:visibleToInstantApps="true" />
-
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="kr.ac.kpu.green_us.androidx-startup"

@@ -71,4 +71,14 @@ class UserRepository {
         }
     }
 
+    fun findUserSeqByEmail(userEmail: String): Int? {
+        return try{
+            em.createQuery("select u.userSeq from User u where u.userEmail = :userEmail", Int::class.java)
+                    .setParameter("userEmail", userEmail)
+                    .singleResult as? Int
+        }catch(e: Exception){
+            null
+        }
+    }
+
 }

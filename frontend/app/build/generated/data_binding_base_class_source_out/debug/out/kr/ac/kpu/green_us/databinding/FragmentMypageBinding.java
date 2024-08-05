@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +21,7 @@ import kr.ac.kpu.green_us.R;
 
 public final class FragmentMypageBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final ImageView adv;
@@ -43,6 +43,9 @@ public final class FragmentMypageBinding implements ViewBinding {
 
   @NonNull
   public final ImageView imageView2;
+
+  @NonNull
+  public final Button logout;
 
   @NonNull
   public final Button myReview;
@@ -80,13 +83,14 @@ public final class FragmentMypageBinding implements ViewBinding {
   @NonNull
   public final Button userImg;
 
-  private FragmentMypageBinding(@NonNull FrameLayout rootView, @NonNull ImageView adv,
+  private FragmentMypageBinding(@NonNull ScrollView rootView, @NonNull ImageView adv,
       @NonNull Button csc, @NonNull Button faq, @NonNull Button goToGreenOpen,
       @NonNull Guideline guideline1, @NonNull Guideline guideline2, @NonNull ImageView imageView2,
-      @NonNull Button myReview, @NonNull TextView name, @NonNull Button notice,
-      @NonNull ImageView notification, @NonNull TextView point, @NonNull ConstraintLayout pointV,
-      @NonNull Button profileSetting, @NonNull ImageView setting, @NonNull TextView textView,
-      @NonNull TextView textView2, @NonNull ConstraintLayout top, @NonNull Button userImg) {
+      @NonNull Button logout, @NonNull Button myReview, @NonNull TextView name,
+      @NonNull Button notice, @NonNull ImageView notification, @NonNull TextView point,
+      @NonNull ConstraintLayout pointV, @NonNull Button profileSetting, @NonNull ImageView setting,
+      @NonNull TextView textView, @NonNull TextView textView2, @NonNull ConstraintLayout top,
+      @NonNull Button userImg) {
     this.rootView = rootView;
     this.adv = adv;
     this.csc = csc;
@@ -95,6 +99,7 @@ public final class FragmentMypageBinding implements ViewBinding {
     this.guideline1 = guideline1;
     this.guideline2 = guideline2;
     this.imageView2 = imageView2;
+    this.logout = logout;
     this.myReview = myReview;
     this.name = name;
     this.notice = notice;
@@ -111,7 +116,7 @@ public final class FragmentMypageBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -175,6 +180,12 @@ public final class FragmentMypageBinding implements ViewBinding {
       id = R.id.imageView2;
       ImageView imageView2 = ViewBindings.findChildViewById(rootView, id);
       if (imageView2 == null) {
+        break missingId;
+      }
+
+      id = R.id.logout;
+      Button logout = ViewBindings.findChildViewById(rootView, id);
+      if (logout == null) {
         break missingId;
       }
 
@@ -250,9 +261,9 @@ public final class FragmentMypageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentMypageBinding((FrameLayout) rootView, adv, csc, faq, goToGreenOpen,
-          guideline1, guideline2, imageView2, myReview, name, notice, notification, point, pointV,
-          profileSetting, setting, textView, textView2, top, userImg);
+      return new FragmentMypageBinding((ScrollView) rootView, adv, csc, faq, goToGreenOpen,
+          guideline1, guideline2, imageView2, logout, myReview, name, notice, notification, point,
+          pointV, profileSetting, setting, textView, textView2, top, userImg);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

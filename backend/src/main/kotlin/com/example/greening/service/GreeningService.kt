@@ -59,6 +59,26 @@ class GreeningService(private val greeningRepository: GreeningRepository, privat
         return greeningRepository.findById(gSeq)
     }
 
+    fun findBygKind(gKind: Int): List<Greening>{
+        return greeningRepository.findBygKind(gKind)
+    }
+
+    fun findDoGreenBygKind(): List<Greening>{
+        return greeningRepository.findDoGreenBygKind()
+    }
+
+    fun findBuyGreenBygKind(): List<Greening>{
+        return greeningRepository.findBuyGreenBygKind()
+    }
+
+    fun findNewGreen(): List<Greening>{
+        return greeningRepository.findNewGreen()
+    }
+
+    fun findPopGreen(): List<Greening>{
+        return greeningRepository.findPopGreen()
+    }
+
     fun findByUserId(userSeq: Int): List<Greening> {
         return greeningRepository.findByUserId(userSeq)
     }

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.GreenCardAdapter
+import kr.ac.kpu.green_us.adapter.TabPopAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
@@ -41,51 +42,49 @@ class TabOfPopularFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val viewManager = GridLayoutManager(requireContext(),2)
-        val viewAdapter = GreenCardAdapter()
-        //        viewAdapter.notifyDataSetChanged()
+        viewInit()
 
-        val recyclerView = binding.recyclerviewPopularGreening.apply {
+    }
+
+    fun viewInit(){
+
+        val viewManager = GridLayoutManager(requireContext(),2)
+        val viewAdapter = TabPopAdapter()
+        binding.recyclerviewPopularGreening.apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }
-
-        viewAdapter.itemClickListener = object : GreenCardAdapter.OnItemClickListener{
-            //onItemClick(position: Int)
-            override fun onItemClick(status:String) {
+        viewAdapter.itemClickListener = object : TabPopAdapter.OnItemClickListener{
+            override fun onItemClick(status:String, gSeq: Int) {
                 val status = "$status"
-//                Log.d("status check",status)
-                if (status == "notIn"){ // 참여 안 한 상태 -> 상세화면으로 넘어감
-//                    Log.e("check", "카드뷰 클릭")
-                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
-                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
-                    intent.putExtra("status","notIn")
-                    startActivity(intent)
+                val intent = if (status == "notIn"){ // 참여 안 한 상태 -> 상세화면으로 넘어감
+                    Intent(requireActivity(),GreeningDetailActivity::class.java)
                 }
-                 else if (status == "in"){ // 참여 상태 -> 인증화면으로 넘어감
-                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
-                    intent.putExtra("status","in")
-                    startActivity(intent)
+                else{ // 참여 상태 -> 인증화면으로 넘어감
+                    Intent(requireActivity(),CertifyGreeningActivity::class.java)
                 }
+                intent.putExtra("gSeq", gSeq)
+                startActivity(intent)
             }
+
         }
 
         loadGreeningDate(viewAdapter)
     }
 
-    private fun loadGreeningDate(adapter: GreenCardAdapter){
+    private fun loadGreeningDate(adapter: TabPopAdapter){
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        apiService.getGreening().enqueue(object : Callback<List<Greening>> {
+        apiService.getPopGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val greeningList = response.body() ?: emptyList()
 
-                    // 무작위로 20개의 그리닝 선택
-                    val selectedGreeningList = greeningList.shuffled().take(20)
+                    // 일단 무작위로 20개의 그리닝 선택
+//                    val selectedGreeningList = greeningList.shuffled().take(20)
 
                     // 데이터를 어댑터에 설정
-                    adapter.updateData(selectedGreeningList)
+                    adapter.updateData(greeningList)
                 } else {
                     Log.e("TabOfPopularFragment", "Greening 데이터 로딩 실패: ${response.code()}")
                 }

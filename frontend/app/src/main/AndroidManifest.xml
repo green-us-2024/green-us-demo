@@ -5,8 +5,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
-
-    <uses-feature android:name="android.hardware.SensorEventListener"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.SensorEventListener" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -25,22 +26,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MyReviewWriteActivity"
+            android:name=".ViewAllCertifiedImgActivity"
             android:exported="false" />
         <activity
-            android:name=".GreenOpenActivity"
+            android:name=".MyReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CertifyGreeningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyReviewWriteActivity"
             android:exported="false" />
         <activity
             android:name=".FaqActivity"
             android:exported="false" />
         <activity
             android:name=".PointWithdrawActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyGreenIngMoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyGreenEndMoreActivity"
             android:exported="false" />
         <activity
             android:name=".FindPwActivity"
@@ -72,13 +79,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JoinActivity"
             android:exported="false"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.Green_us" />
-
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginActivity"
@@ -102,17 +107,11 @@
             android:name=".NoticeActivity"
             android:exported="false" />
         <activity
-            android:name=".MyReviewActivity"
-            android:exported="false" />
-        <activity
             android:name=".GreeningDetailActivity"
             android:exported="false" />
         <activity
             android:name=".GreeningDetailSubActivity"
             android:exported="false" />
-        <activity
-            android:name=".PedometerActivity"
-            android:exported="false"/>
     </application>
 
 </manifest>

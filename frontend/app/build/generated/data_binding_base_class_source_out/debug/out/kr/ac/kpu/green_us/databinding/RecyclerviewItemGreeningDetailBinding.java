@@ -35,6 +35,9 @@ public final class RecyclerviewItemGreeningDetailBinding implements ViewBinding 
   public final TextView feeInfo;
 
   @NonNull
+  public final ConstraintLayout greeningInfosLayout;
+
+  @NonNull
   public final TextView greeningTitle;
 
   @NonNull
@@ -106,20 +109,22 @@ public final class RecyclerviewItemGreeningDetailBinding implements ViewBinding 
   private RecyclerviewItemGreeningDetailBinding(@NonNull NestedScrollView rootView,
       @NonNull ConstraintLayout acheive100, @NonNull ConstraintLayout acheive85,
       @NonNull ConstraintLayout acheiveUnder85, @NonNull TextView feeInfo,
-      @NonNull TextView greeningTitle, @NonNull ImageView imgGreening,
-      @NonNull ImageView imgWhenOfficial, @NonNull LinearLayout layoutAward,
-      @NonNull LinearLayout layoutInfos, @NonNull ConstraintLayout layoutMainInfo,
-      @NonNull LinearLayout layoutNotice, @NonNull TextView tagCertifi, @NonNull TextView tagFreq,
-      @NonNull TextView tagTerm, @NonNull TextView textView15, @NonNull TextView textView19,
-      @NonNull TextView textView20, @NonNull TextView textView21, @NonNull TextView textView22,
-      @NonNull TextView textView23, @NonNull TextView textView24, @NonNull TextView textView25,
-      @NonNull TextView textView26, @NonNull TextView tv16, @NonNull TextView tvHowto,
-      @NonNull TextView tvParticipateFee, @NonNull TextView tvStartDate) {
+      @NonNull ConstraintLayout greeningInfosLayout, @NonNull TextView greeningTitle,
+      @NonNull ImageView imgGreening, @NonNull ImageView imgWhenOfficial,
+      @NonNull LinearLayout layoutAward, @NonNull LinearLayout layoutInfos,
+      @NonNull ConstraintLayout layoutMainInfo, @NonNull LinearLayout layoutNotice,
+      @NonNull TextView tagCertifi, @NonNull TextView tagFreq, @NonNull TextView tagTerm,
+      @NonNull TextView textView15, @NonNull TextView textView19, @NonNull TextView textView20,
+      @NonNull TextView textView21, @NonNull TextView textView22, @NonNull TextView textView23,
+      @NonNull TextView textView24, @NonNull TextView textView25, @NonNull TextView textView26,
+      @NonNull TextView tv16, @NonNull TextView tvHowto, @NonNull TextView tvParticipateFee,
+      @NonNull TextView tvStartDate) {
     this.rootView = rootView;
     this.acheive100 = acheive100;
     this.acheive85 = acheive85;
     this.acheiveUnder85 = acheiveUnder85;
     this.feeInfo = feeInfo;
+    this.greeningInfosLayout = greeningInfosLayout;
     this.greeningTitle = greeningTitle;
     this.imgGreening = imgGreening;
     this.imgWhenOfficial = imgWhenOfficial;
@@ -193,6 +198,12 @@ public final class RecyclerviewItemGreeningDetailBinding implements ViewBinding 
       id = R.id.feeInfo;
       TextView feeInfo = ViewBindings.findChildViewById(rootView, id);
       if (feeInfo == null) {
+        break missingId;
+      }
+
+      id = R.id.greening_infos_layout;
+      ConstraintLayout greeningInfosLayout = ViewBindings.findChildViewById(rootView, id);
+      if (greeningInfosLayout == null) {
         break missingId;
       }
 
@@ -335,10 +346,10 @@ public final class RecyclerviewItemGreeningDetailBinding implements ViewBinding 
       }
 
       return new RecyclerviewItemGreeningDetailBinding((NestedScrollView) rootView, acheive100,
-          acheive85, acheiveUnder85, feeInfo, greeningTitle, imgGreening, imgWhenOfficial,
-          layoutAward, layoutInfos, layoutMainInfo, layoutNotice, tagCertifi, tagFreq, tagTerm,
-          textView15, textView19, textView20, textView21, textView22, textView23, textView24,
-          textView25, textView26, tv16, tvHowto, tvParticipateFee, tvStartDate);
+          acheive85, acheiveUnder85, feeInfo, greeningInfosLayout, greeningTitle, imgGreening,
+          imgWhenOfficial, layoutAward, layoutInfos, layoutMainInfo, layoutNotice, tagCertifi,
+          tagFreq, tagTerm, textView15, textView19, textView20, textView21, textView22, textView23,
+          textView24, textView25, textView26, tv16, tvHowto, tvParticipateFee, tvStartDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

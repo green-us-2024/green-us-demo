@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-83:/values-port/values-port.xml",
+            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-85:/values-port/values-port.xml",
             "map": [
                 {
                     "source": "C:\\Users\\danbi\\.gradle\\caches\\transforms-3\\ce5ad6382abfdd91d166a9e2fee62f27\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",

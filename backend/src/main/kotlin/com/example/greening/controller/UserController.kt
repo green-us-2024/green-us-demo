@@ -54,5 +54,15 @@ class UserController(private val userService: UserService) {
         return ResponseEntity.ok(users)
     }
 
+    @GetMapping("/seqByEmail/{email}")
+    fun getUserSeqByEmail(@PathVariable email: String): ResponseEntity<Int> {
+        val userSeq = userService.findUserSeqByEmail(email)
+        return if (userSeq != null) {
+            ResponseEntity.ok(userSeq)
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
+
 
 }

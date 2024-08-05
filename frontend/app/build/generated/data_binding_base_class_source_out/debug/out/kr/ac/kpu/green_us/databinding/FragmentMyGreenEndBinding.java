@@ -5,10 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.Guideline;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
@@ -29,19 +30,25 @@ public final class FragmentMyGreenEndBinding implements ViewBinding {
   public final TextView endGreen;
 
   @NonNull
+  public final ConstraintLayout endGreenCnt;
+
+  @NonNull
   public final TextView endGreenNum;
 
   @NonNull
   public final TextView endGreeningStatistics;
 
   @NonNull
-  public final Guideline guideline5;
-
-  @NonNull
-  public final Guideline guideline6;
+  public final LinearLayout existEnd;
 
   @NonNull
   public final ImageView logo;
+
+  @NonNull
+  public final ConstraintLayout moreBtn;
+
+  @NonNull
+  public final LinearLayout notExistEnd;
 
   @NonNull
   public final ImageView pointImg;
@@ -53,25 +60,32 @@ public final class FragmentMyGreenEndBinding implements ViewBinding {
   public final TextView tiotalGainPoint;
 
   @NonNull
+  public final ConstraintLayout totalPoint;
+
+  @NonNull
   public final TextView totalPointNum;
 
   private FragmentMyGreenEndBinding(@NonNull NestedScrollView rootView, @NonNull ImageView btnMore,
-      @NonNull TextView endGreen, @NonNull TextView endGreenNum,
-      @NonNull TextView endGreeningStatistics, @NonNull Guideline guideline5,
-      @NonNull Guideline guideline6, @NonNull ImageView logo, @NonNull ImageView pointImg,
+      @NonNull TextView endGreen, @NonNull ConstraintLayout endGreenCnt,
+      @NonNull TextView endGreenNum, @NonNull TextView endGreeningStatistics,
+      @NonNull LinearLayout existEnd, @NonNull ImageView logo, @NonNull ConstraintLayout moreBtn,
+      @NonNull LinearLayout notExistEnd, @NonNull ImageView pointImg,
       @NonNull RecyclerView recyclerviewEndGreening, @NonNull TextView tiotalGainPoint,
-      @NonNull TextView totalPointNum) {
+      @NonNull ConstraintLayout totalPoint, @NonNull TextView totalPointNum) {
     this.rootView = rootView;
     this.btnMore = btnMore;
     this.endGreen = endGreen;
+    this.endGreenCnt = endGreenCnt;
     this.endGreenNum = endGreenNum;
     this.endGreeningStatistics = endGreeningStatistics;
-    this.guideline5 = guideline5;
-    this.guideline6 = guideline6;
+    this.existEnd = existEnd;
     this.logo = logo;
+    this.moreBtn = moreBtn;
+    this.notExistEnd = notExistEnd;
     this.pointImg = pointImg;
     this.recyclerviewEndGreening = recyclerviewEndGreening;
     this.tiotalGainPoint = tiotalGainPoint;
+    this.totalPoint = totalPoint;
     this.totalPointNum = totalPointNum;
   }
 
@@ -114,6 +128,12 @@ public final class FragmentMyGreenEndBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.end_green_cnt;
+      ConstraintLayout endGreenCnt = ViewBindings.findChildViewById(rootView, id);
+      if (endGreenCnt == null) {
+        break missingId;
+      }
+
       id = R.id.end_green_num;
       TextView endGreenNum = ViewBindings.findChildViewById(rootView, id);
       if (endGreenNum == null) {
@@ -126,21 +146,27 @@ public final class FragmentMyGreenEndBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.guideline5;
-      Guideline guideline5 = ViewBindings.findChildViewById(rootView, id);
-      if (guideline5 == null) {
-        break missingId;
-      }
-
-      id = R.id.guideline6;
-      Guideline guideline6 = ViewBindings.findChildViewById(rootView, id);
-      if (guideline6 == null) {
+      id = R.id.exist_end;
+      LinearLayout existEnd = ViewBindings.findChildViewById(rootView, id);
+      if (existEnd == null) {
         break missingId;
       }
 
       id = R.id.logo;
       ImageView logo = ViewBindings.findChildViewById(rootView, id);
       if (logo == null) {
+        break missingId;
+      }
+
+      id = R.id.more_btn;
+      ConstraintLayout moreBtn = ViewBindings.findChildViewById(rootView, id);
+      if (moreBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.not_exist_end;
+      LinearLayout notExistEnd = ViewBindings.findChildViewById(rootView, id);
+      if (notExistEnd == null) {
         break missingId;
       }
 
@@ -162,6 +188,12 @@ public final class FragmentMyGreenEndBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.total_point;
+      ConstraintLayout totalPoint = ViewBindings.findChildViewById(rootView, id);
+      if (totalPoint == null) {
+        break missingId;
+      }
+
       id = R.id.total_point_num;
       TextView totalPointNum = ViewBindings.findChildViewById(rootView, id);
       if (totalPointNum == null) {
@@ -169,8 +201,8 @@ public final class FragmentMyGreenEndBinding implements ViewBinding {
       }
 
       return new FragmentMyGreenEndBinding((NestedScrollView) rootView, btnMore, endGreen,
-          endGreenNum, endGreeningStatistics, guideline5, guideline6, logo, pointImg,
-          recyclerviewEndGreening, tiotalGainPoint, totalPointNum);
+          endGreenCnt, endGreenNum, endGreeningStatistics, existEnd, logo, moreBtn, notExistEnd,
+          pointImg, recyclerviewEndGreening, tiotalGainPoint, totalPoint, totalPointNum);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

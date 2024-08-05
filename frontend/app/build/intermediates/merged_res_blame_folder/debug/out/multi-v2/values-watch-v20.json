@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-83:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-85:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\danbi\\.gradle\\caches\\transforms-3\\80358f804dc5f80fa6808b20a1ec2d02\\transformed\\jetified-play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",

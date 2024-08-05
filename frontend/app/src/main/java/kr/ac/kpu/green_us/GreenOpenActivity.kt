@@ -110,6 +110,8 @@ class GreenOpenActivity : AppCompatActivity() {
 
             getUserByEmail()
 
+            var userSeq = 3
+
             //데이터 전송
             val greening = Greening(
                 gSeq = 0,
@@ -122,7 +124,9 @@ class GreenOpenActivity : AppCompatActivity() {
                 gFreq = freq,
                 gDeposit = gDeposit,
                 gTotalCount = 0,
-                gNumber = gNumber)
+                gNumber = gNumber,
+                gKind = 3,
+                user = user)
             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
             apiService.registerGreening(greening).enqueue(object : Callback<Greening> {
                 override fun onResponse(call: Call<Greening>, response: Response<Greening>) {
@@ -171,8 +175,8 @@ class GreenOpenActivity : AppCompatActivity() {
         //기간 선택
         binding.radioGroup2.setOnCheckedChangeListener { _, checkedId ->
             certiWay = when (checkedId){
-                R.id.only_camera -> "카메라 사용"
-                R.id.camera_gallery -> "카메라,갤러리 사용"
+                R.id.only_camera -> "카메라"
+                R.id.camera_gallery -> "카메라/갤러리"
                 else -> ""
             }
         }

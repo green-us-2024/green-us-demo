@@ -37,6 +37,7 @@
         android:layout_marginTop="86dp"
         android:hint="@string/phone"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:paddingHorizontal="9dp"
         android:paddingVertical="10dp"
         />
@@ -71,6 +72,7 @@
         android:textSize="16sp"
         android:paddingVertical="10dp"
         android:paddingHorizontal="9dp"
+        android:textColor="@color/black"
         android:inputType="text"
         />
     <TextView

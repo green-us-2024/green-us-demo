@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +24,9 @@ public final class CardviewGreeningBinding implements ViewBinding {
 
   @NonNull
   public final ConstraintLayout cardContainer;
+
+  @NonNull
+  public final LinearLayout deadlineLayout;
 
   @NonNull
   public final TextView greengTitle;
@@ -45,12 +49,17 @@ public final class CardviewGreeningBinding implements ViewBinding {
   @NonNull
   public final TextView tvUtil;
 
+  @NonNull
+  public final TextView type;
+
   private CardviewGreeningBinding(@NonNull CardView rootView,
-      @NonNull ConstraintLayout cardContainer, @NonNull TextView greengTitle,
-      @NonNull ImageView greeningImg, @NonNull TextView tagCertifi, @NonNull TextView tagFreq,
-      @NonNull TextView tagTerm, @NonNull TextView tvTime, @NonNull TextView tvUtil) {
+      @NonNull ConstraintLayout cardContainer, @NonNull LinearLayout deadlineLayout,
+      @NonNull TextView greengTitle, @NonNull ImageView greeningImg, @NonNull TextView tagCertifi,
+      @NonNull TextView tagFreq, @NonNull TextView tagTerm, @NonNull TextView tvTime,
+      @NonNull TextView tvUtil, @NonNull TextView type) {
     this.rootView = rootView;
     this.cardContainer = cardContainer;
+    this.deadlineLayout = deadlineLayout;
     this.greengTitle = greengTitle;
     this.greeningImg = greeningImg;
     this.tagCertifi = tagCertifi;
@@ -58,6 +67,7 @@ public final class CardviewGreeningBinding implements ViewBinding {
     this.tagTerm = tagTerm;
     this.tvTime = tvTime;
     this.tvUtil = tvUtil;
+    this.type = type;
   }
 
   @Override
@@ -90,6 +100,12 @@ public final class CardviewGreeningBinding implements ViewBinding {
       id = R.id.card_container;
       ConstraintLayout cardContainer = ViewBindings.findChildViewById(rootView, id);
       if (cardContainer == null) {
+        break missingId;
+      }
+
+      id = R.id.deadline_layout;
+      LinearLayout deadlineLayout = ViewBindings.findChildViewById(rootView, id);
+      if (deadlineLayout == null) {
         break missingId;
       }
 
@@ -135,8 +151,14 @@ public final class CardviewGreeningBinding implements ViewBinding {
         break missingId;
       }
 
-      return new CardviewGreeningBinding((CardView) rootView, cardContainer, greengTitle,
-          greeningImg, tagCertifi, tagFreq, tagTerm, tvTime, tvUtil);
+      id = R.id.type;
+      TextView type = ViewBindings.findChildViewById(rootView, id);
+      if (type == null) {
+        break missingId;
+      }
+
+      return new CardviewGreeningBinding((CardView) rootView, cardContainer, deadlineLayout,
+          greengTitle, greeningImg, tagCertifi, tagFreq, tagTerm, tvTime, tvUtil, type);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

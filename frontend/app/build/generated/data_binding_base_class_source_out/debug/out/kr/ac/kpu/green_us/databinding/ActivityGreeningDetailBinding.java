@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import java.lang.NullPointerException;
@@ -23,29 +24,152 @@ public final class ActivityGreeningDetailBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final ConstraintLayout acheive100;
+
+  @NonNull
+  public final ConstraintLayout acheive85;
+
+  @NonNull
+  public final ConstraintLayout acheiveUnder85;
+
+  @NonNull
   public final ImageButton btnEsc;
 
   @NonNull
   public final Button button;
 
   @NonNull
+  public final TextView feeInfo;
+
+  @NonNull
+  public final ConstraintLayout greeningInfosLayout;
+
+  @NonNull
+  public final TextView greeningTitle;
+
+  @NonNull
+  public final ImageView imgGreening;
+
+  @NonNull
+  public final ImageView imgWhenOfficial;
+
+  @NonNull
+  public final LinearLayout layoutAward;
+
+  @NonNull
+  public final LinearLayout layoutInfos;
+
+  @NonNull
+  public final ConstraintLayout layoutMainInfo;
+
+  @NonNull
+  public final LinearLayout layoutNotice;
+
+  @NonNull
   public final LinearLayout main;
 
   @NonNull
-  public final RecyclerView recyclerviewGreeningDetail;
+  public final TextView tagCertifi;
+
+  @NonNull
+  public final TextView tagFreq;
+
+  @NonNull
+  public final TextView tagTerm;
+
+  @NonNull
+  public final TextView textView10;
+
+  @NonNull
+  public final TextView textView15;
+
+  @NonNull
+  public final TextView textView19;
+
+  @NonNull
+  public final TextView textView20;
+
+  @NonNull
+  public final TextView textView21;
+
+  @NonNull
+  public final TextView textView22;
+
+  @NonNull
+  public final TextView textView23;
+
+  @NonNull
+  public final TextView textView24;
+
+  @NonNull
+  public final TextView textView25;
+
+  @NonNull
+  public final TextView textView26;
 
   @NonNull
   public final ConstraintLayout topBar;
 
-  private ActivityGreeningDetailBinding(@NonNull LinearLayout rootView, @NonNull ImageButton btnEsc,
-      @NonNull Button button, @NonNull LinearLayout main,
-      @NonNull RecyclerView recyclerviewGreeningDetail, @NonNull ConstraintLayout topBar) {
+  @NonNull
+  public final TextView tv16;
+
+  @NonNull
+  public final TextView tvHowto;
+
+  @NonNull
+  public final TextView tvParticipateFee;
+
+  @NonNull
+  public final TextView tvStartDate;
+
+  private ActivityGreeningDetailBinding(@NonNull LinearLayout rootView,
+      @NonNull ConstraintLayout acheive100, @NonNull ConstraintLayout acheive85,
+      @NonNull ConstraintLayout acheiveUnder85, @NonNull ImageButton btnEsc, @NonNull Button button,
+      @NonNull TextView feeInfo, @NonNull ConstraintLayout greeningInfosLayout,
+      @NonNull TextView greeningTitle, @NonNull ImageView imgGreening,
+      @NonNull ImageView imgWhenOfficial, @NonNull LinearLayout layoutAward,
+      @NonNull LinearLayout layoutInfos, @NonNull ConstraintLayout layoutMainInfo,
+      @NonNull LinearLayout layoutNotice, @NonNull LinearLayout main, @NonNull TextView tagCertifi,
+      @NonNull TextView tagFreq, @NonNull TextView tagTerm, @NonNull TextView textView10,
+      @NonNull TextView textView15, @NonNull TextView textView19, @NonNull TextView textView20,
+      @NonNull TextView textView21, @NonNull TextView textView22, @NonNull TextView textView23,
+      @NonNull TextView textView24, @NonNull TextView textView25, @NonNull TextView textView26,
+      @NonNull ConstraintLayout topBar, @NonNull TextView tv16, @NonNull TextView tvHowto,
+      @NonNull TextView tvParticipateFee, @NonNull TextView tvStartDate) {
     this.rootView = rootView;
+    this.acheive100 = acheive100;
+    this.acheive85 = acheive85;
+    this.acheiveUnder85 = acheiveUnder85;
     this.btnEsc = btnEsc;
     this.button = button;
+    this.feeInfo = feeInfo;
+    this.greeningInfosLayout = greeningInfosLayout;
+    this.greeningTitle = greeningTitle;
+    this.imgGreening = imgGreening;
+    this.imgWhenOfficial = imgWhenOfficial;
+    this.layoutAward = layoutAward;
+    this.layoutInfos = layoutInfos;
+    this.layoutMainInfo = layoutMainInfo;
+    this.layoutNotice = layoutNotice;
     this.main = main;
-    this.recyclerviewGreeningDetail = recyclerviewGreeningDetail;
+    this.tagCertifi = tagCertifi;
+    this.tagFreq = tagFreq;
+    this.tagTerm = tagTerm;
+    this.textView10 = textView10;
+    this.textView15 = textView15;
+    this.textView19 = textView19;
+    this.textView20 = textView20;
+    this.textView21 = textView21;
+    this.textView22 = textView22;
+    this.textView23 = textView23;
+    this.textView24 = textView24;
+    this.textView25 = textView25;
+    this.textView26 = textView26;
     this.topBar = topBar;
+    this.tv16 = tv16;
+    this.tvHowto = tvHowto;
+    this.tvParticipateFee = tvParticipateFee;
+    this.tvStartDate = tvStartDate;
   }
 
   @Override
@@ -75,6 +199,24 @@ public final class ActivityGreeningDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.acheive_100;
+      ConstraintLayout acheive100 = ViewBindings.findChildViewById(rootView, id);
+      if (acheive100 == null) {
+        break missingId;
+      }
+
+      id = R.id.acheive_85;
+      ConstraintLayout acheive85 = ViewBindings.findChildViewById(rootView, id);
+      if (acheive85 == null) {
+        break missingId;
+      }
+
+      id = R.id.acheive_under_85;
+      ConstraintLayout acheiveUnder85 = ViewBindings.findChildViewById(rootView, id);
+      if (acheiveUnder85 == null) {
+        break missingId;
+      }
+
       id = R.id.btn_esc;
       ImageButton btnEsc = ViewBindings.findChildViewById(rootView, id);
       if (btnEsc == null) {
@@ -87,11 +229,137 @@ public final class ActivityGreeningDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.feeInfo;
+      TextView feeInfo = ViewBindings.findChildViewById(rootView, id);
+      if (feeInfo == null) {
+        break missingId;
+      }
+
+      id = R.id.greening_infos_layout;
+      ConstraintLayout greeningInfosLayout = ViewBindings.findChildViewById(rootView, id);
+      if (greeningInfosLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.greening_title;
+      TextView greeningTitle = ViewBindings.findChildViewById(rootView, id);
+      if (greeningTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.img_greening;
+      ImageView imgGreening = ViewBindings.findChildViewById(rootView, id);
+      if (imgGreening == null) {
+        break missingId;
+      }
+
+      id = R.id.img_when_official;
+      ImageView imgWhenOfficial = ViewBindings.findChildViewById(rootView, id);
+      if (imgWhenOfficial == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_award;
+      LinearLayout layoutAward = ViewBindings.findChildViewById(rootView, id);
+      if (layoutAward == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_infos;
+      LinearLayout layoutInfos = ViewBindings.findChildViewById(rootView, id);
+      if (layoutInfos == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_main_info;
+      ConstraintLayout layoutMainInfo = ViewBindings.findChildViewById(rootView, id);
+      if (layoutMainInfo == null) {
+        break missingId;
+      }
+
+      id = R.id.layout_notice;
+      LinearLayout layoutNotice = ViewBindings.findChildViewById(rootView, id);
+      if (layoutNotice == null) {
+        break missingId;
+      }
+
       LinearLayout main = (LinearLayout) rootView;
 
-      id = R.id.recyclerview_greening_detail;
-      RecyclerView recyclerviewGreeningDetail = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerviewGreeningDetail == null) {
+      id = R.id.tag_certifi;
+      TextView tagCertifi = ViewBindings.findChildViewById(rootView, id);
+      if (tagCertifi == null) {
+        break missingId;
+      }
+
+      id = R.id.tag_freq;
+      TextView tagFreq = ViewBindings.findChildViewById(rootView, id);
+      if (tagFreq == null) {
+        break missingId;
+      }
+
+      id = R.id.tag_term;
+      TextView tagTerm = ViewBindings.findChildViewById(rootView, id);
+      if (tagTerm == null) {
+        break missingId;
+      }
+
+      id = R.id.textView10;
+      TextView textView10 = ViewBindings.findChildViewById(rootView, id);
+      if (textView10 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView15;
+      TextView textView15 = ViewBindings.findChildViewById(rootView, id);
+      if (textView15 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView19;
+      TextView textView19 = ViewBindings.findChildViewById(rootView, id);
+      if (textView19 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView20;
+      TextView textView20 = ViewBindings.findChildViewById(rootView, id);
+      if (textView20 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView21;
+      TextView textView21 = ViewBindings.findChildViewById(rootView, id);
+      if (textView21 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView22;
+      TextView textView22 = ViewBindings.findChildViewById(rootView, id);
+      if (textView22 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView23;
+      TextView textView23 = ViewBindings.findChildViewById(rootView, id);
+      if (textView23 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView24;
+      TextView textView24 = ViewBindings.findChildViewById(rootView, id);
+      if (textView24 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView25;
+      TextView textView25 = ViewBindings.findChildViewById(rootView, id);
+      if (textView25 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView26;
+      TextView textView26 = ViewBindings.findChildViewById(rootView, id);
+      if (textView26 == null) {
         break missingId;
       }
 
@@ -101,8 +369,36 @@ public final class ActivityGreeningDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityGreeningDetailBinding((LinearLayout) rootView, btnEsc, button, main,
-          recyclerviewGreeningDetail, topBar);
+      id = R.id.tv16;
+      TextView tv16 = ViewBindings.findChildViewById(rootView, id);
+      if (tv16 == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_howto;
+      TextView tvHowto = ViewBindings.findChildViewById(rootView, id);
+      if (tvHowto == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_participate_fee;
+      TextView tvParticipateFee = ViewBindings.findChildViewById(rootView, id);
+      if (tvParticipateFee == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_start_date;
+      TextView tvStartDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvStartDate == null) {
+        break missingId;
+      }
+
+      return new ActivityGreeningDetailBinding((LinearLayout) rootView, acheive100, acheive85,
+          acheiveUnder85, btnEsc, button, feeInfo, greeningInfosLayout, greeningTitle, imgGreening,
+          imgWhenOfficial, layoutAward, layoutInfos, layoutMainInfo, layoutNotice, main, tagCertifi,
+          tagFreq, tagTerm, textView10, textView15, textView19, textView20, textView21, textView22,
+          textView23, textView24, textView25, textView26, topBar, tv16, tvHowto, tvParticipateFee,
+          tvStartDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

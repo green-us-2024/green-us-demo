@@ -84,7 +84,7 @@ class Join1Fragment : Fragment() {
                             //이메일이 존재하는 경우
                             Log.e("Join1Fragment", "중복된 이메일입니다")
                             // 중복된 이메일이라면 이를 알리는 textview를 세팅
-                            binding.tvExist.isVisible = true
+                            binding.tvEmail.isVisible = true
                         } else {
                             //이메일이 존재하지 않는 경우
                             val bundle = Bundle()

@@ -85,6 +85,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array navermap_info_menu
 attr SharedValue
 attr SharedValueId
 attr action
@@ -960,6 +961,66 @@ attr motion_triggerOnCollision
 attr moveWhenScrollAtTop
 attr multiChoiceItemLayout
 attr navGraph
+attr navermap_background
+attr navermap_backgroundColor
+attr navermap_backgroundImage
+attr navermap_bearing
+attr navermap_buildingHeight
+attr navermap_cjkLocalGlyphRasterizationEnabled
+attr navermap_compassEnabled
+attr navermap_contentPadding
+attr navermap_contentPaddingBottom
+attr navermap_contentPaddingLeft
+attr navermap_contentPaddingRight
+attr navermap_contentPaddingTop
+attr navermap_defaultCameraAnimationDuration
+attr navermap_enabledLayerGroups
+attr navermap_extent
+attr navermap_fpsLimit
+attr navermap_indoorEnabled
+attr navermap_indoorFocusRadius
+attr navermap_indoorLevelPickerEnabled
+attr navermap_latitude
+attr navermap_lightness
+attr navermap_liteModeEnabled
+attr navermap_localTypefaceFactoryClass
+attr navermap_locationButtonEnabled
+attr navermap_logoClickEnabled
+attr navermap_logoGravity
+attr navermap_logoMargin
+attr navermap_logoMarginBottom
+attr navermap_logoMarginEnd
+attr navermap_logoMarginStart
+attr navermap_logoMarginTop
+attr navermap_longitude
+attr navermap_mapType
+attr navermap_maxTilt
+attr navermap_maxZoom
+attr navermap_minZoom
+attr navermap_msaaEnabled
+attr navermap_nightModeEnabled
+attr navermap_object3dEnabled
+attr navermap_pickTolerance
+attr navermap_preserveEGLContextOnPause
+attr navermap_rotateGesturesEnabled
+attr navermap_rotateGesturesFriction
+attr navermap_rtlEnabled
+attr navermap_scaleBarEnabled
+attr navermap_scrollGesturesEnabled
+attr navermap_scrollGesturesFriction
+attr navermap_stopGesturesEnabled
+attr navermap_symbolPerspectiveRatio
+attr navermap_symbolScale
+attr navermap_tilt
+attr navermap_tiltGesturesEnabled
+attr navermap_translucentTextureSurface
+attr navermap_useTextureView
+attr navermap_useVulkanView
+attr navermap_zOrderMediaOverlay
+attr navermap_zoom
+attr navermap_zoomControlEnabled
+attr navermap_zoomGesturesEnabled
+attr navermap_zoomGesturesFriction
 attr navigationContentDescription
 attr navigationIcon
 attr navigationIconTint
@@ -1160,6 +1221,7 @@ attr suffixText
 attr suffixTextAppearance
 attr suffixTextColor
 attr suggestionRowLayout
+attr swipeRefreshLayoutProgressSpinnerBackgroundColor
 attr switchMinWidth
 attr switchPadding
 attr switchStyle
@@ -2149,6 +2211,13 @@ color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
+color navermap_indoor_level_picker_item_background_normal
+color navermap_indoor_level_picker_item_background_pressed
+color navermap_indoor_level_picker_item_background_selected
+color navermap_location_button_progress
+color navermap_primary
+color navermap_scale_bar_text_dark
+color navermap_scale_bar_text_light
 color none
 color notification_action_color_filter
 color notification_icon_bg_color
@@ -2164,6 +2233,7 @@ color primary_text_disabled_material_light
 color purple_200
 color purple_500
 color purple_700
+color red
 color represent
 color ripple_material_dark
 color ripple_material_light
@@ -2963,6 +3033,9 @@ dimen mtrl_tooltip_minHeight
 dimen mtrl_tooltip_minWidth
 dimen mtrl_tooltip_padding
 dimen mtrl_transition_shared_axis_slide_distance
+dimen navermap_default_logo_margin_bottom
+dimen navermap_default_logo_margin_start
+dimen navermap_scale_bar_min_width
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -3078,6 +3151,8 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable baseline_keyboard_arrow_down_24
+drawable baseline_keyboard_arrow_up_24
 drawable border_only_bottom
 drawable bottom_home
 drawable bottom_home_false
@@ -3089,6 +3164,7 @@ drawable bottom_navi_color
 drawable bottom_navi_selector_home
 drawable bottom_navi_selector_mygreen
 drawable bottom_navi_selector_mypage
+drawable bottom_sheet_form
 drawable btn_add
 drawable btn_back
 drawable btn_calendar
@@ -3245,6 +3321,54 @@ drawable mtrl_switch_thumb_unchecked_pressed
 drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
+drawable navermap_compass
+drawable navermap_default_background_dark
+drawable navermap_default_background_light
+drawable navermap_default_cluster_icon_high_density
+drawable navermap_default_cluster_icon_low_density
+drawable navermap_default_cluster_icon_medium_density
+drawable navermap_default_ground_overlay_image
+drawable navermap_default_info_window_background
+drawable navermap_default_info_window_icon
+drawable navermap_default_location_overlay_sub_icon_arrow
+drawable navermap_default_location_overlay_sub_icon_cone
+drawable navermap_default_marker_icon_black
+drawable navermap_default_marker_icon_blue
+drawable navermap_default_marker_icon_gray
+drawable navermap_default_marker_icon_green
+drawable navermap_default_marker_icon_lightblue
+drawable navermap_default_marker_icon_pink
+drawable navermap_default_marker_icon_red
+drawable navermap_default_marker_icon_yellow
+drawable navermap_indoor_control_item_background
+drawable navermap_indoor_level_picker_background
+drawable navermap_location_disabled
+drawable navermap_location_face
+drawable navermap_location_face_normal
+drawable navermap_location_face_pressed
+drawable navermap_location_follow
+drawable navermap_location_follow_normal
+drawable navermap_location_follow_pressed
+drawable navermap_location_no_follow
+drawable navermap_location_no_follow_normal
+drawable navermap_location_no_follow_pressed
+drawable navermap_location_none
+drawable navermap_location_none_normal
+drawable navermap_location_none_pressed
+drawable navermap_location_overlay_icon
+drawable navermap_naver_logo_dark
+drawable navermap_naver_logo_light
+drawable navermap_scale_bar_dark
+drawable navermap_scale_bar_light
+drawable navermap_zoom_div
+drawable navermap_zoom_in
+drawable navermap_zoom_in_disabled
+drawable navermap_zoom_in_normal
+drawable navermap_zoom_in_pressed
+drawable navermap_zoom_out
+drawable navermap_zoom_out_disabled
+drawable navermap_zoom_out_normal
+drawable navermap_zoom_out_pressed
 drawable navigation_empty_icon
 drawable notification
 drawable notification_action_background
@@ -3272,6 +3396,7 @@ drawable selector_radio_text
 drawable setting
 drawable splash
 drawable splash_img
+drawable stamp
 drawable style_round_corner_btn
 drawable switch_thumb
 drawable switch_track
@@ -3279,6 +3404,7 @@ drawable test_greening_detail_official
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable type_card
 drawable upload_file
 drawable user_img
 id ALT
@@ -3385,6 +3511,7 @@ id autoCompleteToStart
 id auto_login
 id auto_login_btn
 id bank
+id banner
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3392,7 +3519,9 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottom_layout
 id bottom_navigation_view
+id bottom_sheet_layout
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3405,6 +3534,8 @@ id browser_actions_menu_view
 id btnManbo
 id btnNearMarket
 id btnOpen
+id btn_area
+id btn_arrow
 id btn_back
 id btn_date
 id btn_down
@@ -3413,6 +3544,7 @@ id btn_front
 id btn_go_login
 id btn_goto_login
 id btn_more
+id btn_more_layout
 id btn_next
 id btn_phone_check
 id btn_search_address
@@ -3421,6 +3553,7 @@ id btn_to_join_complt
 id btn_upload
 id button
 id buttonPanel
+id buy_green
 id cache_measures
 id callMeasure
 id camera
@@ -3436,6 +3569,9 @@ id centerCrop
 id centerInside
 id center_horizontal
 id center_vertical
+id cerfi_img_1
+id cerfi_img_2
+id cerfi_img_3
 id certification
 id chain
 id chain2
@@ -3483,6 +3619,7 @@ id dataBinding
 id date
 id date_picker_actions
 id day
+id deadline_layout
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -3508,6 +3645,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id do_green
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3534,6 +3672,7 @@ id embed
 id end
 id endToStart
 id end_green
+id end_green_cnt
 id end_green_num
 id end_greening_statistics
 id end_padder
@@ -3546,6 +3685,7 @@ id et_email
 id et_name
 id et_phone
 id et_pw
+id exist_end
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3578,6 +3718,7 @@ id frequency6
 id frequency7
 id frequency_radio
 id friday
+id from_to
 id frost
 id fullscreen_header
 id get_point
@@ -3589,6 +3730,7 @@ id go_to_login
 id gone
 id graph
 id graph_wrap
+id green_degree
 id green_degree_card_view
 id green_detail
 id green_detail_et
@@ -3600,6 +3742,7 @@ id greeng_title
 id greening
 id greening_degree
 id greening_img
+id greening_infos_layout
 id greening_percentage
 id greening_title
 id greening_title_pro
@@ -3637,7 +3780,9 @@ id image
 id imageView
 id imageView2
 id imageView3
+id imageView4
 id imageView5
+id img_area
 id img_greening
 id img_when_official
 id immediateStop
@@ -3658,6 +3803,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layout_all_certified_imgs
 id layout_award
 id layout_infos
 id layout_join1
@@ -3678,9 +3824,12 @@ id login
 id logo
 id logo_area
 id logo_text
+id logout
 id m3_side_sheet
 id main
 id main_frame
+id map_fragment
+id market_name
 id marquee
 id masked
 id match_constraint
@@ -3719,6 +3868,7 @@ id month_navigation_fragment_toggle
 id month_navigation_next
 id month_navigation_previous
 id month_title
+id more_btn
 id motion_base
 id mtrl_anchor_parent
 id mtrl_calendar_day_selector_frame
@@ -3751,6 +3901,33 @@ id name2
 id name_et
 id nav_controller_view_tag
 id nav_host_fragment_container
+id navermap_bar
+id navermap_compass
+id navermap_compass_icon
+id navermap_connection
+id navermap_container
+id navermap_copyright
+id navermap_indoor_level_picker
+id navermap_level
+id navermap_location_button
+id navermap_location_icon
+id navermap_location_icon_progress_overlay
+id navermap_logo
+id navermap_map_controls
+id navermap_map_view
+id navermap_menu_title
+id navermap_open_source_license
+id navermap_progress
+id navermap_recycler_view
+id navermap_scale_bar
+id navermap_scale_container
+id navermap_unit
+id navermap_value
+id navermap_version
+id navermap_zero
+id navermap_zoom_control
+id navermap_zoom_in
+id navermap_zoom_out
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3767,6 +3944,9 @@ id noState
 id none
 id normal
 id north
+id not_exist_end
+id not_exist_ing
+id not_exist_open
 id notice
 id notice_card_view
 id notification
@@ -3834,14 +4014,18 @@ id radio
 id radio_group
 id radio_group2
 id radio_group3
+id radio_group4
 id ratio
 id rectangles
+id recyclerview_buy_greening
+id recyclerview_do_greening
 id recyclerview_end_greening
 id recyclerview_green_degree
-id recyclerview_greening_detail
 id recyclerview_greening_detail_sub
+id recyclerview_hero
 id recyclerview_ing_greening
 id recyclerview_ing_greening2
+id recyclerview_market_list
 id recyclerview_new_greening
 id recyclerview_notice
 id recyclerview_open_greening
@@ -3915,6 +4099,9 @@ id square
 id src_atop
 id src_in
 id src_over
+id stamp
+id stamp_date
+id stamps_layout
 id standard
 id start
 id startHorizontal
@@ -3928,6 +4115,8 @@ id status_bar_latest_event_content
 id stepCounter
 id stop
 id stretch
+id sub_frame
+id subject
 id submenuarrow
 id submit_area
 id sunday
@@ -3957,6 +4146,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView10
 id textView15
 id textView19
 id textView2
@@ -3969,8 +4159,11 @@ id textView25
 id textView26
 id textView3
 id textView4
+id textView5
 id textView6
 id textView7
+id textView8
+id textView9
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -3984,6 +4177,8 @@ id textinput_prefix_text
 id textinput_suffix_text
 id thursday
 id time
+id time_close
+id time_open
 id tiotal_gain_point
 id title
 id titleDividerNoCustom
@@ -4011,10 +4206,11 @@ id triangle
 id tuesday
 id tv16
 id tv_complt_msg
-id tv_exist
+id tv_email
 id tv_howto
 id tv_join_complt
 id tv_participate_fee
+id tv_pw
 id tv_see_all
 id tv_start_date
 id tv_time
@@ -4022,12 +4218,15 @@ id tv_userId
 id tv_util
 id tv_valid
 id tv_welcome
+id type
+id type_radio
 id unchecked
 id uniform
 id unlabeled
 id up
 id upload_picture
 id upload_picture_et
+id upper_layout
 id useLogo
 id use_camera
 id use_gallery
@@ -4189,6 +4388,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_camera_gallery
+layout activity_certify_greening
 layout activity_delete_check
 layout activity_faq
 layout activity_find_email
@@ -4202,6 +4402,7 @@ layout activity_join
 layout activity_join_complt
 layout activity_login
 layout activity_main
+layout activity_map
 layout activity_my_green_end_more
 layout activity_my_green_ing_more
 layout activity_my_profile
@@ -4213,10 +4414,14 @@ layout activity_pedometer
 layout activity_point
 layout activity_point_withdraw
 layout activity_splash
+layout activity_sub
+layout activity_view_all_certified_img
+layout bottom_sheet_layout
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cardview_green_degree
 layout cardview_greening
+layout cardview_hero
 layout cardview_my_review
 layout cardview_notice
 layout cardview_point
@@ -4237,22 +4442,32 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_address_search
+layout fragment_green_open
+layout fragment_hero_section_detail
+layout fragment_hero_section_list
 layout fragment_home
 layout fragment_join1
 layout fragment_join2
 layout fragment_join_address
 layout fragment_join_complt
 layout fragment_my_green
+layout fragment_my_green_buy_more
+layout fragment_my_green_do_more
 layout fragment_my_green_end
+layout fragment_my_green_end_more
 layout fragment_my_green_ing
+layout fragment_my_green_ing_more
 layout fragment_my_green_open
 layout fragment_mypage
+layout fragment_pedometer
 layout fragment_tab_of_home
 layout fragment_tab_of_new
 layout fragment_tab_of_popular
 layout hero_item
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_certified_img
+layout items_market
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -4304,6 +4519,17 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout navermap_compass_view
+layout navermap_indoor_level_item
+layout navermap_indoor_level_picker
+layout navermap_info_menu_item
+layout navermap_info_view
+layout navermap_location_button_view
+layout navermap_map_controls_view
+layout navermap_map_view
+layout navermap_open_source_license_activity
+layout navermap_scale_bar_view
+layout navermap_zoom_control_view
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -4321,6 +4547,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout recyclerview_item_greening_detail
 layout recyclerview_item_greening_detail_sub
+layout recyclerview_stamps
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -4375,6 +4602,7 @@ string androidx_credentials_TYPE_PUBLIC_KEY_CREDENTIAL
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
+string around_me
 string authentication_means
 string auto_login
 string award_inofs
@@ -4389,6 +4617,7 @@ string bottomsheet_action_expand
 string bottomsheet_action_expand_halfway
 string bottomsheet_drag_handle_clicked
 string bottomsheet_drag_handle_content_description
+string buy_green
 string calendar
 string call_notification_answer_action
 string call_notification_answer_video_action
@@ -4402,6 +4631,7 @@ string certifi_method
 string certifi_notice
 string certifi_notice_important
 string certification
+string certify
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -4470,6 +4700,7 @@ string delete
 string deposit
 string deposit_ex
 string dialog
+string do_green
 string dropdown_menu
 string edit
 string email
@@ -4521,6 +4752,7 @@ string greening_degree
 string greening_end
 string greening_ing
 string greening_title
+string hello_blank_fragment
 string hello_first_fragment
 string hello_second_fragment
 string hide_bottom_view_on_scroll_behavior
@@ -4537,6 +4769,7 @@ string item_view_role_description
 string join
 string join_complt
 string login
+string logout
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
@@ -4644,10 +4877,29 @@ string name
 string name_star
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string navermap_compass
+string navermap_copyright
+string navermap_current_location
+string navermap_info_title
+string navermap_legal_notice
+string navermap_legend
+string navermap_map
+string navermap_naver_logo
+string navermap_open_source_license
+string navermap_pathway
+string navermap_scale_km
+string navermap_scale_m
+string navermap_version
+string navermap_zero
+string navermap_zoom_in
+string navermap_zoom_out
 string navigation_menu
 string next
 string no
 string not_allowed
+string not_exist_end
+string not_exist_ing
+string not_exist_open
 string not_selected
 string notice
 string num
@@ -4655,6 +4907,7 @@ string num_validation
 string off
 string on
 string open_green
+string participate
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -4669,6 +4922,7 @@ string previous
 string profile_setting
 string project_id
 string pwd
+string pwd_validation
 string range_end
 string range_start
 string required_input
@@ -4713,6 +4967,7 @@ string tooltip_long_press_label
 string tooltip_pane_description
 string total
 string total_degree
+string type
 string upload_picture
 string upload_picture_ex
 string use_camera
@@ -5875,6 +6130,7 @@ style Widget_Support_CoordinatorLayout
 style bottomNaviView
 style bottomNaviView_Active
 style dialog_custom_button
+style navermap_app
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -5992,6 +6248,8 @@ styleable NavGraphNavigator startDestination
 styleable NavHost navGraph
 styleable NavHostFragment defaultNavHost
 styleable NavInclude graph
+styleable NaverMap navermap_background navermap_backgroundColor navermap_backgroundImage navermap_bearing navermap_buildingHeight navermap_cjkLocalGlyphRasterizationEnabled navermap_compassEnabled navermap_contentPadding navermap_contentPaddingBottom navermap_contentPaddingLeft navermap_contentPaddingRight navermap_contentPaddingTop navermap_defaultCameraAnimationDuration navermap_enabledLayerGroups navermap_extent navermap_fpsLimit navermap_indoorEnabled navermap_indoorFocusRadius navermap_indoorLevelPickerEnabled navermap_latitude navermap_lightness navermap_liteModeEnabled navermap_localTypefaceFactoryClass navermap_locationButtonEnabled navermap_logoClickEnabled navermap_logoGravity navermap_logoMargin navermap_logoMarginBottom navermap_logoMarginEnd navermap_logoMarginStart navermap_logoMarginTop navermap_longitude navermap_mapType navermap_maxTilt navermap_maxZoom navermap_minZoom navermap_msaaEnabled navermap_nightModeEnabled navermap_object3dEnabled navermap_pickTolerance navermap_preserveEGLContextOnPause navermap_rotateGesturesEnabled navermap_rotateGesturesFriction navermap_scaleBarEnabled navermap_scrollGesturesEnabled navermap_scrollGesturesFriction navermap_stopGesturesEnabled navermap_symbolPerspectiveRatio navermap_symbolScale navermap_tilt navermap_tiltGesturesEnabled navermap_translucentTextureSurface navermap_useTextureView navermap_useVulkanView navermap_zOrderMediaOverlay navermap_zoom navermap_zoomControlEnabled navermap_zoomGesturesEnabled navermap_zoomGesturesFriction
+styleable NaverMapScaleBarView navermap_rtlEnabled
 styleable NavigationBarActiveIndicator android_height android_width android_color marginHorizontal shapeAppearance
 styleable NavigationBarView activeIndicatorLabelPadding backgroundTint elevation itemActiveIndicatorStyle itemBackground itemIconSize itemIconTint itemPaddingBottom itemPaddingTop itemRippleColor itemTextAppearanceActive itemTextAppearanceActiveBoldEnabled itemTextAppearanceInactive itemTextColor labelVisibilityMode menu
 styleable NavigationRailView headerLayout itemMinHeight menuGravity paddingBottomSystemWindowInsets paddingStartSystemWindowInsets paddingTopSystemWindowInsets shapeAppearance shapeAppearanceOverlay
@@ -6022,6 +6280,7 @@ styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
 styleable StateSet defaultState
+styleable SwipeRefreshLayout swipeRefreshLayoutProgressSpinnerBackgroundColor
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable TabItem android_icon android_layout android_text

@@ -7,7 +7,7 @@ import kr.ac.kpu.green_us.adapter.LocalDateTypeAdapter
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+//import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.Date
@@ -21,20 +21,20 @@ class RetrofitManager {
             .registerTypeAdapter(Greening::class.java, GreeningDeserializer())
             .create()
 
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            }
-
-        val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
+//        val loggingInterceptor = HttpLoggingInterceptor().apply {
+//                level = HttpLoggingInterceptor.Level.BODY
+//            }
+//
+//        val client = OkHttpClient.Builder()
+//            .addInterceptor(loggingInterceptor)
+//            .build()
 
         // Retrofit 설정
 
         val retrofit = Retrofit.Builder()
             .baseUrl("http://192.168.1.2:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(client)
+//            .client(client)
             .build()
         val api: RetrofitAPI = retrofit.create(RetrofitAPI::class.java)
         }

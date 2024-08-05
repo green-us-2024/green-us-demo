@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -28,6 +29,7 @@ import java.time.LocalDate
 class TabOfHomeFragment : Fragment() {
     lateinit var binding: FragmentTabOfHomeBinding
     private lateinit var homeDoAdapter: HomeDoAdapter
+    private lateinit var homeBuyAdapter: HomeBuyAdapter
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
@@ -42,7 +44,7 @@ class TabOfHomeFragment : Fragment() {
         binding = FragmentTabOfHomeBinding.inflate(inflater,container,false)
 
         // hero banner
-        binding.heroSection.adapter = HeroAdapter(getHeroList())
+        binding.heroSection.adapter = HeroAdapter(getHeroList(),requireActivity())
         binding.heroSection.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 스크롤
         binding.heroSection.currentItem =  current_banner_position
         binding.totalBannerNum.text = total_banner_num.toString()// 전체 배너(이미지) 개수 세팅
@@ -58,25 +60,42 @@ class TabOfHomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // 이미지 위치에 따라 현재 위치 숫자를 변경함
+        binding.heroSection.apply {
+            registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    val posiText = "${(position%total_banner_num)+1}"
+                    binding.currentBannerNum.text = posiText
+                }
+            })
+            binding.heroSection.setOnClickListener{
 
-        binding.heroSection.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback(){
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                val posiText = "${(position%total_banner_num)+1}"
-                binding.currentBannerNum.text = posiText
             }
-        })
-
+        }
         // 빠른 접근을 위한 버튼들 클릭 구현
+        // 만보기 버튼
         binding.btnManbo.setOnClickListener {
-            val intent = Intent(requireActivity(), PedometerActivity::class.java)
+            val intent = Intent(requireActivity(), SubActivity::class.java)
+            intent.putExtra("8","pedometer")
             startActivity(intent)
         }
+        // 개설하기 버튼
         binding.btnOpen.setOnClickListener {
-            val intent = Intent(requireActivity(), GreenOpenActivity::class.java)
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("2","open_green")
             startActivity(intent)
         }
-
+        // 내주변 버튼
+        binding.btnNearMarket.setOnClickListener {
+            val intent = Intent(requireActivity(), MapActivity::class.java)
+            startActivity(intent)
+        }
+        // 히어로 섹션 전체보기
+        binding.adPaging.setOnClickListener {
+            val intent = Intent(requireActivity(), SubActivity::class.java)
+            intent.putExtra("13","hero_list")
+            startActivity(intent)
+        }
         //데이터 로딩
         loadGreeningData()
 
@@ -84,35 +103,50 @@ class TabOfHomeFragment : Fragment() {
 
     private fun setupRecyclerViews(){
         // 구매형 RecyclerView 설정
-        val viewManager1 = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val viewAdapter1 = HomeBuyAdapter()
-        binding.recyclerviewIngGreening.apply {
+        viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        homeBuyAdapter = HomeBuyAdapter(emptyList())
+        recyclerView=binding.recyclerviewIngGreening.apply {
             setHasFixedSize(true)
-            layoutManager = viewManager1
-            adapter = viewAdapter1
+            layoutManager = viewManager
+            adapter = homeBuyAdapter
+        }
+
+        // 더보기 버튼 클릭 시
+        binding.imageView3.setOnClickListener {
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("11","buy_green")
+            startActivity(intent)
         }
 
         // 활동형 RecyclerView 설정
-        val viewManager2 = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         homeDoAdapter = HomeDoAdapter(emptyList()) // 빈 리스트로 초기화
-        binding.recyclerviewIngGreening2.apply {
+        recyclerView=binding.recyclerviewIngGreening2.apply {
             setHasFixedSize(true)
-            layoutManager = viewManager2
+            layoutManager = viewManager
             adapter = homeDoAdapter
         }
+
+        // 더보기 버튼 클릭 시
+        binding.imageView5.setOnClickListener {
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("12","do_green")
+            startActivity(intent)
+        }
+
     }
 
     private fun loadGreeningData() {
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        apiService.getGreening().enqueue(object : Callback<List<Greening>> {
+        apiService.getDoGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
-                    val allGreeningList = response.body() ?: emptyList()
-                    val selectedGreeningList = allGreeningList.shuffled().take(4) //무작위로 4개 선택
+                    val allDoGreeningList = response.body() ?: emptyList()
+                    val selectedGreeningList = allDoGreeningList.shuffled().take(4) //무작위로 4개 선택
                     homeDoAdapter.updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewIngGreening2.adapter = homeDoAdapter
                 } else {
-                    Log.e("TabOfHomeFragment", "Greening 데이터 로딩 실패: ${response.code()}")
+                    Log.e("TabOfHomeFragment", "DoGreening 데이터 로딩 실패: ${response.code()}")
                 }
             }
 
@@ -120,6 +154,25 @@ class TabOfHomeFragment : Fragment() {
                 Log.e("TabOfHomeFragment", "서버 통신 중 오류 발생", t)
             }
         })
+
+
+        apiService.getBuyGreening().enqueue(object : Callback<List<Greening>> {
+            override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
+                if (response.isSuccessful) {
+                    val allBuyGreeningList = response.body() ?: emptyList()
+                    val selectedGreeningList = allBuyGreeningList.shuffled().take(4) //무작위로 4개 선택
+                    homeBuyAdapter.updateData(selectedGreeningList) // 데이터로 어댑터 초기화
+                    binding.recyclerviewIngGreening.adapter = homeBuyAdapter
+                } else {
+                    Log.e("TabOfHomeFragment", "BuyGreening 데이터 로딩 실패: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Greening>>, t: Throwable) {
+                Log.e("TabOfHomeFragment", "서버 통신 중 오류 발생", t)
+            }
+        })
+
     }
 
     //뷰페이저에 들어갈 아이템(이미지)

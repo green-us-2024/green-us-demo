@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-83:/values-ta/values-ta.xml",
+            "outputFile": "kr.ac.kpu.green_us.app-mergeDebugResources-85:/values-ta/values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\danbi\\.gradle\\caches\\transforms-3\\da892f628fbf6dd5efb71aaf49a6dc20\\transformed\\browser-1.4.0\\res\\values-ta\\values-ta.xml",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\danbi\\.gradle\\caches\\transforms-3\\2d66f0e8e6dd9fd97d35da243731c3a6\\transformed\\jetified-play-services-base-18.0.1\\res\\values-ta\\values.xml",
+                    "source": "C:\\Users\\danbi\\.gradle\\caches\\transforms-3\\42753c53d381843ebb24378b7ba6c273\\transformed\\jetified-play-services-base-18.1.0\\res\\values-ta\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

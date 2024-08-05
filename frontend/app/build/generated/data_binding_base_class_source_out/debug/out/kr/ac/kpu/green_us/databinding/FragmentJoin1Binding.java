@@ -35,17 +35,21 @@ public final class FragmentJoin1Binding implements ViewBinding {
   public final EditText etPw;
 
   @NonNull
-  public final TextView tvExist;
+  public final TextView tvEmail;
+
+  @NonNull
+  public final TextView tvPw;
 
   private FragmentJoin1Binding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnEsc,
       @NonNull Button btnNext, @NonNull EditText etEmail, @NonNull EditText etPw,
-      @NonNull TextView tvExist) {
+      @NonNull TextView tvEmail, @NonNull TextView tvPw) {
     this.rootView = rootView;
     this.btnEsc = btnEsc;
     this.btnNext = btnNext;
     this.etEmail = etEmail;
     this.etPw = etPw;
-    this.tvExist = tvExist;
+    this.tvEmail = tvEmail;
+    this.tvPw = tvPw;
   }
 
   @Override
@@ -99,14 +103,20 @@ public final class FragmentJoin1Binding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tv_exist;
-      TextView tvExist = ViewBindings.findChildViewById(rootView, id);
-      if (tvExist == null) {
+      id = R.id.tv_email;
+      TextView tvEmail = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_pw;
+      TextView tvPw = ViewBindings.findChildViewById(rootView, id);
+      if (tvPw == null) {
         break missingId;
       }
 
       return new FragmentJoin1Binding((ConstraintLayout) rootView, btnEsc, btnNext, etEmail, etPw,
-          tvExist);
+          tvEmail, tvPw);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

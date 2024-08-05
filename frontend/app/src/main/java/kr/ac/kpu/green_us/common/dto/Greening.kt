@@ -19,5 +19,6 @@ data class Greening(
     @SerializedName("gdeposit") @Expose val gDeposit: Int?,
     @SerializedName("gtotalCount") @Expose val gTotalCount: Int? = 0,
     @SerializedName("gnumber") @Expose val gNumber: Int?,
-//    @SerializedName("user") @Expose val user: User?
+    @SerializedName("gkind") @Expose val gKind: Int?,
+    @SerializedName("user") @Expose val user: User?
 )
