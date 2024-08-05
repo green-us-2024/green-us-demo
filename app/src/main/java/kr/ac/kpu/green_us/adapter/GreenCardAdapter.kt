@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.GreeningDetailActivity
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.common.dto.Greening
 
 // 데이터 받은 매개변수 datalist로 수정
 class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder>(){
@@ -24,6 +25,7 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
         fun onItemClick(status:String){}
     }
     var itemClickListener: OnItemClickListener? = null
+    private var greeningList: List<Greening> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): GreenCardHolder {
@@ -37,15 +39,14 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
     override fun onBindViewHolder(holder: GreenCardHolder, position: Int) {
         // datalist에서 포지션에따라 값 붙여야 함
         // holder.itemtitle.text = datalist[position].title
-
+        val greening = greeningList[position]
         holder.itemimage.setImageResource(R.drawable.card_test_img)
-        holder.itemtitle.setText("테스트 그리닝")
-
+        holder.itemtitle.text = greening.gName ?: ""
     }
 
     override fun getItemCount(): Int {
         // datalist.count() -> 데이터에 있는 만큼
-        return 20
+        return greeningList.size
     }
 
     inner class GreenCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -59,7 +60,9 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
         }
 
     }
-
-
+    fun updateData(newList: List<Greening>) {
+        greeningList = newList
+        notifyDataSetChanged()
+    }
 
 }

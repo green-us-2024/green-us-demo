@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.common.dto.Greening
 
 class MyGreenOpenAdapter() :
     RecyclerView.Adapter<MyGreenOpenAdapter.GreenCardHolder>() {
@@ -20,6 +21,8 @@ class MyGreenOpenAdapter() :
     }
 
     var itemClickListener: MyGreenOpenAdapter.OnItemClickListener? = null
+    private var greeningList: List<Greening> = emptyList()
+
 
 
     inner class GreenCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -49,12 +52,18 @@ class MyGreenOpenAdapter() :
 
     // 2. Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: GreenCardHolder, position: Int) {
+        val greening = greeningList[position]
         holder.itemimage.setImageResource(R.drawable.card_test_img)
-        holder.itemtitle.setText("테스트 그리닝")
+        holder.itemtitle.text = greening.gName
     }
 
     // 3. Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
-        return 10
+        return greeningList.size
+    }
+
+    fun updateData(newList: List<Greening>) {
+        greeningList = newList
+        notifyDataSetChanged()
     }
 }
