@@ -27,7 +27,7 @@ class GreeningDetailActivity : AppCompatActivity() {
 
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
 
-        if(gSeq != -1){
+        if(gSeq <= -1){
             //gSeq조회 실패한 경우 예외처리 -> 로그아웃하고 초기화면으로
             Log.e("GreeningDetailActivity","gSeq 실패")
         }else{
@@ -58,6 +58,11 @@ class GreeningDetailActivity : AppCompatActivity() {
                             binding.tvStartDate.text = "${month}월 ${day}일부터 시작"
                             binding.tvParticipateFee.text = "${greening.gDeposit}"
                             binding.tvHowto.text = "${greening.gInfo}"
+                            binding.textView10.text = when(greening.gKind){
+                                1,3 -> "활동형" //1->공식 3->회원
+                                2,4 -> "구매형" //2->공식 4->회원
+                                else -> ""
+                            }
                         }
 
                     } else {

@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter
 class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
 
     interface OnItemClickListener {
-        fun onItemClick(status:String){}
+        fun onItemClick(status:String, gSeq:Int){}
     }
     var itemClickListener: OnItemClickListener? = null
     private var greeningList: List<Greening> = emptyList()
@@ -77,6 +77,10 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
             2,4 -> "구매형"
             else -> ""
         }
+
+        holder.itemView.setOnClickListener{
+            itemClickListener?.onItemClick("in", greening.gSeq)
+        }
     }
 
     inner class TabNewViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -88,9 +92,9 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
-        init{
-            view.setOnClickListener{ itemClickListener?.onItemClick("in") }
-        }
+//        init{
+//            view.setOnClickListener{ itemClickListener?.onItemClick("in") }
+//        }
     }
 
     fun updateData(newList: List<Greening>) {

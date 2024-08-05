@@ -58,17 +58,19 @@ class TabOfNewFragment : Fragment() {
         }
 
         viewAdapter.itemClickListener = object : TabNewAdapter.OnItemClickListener{
-            override fun onItemClick(status:String) {
+            override fun onItemClick(status:String,gSeq:Int) {
                 val status = "$status"
                 if (status == "notIn"){
                     // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","notIn")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
                 else if (status == "in"){
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","in")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
             }
