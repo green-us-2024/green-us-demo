@@ -143,6 +143,24 @@ class TabOfHomeFragment : Fragment() {
             adapter = homeDoAdapter
         }
 
+        (viewAdapter as HomeDoAdapter).itemClickListener = object : HomeDoAdapter.OnItemClickListener{
+            override fun onItemClick(status:String) {
+                val status = "$status"
+                if (status == "notIn"){
+                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","notIn")
+                    startActivity(intent)
+                }
+                else if (status == "in"){
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","in")
+                    startActivity(intent)
+                }
+            }
+
+        }
+
         // 더보기 버튼 클릭 시
         binding.imageView5.setOnClickListener {
             val intent = Intent(getActivity(), SubActivity::class.java)
