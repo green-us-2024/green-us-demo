@@ -27,10 +27,11 @@ class RetrofitManager {
         // Retrofit 설정
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.2:8080/")
-            .addConverterFactory(GsonConverterFactory.create(gson))
-//            .client(client)
+//            .baseUrl("http://192.168.25.6:8080/")
+            .baseUrl("http://192.168.219.105:8080/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
         val api: RetrofitAPI = retrofit.create(RetrofitAPI::class.java)
     }
+
 }
