@@ -42,7 +42,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginHorizontal="16dp"
         android:scaleType="fitXY"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/img_deafault" />
 
     <Button
         android:id="@+id/btn_report"

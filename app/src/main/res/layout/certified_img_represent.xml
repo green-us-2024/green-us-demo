@@ -13,5 +13,5 @@
         android:layout_marginHorizontal="4dp"
         android:scaleType="fitXY"
         android:background="@color/transparency"
-        tools:srcCompat="@drawable/card_test_img" />
+        tools:srcCompat="@drawable/img_deafault" />
 </LinearLayout>

@@ -19,7 +19,7 @@
             android:id="@+id/greening_img"
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            app:srcCompat="@drawable/greening_test_img"
+            app:srcCompat="@drawable/img_deafault"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:scaleType="fitXY"

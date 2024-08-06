@@ -75,7 +75,6 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
         ref.downloadUrl.addOnSuccessListener {
                 uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
         }
-        holder.img.setImageResource(R.drawable.card_test_img)
         holder.title.text = greening.gName ?: ""
         holder.deadLine.text = deadLind
         //holder.deadLineLayout

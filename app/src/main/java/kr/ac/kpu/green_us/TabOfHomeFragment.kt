@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import kr.ac.kpu.green_us.adapter.HeroAdapter
-import kr.ac.kpu.green_us.adapter.HomeBuyAdapter
-import kr.ac.kpu.green_us.adapter.HomeDoAdapter
+import kr.ac.kpu.green_us.adapter.*
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
@@ -111,6 +109,24 @@ class TabOfHomeFragment : Fragment() {
             adapter = homeBuyAdapter
         }
 
+        homeBuyAdapter.itemClickListener = object : HomeBuyAdapter.OnItemClickListener{
+            override fun onItemClick(status:String) {
+                val status = "$status"
+                if (status == "notIn"){
+                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","notIn")
+                    startActivity(intent)
+                }
+                else if (status == "in"){
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","in")
+                    startActivity(intent)
+                }
+            }
+
+        }
+
         // 더보기 버튼 클릭 시
         binding.imageView3.setOnClickListener {
             val intent = Intent(getActivity(), SubActivity::class.java)
@@ -125,6 +141,24 @@ class TabOfHomeFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = homeDoAdapter
+        }
+
+        homeDoAdapter.itemClickListener = object : HomeDoAdapter.OnItemClickListener{
+            override fun onItemClick(status:String) {
+                val status = "$status"
+                if (status == "notIn"){
+                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","notIn")
+                    startActivity(intent)
+                }
+                else if (status == "in"){
+                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    intent.putExtra("status","in")
+                    startActivity(intent)
+                }
+            }
+
         }
 
         // 더보기 버튼 클릭 시

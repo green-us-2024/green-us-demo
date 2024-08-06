@@ -48,7 +48,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/card_test_img" />
+                app:srcCompat="@drawable/img_deafault" />
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"

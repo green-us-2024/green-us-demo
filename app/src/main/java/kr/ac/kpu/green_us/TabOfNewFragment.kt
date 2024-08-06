@@ -68,7 +68,7 @@ class TabOfNewFragment : Fragment() {
                     startActivity(intent)
                 }
                 else if (status == "in"){
-                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                    val intent = Intent(requireActivity(),CertifyGreeningActivity::class.java)
                     intent.putExtra("status","in")
                     intent.putExtra("gSeq", gSeq)
                     startActivity(intent)

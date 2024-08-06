@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/card_test_img" />
+            app:srcCompat="@drawable/img_deafault" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_main_info"
