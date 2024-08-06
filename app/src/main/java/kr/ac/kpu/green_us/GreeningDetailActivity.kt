@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.Firebase
+import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
@@ -16,9 +19,6 @@ import java.time.format.DateTimeFormatter
 
 class GreeningDetailActivity : AppCompatActivity() {
     private  lateinit var binding : ActivityGreeningDetailBinding
-//    private lateinit var recyclerView: RecyclerView
-//    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-//    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +50,15 @@ class GreeningDetailActivity : AppCompatActivity() {
                             val year = startDate.year
                             val month = startDate.monthValue
                             val day = startDate.dayOfMonth
+
+                            // 이미지 로드
+                            val gseq = gSeq.toString()
+                            val imgName = gseq
+                            val storage = Firebase.storage
+                            val ref = storage.getReference("greeningImgs/").child(imgName)
+                            ref.downloadUrl.addOnSuccessListener {
+                                    uri -> Glide.with(this@GreeningDetailActivity).load(uri).into(binding.imgGreening)
+                            }
 
                             binding.greeningTitle.text = greening.gName ?: ""
                             binding.tagTerm.text = "${greenWeek}주"

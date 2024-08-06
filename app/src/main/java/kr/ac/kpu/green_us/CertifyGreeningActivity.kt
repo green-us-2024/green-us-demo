@@ -208,7 +208,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                     taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener {
                         val store = Firebase.firestore
                         val url = it.toString()
-                        val data = CertifiedImgs(uid, url, userEmail)
+                        val data = CertifiedImgs( url, userEmail)
                         store.collection("certificationImgs").document()
                             .set(data).addOnSuccessListener {
                                 Toast.makeText(this, "사진이 업로드 되었습니다.", Toast.LENGTH_SHORT).show();

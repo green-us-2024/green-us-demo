@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.storage.FirebaseStorage
 import kr.ac.kpu.green_us.adapter.GreenCardAdapter
 import kr.ac.kpu.green_us.adapter.TabPopAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
@@ -41,9 +43,7 @@ class TabOfPopularFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         viewInit()
-
     }
 
     fun viewInit(){
@@ -51,9 +51,9 @@ class TabOfPopularFragment : Fragment() {
         val viewManager = GridLayoutManager(requireContext(),2)
         val viewAdapter = TabPopAdapter()
         binding.recyclerviewPopularGreening.apply {
-            setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
+            setHasFixedSize(true)
         }
         viewAdapter.itemClickListener = object : TabPopAdapter.OnItemClickListener{
             override fun onItemClick(status:String, gSeq: Int) {

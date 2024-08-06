@@ -8,6 +8,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.Firebase
+import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Greening
 import java.time.Duration
@@ -58,12 +61,19 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
         val deadLind = if (duration.isNegative){
             "모집마감"
         }else{
-            "마감까지 ${days}일 ${hours}시간 ${minutes}분"
+            "${days}일 ${hours}시간 ${minutes}분"
         }
 
         var greenWeek = 0
         if(greening.gFreq != 0 && greening.gNumber != 0 && greening.gFreq != null && greening.gNumber != null) {
             greenWeek = (greening.gNumber)/(greening.gFreq)
+        }
+        val gseq = greeningList[position].gSeq.toString()
+        val imgName = gseq
+        val storage = Firebase.storage
+        val ref = storage.getReference("greeningImgs/").child(imgName)
+        ref.downloadUrl.addOnSuccessListener {
+                uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
         }
         holder.img.setImageResource(R.drawable.card_test_img)
         holder.title.text = greening.gName ?: ""
@@ -87,7 +97,7 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
         var img: ImageView = view.findViewById(R.id.greening_img) // 대표이미지
         var title: TextView = view.findViewById(R.id.greeng_title) // 그리닝명
         var deadLine : TextView = view.findViewById(R.id.tv_time) // 마감시간
-        var deadLineLayout : LinearLayout = view.findViewById(R.id.deadline_layout) // 마감시간 표시 영역
+        var deadLineLayout : ConstraintLayout = view.findViewById(R.id.deadline_layout) // 마감시간 표시 영역
         var term : TextView = view.findViewById(R.id.tag_term)// 진행기간
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단

@@ -3,6 +3,7 @@ package kr.ac.kpu.green_us
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,17 +15,24 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
+import com.google.firebase.firestore.firestore
+import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.User
+import kr.ac.kpu.green_us.data.CertifiedImgs
+import kr.ac.kpu.green_us.data.GreeningImgs
 import kr.ac.kpu.green_us.databinding.FragmentGreenOpenBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.properties.Delegates
 
 class GreenOpenFragment : Fragment() {
     lateinit var binding: FragmentGreenOpenBinding
@@ -35,6 +43,9 @@ class GreenOpenFragment : Fragment() {
     var photo = ""
     var freq = 0
     var kind = 0
+    lateinit var uri: Uri
+    var gDeposit by Delegates.notNull<Int>()
+    var gSeq by Delegates.notNull<Int>()
     var user :User? = null
 
     //날짜 형식 정의
@@ -46,9 +57,7 @@ class GreenOpenFragment : Fragment() {
     ): View? {
         binding = FragmentGreenOpenBinding.inflate(inflater,container,false)
 
-//        auth = FirebaseAuth.getInstance()
-//        val currentUser = auth.currentUser
-//        val currentEmail = currentUser?.email
+        auth = Firebase.auth
 
         // 날짜 입력 editText 달력으로만 받게 하기 위해 비활성화
         binding.startDateEt.setClickable(false);
@@ -61,9 +70,17 @@ class GreenOpenFragment : Fragment() {
         // 개설하기 버튼
         binding.openGreenBtn.setOnClickListener {
 
+
             val gName = binding.nameEt.text.toString()
             val gInfo = binding.greenDetailEt.text.toString()
-            val gDeposit = binding.depositEx.text.toString().trim().toInt()
+            val fee =  binding.depositEx.text.toString().trim()
+            try {
+                gDeposit = fee.toInt()
+                print("gDeposit : $gDeposit")
+            } catch (e: NumberFormatException) {
+                println("Not number: $fee")
+            }
+//            val gDeposit = binding.depositEx.text.toString().trim().toInt()
             val gNumber = week*freq
             if (start_date.isEmpty()){
                 //Toast.makeText(this, "시작일을 선택해 주세요.", Toast.LENGTH_SHORT).show()
@@ -112,12 +129,13 @@ class GreenOpenFragment : Fragment() {
             }
 
             getUserByEmail()
-            if (user != null){
-                Log.d("GreenOpenFragment", "userSeq: ${user!!.userSeq}")
-            }else{
-                Log.e("GreenOpenFragment", "user가 없거나 조회 실패")
-                return@setOnClickListener
-            }
+            //  userseq를 찾았음에도 항상 null값 나오기에 주석처리하였음
+//            if (user != null){
+//                Log.d("GreenOpenFragment", "userSeq: ${user!!.userSeq}")
+//            }else{
+//                Log.e("GreenOpenFragment", "user가 없거나 조회 실패")
+//                return@setOnClickListener
+//            }
 
             //데이터 전송
             val greening = Greening(
@@ -140,9 +158,11 @@ class GreenOpenFragment : Fragment() {
                     if (response.isSuccessful) {
                         val greening = response.body()
                         if(greening != null) {
-                            val gSeq = greening.gSeq
+                            gSeq = greening.gSeq
 
                             //gSeq를 이미지명으로 그리닝 이미지 저장
+                            imageUpload(uri)
+
                         }
                         Log.d("GreenOpenFragment", "서버로 데이터 전송 성공")
 
@@ -187,8 +207,8 @@ class GreenOpenFragment : Fragment() {
         //기간 선택
         binding.radioGroup2.setOnCheckedChangeListener { _, checkedId ->
             certiWay = when (checkedId){
-                R.id.only_camera -> "카메라 사용"
-                R.id.camera_gallery -> "카메라,갤러리 사용"
+                R.id.only_camera -> "카메라"
+                R.id.camera_gallery -> "카메라,갤러리"
                 else -> ""
             }
         }
@@ -238,6 +258,40 @@ class GreenOpenFragment : Fragment() {
 
         return binding.root
     }
+    private fun imageUpload(uri: Uri) {
+        if (uri != null) {
+            val storage = Firebase.storage
+            //현재 로그인 한 사용자 이메일 가져오기
+
+            // storage에 저장할 파일명 선언 (그리닝시퀀스)
+            val fileName = gSeq.toString()
+
+            // storage 및 store에 업로드 작업 greeningImgs/에 gseq으로 이미지 저장
+            /* store저장은 추후에 삭제할 것 같습니다*/
+            // 스토리지에 저장후 url을 다운로드 받아 스토어에 저장
+            storage.getReference("greeningImgs/").child(fileName).putFile(uri)
+                .addOnSuccessListener { taskSnapshot ->
+                    Log.d("storageUploadSuccess", "인증사진 스토리지 업로드 성공")
+                    taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener {
+                        val store = Firebase.firestore
+                        val url = it.toString()
+                        val data = GreeningImgs(url, gSeq.toString())
+                        store.collection("greeningImgs").document()
+                            .set(data).addOnSuccessListener {
+                                Log.d("storeUploadSuccess", "그리닝사진 db 업로드 성공")
+                            }.addOnFailureListener {
+                                Log.d("storeUploadFail", "그리닝사진 db 업로드 실패")
+                            }
+                    }
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(), "사진 업로드에 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                    Log.d("storageUploadFail", "그리닝사진 스토리지 업로드 실패")
+                }
+        } else {
+            Toast.makeText(requireContext(), "사진을 불러올 수 없습니다.", Toast.LENGTH_SHORT).show();
+            Log.d("UriError", "uri null 에러")
+        }
+    }
 
     // 달력 다이얼로그
     private fun showDatePicker() {
@@ -269,14 +323,14 @@ class GreenOpenFragment : Fragment() {
     private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
-        val uri = it.data!!.data
+        uri = it.data!!.data!!
         binding.uploadPictureEt.setText(uri?.getLastPathSegment())
     }
 
     private fun getUserByEmail() {
-        auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-        val currentEmail = currentUser?.email
+        val currentEmail = currentUser?.email.toString()
+        Log.d("currentEmail",currentEmail)
 
         //로그인중인 email에 해당하는 user 가져오는 코드
         if(currentEmail != null){
@@ -284,25 +338,25 @@ class GreenOpenFragment : Fragment() {
             apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
                 override fun onResponse(call: Call<User>, response: Response<User>) {
                     if (response.isSuccessful) {
-                        user = response.body()
+                        user = response.body()!!
                         if (user != null) {
                             //회원이 존재하는 경우
                             Log.d("GreeningOpenFragment", "회원 찾음 : ${user!!.userSeq}")
                         } else {
                             //회원이 존재하지 않는 경우
                             Log.e("GreeningOpenFragment", "회원 못찾음")
-                            user = null
+//                            user = null
                         }
                     }else{
                         Log.e("GreeningOpenFragment", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
-                        user = null
+//                        user = null
                         //실패 처리 로직
                     }
                 }
 
                 override fun onFailure(call: Call<User>, t: Throwable) {
                     Log.e("GreeningOpenFragment", "서버 통신 중 오류 발생", t)
-                    user = null
+//                    user = null
                     // 실패 처리 로직
                 }
             })

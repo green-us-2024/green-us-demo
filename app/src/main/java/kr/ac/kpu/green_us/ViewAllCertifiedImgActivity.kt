@@ -8,9 +8,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.storage.FirebaseStorage
 import kr.ac.kpu.green_us.adapter.CertifiedImgAdapter
 import kr.ac.kpu.green_us.adapter.CertifiedRepresentAdapter
+import kr.ac.kpu.green_us.data.CertifiedImgs
 import kr.ac.kpu.green_us.databinding.ActivityCertifyGreeningBinding
 import kr.ac.kpu.green_us.databinding.ActivityViewAllCertifiedImgBinding
 
@@ -37,7 +39,6 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
 
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference.child("certificationImgs/")
-
         // 스토리지 이미지 전체 가져옴
         storageRef.listAll().addOnSuccessListener {
             listResult -> for (img in listResult.items){

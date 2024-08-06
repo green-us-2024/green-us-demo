@@ -1,6 +1,7 @@
 package kr.ac.kpu.green_us.data
 
-class CertifiedImgs (
+class GreeningImgs(
     var url: String ="",
-    var userEmail:String=""
-) {}
+    var gSeq:String=""
+) {
+}
