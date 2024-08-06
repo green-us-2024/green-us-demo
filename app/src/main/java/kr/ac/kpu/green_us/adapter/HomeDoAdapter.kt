@@ -10,6 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Greening
+import java.time.Duration
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
     RecyclerView.Adapter<HomeDoAdapter.HomeDoViewHolder>(){
@@ -45,8 +50,45 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
 
     override fun onBindViewHolder(holder: HomeDoViewHolder, position: Int) {
         val greening = greeningList[position]
+
+        // greening.gStartDate는 "yyyy-MM-dd" 형식의 문자열
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val startDate = LocalDate.parse(greening.gStartDate, formatter)
+
+        // 현재 시간
+        val currentDateTime = LocalDateTime.now(ZoneId.systemDefault())
+        // startDate의 00시로 LocalDateTime을 설정
+        val startDateTime = startDate.atStartOfDay()
+        // 현재 시간과 startDateTime의 차이를 계산
+        val duration = Duration.between(currentDateTime, startDateTime)
+
+        // duration을 일, 시간, 분으로 나눠서 표시
+        val days = duration.toDays()
+        val hours = duration.toHours() % 24
+        val minutes = duration.toMinutes() % 60
+
+        val deadLind = if (duration.isNegative){
+            "모집마감"
+        }else{
+            "마감까지 ${days}일 ${hours}시간 ${minutes}분"
+        }
+        var greenWeek = 0
+        if(greening.gFreq != 0 && greening.gNumber != 0 && greening.gFreq != null && greening.gNumber != null) {
+            greenWeek = (greening.gNumber)/(greening.gFreq)
+        }
+
         holder.img.setImageResource(R.drawable.card_test_img)
         holder.title.text = greening.gName
+        holder.deadLine.text = deadLind
+        //holder.deadLineLayout
+        holder.term.text = "${greenWeek}주"
+        holder.freq.text = "주${greening.gFreq}회"
+        holder.method.text = greening.gCertiWay
+        holder.type.text = when(greening.gKind){
+            1,3 -> "활동형"
+            2,4 -> "구매형"
+            else -> ""
+        }
     }
 
     override fun getItemCount(): Int {
