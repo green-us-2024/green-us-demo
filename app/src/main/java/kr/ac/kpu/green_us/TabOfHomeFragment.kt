@@ -109,7 +109,7 @@ class TabOfHomeFragment : Fragment() {
             adapter = homeBuyAdapter
         }
 
-        (viewAdapter as HomeBuyAdapter).itemClickListener = object : HomeBuyAdapter.OnItemClickListener{
+        homeBuyAdapter.itemClickListener = object : HomeBuyAdapter.OnItemClickListener{
             override fun onItemClick(status:String) {
                 val status = "$status"
                 if (status == "notIn"){
@@ -143,7 +143,7 @@ class TabOfHomeFragment : Fragment() {
             adapter = homeDoAdapter
         }
 
-        (viewAdapter as HomeDoAdapter).itemClickListener = object : HomeDoAdapter.OnItemClickListener{
+        homeDoAdapter.itemClickListener = object : HomeDoAdapter.OnItemClickListener{
             override fun onItemClick(status:String) {
                 val status = "$status"
                 if (status == "notIn"){
