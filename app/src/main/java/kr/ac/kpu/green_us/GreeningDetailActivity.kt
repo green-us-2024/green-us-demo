@@ -1,15 +1,19 @@
 package kr.ac.kpu.green_us
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.Participate
+import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.ActivityGreeningDetailBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +23,8 @@ import java.time.format.DateTimeFormatter
 
 class GreeningDetailActivity : AppCompatActivity() {
     private  lateinit var binding : ActivityGreeningDetailBinding
+    lateinit var auth: FirebaseAuth
+    var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,19 +43,14 @@ class GreeningDetailActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val greening = response.body() ?: null
                         if(greening != null){
-                            var greenWeek = 0
-                            if(greening.gFreq != 0 && greening.gNumber != 0 && greening.gFreq != null && greening.gNumber != null) {
-                                greenWeek = (greening.gNumber)/(greening.gFreq)
-                            }
+                            val greenWeek = if (greening.gFreq != 0 && greening.gNumber != 0) {
+                                greening.gNumber!! / greening.gFreq!!
+                            } else { 0 }
 
                             // greening.gStartDate는 "yyyy-MM-dd" 형식의 문자열
                             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
                             val startDate = LocalDate.parse(greening.gStartDate, formatter)
 
-                            // 년/월/일 추출하여 변수에 저장
-                            val year = startDate.year
-                            val month = startDate.monthValue
-                            val day = startDate.dayOfMonth
 
                             // 이미지 로드
                             val gseq = gSeq.toString()
@@ -64,7 +65,8 @@ class GreeningDetailActivity : AppCompatActivity() {
                             binding.tagTerm.text = "${greenWeek}주"
                             binding.tagFreq.text = "주${greening.gFreq}회"
                             binding.tagCertifi.text = greening.gCertiWay
-                            binding.tvStartDate.text = "${month}월 ${day}일부터 시작"
+                            binding.tvStartDate.text =
+                                "${startDate.monthValue}월 ${startDate.dayOfMonth}일부터 시작"
                             binding.tvParticipateFee.text = "${greening.gDeposit}"
                             binding.tvHowto.text = "${greening.gInfo}"
                             binding.textView10.text = when(greening.gKind){
@@ -72,22 +74,87 @@ class GreeningDetailActivity : AppCompatActivity() {
                                 2,4 -> "구매형" //2->공식 4->회원
                                 else -> ""
                             }
-                        }
 
+                            //참여하기 버튼
+                            binding.button.setOnClickListener {
+                                getUserByEmail { user ->
+                                    if (user != null) {
+                                        val participate = Participate(user = user, greening = greening)
+                                        val apiService =
+                                            RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+                                        apiService.registerParticipate(participate)
+                                            .enqueue(object : Callback<Participate> {
+                                                override fun onResponse(
+                                                    call: Call<Participate>,
+                                                    response: Response<Participate>
+                                                ) {
+                                                    if (response.isSuccessful) {
+                                                        Log.d("GreeningDetailActivity", "참여 등록 완료")
+                                                        Toast.makeText(application,"${greening.gName}에 참여 완료", Toast.LENGTH_SHORT).show()
+                                                        //메인 화면으로 이동
+                                                    } else {
+                                                        Log.e("GreeningDetailActivity", "그리닝 참여 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                                                    }
+                                                }
+
+                                                override fun onFailure(
+                                                    call: Call<Participate>,
+                                                    t: Throwable
+                                                ) {
+                                                    Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
+                                                    // 실패 처리 로직
+                                                }
+                                            })
+                                    }
+                                }
+                            }
+                        }
                     } else {
                         Log.e("GreeningDetailActivity", "Greening 데이터 로딩 실패: ${response.code()}")
                     }
                 }
 
-                override fun onFailure(call: Call<Greening>, t: Throwable) {
-                    Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
+                override fun onFailure(p0: Call<Greening>, p1: Throwable) {
+                    Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", p1)
                 }
             })
         }
-
-        //이전 화면으로
         binding.btnEsc.setOnClickListener {
-            this.finish()
+            finish()
         }
     }
+
+    private fun getUserByEmail(callback: (User?)->Unit) {
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        val currentEmail = currentUser?.email
+
+        //로그인중인 email에 해당하는 user 가져오는 코드
+        if(currentEmail != null){
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        callback(response.body())
+                    }else{
+                        Log.e("GreeningDetailActivity", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                        callback(null)
+                        //실패 처리 로직
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
+                    callback(null)
+                    // 실패 처리 로직
+                }
+            })
+        }else{
+            Log.e("GreeningOpenFragment", "로그인된 이메일을 가져올 수 없습니다.")
+            callback(null)
+            //로그인된 Email을 못가져온 경우
+            //로그아웃 시키고 처음 화면으로 가도록
+        }
+    }
+
 }

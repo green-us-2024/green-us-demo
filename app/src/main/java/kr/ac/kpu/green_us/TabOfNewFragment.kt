@@ -20,6 +20,8 @@ import kr.ac.kpu.green_us.databinding.FragmentTabOfPopularBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,16 +83,22 @@ class TabOfNewFragment : Fragment() {
 
     private fun loadGreeningDate(adapter: TabNewAdapter){
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        val today = LocalDate.now()
         apiService.getNewGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val greeningList = response.body() ?: emptyList()
 
-                    // 순서대로 20개의 그리닝 선택
-//                    val selectedGreeningList = greeningList.take(20)
-
+                    val selectedGreeningList = greeningList.filter{ greening->
+                        try {
+                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            (today.isEqual(startDate) ||startDate.isAfter(today))
+                        }catch (e: Exception){
+                            false
+                        }
+                    }
                     // 데이터를 어댑터에 설정
-                    adapter.updateData(greeningList)
+                    adapter.updateData(selectedGreeningList)
                 } else {
                     Log.e("TabOfNewFragment", "Greening 데이터 로딩 실패: ${response.code()}")
                 }

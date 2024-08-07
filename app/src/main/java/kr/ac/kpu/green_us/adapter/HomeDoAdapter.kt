@@ -24,7 +24,7 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
     RecyclerView.Adapter<HomeDoAdapter.HomeDoViewHolder>(){
 
     interface OnItemClickListener {
-        fun onItemClick(status:String){}
+        fun onItemClick(status:String,gSeq:Int){}
     }
 
     var itemClickListener: OnItemClickListener? = null
@@ -38,9 +38,9 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
-        init{
-            view.setOnClickListener{ itemClickListener?.onItemClick("in") }
-        }
+//        init{
+//            view.setOnClickListener{ itemClickListener?.onItemClick("in") }
+//        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,
@@ -97,6 +97,9 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
             1,3 -> "활동형"
             2,4 -> "구매형"
             else -> ""
+        }
+        holder.itemView.setOnClickListener{
+            itemClickListener?.onItemClick("in", greening.gSeq)
         }
     }
 

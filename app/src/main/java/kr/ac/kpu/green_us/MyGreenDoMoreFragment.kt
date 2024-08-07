@@ -18,6 +18,8 @@ import kr.ac.kpu.green_us.databinding.FragmentMyGreenDoMoreBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class MyGreenDoMoreFragment : Fragment() {
     lateinit var binding: FragmentMyGreenDoMoreBinding
@@ -42,11 +44,20 @@ class MyGreenDoMoreFragment : Fragment() {
         }
 
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        val today = LocalDate.now()
         apiService.getDoGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val allDoGreeningList = response.body() ?: emptyList()
-                    (viewAdapter as HomeDoMoreAdapter).updateData(allDoGreeningList) // 데이터로 어댑터 초기화
+                    val selectedGreeningList = allDoGreeningList.filter{ greening->
+                        try {
+                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            (today.isEqual(startDate) ||startDate.isAfter(today))
+                        }catch (e: Exception){
+                            false
+                        }
+                    }
+                    (viewAdapter as HomeDoMoreAdapter).updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewDoGreening.adapter = viewAdapter
                 } else {
                     Log.e("TabOfHomeFragment", "DoGreening 데이터 로딩 실패: ${response.code()}")

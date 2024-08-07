@@ -80,8 +80,6 @@ class TabOfPopularFragment : Fragment() {
                 if (response.isSuccessful) {
                     val greeningList = response.body() ?: emptyList()
 
-                    // 일단 무작위로 20개의 그리닝 선택
-//                    val selectedGreeningList = greeningList.shuffled().take(20)
 
                     // 데이터를 어댑터에 설정
                     adapter.updateData(greeningList)
