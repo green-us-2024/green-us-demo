@@ -2,6 +2,7 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.adapter.HomeDoAdapter
 import kr.ac.kpu.green_us.adapter.HomeDoMoreAdapter
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenDoMoreBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MyGreenDoMoreFragment : Fragment() {
     lateinit var binding: FragmentMyGreenDoMoreBinding
@@ -34,18 +41,37 @@ class MyGreenDoMoreFragment : Fragment() {
             adapter = viewAdapter
         }
 
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        apiService.getDoGreening().enqueue(object : Callback<List<Greening>> {
+            override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
+                if (response.isSuccessful) {
+                    val allDoGreeningList = response.body() ?: emptyList()
+                    (viewAdapter as HomeDoMoreAdapter).updateData(allDoGreeningList) // 데이터로 어댑터 초기화
+                    binding.recyclerviewDoGreening.adapter = viewAdapter
+                } else {
+                    Log.e("TabOfHomeFragment", "DoGreening 데이터 로딩 실패: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Greening>>, t: Throwable) {
+                Log.e("TabOfHomeFragment", "서버 통신 중 오류 발생", t)
+            }
+        })
+
         (viewAdapter as HomeDoMoreAdapter).itemClickListener = object : HomeDoMoreAdapter.OnItemClickListener{
-            override fun onItemClick(status:String) {
+            override fun onItemClick(status:String, gSeq:Int) {
                 val status = "$status"
                 if (status == "notIn"){
                     // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","notIn")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
                 else if (status == "in"){
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","in")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
             }
