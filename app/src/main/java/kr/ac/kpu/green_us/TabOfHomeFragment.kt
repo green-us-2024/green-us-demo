@@ -49,14 +49,6 @@ class TabOfHomeFragment : Fragment() {
         val showCurrentNum = (current_banner_position%total_banner_num)+1
         binding.currentBannerNum.text = showCurrentNum.toString() // 현재 이미지 순서 세팅
 
-        //구매형 및 활동형 RecyclerView 설정
-        setupRecyclerViews()
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         // 이미지 위치에 따라 현재 위치 숫자를 변경함
         binding.heroSection.apply {
             registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
@@ -70,6 +62,15 @@ class TabOfHomeFragment : Fragment() {
 
             }
         }
+        //구매형 및 활동형 RecyclerView 설정
+        setupRecyclerViews()
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         // 빠른 접근을 위한 버튼들 클릭 구현
         // 만보기 버튼
         binding.btnManbo.setOnClickListener {
@@ -89,7 +90,7 @@ class TabOfHomeFragment : Fragment() {
             startActivity(intent)
         }
         // 히어로 섹션 전체보기
-        binding.adPaging.setOnClickListener {
+        binding.tvSeeAll.setOnClickListener {
             val intent = Intent(requireActivity(), SubActivity::class.java)
             intent.putExtra("13","hero_list")
             startActivity(intent)
@@ -211,6 +212,7 @@ class TabOfHomeFragment : Fragment() {
 
     //뷰페이저에 들어갈 아이템(이미지)
     private fun getHeroList():ArrayList<Int>{
+
         return arrayListOf<Int>(R.drawable.hero_img_1,R.drawable.hero_img_2,R.drawable.hero_img_3)
     }
 

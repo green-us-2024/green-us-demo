@@ -11,8 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.google.android.gms.common.internal.FallbackServiceBroker
 import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.databinding.ActivityCertificationImgDetailBinding
@@ -49,6 +52,30 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
     private fun viewInit(url:String){
         // 클릭한 이미지 url 받아와서 이미지뷰에 붙임
         Glide.with(this).load(url).into(binding.selectedImg)
+
+        // 현재 로그인한 사용자 이메일 값 받아옴
+        val currentUser = Firebase.auth.currentUser
+        val currentEmail = currentUser?.email.toString()
+        Log.d("currentEmail",currentEmail)
+
+        // 클릭한 사진이 현재 로그인한 사용자가 올린 사진인지 확인함
+        val store = Firebase.firestore
+        val datas = store.collection("certificationImgs")
+        datas.get().addOnSuccessListener {
+                dataList -> for (data in dataList){
+            if (data.data.get("url").toString() == url){
+                val userEmail = data.data.get("userEmail").toString()
+                if (userEmail == currentEmail){
+                    // 내가올린 사진이면 신고버튼 안보임
+                    Log.d("email","matched")
+                    binding.btnReport.isGone = true
+                }else{
+                    // 아니면 신고버튼 보임
+                    binding.btnReport.isVisible = true
+                }
+            }
+        }
+        }
     }
     // 다이얼로그에서 신고 버튼 클릭시 해당 url의 이메일 값 받아옴
     private fun searchUrlUid(url: String) {

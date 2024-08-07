@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.storage.FirebaseStorage
 import kr.ac.kpu.green_us.R
 
 class HeroListAdapter(): RecyclerView.Adapter<HeroListAdapter.HeroCardHolder>() {
@@ -24,6 +25,7 @@ class HeroListAdapter(): RecyclerView.Adapter<HeroListAdapter.HeroCardHolder>() 
 
     // 2. Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: HeroCardHolder, position: Int) {
+        val storage = FirebaseStorage.getInstance()
         holder.itemimage.setImageResource(R.drawable.hero_img_1)
     }
 
