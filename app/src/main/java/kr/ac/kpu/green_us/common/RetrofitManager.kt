@@ -28,8 +28,8 @@ class RetrofitManager {
 
         val retrofit = Retrofit.Builder()
 //            .baseUrl("http://192.168.25.6:8080/")
-//            .baseUrl("http://192.168.219.105:8080/")// 유진
-            .baseUrl("http://192.168.1.2:8080/") //본인 Url로 변경
+            .baseUrl("http://192.168.219.105:8080/")// 유진
+//            .baseUrl("http://192.168.1.2:8080/") //본인 Url로 변경
             .addConverterFactory(GsonConverterFactory.create(gson))
 //            .client()
             .build()
