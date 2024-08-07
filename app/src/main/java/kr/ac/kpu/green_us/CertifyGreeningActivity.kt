@@ -56,6 +56,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     var cameraOrGallery: Int = 0
     private lateinit var auth: FirebaseAuth
     private val representImgList = mutableListOf<String>()
+    private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
 
 
 
@@ -186,6 +187,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun createCamera(){
         val dlg = CameraGalleryActivity(this)
+        dlg.show()
         dlg.setOnCameraClickedListener { content ->
             if (content == 1) {
                 cameraOrGallery = 1
@@ -193,6 +195,10 @@ class CertifyGreeningActivity : AppCompatActivity() {
                     this@CertifyGreeningActivity,
                     android.Manifest.permission.CAMERA
                 )
+                val cameraPermissionCheckForLower = ContextCompat.checkSelfPermission(this@CertifyGreeningActivity,android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                if (cameraPermissionCheckForLower!=PackageManager.PERMISSION_GRANTED){
+                    requestWriteExternalStoragePermission()
+                }
                 if (cameraPermissionCheck != PackageManager.PERMISSION_GRANTED) { // 권한이 없는 경우
                     ActivityCompat.requestPermissions(
                         this,
@@ -212,6 +218,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                     this@CertifyGreeningActivity,
                     android.Manifest.permission.READ_MEDIA_IMAGES
                 )
+
                 if (galleryPermissionCheck != PackageManager.PERMISSION_GRANTED) { // 권한이 없는 경우
                     ActivityCompat.requestPermissions(
                         this,
@@ -226,7 +233,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                 }
             }
         }
-        dlg.show()
+//        dlg.show()
     }
     private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -299,6 +306,12 @@ class CertifyGreeningActivity : AppCompatActivity() {
 
         //현재시간에 적용
         return format.format(Date().time)
+    }
+    private fun requestReadExternalStoragePermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
+    }
+    private fun requestWriteExternalStoragePermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
     }
 }
 

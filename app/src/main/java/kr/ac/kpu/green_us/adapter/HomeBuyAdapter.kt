@@ -8,6 +8,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.Firebase
+import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Greening
 import java.time.Duration
@@ -77,8 +80,13 @@ class HomeBuyAdapter(private var greeningList: List<Greening> = emptyList()) :
         if(greening.gFreq != 0 && greening.gNumber != 0 && greening.gFreq != null && greening.gNumber != null) {
             greenWeek = (greening.gNumber)/(greening.gFreq)
         }
-
-        holder.img.setImageResource(R.drawable.card_test_img)
+        val gseq = greeningList[position].gSeq.toString()
+        val imgName = gseq
+        val storage = Firebase.storage
+        val ref = storage.getReference("greeningImgs/").child(imgName)
+        ref.downloadUrl.addOnSuccessListener {
+                uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+        }
         holder.title.text = greening.gName
         holder.deadLine.text = deadLind
         //holder.deadLineLayout
