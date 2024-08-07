@@ -5,10 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
 import kr.ac.kpu.green_us.R
 
-class HeroListAdapter(): RecyclerView.Adapter<HeroListAdapter.HeroCardHolder>() {
+class HeroListAdapter(bannerList:MutableList<String>): RecyclerView.Adapter<HeroListAdapter.HeroCardHolder>() {
+    val itemList = bannerList // 이미지 배열 리스트가 될 것
     class HeroCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var itemimage: ImageView = itemView.findViewById(R.id.banner)
     }
@@ -25,13 +27,12 @@ class HeroListAdapter(): RecyclerView.Adapter<HeroListAdapter.HeroCardHolder>() 
 
     // 2. Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: HeroCardHolder, position: Int) {
-        val storage = FirebaseStorage.getInstance()
-        holder.itemimage.setImageResource(R.drawable.hero_img_1)
+        Glide.with(holder.itemView.context).load(itemList[position]).into(holder.itemimage)
     }
 
     // 3. Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
-        return 4
+        return itemList.size
     }
 
 }

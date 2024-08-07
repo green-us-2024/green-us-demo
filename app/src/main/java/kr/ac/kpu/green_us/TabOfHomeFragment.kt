@@ -1,6 +1,7 @@
 package kr.ac.kpu.green_us
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,9 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
+import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kr.ac.kpu.green_us.adapter.*
@@ -22,6 +27,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class TabOfHomeFragment : Fragment() {
@@ -32,36 +38,48 @@ class TabOfHomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private var total_banner_num = getHeroList().size // 배너 전체 개수
+//    private val total_banner_num = getHeroList().size // 배너 전체 개수
     private var current_banner_position = Int.MAX_VALUE/2  // 무한스크롤처럼 좌우로 스크롤 가능하도록 중간지점으로 세팅함
-
+    private var representImgList  = mutableListOf<String>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentTabOfHomeBinding.inflate(inflater,container,false)
+//
+        val storage = FirebaseStorage.getInstance()
+        val storageRef = storage.reference.child("heroImgs/")
+        // 스토리지 이미지 전체 가져옴
+        storageRef.listAll().addOnSuccessListener { listResult ->
+            for (img in listResult.items) {
+                img.downloadUrl.addOnSuccessListener { uri ->
+                    representImgList.add(uri.toString())
+                }.addOnSuccessListener {
+                    val total_banner_num = representImgList.size
+                    binding.heroSection.adapter = HeroAdapter(representImgList,requireActivity())
+                    binding.heroSection.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 스크롤
+                    binding.heroSection.currentItem =  current_banner_position
+                    binding.totalBannerNum.text = total_banner_num.toString()// 전체 배너(이미지) 개수 세팅
+                    val showCurrentNum = (current_banner_position%total_banner_num)+1
+                    binding.currentBannerNum.text = showCurrentNum.toString() // 현재 이미지 순서 세팅
 
-        // hero banner
-        binding.heroSection.adapter = HeroAdapter(getHeroList(),requireActivity())
-        binding.heroSection.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 스크롤
-        binding.heroSection.currentItem =  current_banner_position
-        binding.totalBannerNum.text = total_banner_num.toString()// 전체 배너(이미지) 개수 세팅
-        val showCurrentNum = (current_banner_position%total_banner_num)+1
-        binding.currentBannerNum.text = showCurrentNum.toString() // 현재 이미지 순서 세팅
+                    // 이미지 위치에 따라 현재 위치 숫자를 변경함
+                    binding.heroSection.apply {
+                        registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
+                            override fun onPageSelected(position: Int) {
+                                super.onPageSelected(position)
+                                val posiText = "${(position%total_banner_num)+1}"
+                                binding.currentBannerNum.text = posiText
+                            }
+                        })
+                        binding.heroSection.setOnClickListener{
 
-        // 이미지 위치에 따라 현재 위치 숫자를 변경함
-        binding.heroSection.apply {
-            registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback(){
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    val posiText = "${(position%total_banner_num)+1}"
-                    binding.currentBannerNum.text = posiText
+                        }
+                    }
                 }
-            })
-            binding.heroSection.setOnClickListener{
-
             }
         }
+
         //구매형 및 활동형 RecyclerView 설정
         setupRecyclerViews()
 
@@ -173,11 +191,19 @@ class TabOfHomeFragment : Fragment() {
 
     private fun loadGreeningData() {
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        val today = LocalDate.now()
         apiService.getDoGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val allDoGreeningList = response.body() ?: emptyList()
-                    val selectedGreeningList = allDoGreeningList.shuffled().take(4) //무작위로 4개 선택
+                    val selectedGreeningList = allDoGreeningList.filter{ greening->
+                        try {
+                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            startDate.isAfter(today)
+                        }catch (e: Exception){
+                            false
+                        }
+                    }.shuffled().take(4) //아직 시작하지 않은 그리닝 중에 무작위로 4개 선택
                     homeDoAdapter.updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewIngGreening2.adapter = homeDoAdapter
                 } else {
@@ -195,7 +221,14 @@ class TabOfHomeFragment : Fragment() {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val allBuyGreeningList = response.body() ?: emptyList()
-                    val selectedGreeningList = allBuyGreeningList.shuffled().take(4) //무작위로 4개 선택
+                    val selectedGreeningList = allBuyGreeningList.filter{ greening->
+                        try {
+                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            startDate.isAfter(today)
+                        }catch (e: Exception){
+                            false
+                        }
+                    }.shuffled().take(4) //무작위로 4개 선택
                     homeBuyAdapter.updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewIngGreening.adapter = homeBuyAdapter
                 } else {
@@ -208,12 +241,6 @@ class TabOfHomeFragment : Fragment() {
             }
         })
 
-    }
-
-    //뷰페이저에 들어갈 아이템(이미지)
-    private fun getHeroList():ArrayList<Int>{
-
-        return arrayListOf<Int>(R.drawable.hero_img_1,R.drawable.hero_img_2,R.drawable.hero_img_3)
     }
 
 
