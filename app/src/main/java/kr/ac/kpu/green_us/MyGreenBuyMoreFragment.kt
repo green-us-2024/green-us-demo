@@ -17,6 +17,8 @@ import kr.ac.kpu.green_us.databinding.FragmentMyGreenBuyMoreBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class MyGreenBuyMoreFragment : Fragment() {
     lateinit var binding: FragmentMyGreenBuyMoreBinding
@@ -43,11 +45,23 @@ class MyGreenBuyMoreFragment : Fragment() {
 
         // 데이터 가져오기
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        val today = LocalDate.now()
         apiService.getBuyGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val allBuyGreeningList = response.body() ?: emptyList()
-                    (viewAdapter as HomeBuyMoreAdapter).updateData(allBuyGreeningList) // 데이터로 어댑터 초기화
+                    val selectedGreeningList = allBuyGreeningList.filter { greening ->
+                        try {
+                            val startDate = LocalDate.parse(
+                                greening.gStartDate,
+                                DateTimeFormatter.ofPattern("yyyy-MM-dd")
+                            )
+                            startDate.isAfter(today)
+                        } catch (e: Exception) {
+                            false
+                        }
+                    }
+                    (viewAdapter as HomeBuyMoreAdapter).updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewBuyGreening.adapter = viewAdapter
                 } else {
                     Log.e("MyGreenBuyMoreFragment", "BuyGreening 데이터 로딩 실패: ${response.code()}")

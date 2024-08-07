@@ -62,9 +62,10 @@ class MyGreenOpenFragment : Fragment() {
 
                         (viewAdapter as MyGreenOpenAdapter).itemClickListener = object : MyGreenOpenAdapter.OnItemClickListener {
                             //onItemClick(position: Int)
-                            override fun onItemClick() {
+                            override fun onItemClick(gSeq:Int) {
                                 val intent = Intent(requireActivity(), GreeningDetailSubActivity::class.java)
                                 intent.putExtra("open","open_state")
+                                intent.putExtra("gSeq",gSeq)
                                 startActivity(intent)
                             }
                         }

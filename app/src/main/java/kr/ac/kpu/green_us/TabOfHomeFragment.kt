@@ -22,6 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class TabOfHomeFragment : Fragment() {
@@ -173,11 +174,19 @@ class TabOfHomeFragment : Fragment() {
 
     private fun loadGreeningData() {
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        val today = LocalDate.now()
         apiService.getDoGreening().enqueue(object : Callback<List<Greening>> {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val allDoGreeningList = response.body() ?: emptyList()
-                    val selectedGreeningList = allDoGreeningList.shuffled().take(4) //무작위로 4개 선택
+                    val selectedGreeningList = allDoGreeningList.filter{ greening->
+                        try {
+                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            startDate.isAfter(today)
+                        }catch (e: Exception){
+                            false
+                        }
+                    }.shuffled().take(4) //아직 시작하지 않은 그리닝 중에 무작위로 4개 선택
                     homeDoAdapter.updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewIngGreening2.adapter = homeDoAdapter
                 } else {
@@ -195,7 +204,14 @@ class TabOfHomeFragment : Fragment() {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val allBuyGreeningList = response.body() ?: emptyList()
-                    val selectedGreeningList = allBuyGreeningList.shuffled().take(4) //무작위로 4개 선택
+                    val selectedGreeningList = allBuyGreeningList.filter{ greening->
+                        try {
+                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                            startDate.isAfter(today)
+                        }catch (e: Exception){
+                            false
+                        }
+                    }.shuffled().take(4) //무작위로 4개 선택
                     homeBuyAdapter.updateData(selectedGreeningList) // 데이터로 어댑터 초기화
                     binding.recyclerviewIngGreening.adapter = homeBuyAdapter
                 } else {

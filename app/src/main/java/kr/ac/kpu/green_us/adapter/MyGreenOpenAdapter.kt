@@ -20,7 +20,7 @@ class MyGreenOpenAdapter() :
     RecyclerView.Adapter<MyGreenOpenAdapter.MyGreenOpenViewHolder>() {
 
     interface OnItemClickListener {
-        fun onItemClick() {}
+        fun onItemClick(gSeq:Int) {}
     }
 
     var itemClickListener: MyGreenOpenAdapter.OnItemClickListener? = null
@@ -37,9 +37,9 @@ class MyGreenOpenAdapter() :
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
-        init{
-            view.setOnClickListener{ itemClickListener?.onItemClick() }
-        }
+//        init{
+//            view.setOnClickListener{ itemClickListener?.onItemClick() }
+//        }
     }
 
     override fun onCreateViewHolder(
@@ -93,6 +93,10 @@ class MyGreenOpenAdapter() :
             1,3 -> "활동형"
             2,4 -> "구매형"
             else -> ""
+        }
+
+        holder.itemView.setOnClickListener{
+            itemClickListener?.onItemClick(greening.gSeq)
         }
     }
 
