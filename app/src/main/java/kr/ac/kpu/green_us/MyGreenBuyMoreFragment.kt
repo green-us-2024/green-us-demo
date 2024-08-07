@@ -56,7 +56,7 @@ class MyGreenBuyMoreFragment : Fragment() {
                                 greening.gStartDate,
                                 DateTimeFormatter.ofPattern("yyyy-MM-dd")
                             )
-                            startDate.isAfter(today)
+                            (today.isEqual(startDate) || startDate.isAfter(today))
                         } catch (e: Exception) {
                             false
                         }

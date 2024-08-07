@@ -61,11 +61,11 @@ class MyGreenEndFragment : Fragment() {
                             val selectedGreeningList = greeningList.filter { greening ->
                                 try {
                                     val endDate = LocalDate.parse(greening.gEndDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                                    endDate.isBefore(today)
+                                    (today.isEqual(endDate) ||endDate.isBefore(today))
                                 } catch (e: Exception) {
                                     false
                                 }
-                            }
+                            }.shuffled().take(4)
                             Log.d("MyGreenEndFragment", "Greening Size : ${greeningList.size} -> ${selectedGreeningList.size}")
                             setupRecyclerView(selectedGreeningList)
                         } else {

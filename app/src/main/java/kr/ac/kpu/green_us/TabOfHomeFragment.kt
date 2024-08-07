@@ -112,17 +112,19 @@ class TabOfHomeFragment : Fragment() {
         }
 
         homeBuyAdapter.itemClickListener = object : HomeBuyAdapter.OnItemClickListener{
-            override fun onItemClick(status:String) {
+            override fun onItemClick(status:String, gSeq:Int) {
                 val status = "$status"
                 if (status == "notIn"){
                     // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","notIn")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
                 else if (status == "in"){
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","in")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
             }
@@ -146,17 +148,19 @@ class TabOfHomeFragment : Fragment() {
         }
 
         homeDoAdapter.itemClickListener = object : HomeDoAdapter.OnItemClickListener{
-            override fun onItemClick(status:String) {
+            override fun onItemClick(status:String,gSeq:Int) {
                 val status = "$status"
                 if (status == "notIn"){
                     // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","notIn")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
                 else if (status == "in"){
                     val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
                     intent.putExtra("status","in")
+                    intent.putExtra("gSeq", gSeq)
                     startActivity(intent)
                 }
             }
@@ -182,7 +186,7 @@ class TabOfHomeFragment : Fragment() {
                     val selectedGreeningList = allDoGreeningList.filter{ greening->
                         try {
                             val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                            startDate.isAfter(today)
+                            (today.isEqual(startDate) ||startDate.isAfter(today))
                         }catch (e: Exception){
                             false
                         }
@@ -207,7 +211,7 @@ class TabOfHomeFragment : Fragment() {
                     val selectedGreeningList = allBuyGreeningList.filter{ greening->
                         try {
                             val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                            startDate.isAfter(today)
+                            (today.isEqual(startDate) ||startDate.isAfter(today))
                         }catch (e: Exception){
                             false
                         }
@@ -228,7 +232,6 @@ class TabOfHomeFragment : Fragment() {
 
     //뷰페이저에 들어갈 아이템(이미지)
     private fun getHeroList():ArrayList<Int>{
-
         return arrayListOf<Int>(R.drawable.hero_img_1,R.drawable.hero_img_2,R.drawable.hero_img_3)
     }
 
