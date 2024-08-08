@@ -43,7 +43,7 @@ class GreeningDetailSubActivity : AppCompatActivity() {
 
         if(gSeq <= -1){
             //gSeq조회 실패한 경우 예외처리 -> 로그아웃하고 초기화면으로
-            Log.e("GreeningDetailActivity","gSeq 실패")
+            Log.e("GreeningDetailSubActivity","gSeq 실패")
         }else{
             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
             apiService.getGreeningById(gSeq).enqueue(object : Callback<Greening> {
