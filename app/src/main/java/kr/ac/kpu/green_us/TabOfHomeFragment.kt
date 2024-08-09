@@ -46,7 +46,16 @@ class TabOfHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentTabOfHomeBinding.inflate(inflater,container,false)
-//
+
+        //구매형 및 활동형 RecyclerView 설정
+        setupRecyclerViews()
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference.child("heroImgs/")
         // 스토리지 이미지 전체 가져옴
@@ -56,7 +65,8 @@ class TabOfHomeFragment : Fragment() {
                     representImgList.add(uri.toString())
                 }.addOnSuccessListener {
                     val total_banner_num = representImgList.size
-                    binding.heroSection.adapter = HeroAdapter(representImgList,requireActivity())
+                    binding.heroSection.adapter =
+                        context?.let { it1 -> HeroAdapter(representImgList, it1) }
                     binding.heroSection.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 스크롤
                     binding.heroSection.currentItem =  current_banner_position
                     binding.totalBannerNum.text = total_banner_num.toString()// 전체 배너(이미지) 개수 세팅
@@ -79,15 +89,6 @@ class TabOfHomeFragment : Fragment() {
                 }
             }
         }
-
-        //구매형 및 활동형 RecyclerView 설정
-        setupRecyclerViews()
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         // 빠른 접근을 위한 버튼들 클릭 구현
         // 만보기 버튼

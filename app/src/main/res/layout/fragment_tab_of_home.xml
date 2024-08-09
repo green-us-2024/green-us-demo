@@ -27,8 +27,9 @@
             app:layout_constraintEnd_toEndOf="@+id/hero_section"
             app:layout_constraintBottom_toBottomOf="@+id/hero_section"
             android:background="@drawable/deadline_form"
-            android:paddingHorizontal="4dp"
-            android:paddingVertical="6dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
@@ -38,7 +39,7 @@
                 android:layout_weight="1"
                 android:layout_marginRight="4dp"
                 android:textColor="@color/white"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:text="전체보기" />
 
             <TextView
@@ -47,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/white"
-                android:textSize="11sp"
+                android:textSize="12sp"
                  />
             <TextView
                 android:id="@+id/dash"
@@ -55,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="@color/white"
-                android:textSize="11sp"
+                android:textSize="12sp"
                 android:layout_marginHorizontal="4dp"
                 android:text="/" />
             <TextView
@@ -128,27 +129,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView3"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="9dp"
-                android:text="전체보기"
-                android:textColor="@color/grey2"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/btn_add"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="match_parent"
+                android:id="@+id/btnDoGreeningMore"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:gravity="center"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="9dp"
+                    android:text="전체보기"
+                    android:textColor="@color/grey2"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_gravity="end"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/btn_add" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
