@@ -3,6 +3,7 @@ package kr.ac.kpu.green_us.adapter
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,10 @@ import kr.ac.kpu.green_us.SubActivity
 
 class HeroAdapter(bannerList:MutableList<String>, private val mContext: Context): RecyclerView.Adapter<HeroAdapter.HeroViewHolder>() { //이미지 리스트 가져오는 어댑터
     val itemList = bannerList // 이미지 배열 리스트가 될 것
+    interface OnItemClickListener {
+        fun onItemClick(url:String)
+    }
+    var itemClickListener: OnItemClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroViewHolder {
         val heroImgView = LayoutInflater.from(parent.context).inflate(R.layout.hero_item,parent,false)
@@ -46,11 +51,13 @@ class HeroAdapter(bannerList:MutableList<String>, private val mContext: Context)
 
     override fun onBindViewHolder(holder: HeroViewHolder, position: Int) {
 //        val imgSize = itemList.size
-        Glide.with(holder.itemView.context).load(itemList[position]).into(holder.hero_imgs)
+        Glide.with(holder.itemView.context).load(itemList[position%itemList.size]).into(holder.hero_imgs)
+        holder.hero_imgs.setOnClickListener { itemClickListener?.onItemClick(itemList[position%itemList.size])
+        }
     }
 
     override fun getItemCount(): Int {
-        return itemList.size // 무한스크롤처럼 좌우로 스크롤 가능하도록 많은 값을 반환하게 함
+        return Int.MAX_VALUE // 무한스크롤처럼 좌우로 스크롤 가능하도록 많은 값을 반환하게 함
     }
 
     inner class HeroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

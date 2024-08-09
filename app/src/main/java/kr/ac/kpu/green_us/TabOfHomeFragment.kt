@@ -38,7 +38,7 @@ class TabOfHomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-//    private val total_banner_num = getHeroList().size // 배너 전체 개수
+    private var total_banner_num = 0 // 배너 전체 개수
     private var current_banner_position = Int.MAX_VALUE/2  // 무한스크롤처럼 좌우로 스크롤 가능하도록 중간지점으로 세팅함
     private var representImgList  = mutableListOf<String>()
     override fun onCreateView(
@@ -64,9 +64,24 @@ class TabOfHomeFragment : Fragment() {
                 img.downloadUrl.addOnSuccessListener { uri ->
                     representImgList.add(uri.toString())
                 }.addOnSuccessListener {
-                    val total_banner_num = representImgList.size
-                    binding.heroSection.adapter =
-                        context?.let { it1 -> HeroAdapter(representImgList, it1) }
+                    total_banner_num = representImgList.size
+                    viewAdapter = context?.let { it1 -> HeroAdapter(representImgList, it1) }!!
+                    viewAdapter.notifyDataSetChanged()
+                    (viewAdapter as HeroAdapter).itemClickListener = object : HeroAdapter.OnItemClickListener{
+                        override fun onItemClick(url:String) {
+                            // firebasestore에 저장된 이미지에 맞는 환경부 링크 찾음
+                            val db = Firebase.firestore
+                            db.collection("heroUrls").whereEqualTo("img", url)
+                                .get().addOnSuccessListener {result ->
+                                    for (doc in result){ // 찾으면 링크로 이동함
+                                        val websiteUrl = doc["web"].toString()
+                                        var intent = Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl))
+                                        startActivity(intent)
+                                    }
+                                }.addOnFailureListener { Log.d("websiteUrl", "웹사이트 없음") }
+                        }
+                    }
+                    binding.heroSection.adapter = viewAdapter
                     binding.heroSection.orientation = ViewPager2.ORIENTATION_HORIZONTAL //가로 스크롤
                     binding.heroSection.currentItem =  current_banner_position
                     binding.totalBannerNum.text = total_banner_num.toString()// 전체 배너(이미지) 개수 세팅
@@ -114,6 +129,7 @@ class TabOfHomeFragment : Fragment() {
             intent.putExtra("13","hero_list")
             startActivity(intent)
         }
+
         //데이터 로딩
         loadGreeningData()
 
