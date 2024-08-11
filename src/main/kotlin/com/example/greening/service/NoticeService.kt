@@ -16,7 +16,7 @@ class NoticeService(private val noticeRepository: NoticeRepository){
 
     @Transactional
     fun updateNotice(noticeSeq: Int, newNotice: Notice) {
-        val existingNotice = noticeRepository.findById(noticeSeq)
+        val existingNotice = noticeRepository.findById2(noticeSeq)
         if (existingNotice != null) {
             existingNotice.noticeTitle = newNotice.noticeTitle ?: existingNotice.noticeTitle
             existingNotice.noticeContent = newNotice.noticeContent ?: existingNotice.noticeContent
@@ -38,7 +38,7 @@ class NoticeService(private val noticeRepository: NoticeRepository){
     }
 
     fun findOne(noticeSeq: Int): Notice? {
-        return noticeRepository.findById(noticeSeq)
+        return noticeRepository.findById2(noticeSeq)
     }
 
     fun findByTitleContaining(title: String): List<Notice> {

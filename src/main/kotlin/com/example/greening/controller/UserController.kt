@@ -1,14 +1,14 @@
 package com.example.greening.controller
 
 import com.example.greening.domain.item.User
-import com.example.greening.repository.UserRepository
 import com.example.greening.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.transaction.annotation.Transactional
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 
-@RestController
+@Controller
 @RequestMapping("/users")
 class UserController(private val userService: UserService) {
 
@@ -43,15 +43,23 @@ class UserController(private val userService: UserService) {
         userService.updateUser(userSeq,user)
     }
 
-    @DeleteMapping("/delete/{userSeq}")
-    fun deleteUser(@PathVariable userSeq: Int) {
+    @PostMapping("/delete/{userSeq}")
+    fun deleteUser(@PathVariable userSeq: Int): String {
         userService.deleteUser(userSeq)
+        return "redirect:/users/listPage" // 삭제 후 회원 목록 페이지로 리디렉션
     }
 
     @GetMapping("/list")
     fun getAllUsers(): ResponseEntity<List<User>> {
         val users = userService.findUsers()
         return ResponseEntity.ok(users)
+    }
+
+    @GetMapping("/listPage")
+    fun listUsers(model: Model): String {
+        val users = userService.findUsers()
+        model.addAttribute("users", users)
+        return "userList"
     }
 
     @GetMapping("/seqByEmail/{email}")

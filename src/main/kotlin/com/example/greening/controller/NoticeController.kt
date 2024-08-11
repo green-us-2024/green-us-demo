@@ -42,12 +42,15 @@ class NoticeController(private val noticeService: NoticeService) {
         return "redirect:/notice/listPage" // 삭제 후 목록 페이지로 리다이렉트
     }
 
+
+
     @GetMapping("/edit/{noticeSeq}")
     fun getEditNoticePage(@PathVariable noticeSeq: Int, model: Model): String {
         val notice = noticeService.findOne(noticeSeq)
         model.addAttribute("notice", notice)
         return "noticeEdit" // 공지사항 수정 페이지
     }
+
 
     @PutMapping("/update/{noticeSeq}")
     fun updateNotice(@PathVariable noticeSeq: Int, @RequestBody newNotice: Notice): ResponseEntity<Notice> {

@@ -1,6 +1,7 @@
 package com.example.greening.domain.item
 
 import com.fasterxml.jackson.annotation.JsonBackReference
+import com.fasterxml.jackson.annotation.JsonFormat
 import jakarta.persistence.*
 import java.time.LocalDate
 
@@ -23,6 +24,7 @@ open class Payment(
         @Column(name = "payment_method")
         var paymentMethod: String? = null,
 
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         @Column(name = "payment_date")
         var paymentDate: LocalDate? = null,
 

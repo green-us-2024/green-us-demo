@@ -22,7 +22,7 @@ class GreeningService(private val greeningRepository: GreeningRepository, privat
 
     @Transactional
     fun updateGreening(gSeq: Int, newGreening: Greening) {
-        val existingGreening = greeningRepository.findOne(gSeq)
+        val existingGreening = greeningRepository.findById(gSeq)
         if (existingGreening != null) {
             existingGreening.gName = newGreening.gName ?: existingGreening.gName
             existingGreening.gStartDate = newGreening.gStartDate ?: existingGreening.gStartDate

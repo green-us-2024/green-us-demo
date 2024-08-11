@@ -48,12 +48,21 @@ class NoticeRepository {
         }
     }
 
+
     fun findById(noticeSeq: Int): Notice? {
         return try {
             em.createQuery("select n from Notice n where n = :noticeSeq", Notice::class.java)
                 .setParameter("noticeSeq", noticeSeq)
                 .singleResult
         }catch (e: NoResultException) {
+            null
+        }
+    }
+
+    fun findById2(id: Int): Notice? {
+        return try {
+            em.find(Notice::class.java, id)
+        } catch (e: NoResultException) {
             null
         }
     }

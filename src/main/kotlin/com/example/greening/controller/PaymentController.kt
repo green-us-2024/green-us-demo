@@ -4,9 +4,11 @@ import com.example.greening.domain.item.Payment
 import com.example.greening.service.PaymentService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
-@RestController
+
+@Controller
 @RequestMapping("/payment")
 class PaymentController(private val paymentService: PaymentService) {
 
@@ -52,4 +54,5 @@ class PaymentController(private val paymentService: PaymentService) {
         val payment = paymentService.findByUserSeq(userSeq)
         return ResponseEntity.ok(payment)
     }
+
 }

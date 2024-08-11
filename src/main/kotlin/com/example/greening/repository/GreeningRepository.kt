@@ -62,6 +62,8 @@ class GreeningRepository {
         }
     }
 
+
+
     fun findBygKind(gKind: Int): List<Greening> {
         return try {
             em.createQuery("select g from Greening g where g.gKind = :gKind", Greening::class.java).resultList
@@ -111,5 +113,6 @@ class GreeningRepository {
             emptyList()
         }
     }
+
 
 }
