@@ -3,6 +3,7 @@ package kr.ac.kpu.green_us.common.api
 import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Notice
 import kr.ac.kpu.green_us.common.dto.Participate
+import kr.ac.kpu.green_us.common.dto.Payment
 import kr.ac.kpu.green_us.common.dto.Users
 import kr.ac.kpu.green_us.common.dto.User
 import retrofit2.Call
@@ -55,5 +56,8 @@ interface RetrofitAPI {
 
     @GET("/notice/list")
     fun getNotices():Call<List<Notice>>
+
+    @POST("/payment/new")
+    fun createPayment(@Body payment: Payment): Call<Payment>
 
 }

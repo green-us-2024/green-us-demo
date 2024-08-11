@@ -3,6 +3,7 @@ package kr.ac.kpu.green_us
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -13,8 +14,12 @@ import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Participate
+import kr.ac.kpu.green_us.common.dto.Payment
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.ActivityGreeningDetailBinding
+import kr.co.bootpay.android.Bootpay
+import kr.co.bootpay.android.events.BootpayEventListener
+import kr.co.bootpay.android.models.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -91,7 +96,6 @@ class GreeningDetailActivity : AppCompatActivity() {
                                                     if (response.isSuccessful) {
                                                         Log.d("GreeningDetailActivity", "참여 등록 완료")
                                                         Toast.makeText(application,"${greening.gName}에 참여 완료", Toast.LENGTH_SHORT).show()
-                                                        //메인 화면으로 이동
                                                     } else {
                                                         Log.e("GreeningDetailActivity", "그리닝 참여 실패: ${response.code()}, ${response.errorBody()?.string()}")
                                                     }
@@ -107,7 +111,9 @@ class GreeningDetailActivity : AppCompatActivity() {
                                             })
                                     }
                                 }
+                                paymentTest(it, greening.gDeposit?.toDouble() ?: 0.0, greening.gName ?: "그리닝 활동")
                             }
+
                         }
                     } else {
                         Log.e("GreeningDetailActivity", "Greening 데이터 로딩 실패: ${response.code()}")
@@ -155,6 +161,89 @@ class GreeningDetailActivity : AppCompatActivity() {
             //로그인된 Email을 못가져온 경우
             //로그아웃 시키고 처음 화면으로 가도록
         }
+    }
+
+
+
+    var applicationId = "66b478b9cc5274a3ac3fbfc5" // 결제 프로그램 아이디
+    fun paymentTest(v: View?, price: Double, orderName: String) {
+        val extra = BootExtra()
+            .setCardQuota("0,2,3") // 일시불, 2개월, 3개월 할부 허용
+
+        val items: MutableList<BootItem> = ArrayList()
+        val item1 = BootItem().setName("그리닝 활동").setId("ITEM_CODE_GREENING").setQty(1).setPrice(price)
+        items.add(item1)
+
+        val user = BootUser().setPhone("010-1234-5678") // 실제 사용자 정보를 사용할 수 있습니다.
+        val payload = Payload()
+        val pg = "이니시스"
+        val method = "카드"
+
+        payload.setApplicationId(applicationId)
+            .setOrderName(orderName)
+            .setPg(pg)
+            .setMethod(method)
+            .setOrderId("1234")
+            .setPrice(price) // 여기에 결제 금액을 설정합니다.
+            .setUser(user)
+            .setExtra(extra).items = items
+
+        Bootpay.init(supportFragmentManager, applicationContext)
+            .setPayload(payload)
+            .setEventListener(object : BootpayEventListener {
+                override fun onCancel(data: String) {
+                    Log.d("bootpay", "cancel: $data")
+                }
+
+                override fun onError(data: String) {
+                    Log.d("bootpay", "error: $data")
+                }
+
+                override fun onClose() {
+                    Bootpay.removePaymentWindow()
+                }
+
+                override fun onIssued(data: String) {
+                    Log.d("bootpay", "issued: $data")
+                }
+
+                override fun onConfirm(data: String): Boolean {
+                    Log.d("bootpay", "confirm: $data")
+                    return true
+                }
+
+
+
+
+                override fun onDone(data: String) {
+                    Log.d("done", data)
+                    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+                    // 결제 완료 후 Payment 객체 생성
+                    val payment = Payment(
+                        userSeq = 1,
+                        paymentContent = orderName,
+                        paymentMethod = "카드",
+                        paymentDate = LocalDate.now().toString(),
+                        paymentMoney = price.toInt()
+                    )
+
+                    // Retrofit API 호출
+                    val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+                    apiService.createPayment(payment).enqueue(object : Callback<Payment> {
+                        override fun onResponse(call: Call<Payment>, response: Response<Payment>) {
+                            if (response.isSuccessful) {
+                                Log.d("Payment", "결제 정보 전송 성공: ${response.body()}")
+                            } else {
+                                Log.e("Payment", "결제 정보 전송 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                            }
+                        }
+
+                        override fun onFailure(call: Call<Payment>, t: Throwable) {
+                            Log.e("Payment", "서버 통신 중 오류 발생", t)
+                        }
+                    })
+                }
+            }).requestPayment()
     }
 
 }

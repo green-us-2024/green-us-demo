@@ -9,13 +9,15 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
 
     <uses-feature android:name="android.hardware.SensorEventListener" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -117,6 +119,10 @@
         <activity
             android:name=".GreeningDetailSubActivity"
             android:exported="false" />
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="dt86obehkg" />
+
     </application>
 
 </manifest>

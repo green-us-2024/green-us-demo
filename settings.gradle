@@ -5,6 +5,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -13,7 +15,10 @@ dependencyResolutionManagement {
         maven {
             url 'https://repository.map.naver.com/archive/maven'
         }
+
+
     }
 }
+
 rootProject.name = "Green_us"
 include ':app'
