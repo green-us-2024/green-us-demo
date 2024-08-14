@@ -264,11 +264,7 @@ class TabOfHomeFragment : Fragment() {
 
     }
 
-    //뷰페이저에 들어갈 아이템(이미지)
-    private fun getHeroList():ArrayList<Int>{
 
-        return arrayListOf<Int>(R.drawable.hero_img_1,R.drawable.hero_img_2,R.drawable.hero_img_3)
-    }
 
 
 }
