@@ -57,6 +57,9 @@ interface RetrofitAPI {
     @GET("/participate/GreeningByUserSeq/{userSeq}")
     fun findGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
 
+    @GET("/participate/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
+    fun findPSeqByGSeqAndUserEmail(@Path("userEmail") userEmail:String, @Path("gSeq") gSeq:Int): Call<Int>
+
     @FormUrlEncoded
     @POST("/certify/new")
     fun registerCertify(
@@ -65,11 +68,11 @@ interface RetrofitAPI {
         @Field("certifyDate") certifyDate: String // ISO 8601 형식으로 날짜를 전달
     ): Call<Certify>
 
-    @GET("/byGreeningUser/{userSeq}/{gSeq}")
+    @GET("/certify/byGreeningUser/{userSeq}/{gSeq}")
     fun getCertifyByUserSeqAndGSeq(
         @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int)
-    :Call<List<Certify>>
+            :Call<List<Certify>>
 
     @GET("/notice/list")
     fun getNotices():Call<List<Notice>>
