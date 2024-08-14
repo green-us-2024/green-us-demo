@@ -117,4 +117,16 @@ class ParticipateRepository {
             null
         }
     }
+
+    fun findPSeqByGSeqAndUserEmail(userEmail: String, gSeq: Int): Int? {
+        return try {
+            em.createQuery(
+                    "SELECT p.pSeq FROM Participate p WHERE p.user.userEmail = :userEmail AND p.greening.gSeq = :gSeq", Int::class.java
+            ).setParameter("userEmail", userEmail)
+                    .setParameter("gSeq", gSeq)
+                    .singleResult
+        } catch (e: Exception) {
+            null
+        }
+    }
 }

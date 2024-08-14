@@ -75,8 +75,12 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
     fun findByUserSeqAndgSeq(userSeq: Int, gSeq: Int): Participate?{
         return participateRepository.findByUserSeqAndGSeq(userSeq,gSeq)
     }
-    fun findPSeqByUserSeqAndgSeq(userSeq: Int, gSeq: Int): Int?{
+    fun findPSeqByUserSeqAndgSeq(userSeq: Int, gSeq: Int): Int? {
         return participateRepository.findPSeqByGSeqAndUserSeq(userSeq,gSeq)
+    }
+
+    fun findPSeqByGSeqAndUserEmail(userEmail: String, gSeq: Int): Int? {
+        return participateRepository.findPSeqByGSeqAndUserEmail(userEmail,gSeq)
     }
 
 }

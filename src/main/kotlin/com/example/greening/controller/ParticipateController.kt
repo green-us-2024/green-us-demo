@@ -78,4 +78,10 @@ class ParticipateController(private val participateService: ParticipateService) 
         val participate = participateService.findByUserSeqAndgSeq(userSeq,gSeq)
         return ResponseEntity.ok(participate)
     }
+
+    @GetMapping("/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
+    fun findPSeqByGSeqAndUserEmail(@PathVariable userEmail: String,@PathVariable gSeq: Int): ResponseEntity<Int> {
+        val pSeq = participateService.findPSeqByGSeqAndUserEmail(userEmail,gSeq)
+        return ResponseEntity.ok(pSeq)
+    }
 }
