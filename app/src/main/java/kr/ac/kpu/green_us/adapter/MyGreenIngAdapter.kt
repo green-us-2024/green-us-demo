@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +12,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.Participate
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime

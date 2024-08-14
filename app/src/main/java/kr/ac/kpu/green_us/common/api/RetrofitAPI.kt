@@ -74,6 +74,9 @@ interface RetrofitAPI {
         @Path("gSeq") gSeq: Int)
             :Call<List<Certify>>
 
+    @GET("/participate/byUserSeq/{userSeq}")
+    fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
+
     @GET("/notice/list")
     fun getNotices():Call<List<Notice>>
 

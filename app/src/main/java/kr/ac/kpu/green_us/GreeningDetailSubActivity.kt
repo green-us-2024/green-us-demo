@@ -69,6 +69,7 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                     uri -> Glide.with(this@GreeningDetailSubActivity).load(uri).into(binding.imgGreening)
                             }
 
+                            binding.barTitle.text = greening.gName ?: ""
                             binding.greeningTitle.text = greening.gName ?: ""
                             binding.tagTerm.text = "${greenWeek}주"
                             binding.tagFreq.text = "주${greening.gFreq}회"

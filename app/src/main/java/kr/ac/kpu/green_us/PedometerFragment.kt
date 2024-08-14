@@ -28,7 +28,7 @@ class PedometerFragment : Fragment(), SensorEventListener {
         binding.stepCounter.setText(currentSteps.toString())
         binding.pedometerDegree.setProgress(currentSteps)
         sensorManager =
-            (activity!!.getSystemService(Context.SENSOR_SERVICE) as SensorManager)!!
+            (requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager)!!
         stepCountSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)!!
 
         // 디바이스에 걸음 센서의 존재 여부 체크

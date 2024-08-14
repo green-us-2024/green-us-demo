@@ -21,6 +21,7 @@ import kr.ac.kpu.green_us.adapter.MyGreenIngMoreAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenIngBinding
 import retrofit2.Call
@@ -42,6 +43,7 @@ class MyGreenIngFragment : Fragment() {
 
     lateinit var auth: FirebaseAuth
     var user: User? = null
+    val today = LocalDate.now()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,23 +52,29 @@ class MyGreenIngFragment : Fragment() {
         binding = FragmentMyGreenIngBinding.inflate(inflater, container, false)
 
         auth = FirebaseAuth.getInstance()
-        //showNoDataView() // 데이터가 늦게 불러지면 뷰가 떴다 사라지는 경우가 있어서 코드 추가, 나중에 삭제 가능
-
-        val today = LocalDate.now()
+        showNoDataView()
 
         // 리사이클러뷰 중복 스크롤 막기
         binding.recyclerviewGreenDegree.isNestedScrollingEnabled = false
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // 데이터 가져오기
         getUserByEmail { user ->
             if (user != null) {
                 val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+
+                // 1. Greening 데이터 가져오기
                 apiService.findGreeningByUserSeq(user.userSeq).enqueue(object :
                     Callback<List<Greening>> {
                     override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                         if (response.isSuccessful) {
-                            val greeningList = response.body() ?: emptyList()
-                            val selectedGreeningList = greeningList.filter { greening ->
+                            var greeningList = response.body() ?: emptyList()
+                            greeningList = greeningList.filter { greening ->
                                 try {
                                     val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                                     val endDate = LocalDate.parse(greening.gEndDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
@@ -74,9 +82,37 @@ class MyGreenIngFragment : Fragment() {
                                 } catch (e: Exception) {
                                     false
                                 }
-                            }.shuffled().take(4)
+                            }
+                            val selectedGreeningList = greeningList.shuffled().take(4)
+
+                            if (selectedGreeningList.isNotEmpty()) {
+                                showDataView()
+                            }
+
                             Log.d("MyGreenIngFragment", "Greening Size : ${greeningList.size} -> ${selectedGreeningList.size}")
-                            setupRecyclerViews(selectedGreeningList)
+                            setupGreenIngRecyclerViews(selectedGreeningList)
+
+                            // 2. Participate 데이터 가져오기
+                            apiService.getParticipateByUserSeq(user.userSeq).enqueue(object :
+                                Callback<List<Participate>> {
+                                override fun onResponse(call: Call<List<Participate>>, response: Response<List<Participate>>) {
+                                    if (response.isSuccessful) {
+                                        val participateList = response.body() ?: emptyList()
+                                        Log.d("MyGreenIngFragment", "Participate Size : ${participateList.size}")
+                                        // 리스트의 모든 항목을 로그로 출력
+                                        participateList.forEachIndexed { index, participate ->
+                                            Log.d("MyGreenIngFragment", "Participate $index: ${participate.toString()}")
+                                        }
+                                        setupDegreeRecyclerViews(participateList, greeningList)
+                                    } else {
+                                        Log.e("MyGreenDegreeFragment", "Participate 데이터 로딩 실패: ${response.code()}")
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<List<Participate>>, t: Throwable) {
+                                    Log.e("MyGreenDegreeFragment", "서버 통신 중 오류 발생", t)
+                                }
+                            })
                         } else {
                             Log.e("MyGreenIngFragment", "Greening 데이터 로딩 실패: ${response.code()}")
                         }
@@ -90,8 +126,6 @@ class MyGreenIngFragment : Fragment() {
                 showNoDataView()
             }
         }
-
-        return binding.root
     }
 
     private fun getUserByEmail(callback: (User?) -> Unit) {
@@ -126,10 +160,10 @@ class MyGreenIngFragment : Fragment() {
         }
     }
 
-    private fun setupRecyclerViews(greeningList: List<Greening>) {
+    private fun setupGreenIngRecyclerViews(greeningList: List<Greening>) {
         // 진행중인 그리닝 리사이클러뷰 설정
         viewManagerIng = GridLayoutManager(requireContext(), 2)
-        viewAdapterIng = MyGreenIngAdapter()
+        viewAdapterIng = MyGreenIngAdapter(emptyList())
         recyclerViewIng = binding.recyclerviewIngGreening.apply {
             setHasFixedSize(true)
             suppressLayout(true)
@@ -153,17 +187,23 @@ class MyGreenIngFragment : Fragment() {
             startActivity(intent)
         }
 
+        (viewAdapterIng as MyGreenIngAdapter).updateData(greeningList)
+    }
+
+    private fun setupDegreeRecyclerViews(participateList: List<Participate>, greeningList: List<Greening>) {
+        Log.d("MyGreenIngFragment", "Setting up Degree RecyclerView with ${participateList.size} items")
+        Log.d("MyGreenIngFragment", "greeningList: Setting up Degree RecyclerView with ${greeningList.size} items")
         // 그리닝 개별 진척도 리사이클러뷰 설정
-        viewManagerDegree = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, true)
-        viewAdapterDegree = MyGreenDegreeAdapter()
+        viewManagerDegree = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        viewAdapterDegree = MyGreenDegreeAdapter(participateList, greeningList)
         recyclerViewDegree = binding.recyclerviewGreenDegree.apply {
             setHasFixedSize(true)
-            suppressLayout(true)
             layoutManager = viewManagerDegree
             adapter = viewAdapterDegree
         }
 
-        (viewAdapterIng as MyGreenIngAdapter).updateData(greeningList)
+        // 데이터 업데이트
+        (viewAdapterDegree as MyGreenDegreeAdapter).updateData(participateList, greeningList)
     }
 
     private fun showNoDataView() {
@@ -172,5 +212,13 @@ class MyGreenIngFragment : Fragment() {
         binding.moreBtn.visibility = View.GONE
         binding.greenDegree.visibility = View.GONE
         binding.recyclerviewGreenDegree.visibility = View.GONE
+    }
+
+    private fun showDataView() {
+        binding.notExistIng.visibility = View.GONE
+        binding.recyclerviewIngGreening.visibility = View.VISIBLE
+        binding.moreBtn.visibility = View.VISIBLE
+        binding.greenDegree.visibility = View.VISIBLE
+        binding.recyclerviewGreenDegree.visibility = View.VISIBLE
     }
 }

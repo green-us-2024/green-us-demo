@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -16,22 +17,23 @@ class RetrofitManager {
             .registerTypeAdapter(Greening::class.java, GreeningDeserializer())
             .create()
 
-//        val loggingInterceptor = HttpLoggingInterceptor().apply {
-//                level = HttpLoggingInterceptor.Level.BODY
-//            }
-//
-//        val client = OkHttpClient.Builder()
-//            .addInterceptor(loggingInterceptor)
-//            .build()
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            }
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
 
         // Retrofit 설정
 
         val retrofit = Retrofit.Builder()
-//            .baseUrl("http://192.168.25.6:8080/") // 창형
-            .baseUrl("http://192.168.219.105:8080/")// 유진
+//            .baseUrl("http://192.168.25.6:8080/")
+//            .baseUrl("http://192.168.219.105:8080/")// 유진
 //            .baseUrl("http://192.168.1.2:8080/") //본인 Url로 변경
+        .baseUrl("http://192.168.219.107:8080/")// 세진
             .addConverterFactory(GsonConverterFactory.create(gson))
-//            .client()
+            .client(client)
             .build()
         val api: RetrofitAPI = retrofit.create(RetrofitAPI::class.java)
     }
