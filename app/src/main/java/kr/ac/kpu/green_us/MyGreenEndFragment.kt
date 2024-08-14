@@ -46,7 +46,7 @@ class MyGreenEndFragment : Fragment() {
         auth = Firebase.auth
         // 리사이클러뷰 중복 스크롤 막기
         binding.recyclerviewEndGreening.isNestedScrollingEnabled = false
-        showNoDataView() // 데이터가 늦게 불러지면 뷰가 떴다 사라지는 경우가 있어서 코드 추가, 나중에 삭제 가능
+        //showNoDataView() // 데이터가 늦게 불러지면 뷰가 떴다 사라지는 경우가 있어서 코드 추가, 나중에 삭제 가능
 
         val today = LocalDate.now()
 

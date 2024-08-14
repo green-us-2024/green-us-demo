@@ -50,7 +50,7 @@ class MyGreenIngFragment : Fragment() {
         binding = FragmentMyGreenIngBinding.inflate(inflater, container, false)
 
         auth = FirebaseAuth.getInstance()
-        showNoDataView() // 데이터가 늦게 불러지면 뷰가 떴다 사라지는 경우가 있어서 코드 추가, 나중에 삭제 가능
+        //showNoDataView() // 데이터가 늦게 불러지면 뷰가 떴다 사라지는 경우가 있어서 코드 추가, 나중에 삭제 가능
 
         val today = LocalDate.now()
 

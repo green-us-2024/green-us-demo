@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.play.integrity.internal.q
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -32,8 +33,11 @@ import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.adapter.CertifiedRepresentAdapter
 import kr.ac.kpu.green_us.adapter.StampAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.RetrofitManager.Companion.retrofit
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Certify
 import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.data.CertifiedImgs
 import kr.ac.kpu.green_us.databinding.ActivityCertifyGreeningBinding
 import retrofit2.Call
@@ -42,6 +46,8 @@ import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
@@ -72,7 +78,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
         if(gSeq <= -1){
             //gSeq조회 실패한 경우 예외처리 -> 로그아웃하고 초기화면으로
-            Log.e("GreeningDetailActivity","gSeq 실패")
+            Log.e("CertifyGreeningActivity","gSeq 실패")
         }else{
             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
             apiService.getGreeningById(gSeq).enqueue(object : Callback<Greening> {
@@ -117,12 +123,12 @@ class CertifyGreeningActivity : AppCompatActivity() {
                         }
 
                     } else {
-                        Log.e("GreeningDetailActivity", "Greening 데이터 로딩 실패: ${response.code()}")
+                        Log.e("CertifyGreeningActivity", "Greening 데이터 로딩 실패: ${response.code()}")
                     }
                 }
 
                 override fun onFailure(call: Call<Greening>, t: Throwable) {
-                    Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
+                    Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
                 }
             })
         }
@@ -285,6 +291,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                             .set(data).addOnSuccessListener {
                                 Toast.makeText(this, "사진이 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
                                 Log.d("storeUploadSuccess", "인증사진 db 업로드 성공")
+                                registerCertify(userEmail, fileName)
                             }.addOnFailureListener {
                                 Log.d("storeUploadFail", "인증사진 db 업로드 실패")
                             }
@@ -307,11 +314,101 @@ class CertifyGreeningActivity : AppCompatActivity() {
         //현재시간에 적용
         return format.format(Date().time)
     }
+
+    fun convertToISO8601(dateString: String): String {
+        // 원래 문자열의 형식
+        val originalFormat = SimpleDateFormat("yyyy-MM-dd kk:mm:ss E", Locale.KOREA)
+        originalFormat.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+
+        // Date 객체로 변환
+        val date = originalFormat.parse(dateString)
+
+        // LocalDateTime으로 변환
+        val localDateTime = date.toInstant()
+            .atZone(ZoneId.of("Asia/Seoul"))
+            .toLocalDateTime()
+
+        // ISO 8601 형식으로 변환
+        val isoFormatter = DateTimeFormatter.ISO_DATE_TIME
+        return localDateTime.format(isoFormatter)
+    }
     private fun requestReadExternalStoragePermission() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
     }
     private fun requestWriteExternalStoragePermission() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
+    }
+
+    private fun registerCertify(userEmail:String, fileName:String){
+        val gSeq: Int = intent.getIntExtra("gSeq", -1)
+        val date = convertToISO8601(fileName)
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        apiService.registerCertify(userEmail, gSeq, date).enqueue(object : Callback<Certify> {
+            override fun onResponse(call: Call<Certify>, response: Response<Certify>) {
+                if (response.isSuccessful) {
+                    val certify = response.body()
+                    Log.d("CertifyGreeningActivity", "데이터 저장 성공 : ${certify!!.certifySeq}")
+                } else {
+                    Log.e("CertifyGreeningActivity", "데이터 저장 실패: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<Certify>, t: Throwable) {
+                Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+            }
+        })
+    }
+
+    private fun loadCertifyData(userEmail:String){
+        val gSeq: Int = intent.getIntExtra("gSeq", -1)
+        var user: User?
+        var userSeq: Int = 0
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        apiService.getUserbyEmail(userEmail).enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if (response.isSuccessful) {
+                    user = response.body()
+                    userSeq = user!!.userSeq
+                }else{
+                    Log.e("CertifyGreeningActivity", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                    user = null
+                    //실패 처리 로직
+                }
+            }
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+                user = null
+            }
+        })
+        apiService.getCertifyByUserSeqAndGSeq(userSeq, gSeq).enqueue(object : Callback<List<Certify>> {
+            override fun onResponse(call: Call<List<Certify>>, response: Response<List<Certify>>) {
+                if (response.isSuccessful) {
+                    val certifyList = response.body()
+                    Log.d("CertifyGreeningActivity", "인증 정보 불러오기 성공 ")
+                } else {
+                    Log.e("CertifyGreeningActivity", "인증 정보 불러오기 실패: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Certify>>, t: Throwable) {
+                Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+            }
+        })
+    }
+
+    //DB에서 넘어온 CertifyDate를 LocalDateTime으로 변환
+    fun convertStringToLocalDateTime(dateString: String): LocalDateTime {
+        return LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME)
+    }
+
+    //DB에서 넘어온 CertifyDate를 yyyy-MM-dd형식 문자열로 변환
+    fun formatCertifyDate(dateString: String): String {
+        // 날짜 문자열을 LocalDateTime으로 파싱
+        val localDateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME)
+
+        // yyyy-MM-dd 형식으로 포맷팅
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        return localDateTime.format(formatter)
     }
 }
 
