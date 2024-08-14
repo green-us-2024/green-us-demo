@@ -49,7 +49,7 @@ class ParticipateController(private val participateService: ParticipateService) 
         return ResponseEntity.ok(participate)
     }
 
-    @GetMapping("/byUserSeq/{UserSeq}")
+    @GetMapping("/byUserSeq/{userSeq}")
     fun getParticipateByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Participate>> {
         val participate = participateService.findByUserSeq(userSeq)
         return ResponseEntity.ok(participate)
