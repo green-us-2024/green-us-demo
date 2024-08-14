@@ -93,4 +93,28 @@ class ParticipateRepository {
             emptyList()
         }
     }
+
+    fun findPSeqByGSeqAndUserSeq(userSeq: Int, gSeq: Int): Int? {
+        return try {
+            em.createQuery(
+                    "SELECT p.pSeq FROM Participate p WHERE p.user.userSeq = :userSeq AND p.greening.gSeq = :gSeq", Int::class.java
+            ).setParameter("userSeq", userSeq)
+                    .setParameter("gSeq", gSeq)
+                    .singleResult
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    fun findByUserSeqAndGSeq(userSeq: Int, gSeq: Int): Participate? {
+        return try {
+            em.createQuery(
+                    "SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq AND p.greening.gSeq = :gSeq", Participate::class.java
+            ).setParameter("userSeq", userSeq)
+                    .setParameter("gSeq", gSeq)
+                    .singleResult
+        } catch (e: Exception) {
+            null
+        }
+    }
 }

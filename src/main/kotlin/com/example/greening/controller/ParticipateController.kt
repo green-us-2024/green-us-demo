@@ -34,10 +34,10 @@ class ParticipateController(private val participateService: ParticipateService) 
     }
 
     @PutMapping("/update/{pSeq}")
-    fun updateParticipate(@PathVariable pSeq: Int, @RequestBody newParticipate: Participate): ResponseEntity<Participate> {
+    fun updateParticipate(@PathVariable pSeq: Int): ResponseEntity<Int> {
         return try {
-            participateService.updateParticipate(pSeq, newParticipate)
-            ResponseEntity.ok(newParticipate)
+            participateService.updateParticipate(pSeq)
+            ResponseEntity.ok(pSeq)
         } catch (e: IllegalStateException) {
             ResponseEntity.notFound().build()
         }
@@ -65,5 +65,17 @@ class ParticipateController(private val participateService: ParticipateService) 
     fun findGreeningByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Greening>> {
         val greening = participateService.findGreeningByUserSeq(userSeq)
         return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/gSeqByUserAndGreening/{gSeq}/{userSeq}")
+    fun findpSeqByUserSeqAndgSeq(@PathVariable userSeq: Int,@PathVariable gSeq: Int): ResponseEntity<Int> {
+        val pSeq = participateService.findPSeqByUserSeqAndgSeq(userSeq,gSeq)
+        return ResponseEntity.ok(pSeq)
+    }
+
+    @GetMapping("/ByUserSeqAndGSeq/{gSeq}/{userSeq}")
+    fun findParticipateByUserSeqAndGSeq(@PathVariable userSeq: Int,@PathVariable gSeq: Int): ResponseEntity<Participate> {
+        val participate = participateService.findByUserSeqAndgSeq(userSeq,gSeq)
+        return ResponseEntity.ok(participate)
     }
 }
