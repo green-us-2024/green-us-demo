@@ -39,7 +39,10 @@ class MyGreenIngFragment : Fragment() {
     lateinit var viewAdapterDegree: RecyclerView.Adapter<*>
     lateinit var viewManagerIng: RecyclerView.LayoutManager
     lateinit var viewManagerDegree: RecyclerView.LayoutManager
-    var greenExist = true // 데이터에 따라 달라지게
+
+    lateinit var degreeGreeningList: List<Greening>
+    lateinit var degreeParticipateList: List<Participate>
+    var degreeSize: Int = 0
 
     lateinit var auth: FirebaseAuth
     var user: User? = null
@@ -83,6 +86,12 @@ class MyGreenIngFragment : Fragment() {
                                     false
                                 }
                             }
+                            degreeGreeningList = greeningList
+                            degreeSize = greeningList.size
+
+                            greeningList.forEachIndexed { index, greening ->
+                                Log.d("MyGreenIngFragment", "Greening $index: ${greening.toString()}")
+                            }
                             val selectedGreeningList = greeningList.shuffled().take(4)
 
                             if (selectedGreeningList.isNotEmpty()) {
@@ -98,12 +107,32 @@ class MyGreenIngFragment : Fragment() {
                                 override fun onResponse(call: Call<List<Participate>>, response: Response<List<Participate>>) {
                                     if (response.isSuccessful) {
                                         val participateList = response.body() ?: emptyList()
+                                        degreeParticipateList = participateList
                                         Log.d("MyGreenIngFragment", "Participate Size : ${participateList.size}")
                                         // 리스트의 모든 항목을 로그로 출력
                                         participateList.forEachIndexed { index, participate ->
                                             Log.d("MyGreenIngFragment", "Participate $index: ${participate.toString()}")
                                         }
                                         setupDegreeRecyclerViews(participateList, greeningList)
+
+                                        // 전체 진척도 표시
+                                        var totalDegree = 0
+                                        Log.d("MyGreenIngFragment", "진척도 크기 : $degreeSize")
+                                        for(i:Int in 0 until degreeSize){
+                                            totalDegree +=
+                                                (degreeParticipateList[i].pCount?.toDouble()?.div(degreeGreeningList[i].gNumber!! ?: 1)?.times(100) ?: 0.0).toInt()
+                                            Log.d("MyGreenIngFragment", "전체 진척도 크기 : $totalDegree")
+                                        }
+                                        if(degreeSize!=0){
+                                            totalDegree /= degreeSize
+                                            binding.totalDegree.progress = totalDegree
+                                            binding.totalDegreePercentage.text = "${totalDegree}%"
+                                            binding.ingGreeningNum.text = "${degreeSize}"
+                                        }else{
+                                            binding.totalDegree.progress = 0
+                                            binding.totalDegreePercentage.text = "0%"
+                                            binding.ingGreeningNum.text = "0"
+                                        }
                                     } else {
                                         Log.e("MyGreenDegreeFragment", "Participate 데이터 로딩 실패: ${response.code()}")
                                     }
@@ -191,8 +220,6 @@ class MyGreenIngFragment : Fragment() {
     }
 
     private fun setupDegreeRecyclerViews(participateList: List<Participate>, greeningList: List<Greening>) {
-        Log.d("MyGreenIngFragment", "Setting up Degree RecyclerView with ${participateList.size} items")
-        Log.d("MyGreenIngFragment", "greeningList: Setting up Degree RecyclerView with ${greeningList.size} items")
         // 그리닝 개별 진척도 리사이클러뷰 설정
         viewManagerDegree = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         viewAdapterDegree = MyGreenDegreeAdapter(participateList, greeningList)
