@@ -4,9 +4,12 @@ import com.google.gson.GsonBuilder
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import okhttp3.OkHttpClient
+import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
 
 
@@ -32,9 +35,26 @@ class RetrofitManager {
 //            .baseUrl("http://192.168.219.105:8080/")// 유진
 //            .baseUrl("http://192.168.1.2:8080/") //본인 Url로 변경
         .baseUrl("http://192.168.219.107:8080/")// 세진
+            .addConverterFactory(NullOnEmptyConverterFactory())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
         val api: RetrofitAPI = retrofit.create(RetrofitAPI::class.java)
+    }
+}
+class NullOnEmptyConverterFactory : Converter.Factory() {
+    fun converterFactory() = this
+    override fun responseBodyConverter(type: Type, annotations: Array<out Annotation>, retrofit: Retrofit) = object : Converter<ResponseBody, Any?> {
+        val nextResponseBodyConverter = retrofit.nextResponseBodyConverter<Any?>(converterFactory(), type, annotations)
+        override fun convert(value: ResponseBody) = if (value.contentLength() != 0L) {
+            try{
+                nextResponseBodyConverter.convert(value)
+            }catch (e:Exception){
+                e.printStackTrace()
+                null
+            }
+        } else{
+            null
+        }
     }
 }
