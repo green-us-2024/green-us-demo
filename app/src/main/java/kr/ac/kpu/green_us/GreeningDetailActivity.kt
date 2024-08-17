@@ -23,6 +23,7 @@ import kr.co.bootpay.android.models.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.sql.Types.NULL
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -88,31 +89,29 @@ class GreeningDetailActivity : AppCompatActivity() {
                                         val participate = Participate(user = user, greening = greening)
                                         val apiService =
                                             RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-                                        apiService.registerParticipate(participate)
-                                            .enqueue(object : Callback<Participate> {
-                                                override fun onResponse(
-                                                    call: Call<Participate>,
-                                                    response: Response<Participate>
-                                                ) {
-                                                    if (response.isSuccessful) {
-                                                        Log.d("GreeningDetailActivity", "참여 등록 완료")
-                                                        Toast.makeText(application,"${greening.gName}에 참여 완료", Toast.LENGTH_SHORT).show()
-                                                    } else {
-                                                        Log.e("GreeningDetailActivity", "그리닝 참여 실패: ${response.code()}, ${response.errorBody()?.string()}")
-                                                    }
-                                                }
 
-                                                override fun onFailure(
-                                                    call: Call<Participate>,
-                                                    t: Throwable
-                                                ) {
-                                                    Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
-                                                    // 실패 처리 로직
+                                        apiService.findpSeqByUserSeqAndgSeq(user.userSeq, greening.gSeq).enqueue(object :
+                                            Callback<Int> {
+                                            override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                                                if (response.isSuccessful) {
+                                                    Log.e("GreeningDetailActivity", "Participate 데이터 로딩: ${response.body()}")
+                                                    if (response.body() == null) {
+                                                        paymentTest(it, greening.gDeposit?.toDouble() ?: 0.0, greening.gName ?: "그리닝 활동", user, greening)
+                                                    }
+                                                    else{
+                                                        Toast.makeText(this@GreeningDetailActivity, "이미 참여한 그리닝입니다.", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                } else {
+                                                    Log.e("GreeningDetailActivity", "Participate 데이터 로딩 실패: ${response.code()}")
                                                 }
-                                            })
+                                            }
+
+                                            override fun onFailure(call: Call<Int>, t: Throwable) {
+                                                Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
+                                            }
+                                        })
                                     }
                                 }
-                                paymentTest(it, greening.gDeposit?.toDouble() ?: 0.0, greening.gName ?: "그리닝 활동")
                             }
 
                         }
@@ -167,7 +166,7 @@ class GreeningDetailActivity : AppCompatActivity() {
 
 
     var applicationId = "66b478b9cc5274a3ac3fbfc5" // 결제 프로그램 아이디
-    fun paymentTest(v: View?, price: Double, orderName: String) {
+    fun paymentTest(v: View?, price: Double, orderName: String, user1: User, greening: Greening) {
         val extra = BootExtra()
             .setCardQuota("0,2,3") // 일시불, 2개월, 3개월 할부 허용
 
@@ -213,9 +212,6 @@ class GreeningDetailActivity : AppCompatActivity() {
                     return true
                 }
 
-
-
-
                 override fun onDone(data: String) {
                     Log.d("done", data)
                     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -243,6 +239,28 @@ class GreeningDetailActivity : AppCompatActivity() {
                             Log.e("Payment", "서버 통신 중 오류 발생", t)
                         }
                     })
+                    val participate = Participate(user = user1, greening = greening)
+                    apiService.registerParticipate(participate)
+                        .enqueue(object : Callback<Participate> {
+                            override fun onResponse(
+                                call: Call<Participate>,
+                                response: Response<Participate>
+                            ) {
+                                if (response.isSuccessful) {
+                                    Log.d("GreeningDetailActivity", "참여 등록 완료")
+                                    Toast.makeText(application,"${greening.gName}에 참여 완료", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    Log.e("GreeningDetailActivity", "그리닝 참여 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                                }
+                            }
+
+                            override fun onFailure(
+                                call: Call<Participate>,
+                                t: Throwable
+                            ) {
+                                Log.e("GreeningDetailActivity", "서버 통신 중 오류 발생", t)
+                            }
+                        })
                 }
             }).requestPayment()
     }
