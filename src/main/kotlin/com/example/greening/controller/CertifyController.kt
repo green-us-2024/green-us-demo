@@ -6,6 +6,7 @@ import com.example.greening.service.CertifyService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/certify")
@@ -22,8 +23,8 @@ class CertifyController(private val certifyService: CertifyService) {
     }
 
     @PostMapping("/new")
-    fun createCertify(@RequestBody certify : Certify): ResponseEntity<Certify> {
-        certifyService.saveCertify(certify)
+    fun createCertify(@RequestParam userEmail:String,@RequestParam gSeq: Int,@RequestParam certifyDate: LocalDateTime): ResponseEntity<Certify> {
+        val certify = certifyService.saveCertify(userEmail, gSeq, certifyDate)
         return ResponseEntity.status(HttpStatus.CREATED).body(certify)
     }
 
@@ -61,8 +62,8 @@ class CertifyController(private val certifyService: CertifyService) {
     }
 
     @GetMapping("/byGreeningUser/{userSeq}/{gSeq}")
-    fun getCertifyByGreeningUser(@PathVariable userSeq: Int, @PathVariable gSeq: Int): ResponseEntity<List<Certify>> {
-        val certifies = certifyService.findByGreeningUser(userSeq, gSeq)
+    fun getCertifyByUserSeqAndGSeq(@PathVariable userSeq: Int, @PathVariable gSeq: Int): ResponseEntity<List<Certify>> {
+        val certifies = certifyService.findByUserSeqAndGSeq(userSeq, gSeq)
         return ResponseEntity.ok(certifies)
     }
 }

@@ -34,10 +34,10 @@ class ParticipateController(private val participateService: ParticipateService) 
     }
 
     @PutMapping("/update/{pSeq}")
-    fun updateParticipate(@PathVariable pSeq: Int, @RequestBody newParticipate: Participate): ResponseEntity<Participate> {
+    fun updateParticipate(@PathVariable pSeq: Int): ResponseEntity<Int> {
         return try {
-            participateService.updateParticipate(pSeq, newParticipate)
-            ResponseEntity.ok(newParticipate)
+            participateService.updateParticipate(pSeq)
+            ResponseEntity.ok(pSeq)
         } catch (e: IllegalStateException) {
             ResponseEntity.notFound().build()
         }
@@ -49,7 +49,7 @@ class ParticipateController(private val participateService: ParticipateService) 
         return ResponseEntity.ok(participate)
     }
 
-    @GetMapping("/byUserSeq/{UserSeq}")
+    @GetMapping("/byUserSeq/{userSeq}")
     fun getParticipateByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Participate>> {
         val participate = participateService.findByUserSeq(userSeq)
         return ResponseEntity.ok(participate)
@@ -65,5 +65,23 @@ class ParticipateController(private val participateService: ParticipateService) 
     fun findGreeningByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Greening>> {
         val greening = participateService.findGreeningByUserSeq(userSeq)
         return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/gSeqByUserAndGreening/{gSeq}/{userSeq}")
+    fun findpSeqByUserSeqAndgSeq(@PathVariable userSeq: Int,@PathVariable gSeq: Int): ResponseEntity<Int> {
+        val pSeq = participateService.findPSeqByUserSeqAndgSeq(userSeq,gSeq)
+        return ResponseEntity.ok(pSeq)
+    }
+
+    @GetMapping("/ByUserSeqAndGSeq/{gSeq}/{userSeq}")
+    fun findParticipateByUserSeqAndGSeq(@PathVariable userSeq: Int,@PathVariable gSeq: Int): ResponseEntity<Participate> {
+        val participate = participateService.findByUserSeqAndgSeq(userSeq,gSeq)
+        return ResponseEntity.ok(participate)
+    }
+
+    @GetMapping("/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
+    fun findPSeqByGSeqAndUserEmail(@PathVariable userEmail: String,@PathVariable gSeq: Int): ResponseEntity<Int> {
+        val pSeq = participateService.findPSeqByGSeqAndUserEmail(userEmail,gSeq)
+        return ResponseEntity.ok(pSeq)
     }
 }

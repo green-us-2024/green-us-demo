@@ -26,14 +26,18 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
     }
 
     @Transactional
-    fun updateParticipate(pSeq: Int, newParticipate: Participate) {
-        val existingParticipate = participateRepository.findOne(pSeq)
-        if (existingParticipate != null) { // 필드를 직접 업데이트
-            existingParticipate.pComplete = newParticipate.pComplete ?: existingParticipate.pComplete
-            existingParticipate.pCount = newParticipate.pCount ?: existingParticipate.pCount
-
-            participateRepository.save(existingParticipate)
-        } else {
+    fun updateParticipate(pSeq: Int) {
+        val existingParticipate = if(pSeq > -1)participateRepository.findOne(pSeq) else null
+        if(existingParticipate != null ) {
+            if (existingParticipate.pComplete == "N") {
+                existingParticipate.pCount = existingParticipate.pCount!! + 1
+                if (existingParticipate.greening!!.gNumber!! == existingParticipate.pCount!!)
+                    existingParticipate.pComplete = "Y"
+                participateRepository.save(existingParticipate)
+            } else {
+                throw IllegalStateException("가능한 횟수를 넘었습니다.")
+            }
+        }else{
             throw IllegalStateException("참여가 존재하지 않습니다.")
         }
     }
@@ -66,6 +70,17 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
 
     fun findGreeningByUserSeq(userSeq: Int): List<Greening> {
         return participateRepository.findGreeningByUserSeq(userSeq)
+    }
+
+    fun findByUserSeqAndgSeq(userSeq: Int, gSeq: Int): Participate?{
+        return participateRepository.findByUserSeqAndGSeq(userSeq,gSeq)
+    }
+    fun findPSeqByUserSeqAndgSeq(userSeq: Int, gSeq: Int): Int? {
+        return participateRepository.findPSeqByGSeqAndUserSeq(userSeq,gSeq)
+    }
+
+    fun findPSeqByGSeqAndUserEmail(userEmail: String, gSeq: Int): Int? {
+        return participateRepository.findPSeqByGSeqAndUserEmail(userEmail,gSeq)
     }
 
 }
