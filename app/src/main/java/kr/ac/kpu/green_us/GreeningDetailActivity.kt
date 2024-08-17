@@ -174,7 +174,7 @@ class GreeningDetailActivity : AppCompatActivity() {
         val item1 = BootItem().setName("그리닝 활동").setId("ITEM_CODE_GREENING").setQty(1).setPrice(price)
         items.add(item1)
 
-        val user = BootUser().setPhone("010-1234-5678") // 실제 사용자 정보를 사용할 수 있습니다.
+        val user = BootUser().setPhone("010-1234-5678")
         val payload = Payload()
         val pg = "이니시스"
         val method = "카드"
