@@ -47,6 +47,7 @@ class GreenOpenFragment : Fragment() {
     var gDeposit by Delegates.notNull<Int>()
     var gSeq by Delegates.notNull<Int>()
     var user :User? = null
+    private lateinit var email :String
 
     //날짜 형식 정의
     //private val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -58,6 +59,7 @@ class GreenOpenFragment : Fragment() {
         binding = FragmentGreenOpenBinding.inflate(inflater,container,false)
 
         auth = Firebase.auth
+
 
         // 날짜 입력 editText 달력으로만 받게 하기 위해 비활성화
         binding.startDateEt.setClickable(false);
@@ -130,12 +132,12 @@ class GreenOpenFragment : Fragment() {
 
             getUserByEmail()
             //  userseq를 찾았음에도 항상 null값 나오기에 주석처리하였음
-//            if (user != null){
-//                Log.d("GreenOpenFragment", "userSeq: ${user!!.userSeq}")
-//            }else{
-//                Log.e("GreenOpenFragment", "user가 없거나 조회 실패")
-//                return@setOnClickListener
-//            }
+            if (user != null){
+                Log.d("GreenOpenFragment", "userSeq: ${user!!.userSeq}")
+            }else{
+                Log.e("GreenOpenFragment", "user가 없거나 조회 실패")
+                return@setOnClickListener
+            }
 
             //데이터 전송
             val greening = Greening(
@@ -330,7 +332,6 @@ class GreenOpenFragment : Fragment() {
     private fun getUserByEmail() {
         val currentUser = auth.currentUser
         val currentEmail = currentUser?.email.toString()
-        Log.d("currentEmail",currentEmail)
 
         //로그인중인 email에 해당하는 user 가져오는 코드
         if(currentEmail != null){
