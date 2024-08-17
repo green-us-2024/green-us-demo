@@ -3,6 +3,7 @@ package com.example.greening.repository
 import com.example.greening.domain.item.Payment
 import jakarta.persistence.EntityManager
 import jakarta.persistence.PersistenceContext
+import okhttp3.internal.http2.Http2Reader
 import org.springframework.stereotype.Repository
 
 @Repository
