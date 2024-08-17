@@ -69,6 +69,7 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                     uri -> Glide.with(this@GreeningDetailSubActivity).load(uri).into(binding.imgGreening)
                             }
 
+                            binding.barTitle.text = greening.gName ?: ""
                             binding.greeningTitle.text = greening.gName ?: ""
                             binding.tagTerm.text = "${greenWeek}주"
                             binding.tagFreq.text = "주${greening.gFreq}회"
@@ -87,6 +88,7 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                 // 리뷰 작성 버튼 클릭 시
                                 binding.button.setOnClickListener{
                                     val intent = Intent(this@GreeningDetailSubActivity, CertifyGreeningActivity::class.java)
+                                    intent.putExtra("gSeq", gSeq)
                                     startActivity(intent)
                                 }
                             }
@@ -96,6 +98,7 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                 binding.button.setOnClickListener{
                                     val intent = Intent(this@GreeningDetailSubActivity, SubActivity::class.java)
                                     intent.putExtra("3","my_review_write")
+                                    intent.putExtra("gSeq", gSeq)
                                     startActivity(intent)
                                 }
                             }

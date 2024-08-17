@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -19,6 +20,8 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.databinding.ActivityMyProfileEditBinding
 import java.io.ByteArrayOutputStream
@@ -30,11 +33,21 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMyProfileEditBinding
     lateinit var bitmap: Bitmap
     lateinit var uri: Uri
+    private lateinit var auth: FirebaseAuth
+    private lateinit var uid: String
     var cameraOrGallery: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMyProfileEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // auth 인스턴스 초기화
+        auth = Firebase.auth
+        uid = auth.currentUser?.uid.toString()
+        // 프로필 이미지 둥글게
+        binding.userImg.clipToOutline = true
+        uploadImgToProfile(uid)
+
 
         // 이전버튼
         binding.btnEsc.setOnClickListener {
@@ -48,11 +61,11 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
 
         // 완료 버튼 클릭 시 activity_my_profile로 이동
         binding.complete.setOnClickListener {
-            imageUpload(uri)
             val intent = Intent(this, MyProfileActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
+
     }
 
     // 카메라/갤러리 창 띄우기
@@ -115,17 +128,19 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
                 val extras = it.data!!.extras
                 bitmap = extras!!.get("data") as Bitmap
                 uri = getImageUri(this@MyProfileEditActivity, bitmap)
-                binding.userImg.setImageBitmap(bitmap)
-                binding.userImg.clipToOutline = true
+//                binding.userImg.setImageBitmap(bitmap)
+//                binding.userImg.clipToOutline = true
+                imageUpload(uri,uid) //이미지 업로드 함수
 
             }
             if(cameraOrGallery == 2){
                 uri = it.data?.data!!
-                Glide.with(this)
-                    .load(uri)
-                    .apply(RequestOptions().circleCrop())
-                    .into(binding.userImg)
-                binding.userImg.clipToOutline = true
+//                Glide.with(this)
+//                    .load(uri)
+//                    .apply(RequestOptions().circleCrop())
+//                    .into(binding.userImg)
+//                binding.userImg.clipToOutline = true
+                imageUpload(uri,uid)
             }
         }
     }
@@ -133,28 +148,39 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
     fun getImageUri(inContext: Context?, inImage: Bitmap?): Uri {
         val bytes = ByteArrayOutputStream()
         if (inImage != null) {
-            inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+            inImage.compress(Bitmap.CompressFormat.PNG, 100, bytes)
         }
         val path = MediaStore.Images.Media.insertImage(inContext?.getContentResolver(), inImage, "Title" + " - " + Calendar.getInstance().getTime(), null)
         return Uri.parse(path)
     }
 
-    private fun imageUpload(uri: Uri) {
+    private fun imageUpload(uri: Uri,uid:String) {
         // storage 인스턴스 생성
         val storage = Firebase.storage
         // storage 참조
-        val storageRef = storage.getReference("image")
+        val storageRef = storage.getReference("profileImgs/")
         // storage에 저장할 파일명 선언
-        val fileName = SimpleDateFormat("yyyyMMddHHmmss").format(Date())
-        val mountainsRef = storageRef.child("${fileName}.png")
+        val fileName = uid
+        val mountainsRef = storageRef.child(fileName)
 
         val uploadTask = mountainsRef.putFile(uri)
         uploadTask.addOnSuccessListener { taskSnapshot ->
             // 파일 업로드 성공
             Toast.makeText(this, "사진 업로드 성공", Toast.LENGTH_SHORT).show();
+            uploadImgToProfile(uid)
         }.addOnFailureListener {
             // 파일 업로드 실패
             Toast.makeText(this, "사진 업로드 실패", Toast.LENGTH_SHORT).show();
+        }
+    }
+    private fun uploadImgToProfile(uid:String){
+        val storage = Firebase.storage
+        val storageRef = storage.getReference("profileImgs/${uid}")
+        storageRef.downloadUrl.addOnSuccessListener {
+            Log.d("profileImg",it.toString())
+            Glide.with(this).load(it).into(binding.userImg)
+        }.addOnFailureListener {
+            Log.d("profileImg","사진 불러오기 실패")
         }
     }
 

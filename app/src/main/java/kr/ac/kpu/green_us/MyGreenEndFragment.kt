@@ -46,7 +46,7 @@ class MyGreenEndFragment : Fragment() {
         auth = Firebase.auth
         // 리사이클러뷰 중복 스크롤 막기
         binding.recyclerviewEndGreening.isNestedScrollingEnabled = false
-        showNoDataView() // 데이터가 늦게 불러지면 뷰가 떴다 사라지는 경우가 있어서 코드 추가, 나중에 삭제 가능
+        showNoDataView()
 
         val today = LocalDate.now()
 
@@ -67,6 +67,9 @@ class MyGreenEndFragment : Fragment() {
                                     false
                                 }
                             }.shuffled().take(4)
+                            if(selectedGreeningList.isNotEmpty()){
+                                showDataView()
+                            }
                             Log.d("MyGreenEndFragment", "Greening Size : ${greeningList.size} -> ${selectedGreeningList.size}")
                             setupRecyclerView(selectedGreeningList)
                         } else {
@@ -154,5 +157,14 @@ class MyGreenEndFragment : Fragment() {
         binding.endGreeningStatistics.visibility = View.GONE
         binding.endGreenCnt.visibility = View.GONE
         binding.totalPoint.visibility = View.GONE
+    }
+
+    private fun showDataView() {
+        binding.notExistEnd.visibility = View.GONE
+        binding.recyclerviewEndGreening.visibility = View.VISIBLE
+        binding.moreBtn.visibility = View.VISIBLE
+        binding.endGreeningStatistics.visibility = View.VISIBLE
+        binding.endGreenCnt.visibility = View.VISIBLE
+        binding.totalPoint.visibility = View.VISIBLE
     }
 }

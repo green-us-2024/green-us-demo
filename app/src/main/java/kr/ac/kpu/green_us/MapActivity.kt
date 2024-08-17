@@ -1,7 +1,9 @@
 package kr.ac.kpu.green_us
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -15,19 +17,33 @@ import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.UiSettings
 import com.naver.maps.map.util.FusedLocationSource
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kr.ac.kpu.green_us.adapter.MarketAdapter
+import kr.ac.kpu.green_us.data.Market
 import kr.ac.kpu.green_us.databinding.ActivityMapBinding
+import org.jsoup.Jsoup
+import org.jsoup.select.Elements
+import java.util.TimerTask
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityMapBinding
     private lateinit var locationSource: FusedLocationSource
     private lateinit var naverMap: NaverMap
+    private lateinit var bottomAdapter: MarketAdapter
 
+
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val keyword ="제로웨이스트샵"
+        val list = marketTask("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query="+keyword)
+
+//        https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&ssc=tab.nx.all&query=사용자 위치 구+keyword&oquery=+keyword+&tqi=iry68sqVOsVssS1Xl%2B0ssssssYs-467466
 
         // 위치 권한 요청
         val requestPermissionLauncher = registerForActivityResult(
@@ -45,7 +61,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         // bottom sheet 설정
-        binding.bottomLayout.recyclerviewMarketList.adapter = MarketAdapter()
+        bottomAdapter = MarketAdapter(list)
+        binding.bottomLayout.recyclerviewMarketList.adapter = bottomAdapter
+        bottomAdapter.notifyDataSetChanged()
         binding.bottomLayout.recyclerviewMarketList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val behavior = BottomSheetBehavior.from(binding.bottomLayout.root)
         behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
@@ -74,6 +92,34 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    private fun marketTask(url:String):ArrayList<Market>{
+        val itemList :ArrayList<Market> = arrayListOf()
+        CoroutineScope(Dispatchers.IO).launch {
+            val doc = Jsoup.connect(url).get()
+            val elements:Elements = doc.select("li.VLTHu.JJ4Cd")
+            elements.forEach { element ->
+                val name = element.select("span.YwYLL").text();
+                val location = element.select("span.Pb4bU").text();
+                val closed = element.select("div.Gvf9B span:nth-child(2)").text();
+
+
+                val data = Market(name,location,closed)
+                itemList.add(data)
+//                 쓰레드 사용
+                val task:TimerTask = object :TimerTask(){
+                    @SuppressLint("NotifyDataSetChanged")
+                    override fun run() {
+                        runOnUiThread{
+                            bottomAdapter.notifyDataSetChanged()
+                        }
+                    }
+
+                }
+                task.run()
+            }
+        }
+        return itemList
+    }
     private fun initializeMap() {
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
         val fm = supportFragmentManager

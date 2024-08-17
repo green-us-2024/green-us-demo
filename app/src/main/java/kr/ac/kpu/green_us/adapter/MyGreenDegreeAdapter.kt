@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,34 +8,50 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.Participate
 
-class MyGreenDegreeAdapter: RecyclerView.Adapter<MyGreenDegreeAdapter.MyViewHolder>() {
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        public var title: TextView = itemView.findViewById(R.id.greening_title_pro)
-        public var percentage: TextView = itemView.findViewById(R.id.greening_percentage)
-        public var progressbar: LinearProgressIndicator = itemView.findViewById(R.id.linearProgressIndicator)
+class MyGreenDegreeAdapter(private var participateList: List<Participate>, private var greeningList: List<Greening>) :
+    RecyclerView.Adapter<MyGreenDegreeAdapter.MyGreenDegreeViewHolder>() {
+
+    inner class MyGreenDegreeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var title: TextView = view.findViewById(R.id.greening_title_pro) // 그리닝명
+        var percentage: TextView = view.findViewById(R.id.greening_percentage) // 그리닝 진행률 %
+        var progressbar: LinearProgressIndicator =
+            view.findViewById(R.id.linearProgressIndicator) // 그리닝 프로그레스바
     }
-    // 1. Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MyViewHolder {
-        // create a new view
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): MyGreenDegreeViewHolder {
         val cardView = LayoutInflater.from(parent.context)
             .inflate(R.layout.cardview_green_degree, parent, false)
 
-        return MyViewHolder(cardView)
+        return MyGreenDegreeViewHolder(cardView)
     }
 
-    // 2. Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.title.setText("옥수수 수세미 사용하기")
-        holder.percentage.setText("70%")
-        holder.progressbar.setProgress(70)
+    override fun onBindViewHolder(holder: MyGreenDegreeViewHolder, position: Int) {
+        val greening = greeningList.getOrNull(position)
+        val participate = participateList.getOrNull(position)
+
+        Log.d("MyGreenDegreeAdapter", "Binding position $position: participate = $participate, greening = $greening")
+
+        if (greening != null && participate != null) {
+            holder.title.text = greening.gName
+            val percentage = participate.pCount?.toDouble()?.div(greening.gNumber ?: 1)?.times(100) ?: 0.0
+            holder.percentage.text = "${percentage.toInt()}%"
+            holder.progressbar.progress = percentage.toInt()
+        }
     }
 
-    // 3. Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
-        return 5
+        return participateList.size
+    }
+
+    fun updateData(newList1: List<Participate>, newList2: List<Greening>) {
+        participateList = newList1
+        greeningList = newList2
+        notifyDataSetChanged()
     }
 }

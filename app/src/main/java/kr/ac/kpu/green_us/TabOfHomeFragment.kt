@@ -23,11 +23,14 @@ import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.databinding.FragmentTabOfHomeBinding
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import kotlin.coroutines.CoroutineContext
 
 
 class TabOfHomeFragment : Fragment() {
@@ -134,6 +137,7 @@ class TabOfHomeFragment : Fragment() {
         loadGreeningData()
 
     }
+
 
     private fun setupRecyclerViews(){
         // 구매형 RecyclerView 설정
@@ -264,11 +268,7 @@ class TabOfHomeFragment : Fragment() {
 
     }
 
-    //뷰페이저에 들어갈 아이템(이미지)
-    private fun getHeroList():ArrayList<Int>{
 
-        return arrayListOf<Int>(R.drawable.hero_img_1,R.drawable.hero_img_2,R.drawable.hero_img_3)
-    }
 
 
 }
