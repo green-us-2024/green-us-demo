@@ -13,7 +13,7 @@ open class Payment(
         @Column(name = "payment_seq")
         var paymentSeq: Int = 0,
 
-        @JsonBackReference(value="user-payments")
+        @JsonBackReference(value = "user-payments")
         @ManyToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
         var user: User? = null,
