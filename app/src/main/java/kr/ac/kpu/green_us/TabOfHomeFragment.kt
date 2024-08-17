@@ -100,9 +100,6 @@ class TabOfHomeFragment : Fragment() {
                                 binding.currentBannerNum.text = posiText
                             }
                         })
-                        binding.heroSection.setOnClickListener{
-
-                        }
                     }
                 }
             }
