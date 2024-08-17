@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -262,8 +263,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     bottomAdapter.notifyDataSetChanged()
                     bottomAdapter.itemClickListener = object : MarketAdapter.OnItemClickListener {
                         override fun onItemClick(url: String) {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                            startActivity(intent)
+                            if(url.isNotEmpty()){
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                                startActivity(intent)
+                            }else{
+                                Toast.makeText(applicationContext,"링크 정보가 없습니다.",Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
                     // 마커 업데이트
