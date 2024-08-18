@@ -43,7 +43,7 @@ class GreenOpenFragment : Fragment() {
     var photo = ""
     var freq = 0
     var kind = 0
-    lateinit var uri: Uri
+    private var uri: Uri? = null
     var gDeposit by Delegates.notNull<Int>()
     var gSeq by Delegates.notNull<Int>()
     var user :User? = null
@@ -71,13 +71,16 @@ class GreenOpenFragment : Fragment() {
 
         // 개설하기 버튼
         binding.openGreenBtn.setOnClickListener {
-
-
             val gName = binding.nameEt.text.toString()
             val gInfo = binding.greenDetailEt.text.toString()
             val fee =  binding.depositEx.text.toString().trim()
+            val img = binding.uploadPictureEt.text.toString()
             getUserByEmail()
             try {
+                if(fee.isEmpty()){
+                    Toast.makeText(context, "예치금을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 gDeposit = fee.toInt()
                 print("gDeposit : $gDeposit")
             } catch (e: NumberFormatException) {
@@ -86,39 +89,51 @@ class GreenOpenFragment : Fragment() {
 //            val gDeposit = binding.depositEx.text.toString().trim().toInt()
             val gNumber = week*freq
             if (start_date.isEmpty()){
-                //Toast.makeText(this, "시작일을 선택해 주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "시작일을 선택해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if(gName.isEmpty()){
+                Toast.makeText(context, "그리닝 이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val endDate = calculateEndDate(start_date, week)
-            if (endDate != null){
-                //종료일이 잘 계산되었을 때
-                Log.d("GreenOpenFragment", "종료일: $endDate")
-            }else{
+            if (endDate == null){
                 //종료일 계산이 잘못되었을 때
                 Log.e("GreenOpenFragment", "종료일 계산 실패")
+                Toast.makeText(context, "시작일과 기간을 선택해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (certiWay.isEmpty()){
                 //인증방법이 입력되지 않았을 때
                 Log.e("GreenOpenFragment", "인증수단 입력 누락")
-                //Toast.makeText(this, "인증수단을 선택해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "인증수단을 선택해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
-            }else{
-                //인증방법이 입력 되었을 때
-                Log.d("GreenOpenFragment", "인증수단: $certiWay")
+            }
+
+            if (img.isEmpty()){
+                //이미지가 입력되지 않았을 때
+                Log.e("GreenOpenFragment", "이미지 입력 누락")
+                Toast.makeText(context, "그리닝이미지를 업로드해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (gInfo.isEmpty()){
+                //이미지가 입력되지 않았을 때
+                Log.e("GreenOpenFragment", "그리닝 설명 누락")
+                Toast.makeText(context, "그리닝 설명을 작성해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
             //인증횟수
-            if (gNumber > 0){
-                //인증횟수가 잘 계산되었을 때
-                Log.d("GreenOpenFragment", "인증횟수 계산 완료")
-            }else{
+            if (gNumber <= 0){
                 //인증횟수 계산이 잘못되었을 때
-                //Toast.makeText(this, "기간과 인증빈도를 선택해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "기간과 인증빈도를 선택해주세요.", Toast.LENGTH_SHORT).show()
                 Log.e("GreenOpenFragment", "인증횟수 계산 실패 : : $gNumber")
                 return@setOnClickListener
             }
+
 
             //그리닝 유형
             if (kind > 0){
@@ -126,7 +141,7 @@ class GreenOpenFragment : Fragment() {
                 Log.d("GreenOpenFragment", "그리닝 유형 : ${kind}")
             }else{
                 //그리닝 유형을 미입력했을 때
-                //Toast.makeText(this, "그리닝 유형를 선택해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "그리닝 유형를 선택해주세요.", Toast.LENGTH_SHORT).show()
                 Log.e("GreenOpenFragment", "그리닝 유형 미입력")
                 return@setOnClickListener
             }
@@ -259,7 +274,7 @@ class GreenOpenFragment : Fragment() {
 
         return binding.root
     }
-    private fun imageUpload(uri: Uri) {
+    private fun imageUpload(uri: Uri?) {
         if (uri != null) {
             val storage = Firebase.storage
             //현재 로그인 한 사용자 이메일 가져오기
@@ -324,8 +339,13 @@ class GreenOpenFragment : Fragment() {
     private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
-        uri = it.data!!.data!!
-        binding.uploadPictureEt.setText(uri?.getLastPathSegment())
+        val resultUri = it.data?.data
+        if (resultUri != null) {
+            uri = resultUri
+            binding.uploadPictureEt.setText(uri?.getLastPathSegment())
+        } else {
+            Toast.makeText(requireContext(), "사진을 선택하지 않았습니다.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun getUserByEmail() {
@@ -333,7 +353,7 @@ class GreenOpenFragment : Fragment() {
         val currentEmail = currentUser?.email.toString()
 
         //로그인중인 email에 해당하는 user 가져오는 코드
-        if(currentEmail != null){
+        if(currentEmail.isNotEmpty()){
             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
             apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
                 override fun onResponse(call: Call<User>, response: Response<User>) {
