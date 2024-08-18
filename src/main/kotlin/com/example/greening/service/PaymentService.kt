@@ -3,6 +3,7 @@ package com.example.greening.service
 import com.example.greening.domain.item.Payment
 import com.example.greening.repository.PaymentRepository
 import com.example.greening.repository.UserRepository
+import okhttp3.internal.http2.Http2Reader
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -18,6 +19,7 @@ class PaymentService(private val paymentRepository: PaymentRepository, private v
         }
         paymentRepository.save(payment)
     }
+
 
     @Transactional
     fun updatePayment(paymentSeq: Int, newPayment: Payment) {
