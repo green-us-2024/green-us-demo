@@ -19,7 +19,7 @@ class PrizeService(private val prizeRepository: PrizeRepository,
     fun savePrize(prize: Prize) {
         val user = prize.user?.let { userRepository.findById(it.userSeq)}
         val greening = prize.greening?.let { greeningRepository.findById(it.gSeq)}
-        val participate = prize.participate?.let { participateRepository.findById(it.pSeq)}
+        val participate = prize.participate?.let { participateRepository.findById(it.pSeq).orElse(null)}
         if (user != null) {
             prize.user = user
         }
@@ -34,7 +34,7 @@ class PrizeService(private val prizeRepository: PrizeRepository,
 
     @Transactional
     fun updatePrize(prizeSeq: Int, newPrize: Prize) {
-        val existingPrize = prizeRepository.findOne(prizeSeq)
+        val existingPrize = prizeRepository.findById(prizeSeq)
         if (existingPrize != null) { // 필드를 직접 업데이트
             existingPrize.prizeName = newPrize.prizeName ?: existingPrize.prizeName
             existingPrize.prizeMoney = newPrize.prizeMoney ?: existingPrize.prizeMoney
@@ -57,7 +57,7 @@ class PrizeService(private val prizeRepository: PrizeRepository,
     }
 
     fun findOne(prizeSeq: Int): Prize? {
-        return prizeRepository.findOne(prizeSeq)
+        return prizeRepository.findById(prizeSeq)
     }
 
     fun findById(prizeSeq: Int): Prize? {

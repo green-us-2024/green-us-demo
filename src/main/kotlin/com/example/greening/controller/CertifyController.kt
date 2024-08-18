@@ -66,4 +66,10 @@ class CertifyController(private val certifyService: CertifyService) {
         val certifies = certifyService.findByUserSeqAndGSeq(userSeq, gSeq)
         return ResponseEntity.ok(certifies)
     }
+
+    @GetMapping("/byUserSeqAndGSeqAneCertifyDate/{userSeq}/{gSeq}/{CertifyDate}")
+    fun findByUserSeqAndGSeqAndCertifyDate(userSeq: Int, gSeq: Int, CertifyDate: LocalDateTime): ResponseEntity<Certify> {
+        val certify = certifyService.findByUserSeqAndGSeqAndCertifyDate(userSeq, gSeq, CertifyDate)
+        return ResponseEntity.ok(certify)
+    }
 }

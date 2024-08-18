@@ -1,132 +1,31 @@
 package com.example.greening.repository
 
-import com.example.greening.domain.item.Certify
+
 import com.example.greening.domain.item.Greening
 import com.example.greening.domain.item.Participate
-import jakarta.persistence.EntityManager
-import jakarta.persistence.PersistenceContext
-import jakarta.servlet.http.Part
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.jpa.repository.Query
+import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-class ParticipateRepository {
+interface ParticipateRepository : JpaRepository<Participate, Int> {
 
-    @PersistenceContext
-    private lateinit var em: EntityManager
+    @Query("SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq")
+    fun findByUserSeq(@Param("userSeq") userSeq: Int): List<Participate>
 
-    fun save(participate: Participate) {
-        if(participate.pSeq == 0) {
-            em.persist(participate)
-        }else{
-            em.merge(participate)
-        }
-    }
+    @Query("SELECT p FROM Participate p WHERE p.greening.gSeq = :gSeq")
+    fun findBygSeq(@Param("gSeq") gSeq: Int): List<Participate>
 
-    fun delete(participate: Participate) {
-        if (em.contains(participate)) {
-            em.remove(participate)
-        } else {
-            em.remove(em.merge(participate))
-        }
-    }
+    @Query("SELECT p.greening FROM Participate p WHERE p.user.userSeq = :userSeq")
+    fun findGreeningByUserSeq(@Param("userSeq") userSeq: Int): List<Greening>
 
-    fun deleteById(id: Int) {
-        val participate = findOne(id)
-        if (participate != null) {
-            delete(participate)
-        }
-    }
+    @Query("SELECT p.pSeq FROM Participate p WHERE p.user.userSeq = :userSeq AND p.greening.gSeq = :gSeq")
+    fun findPSeqByGSeqAndUserSeq(@Param("userSeq") userSeq: Int, @Param("gSeq") gSeq: Int): Int?
 
-    fun findOne(id : Int) : Participate?{
-        return try{
-            em.find(Participate::class.java, id)
-        }catch(e: Exception){
-            null
-        }
-    }
+    @Query("SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq AND p.greening.gSeq = :gSeq")
+    fun findByUserSeqAndGSeq(@Param("userSeq") userSeq: Int, @Param("gSeq") gSeq: Int): Participate?
 
-    fun findAll() : List<Participate>{
-        return try{
-            em.createQuery("select p from Participate p", Participate::class.java).resultList
-        }catch(e: Exception){
-            emptyList()
-        }
-    }
-
-    fun findById(pSeq: Int): Participate? {
-        return try{
-            em.createQuery("select p from Participate p where p.pSeq = :pSeq", Participate::class.java)
-                    .setParameter("pSeq", pSeq)
-                    .singleResult
-        }catch(e: IllegalStateException){
-            null
-        }
-    }
-
-    fun findByUserSeq(userSeq: Int): List<Participate> {
-        return try{
-            em.createQuery("select p from Participate p where p.user.userSeq = :userSeq", Participate::class.java)
-                    .setParameter("userSeq", userSeq)
-                    .resultList
-        }catch(e: Exception){
-            emptyList()
-        }
-    }
-
-    fun findBygSeq(gSeq: Int): List<Participate> {
-        return try {
-            em.createQuery("select p from Participate p where p.greening.gSeq = :gSeq", Participate::class.java)
-                    .setParameter("gSeq", gSeq)
-                    .resultList
-        }catch(e: Exception){
-            emptyList()
-        }
-    }
-
-    fun findGreeningByUserSeq(userSeq: Int): List<Greening> {
-        return try {
-            val participates = em.createQuery(
-                    "SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq", Participate::class.java
-            ).setParameter("userSeq", userSeq).resultList
-            participates.mapNotNull { it.greening }.distinct()
-        } catch (e: Exception) {
-            emptyList()
-        }
-    }
-
-    fun findPSeqByGSeqAndUserSeq(userSeq: Int, gSeq: Int): Int? {
-        return try {
-            em.createQuery(
-                    "SELECT p.pSeq FROM Participate p WHERE p.user.userSeq = :userSeq AND p.greening.gSeq = :gSeq", Int::class.java
-            ).setParameter("userSeq", userSeq)
-                    .setParameter("gSeq", gSeq)
-                    .singleResult
-        } catch (e: Exception) {
-            null
-        }
-    }
-
-    fun findByUserSeqAndGSeq(userSeq: Int, gSeq: Int): Participate? {
-        return try {
-            em.createQuery(
-                    "SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq AND p.greening.gSeq = :gSeq", Participate::class.java
-            ).setParameter("userSeq", userSeq)
-                    .setParameter("gSeq", gSeq)
-                    .singleResult
-        } catch (e: Exception) {
-            null
-        }
-    }
-
-    fun findPSeqByGSeqAndUserEmail(userEmail: String, gSeq: Int): Int? {
-        return try {
-            em.createQuery(
-                    "SELECT p.pSeq FROM Participate p WHERE p.user.userEmail = :userEmail AND p.greening.gSeq = :gSeq", Int::class.java
-            ).setParameter("userEmail", userEmail)
-                    .setParameter("gSeq", gSeq)
-                    .singleResult
-        } catch (e: Exception) {
-            null
-        }
-    }
+    @Query("SELECT p.pSeq FROM Participate p WHERE p.user.userEmail = :userEmail AND p.greening.gSeq = :gSeq")
+    fun findPSeqByGSeqAndUserEmail(@Param("userEmail") userEmail: String, @Param("gSeq") gSeq: Int): Int?
 }

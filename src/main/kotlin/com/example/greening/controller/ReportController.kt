@@ -5,6 +5,7 @@ import com.example.greening.service.ReportService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/report")
@@ -12,7 +13,7 @@ class ReportController(private val reportService: ReportService) {
 
     @GetMapping("/byId/{id}")
     fun getReportById(@PathVariable id: Int): ResponseEntity<Report> {
-        val report = reportService.findOne(id)
+        val report = reportService.findReportById(id)
         return if (report != null) {
             ResponseEntity.ok(report)
         } else {
@@ -21,9 +22,8 @@ class ReportController(private val reportService: ReportService) {
     }
 
     @PostMapping("/new")
-    fun createReport(@RequestBody report: Report): ResponseEntity<Report> {
-        reportService.saveReport(report)
-        return ResponseEntity.status(HttpStatus.CREATED).body(report)
+    fun createReport(@RequestParam userEmail:String,@RequestParam certifySeq: Int): ResponseEntity<Report> {
+        return reportService.saveReport(userEmail, certifySeq)
     }
 
     @PutMapping("/update/{reportSeq}")
@@ -49,7 +49,7 @@ class ReportController(private val reportService: ReportService) {
 
     @GetMapping("/byCertifySeq/{certifySeq}")
     fun getReportByCertifySeq(@PathVariable certifySeq: Int): ResponseEntity<List<Report>> {
-        val report = reportService.findByCertifySeq(certifySeq)
+        val report = reportService.findReportsByCertifySeq(certifySeq)
         return ResponseEntity.ok(report)
     }
 }

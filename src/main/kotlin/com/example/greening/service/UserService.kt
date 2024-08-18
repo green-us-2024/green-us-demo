@@ -42,6 +42,17 @@ class UserService(private val userRepository: UserRepository) {
         }
     }
 
+    @Transactional
+    fun updateUserWCount(userSeq: Int) {
+        val existingUser = userRepository.findOne(userSeq)
+        if (existingUser != null && existingUser.userWCount!! < 5) {
+            existingUser.userWCount = existingUser.userWCount!!.plus(1)
+            userRepository.save(existingUser)
+        } else {
+            throw IllegalStateException("신고 횟수가 5회 이상입니다.")
+        }
+    }
+
     private fun validateDuplicateUser(user: User) {
         if(user.userEmail!=null) {
             val findUsers = userRepository.findByEmail(user.userEmail!!)

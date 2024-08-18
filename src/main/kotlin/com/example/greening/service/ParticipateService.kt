@@ -27,7 +27,7 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
 
     @Transactional
     fun updateParticipate(pSeq: Int) {
-        val existingParticipate = if(pSeq > -1)participateRepository.findOne(pSeq) else null
+        val existingParticipate = if(pSeq > -1)participateRepository.findById(pSeq).orElse(null) else null
         if(existingParticipate != null ) {
             if (existingParticipate.pComplete == "N") {
                 existingParticipate.pCount = existingParticipate.pCount!! + 1
@@ -53,11 +53,11 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
     }
 
     fun findOne(pSeq: Int): Participate? {
-        return participateRepository.findOne(pSeq)
+        return participateRepository.findById(pSeq).orElse(null)
     }
 
     fun findById(pSeq: Int): Participate? {
-        return participateRepository.findById(pSeq)
+        return participateRepository.findById(pSeq).orElse(null)
     }
 
     fun findByUserSeq(userSeq: Int): List<Participate> {
