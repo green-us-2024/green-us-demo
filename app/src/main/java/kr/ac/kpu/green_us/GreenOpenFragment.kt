@@ -76,6 +76,7 @@ class GreenOpenFragment : Fragment() {
             val gName = binding.nameEt.text.toString()
             val gInfo = binding.greenDetailEt.text.toString()
             val fee =  binding.depositEx.text.toString().trim()
+            getUserByEmail()
             try {
                 gDeposit = fee.toInt()
                 print("gDeposit : $gDeposit")
@@ -130,8 +131,6 @@ class GreenOpenFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            getUserByEmail()
-            //  userseq를 찾았음에도 항상 null값 나오기에 주석처리하였음
             if (user != null){
                 Log.d("GreenOpenFragment", "userSeq: ${user!!.userSeq}")
             }else{
@@ -210,7 +209,7 @@ class GreenOpenFragment : Fragment() {
         binding.radioGroup2.setOnCheckedChangeListener { _, checkedId ->
             certiWay = when (checkedId){
                 R.id.only_camera -> "카메라"
-                R.id.camera_gallery -> "카메라,갤러리"
+                R.id.camera_gallery -> "카메라/갤러리"
                 else -> ""
             }
         }
