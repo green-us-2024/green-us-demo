@@ -18,12 +18,21 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Report
+import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.ActivityCertificationImgDetailBinding
 import kr.ac.kpu.green_us.databinding.ActivityCertifyGreeningBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.net.HttpURLConnection
 
 class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface {
     private lateinit var binding: ActivityCertificationImgDetailBinding
     private var url : String = ""
+    private var gSeq : Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +42,7 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
         // 이전 액티비티에서 보낸 url 받기
         url = intent.getStringExtra("imgUrl").toString()
 //        Log.d("url check",url)
+        gSeq = intent.getIntExtra("gSeq", -1)
 
         //초기세팅
         viewInit(url)
@@ -87,9 +97,16 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
                 storageUrlList.add(aimData)
                 if (aimData == url){ // 선택된 이미지와 같은 url을 찾아 그것의 uid를 가져옴
                     val result = data.data.get("userEmail").toString() // result = 찾은 email 값
-                    if (result != null){ // email이 null이 아니라면 reportedEmail 이라는 태그로 로그에 찍음
+                    val certifySeq = try{
+                        data.data.get("certifySeq").toString().toInt()
+                    }catch (e: NumberFormatException){
+                        Log.e("CertificationImgError", "certifySeq 변환 오류: ${data.data.get("certifySeq").toString()}", e)
+                        -1 // 변환 실패 시 -1 반환
+                    }
+                    if (result.isNotBlank() && certifySeq > -1){ // email이 null이 아니라면 reportedEmail 이라는 태그로 로그에 찍음
                         Log.d("reportedEmail",result)
-                        Toast.makeText(this, "신고되었습니다.", Toast.LENGTH_SHORT).show();
+                        ReportBycertifySeq(result, certifySeq)
+                        finish()
                     }else{ // url은 있는데 email이 없는 경우
                         Log.d("reportedEmail","null Error")
                         Toast.makeText(this, "삭제된 회원입니다.", Toast.LENGTH_SHORT).show();
@@ -111,5 +128,32 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
     // 다이얼로그에서 신고버튼 클릭시
     override fun onReportYesButton() {
         searchUrlUid(url)
+    }
+
+    private fun ReportBycertifySeq(userEmail: String, certifySeq:Int){
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        apiService.registerReport(userEmail, certifySeq).enqueue(object : Callback<Report> {
+            override fun onResponse(call: Call<Report>, response: Response<Report>) {
+                if (response.isSuccessful) {
+                    val report = response.body()
+                    Log.d("CertificationImgDetailActivity", "신고 저장 완료: ${report!!.reportSeq}}")
+                    Toast.makeText(this@CertificationImgDetailActivity, "신고가 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                }else{
+                    val errorBody = response.errorBody()?.string()
+                    when(response.code()){
+                        HttpURLConnection.HTTP_CONFLICT, HttpURLConnection.HTTP_INTERNAL_ERROR ->{
+                            Toast.makeText(this@CertificationImgDetailActivity, "이미 신고된 사진입니다!", Toast.LENGTH_SHORT).show()
+                        }
+                        else -> {
+                            Log.e("CertificationImgDetailActivity", "신고 저장 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                            //실패 처리 로직
+                        }
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Report>, t: Throwable) {
+                Log.e("CertificationImgDetailActivity", "서버 통신 중 오류 발생", t)
+            }
+        })
     }
 }

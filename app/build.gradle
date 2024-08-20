@@ -3,7 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id("com.google.gms.google-services")
 }
-
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 android {
     namespace 'kr.ac.kpu.green_us'
     compileSdk 34
@@ -19,6 +20,15 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        // 검색 api 인증키값
+        buildConfigField "String", "SEARCH_ID", properties.getProperty('searchApi_id')
+        buildConfigField "String", "SEARCH_SECRET", properties.getProperty('searchApi_secret')
+
+        // 네이버맵 api 인증키값
+        buildConfigField "String", "MAP_ID", properties.getProperty('mapApi_id')
+        buildConfigField "String", "MAP_SECRET", properties.getProperty('mapApi_secret')
+
+
     }
 
     buildTypes {
@@ -32,6 +42,7 @@ android {
         viewBinding true
         dataBinding true
         compose true
+        buildConfig true
     }
 
     compileOptions {
