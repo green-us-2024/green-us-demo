@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>공지사항 목록</title>
+    <title>인증 목록</title>
     <link rel="stylesheet" href="/css/green-theme.css">
     <style>
         body {
@@ -12,8 +12,8 @@
             background-color: #f4f4f4;
         }
         .container {
-            width: 80%; /* 폭을 80%로 설정하여 더 넓게 */
-            max-width: 1200px; /* 최대 폭 설정 */
+            width: 80%;
+            max-width: 1200px;
             margin: auto;
             padding: 20px;
             box-sizing: border-box;
@@ -26,38 +26,33 @@
         }
         .content {
             background: #fff;
-            padding: 40px; /* 패딩을 늘려서 더 많은 공간 확보 */
+            padding: 40px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-        }
-        .content h1 {
-            margin-top: 0;
-            font-size: 2em;
-            text-align: center;
         }
         .content h2 {
             font-size: 1.5em;
             margin-bottom: 20px;
         }
-        .notice-table {
+        .certify-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 0 auto; /* 가운데 정렬 */
+            margin: 0 auto;
         }
-        .notice-table th, .notice-table td {
-            padding: 15px; /* 패딩을 늘려서 더 많은 공간 확보 */
+        .certify-table th, .certify-table td {
+            padding: 15px;
             border: 1px solid #ddd;
             text-align: left;
         }
-        .notice-table th {
+        .certify-table th {
             background-color: #003220;
             color: white;
         }
-        .notice-table tr:nth-child(even) {
+        .certify-table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        .notice-table tr:hover {
+        .certify-table tr:hover {
             background-color: #f1f1f1;
         }
         .btn {
@@ -88,40 +83,40 @@
         <li class="nav-item"><a class="nav-link" href="/users/listPage">회원 관리</a></li>
         <li class="nav-item"><a class="nav-link" href="/greening/listPage">그리닝 관리</a></li>
         <li class="nav-item"><a class="nav-link" href="/notice/listPage">공지사항 관리</a></li>
-        <li class="nav-item"><a class="nav-link" href="/certify/listPage">인증 관리</a></li>
+        <li class="nav-item"><a class="nav-link" href="/certify/list">인증 관리</a></li>
     </ul>
 </nav>
 
 <div class="container">
     <div class="content">
-        <h2>공지사항 목록</h2>
-        <table class="notice-table">
+        <h2>인증 목록</h2>
+        <table class="certify-table">
             <thead>
             <tr>
-                <th>회원번호</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>날짜</th>
+                <th>인증 번호</th>
+                <th>인증 날짜</th>
+                <th>사용자 이름</th>
+                <th>그리닝 이름</th>
                 <th>삭제 / 수정</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="notice : ${notices}">
-                <td th:text="${notice.noticeSeq}" style="text-align: center"></td>
-                <td th:text="${notice.noticeTitle}"></td>
-                <td th:text="${notice.noticeContent}"></td>
-                <td th:text="${notice.noticeDate}"></td>
+            <tr th:each="certify : ${certifies}">
+                <td th:text="${certify.certifySeq}" style="text-align: center"></td>
+                <td th:text="${certify.certifyDate}"></td>
+                <td th:text="${certify.user.userName}"></td>
+                <td th:text="${certify.greening.GName}"></td>
                 <td>
-                    <form th:action="@{/notice/delete/{noticeSeq}(noticeSeq=${notice.noticeSeq})}" method="post" style="display:inline;">
+                    <form th:action="@{/certify/delete/{certifySeq}(certifySeq=${certify.certifySeq})}" method="post" style="display:inline;">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <button type="submit" class="btn btn-danger">삭제</button>
                     </form>
-                    <a th:href="@{/notice/edit/{noticeSeq}(noticeSeq=${notice.noticeSeq})}" class="btn btn-update">수정</a>
                 </td>
             </tr>
             </tbody>
         </table>
-        <a href="/notice/add" class="btn">공지사항 추가</a>
+        그리닝 인증 사진은 firebase 서버에서 확인할 수 있습니다.
+
     </div>
 </div>
 </body>

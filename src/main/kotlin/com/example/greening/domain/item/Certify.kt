@@ -17,11 +17,14 @@ open class Certify (
         @Column(name="certify_date")
         var certifyDate:LocalDateTime? = null,
 
-        @Column(name="user_seq")
-        var userSeq:Int? = null,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name="user_seq", referencedColumnName = "user_seq")
+        var user: User? = null,
 
-        @Column(name="g_seq")
-        var gSeq: Int? = null,
+        @ManyToOne(fetch = FetchType.LAZY)
+        @JoinColumn(name="g_seq", referencedColumnName = "g_seq")
+        var greening: Greening? = null,
+
 
         @JoinColumn(name="p_seq", referencedColumnName = "p_seq")
         var pSeq:Int? = null,

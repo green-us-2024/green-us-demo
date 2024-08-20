@@ -1,9 +1,9 @@
 package com.example.greening.service
 
-import com.example.greening.domain.item.Admin
 import com.example.greening.domain.item.Certify
-import com.example.greening.domain.item.User
 import com.example.greening.repository.CertifyRepository
+import com.example.greening.repository.GreeningRepository
+import com.example.greening.repository.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
@@ -11,31 +11,33 @@ import java.time.LocalDateTime
 @Service
 @Transactional(readOnly = true)
 class CertifyService(
-        private val certifyRepository: CertifyRepository,
-        private val userService: UserService,
-        private val participateService: ParticipateService) {
+    private val certifyRepository: CertifyRepository,
+    private val userService: UserService,
+    private val participateService: ParticipateService,
+    private val userRepository: UserRepository,
+    private val greeningRepository: GreeningRepository
+) {
 
     @Transactional
-    fun saveCertify(userEmail:String, gSeq: Int, certifyDate: LocalDateTime): Certify? {
-        val userSeq = userService.findUserSeqByEmail(userEmail)
-        val participate = if (userSeq != null) participateService.findByUserSeqAndgSeq(userSeq, gSeq) else null
-        val pSeq = if (participate != null) participate.pSeq else -1
+    fun saveCertify(userEmail: String, gSeq: Int, certifyDate: LocalDateTime): Certify? {
+        val user = userRepository.findByEmail(userEmail) ?: return null
+        val participate = participateService.findByUserSeqAndgSeq(user.userSeq, gSeq)
+        val pSeq = participate?.pSeq ?: -1
         return if (participate != null && participate.pComplete == "N") {
             val certify = Certify(
-                    certifySeq = 0,
-                    certifyImg = null,
-                    certifyDate = certifyDate,
-                    userSeq = userSeq,
-                    gSeq = gSeq,
-                    pSeq = pSeq
+                certifySeq = 0,
+                certifyImg = null,
+                certifyDate = certifyDate,
+                user = user,
+                greening = greeningRepository.findById(gSeq),
+                pSeq = pSeq
             )
             participateService.updateParticipate(pSeq)
             certifyRepository.save(certify)
-        }else{
+        } else {
             null
         }
     }
-
     @Transactional
     fun updateCertify(certifySeq: Int, newCertify: Certify) {
         val existingCertify = certifyRepository.findById(certifySeq).orElse(null)
@@ -68,7 +70,7 @@ class CertifyService(
     }
 
     fun findByUserId(userSeq: Int): List<Certify> {
-        return certifyRepository.findByUserSeq(userSeq)
+        return certifyRepository.findByUser_UserSeq(userSeq) // 수정된 부분
     }
 
     fun findByUserSeqAndGSeq(userSeq: Int, gSeq: Int): List<Certify> {

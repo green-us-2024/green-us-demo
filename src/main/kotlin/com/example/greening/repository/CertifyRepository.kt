@@ -12,11 +12,14 @@ import org.springframework.stereotype.Repository
 interface CertifyRepository : JpaRepository<Certify, Int> {
 
 
-    fun findByUserSeq(userSeq: Int): List<Certify>
+    fun findByUser_UserSeq(userSeq: Int): List<Certify>
 
     fun findBypSeq(pSeq: Int): List<Certify>
 
-    @Query("SELECT c FROM Certify c WHERE c.userSeq = :userSeq AND c.gSeq = :gSeq")
-    fun findByUserSeqAndGSeq(@Param("userSeq")userSeq: Int,@Param("gSeq") gSeq: Int): List<Certify>
+    @Query("SELECT c FROM Certify c WHERE c.user.userSeq = :userSeq AND c.greening.gSeq = :gSeq")
+    fun findByUserSeqAndGSeq(
+        @Param("userSeq")userSeq: Int,
+        @Param("gSeq") gSeq: Int
+    ): List<Certify>
 
 }

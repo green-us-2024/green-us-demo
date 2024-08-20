@@ -2,13 +2,17 @@ package com.example.greening.controller
 
 
 import com.example.greening.domain.item.Certify
+import com.example.greening.domain.item.Greening
 import com.example.greening.service.CertifyService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.mvc.support.RedirectAttributes
 import java.time.LocalDateTime
 
-@RestController
+@Controller
 @RequestMapping("/certify")
 class CertifyController(private val certifyService: CertifyService) {
 
@@ -38,11 +42,6 @@ class CertifyController(private val certifyService: CertifyService) {
         }
     }
 
-    @DeleteMapping("/delete/{certifySeq}")
-    fun deleteCertify(@PathVariable certifySeq: Int) {
-        certifyService.deleteCertify(certifySeq)
-    }
-
     @GetMapping("/list")
     fun getAllCertify(): ResponseEntity<List<Certify>> {
         val certifies = certifyService.findCertify()
@@ -66,4 +65,23 @@ class CertifyController(private val certifyService: CertifyService) {
         val certifies = certifyService.findByUserSeqAndGSeq(userSeq, gSeq)
         return ResponseEntity.ok(certifies)
     }
+
+    @PostMapping("/delete/{certifySeq}")
+    fun deleteCertify(@PathVariable certifySeq: Int): String {
+        return try {
+            certifyService.deleteCertify(certifySeq)
+            "redirect:/certify/list"
+        } catch (e: Exception) {
+            "redirect:/certify/list?error=true"
+        }
+    }
+    @GetMapping("/listPage")
+    fun getCertifyList(model: Model): String {
+        val certifies = certifyService.findCertify()
+        model.addAttribute("certifies", certifies)
+        return "certifyList" // 인증 목록 페이지로 이동
+    }
+
+
+
 }
