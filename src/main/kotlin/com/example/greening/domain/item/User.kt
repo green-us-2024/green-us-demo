@@ -34,7 +34,7 @@ open class User (
 //    var userAccount : String?=null,
 
     @Column(name="user_w_count")
-    var userWCount : Int?=null,
+    var userWCount : Int?= 0,
 
     @JsonManagedReference(value = "user-participates")
     @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)

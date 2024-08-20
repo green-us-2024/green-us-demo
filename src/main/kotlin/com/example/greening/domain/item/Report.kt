@@ -19,5 +19,6 @@ open class Report(
         var reportDate: LocalDateTime? = null,
 
         @Column(name = "report_result")
-        var reportResult: String? = null
+        var reportResult: String? = "신고접수"
+        // "신고접수" or "처리완료"
 )

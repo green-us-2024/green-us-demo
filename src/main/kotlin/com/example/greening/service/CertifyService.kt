@@ -76,4 +76,8 @@ class CertifyService(
     fun findByUserSeqAndGSeq(userSeq: Int, gSeq: Int): List<Certify> {
         return certifyRepository.findByUserSeqAndGSeq(userSeq, gSeq)
     }
+
+    fun findByUserSeqAndGSeqAndCertifyDate(userSeq: Int, gSeq: Int, CertifyDate: LocalDateTime): Certify? {
+        return certifyRepository.findByUserSeqAndGSeqAndCertifyDate(userSeq, gSeq, CertifyDate)
+    }
 }
