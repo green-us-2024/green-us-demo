@@ -3,6 +3,7 @@ package kr.ac.kpu.green_us
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,13 +22,21 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewAllCertifiedImgBinding
     private val representImgList = mutableListOf<String>()
+    private var gSeq : Int = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewAllCertifiedImgBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 초기 세팅
-        viewInit()
+        gSeq = intent.getIntExtra("gSeq", -1)
+
+        if (gSeq != -1) {
+            // 초기 세팅
+            viewInit()
+        }else{
+            Toast.makeText(this, "다시 시도해주세요.", Toast.LENGTH_SHORT).show()
+            finish()
+        }
 
         // 이전 버큰 클릭
         binding.btnEsc.setOnClickListener {
@@ -39,7 +48,7 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
         layoutAdapter.notifyDataSetChanged()
 
         val storage = FirebaseStorage.getInstance()
-        val storageRef = storage.reference.child("certificationImgs/")
+        val storageRef = storage.reference.child("certificationImgs/${gSeq}/")
         // 스토리지 이미지 전체 가져옴
         storageRef.listAll().addOnSuccessListener {
             listResult -> for (img in listResult.items){
@@ -58,6 +67,7 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
             override fun onItemClick(url:String) {
                 val intent = Intent(applicationContext,CertificationImgDetailActivity::class.java)
                 intent.putExtra("imgUrl",url)
+                intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
 
             }

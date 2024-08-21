@@ -5,6 +5,7 @@ import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Notice
 import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.Payment
+import kr.ac.kpu.green_us.common.dto.Report
 import kr.ac.kpu.green_us.common.dto.Users
 import kr.ac.kpu.green_us.common.dto.User
 import retrofit2.Call
@@ -17,6 +18,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.time.LocalDateTime
 
 interface RetrofitAPI {
     @POST("/users/new")
@@ -69,15 +71,14 @@ interface RetrofitAPI {
     fun registerCertify(
         @Field("userEmail") userEmail: String,
         @Field("gSeq") gSeq: Int,
-        @Field("certifyDate") certifyDate: String, // ISO 8601 형식으로 날짜를 전달
+        @Field("certifyDate") certifyDate: String // ISO 8601 형식으로 날짜를 전달
     ): Call<Certify>
 
     @GET("/certify/byGreeningUser/{userSeq}/{gSeq}")
     fun getCertifyByUserSeqAndGSeq(
         @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int,
-    )
-            : Call<List<Certify>>
+    ): Call<List<Certify>>
 
     @GET("/participate/byUserSeq/{userSeq}")
     fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
@@ -86,8 +87,14 @@ interface RetrofitAPI {
     fun findpSeqByUserSeqAndgSeq(
         @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int,
-    )
-            : Call<Int>
+    ): Call<Int>
+
+    @FormUrlEncoded
+    @POST("/report/new")
+    fun registerReport(
+        @Field("userEmail") userEmail:String,
+        @Field("certifySeq") certifySeq: Int
+    ):Call<Report>
 
     @GET("/notice/list")
     fun getNotices(): Call<List<Notice>>

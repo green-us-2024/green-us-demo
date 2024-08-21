@@ -174,7 +174,7 @@ class GreeningDetailActivity : AppCompatActivity() {
         val item1 = BootItem().setName("그리닝 활동").setId("ITEM_CODE_GREENING").setQty(1).setPrice(price)
         items.add(item1)
 
-        val user = BootUser().setPhone("010-1234-5678") // 실제 사용자 정보를 사용할 수 있습니다.
+        val user = BootUser().setPhone("010-1234-5678")
         val payload = Payload()
         val pg = "이니시스"
         val method = "카드"
@@ -217,12 +217,13 @@ class GreeningDetailActivity : AppCompatActivity() {
                     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
                     // 결제 완료 후 Payment 객체 생성
                     val payment = Payment(
-                        userSeq = 1,
+                        user = user1,
                         paymentContent = orderName,
                         paymentMethod = "카드",
                         paymentDate = LocalDate.now().toString(),
                         paymentMoney = price.toInt()
                     )
+                    Log.d("PaymentTest", "Payment Object: $payment")
 
                     // Retrofit API 호출
                     val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
@@ -247,7 +248,7 @@ class GreeningDetailActivity : AppCompatActivity() {
                                 response: Response<Participate>
                             ) {
                                 if (response.isSuccessful) {
-                                    Log.d("GreeningDetailActivity", "참여 등록 완료")
+                                    Log.d("GreeningDetailActivity", "참여 등록 완료 ${response.body()}")
                                     Toast.makeText(application,"${greening.gName}에 참여 완료", Toast.LENGTH_SHORT).show()
                                 } else {
                                     Log.e("GreeningDetailActivity", "그리닝 참여 실패: ${response.code()}, ${response.errorBody()?.string()}")

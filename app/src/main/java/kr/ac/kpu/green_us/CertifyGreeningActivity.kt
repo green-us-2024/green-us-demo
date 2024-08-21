@@ -63,8 +63,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private val representImgList = mutableListOf<String>()
     private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
-    private var gSeq : Int = 0
-
+    private var gSeq: Int = -1
 
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -146,6 +145,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
         // 전체보기 클릭
         binding.btnMoreLayout.setOnClickListener {
             val intent = Intent(this,ViewAllCertifiedImgActivity::class.java)
+            intent.putExtra("gSeq", gSeq)
             startActivity(intent)
         }
     }
@@ -165,7 +165,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
 
         val storage = FirebaseStorage.getInstance()
         //certificationImgs경로의 사진들 참조함
-        val storageRef = storage.reference.child("certificationImgs/")
+        val storageRef = storage.reference.child("certificationImgs/${gSeq}/")
 
         //3개의 사진을 가져와서 각각의 url representImgList에 저장함
         storageRef.list(3).addOnSuccessListener {
@@ -187,6 +187,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
             override fun onItemClick(url:String) {
                 val intent = Intent(applicationContext,CertificationImgDetailActivity::class.java)
                 intent.putExtra("imgUrl",url)
+                intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
             }
         }
@@ -271,68 +272,63 @@ class CertifyGreeningActivity : AppCompatActivity() {
 
         if (uri != null) {
             val storage = Firebase.storage
-            //현재 로그인 한 사용자 이메일 가져오기
+            // 현재 로그인 한 사용자 이메일 가져오기
             val user = Firebase.auth.currentUser
-//            user?.let { val email = it.email }
             val userEmail = user?.email.toString()
             Log.d("currentEmail", userEmail)
 
-            // storage에 저장할 파일명 선언 (시간)
-            val fileName = getFormattedDate()
-            // storage 및 store에 업로드 작업 certifiedImgs/userEmail에 시간으로 이미지 저장
-            // 스토리지에 저장후 url을 다운로드 받아 스토어에 저장
-            storage.getReference("certificationImgs/{$gSeq}/").child(fileName).putFile(uri)
-                .addOnSuccessListener { taskSnapshot ->
-                    Log.d("storageUploadSuccess", "인증사진 스토리지 업로드 성공")
-                    taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener {
-                        val store = Firebase.firestore
-                        val url = it.toString()
-                        val data = CertifiedImgs( url, userEmail)
-                        store.collection("certificationImgs").document()
-                            .set(data).addOnSuccessListener {
-                                Toast.makeText(this, "사진이 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
-                                Log.d("storeUploadSuccess", "인증사진 db 업로드 성공")
-                                registerCertify(userEmail, fileName)
-                            }.addOnFailureListener {
-                                Log.d("storeUploadFail", "인증사진 db 업로드 실패")
+            // 날짜를 파일 이름으로 사용하기 위해 포맷팅
+            val date = getFormattedDate()
+
+            // registerCertify 함수가 비동기적으로 실행되므로 콜백을 사용하여 처리
+            registerCertify(userEmail, date) { certifySeq ->
+                if (certifySeq != null) {
+                    // 파일 이름을 인증 번호로 설정
+                    val fileName = "${certifySeq}"
+
+                    // storage 및 store에 업로드 작업
+                    storage.getReference("certificationImgs/${gSeq}/").child(fileName).putFile(uri)
+                        .addOnSuccessListener { taskSnapshot ->
+                            Log.d("storageUploadSuccess", "인증사진 스토리지 업로드 성공")
+                            taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener { downloadUri ->
+                                val store = Firebase.firestore
+                                val url = downloadUri.toString()
+                                val data = CertifiedImgs(url, userEmail, certifySeq)
+
+                                store.collection("certificationImgs").document()
+                                    .set(data)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(this, "사진이 업로드 되었습니다.", Toast.LENGTH_SHORT).show()
+                                        Log.d("storeUploadSuccess", "인증사진 db 업로드 성공")
+                                    }
+                                    .addOnFailureListener {
+                                        Log.d("storeUploadFail", "인증사진 db 업로드 실패")
+                                    }
                             }
-                    }
-                }.addOnFailureListener {
-                    Toast.makeText(this, "사진 업로드에 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                    Log.d("storageUploadFail", "인증사진 스토리지 업로드 실패")
+                        }.addOnFailureListener {
+                            Toast.makeText(this, "사진 업로드에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                            Log.d("storageUploadFail", "인증사진 스토리지 업로드 실패")
+                        }
+                } else {
+                    Toast.makeText(this, "인증 번호를 생성할 수 없습니다.", Toast.LENGTH_SHORT).show()
+                    Log.d("CertifyError", "certifySeq null 에러")
                 }
+            }
         } else {
-            Toast.makeText(this, "사진을 불러올 수 없습니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "사진을 불러올 수 없습니다.", Toast.LENGTH_SHORT).show()
             Log.d("UriError", "uri null 에러")
         }
     }
     private fun getFormattedDate() : String {
-        //format 설정
-        val format = SimpleDateFormat("yyyy-MM-dd kk:mm:ss E", Locale.KOREA)
-        //TimeZone  설정 (GMT +9)
-        format.timeZone = TimeZone.getTimeZone("Asia/Seoul")
-
-        //현재시간에 적용
-        return format.format(Date().time)
-    }
-
-    fun convertToISO8601(dateString: String): String {
-        // 원래 문자열의 형식
-        val originalFormat = SimpleDateFormat("yyyy-MM-dd kk:mm:ss E", Locale.KOREA)
-        originalFormat.timeZone = TimeZone.getTimeZone("Asia/Seoul")
-
-        // Date 객체로 변환
-        val date = originalFormat.parse(dateString)
-
-        // LocalDateTime으로 변환
-        val localDateTime = date.toInstant()
-            .atZone(ZoneId.of("Asia/Seoul"))
-            .toLocalDateTime()
-
+        // 현재 시간
+        val now = LocalDateTime.now(ZoneId.of("Asia/Seoul"))
         // ISO 8601 형식으로 변환
         val isoFormatter = DateTimeFormatter.ISO_DATE_TIME
-        return localDateTime.format(isoFormatter)
+
+        //현재시간에 적용
+        return now.format(isoFormatter)
     }
+
     private fun requestReadExternalStoragePermission() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
     }
@@ -340,22 +336,25 @@ class CertifyGreeningActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
     }
 
-    private fun registerCertify(userEmail:String, fileName:String){
+    private fun registerCertify(userEmail: String, date: String, callback: (Int?) -> Unit) {
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
-        val date = convertToISO8601(fileName)
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
         apiService.registerCertify(userEmail, gSeq, date).enqueue(object : Callback<Certify> {
             override fun onResponse(call: Call<Certify>, response: Response<Certify>) {
                 if (response.isSuccessful) {
                     val certify = response.body()
-                    Log.d("CertifyGreeningActivity", "데이터 저장 성공 : ${certify!!.certifySeq}")
+                    val certifySeq = certify?.certifySeq
+                    Log.d("CertifyGreeningActivity", "데이터 저장 성공 : $certifySeq")
+                    callback(certifySeq)
                 } else {
                     Log.e("CertifyGreeningActivity", "데이터 저장 실패: ${response.code()}")
+                    callback(null)
                 }
             }
 
             override fun onFailure(call: Call<Certify>, t: Throwable) {
                 Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+                callback(null)
             }
         })
     }
