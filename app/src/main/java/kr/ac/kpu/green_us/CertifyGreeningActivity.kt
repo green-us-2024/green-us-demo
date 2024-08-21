@@ -63,6 +63,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private val representImgList = mutableListOf<String>()
     private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
+    private var gSeq : Int = 0
 
 
 
@@ -75,7 +76,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
         // auth 인스턴스 초기화
         auth = Firebase.auth
 
-        val gSeq: Int = intent.getIntExtra("gSeq", -1)
+        gSeq = intent.getIntExtra("gSeq", -1)
         if(gSeq <= -1){
             //gSeq조회 실패한 경우 예외처리 -> 로그아웃하고 초기화면으로
             Log.e("CertifyGreeningActivity","gSeq 실패")
@@ -280,7 +281,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
             val fileName = getFormattedDate()
             // storage 및 store에 업로드 작업 certifiedImgs/userEmail에 시간으로 이미지 저장
             // 스토리지에 저장후 url을 다운로드 받아 스토어에 저장
-            storage.getReference("certificationImgs/").child(fileName).putFile(uri)
+            storage.getReference("certificationImgs/{$gSeq}/").child(fileName).putFile(uri)
                 .addOnSuccessListener { taskSnapshot ->
                     Log.d("storageUploadSuccess", "인증사진 스토리지 업로드 성공")
                     taskSnapshot.metadata?.reference?.downloadUrl?.addOnSuccessListener {
