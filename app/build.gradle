@@ -119,5 +119,10 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 
+    //이미지크롭 라이브러리
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+
+
 
 }

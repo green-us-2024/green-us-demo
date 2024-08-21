@@ -28,6 +28,7 @@ import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 // 프로필 정보 수정 - 주소만 수정 가능
 class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMyProfileEditBinding
@@ -67,6 +68,13 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
         }
 
     }
+//    private fun cropImage(uri: Uri?) {
+//        CropImage.activity(uri).setGuidelines(CropImageView.Guidelines.ON)  // 크롭 위한 가이드 열어서 크롭할 이미지 받아오기
+//            .setCropShape(CropImageView.CropShape.RECTANGLE)            // 사각형으로 자르기
+//            .start(this@MainActivity)
+//        // 프레그먼트에서 사용할 땐 .start(activity as 프레그먼트의 부모 Activity, this@형재 프레그먼트 이름)
+//    }
+
 
     // 카메라/갤러리 창 띄우기
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -109,6 +117,7 @@ class MyProfileEditActivity : AppCompatActivity(), View.OnClickListener {
                         }
                         if (galleryPermissionCheck == PackageManager.PERMISSION_GRANTED) { //권한이 있는 경우
                             val intent = Intent(Intent.ACTION_PICK)
+                            intent.putExtra("crop",true)
                             intent.type = "image/*"
                             activityResult.launch(intent)
                         }
