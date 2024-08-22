@@ -70,7 +70,8 @@ class MypageFragment : Fragment() {
 
         // 프로필 관리
         binding.profileSetting.setOnClickListener {
-            val intent = Intent(getActivity(), MyProfileActivity::class.java)
+            val intent = Intent(getActivity(), SubActivity::class.java)
+            intent.putExtra("4","my_profile")
             startActivity(intent)
         }
 
