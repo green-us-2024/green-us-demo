@@ -47,9 +47,9 @@ class MyProfileFragment : Fragment() {
                 if(response.isSuccessful){
                     val userName = response.body()?.userName.toString()
                     val userPhone = response.body()?.userPhone.toString()
-                    var userPhone1:String = ""
-                    var userPhone2:String = ""
-                    var userPhone3:String = ""
+                    var userPhone1:String = "000"
+                    var userPhone2:String = "0000"
+                    var userPhone3:String = "0000"
                     if(userPhone.length == 10){
                         userPhone1 = userPhone.substring(0,2)
                         userPhone2 = userPhone.substring(2,6)

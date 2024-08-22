@@ -59,18 +59,18 @@ class MyProfileEditFragment : Fragment() {
                 if(response.isSuccessful){
                     val userName = response.body()?.userName.toString()
                     val userPhone = response.body()?.userPhone.toString()
-                    lateinit var userPhone1:String
-                    lateinit var userPhone2:String
-                    lateinit var userPhone3:String
-                    if(userPhone.length == 11){
-                        userPhone1 = userPhone.substring(0,3)
-                        userPhone2 = userPhone.substring(3,7)
-                        userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
-                    }
-                    else if(userPhone.length==10){
+                    var userPhone1:String = "000"
+                    var userPhone2:String = "0000"
+                    var userPhone3:String = "0000"
+                    if(userPhone.length == 10){
                         userPhone1 = userPhone.substring(0,2)
                         userPhone2 = userPhone.substring(2,6)
                         userPhone3 = userPhone.substring(6 .. userPhone.lastIndex)
+                    }
+                    else {
+                        userPhone1 = userPhone.substring(0,3)
+                        userPhone2 = userPhone.substring(3,7)
+                        userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
                     }
                     val userAddr = response.body()?.userAddr.toString()
 
@@ -91,12 +91,12 @@ class MyProfileEditFragment : Fragment() {
             val dialogFragment = AddressDialogFragment()
             dialogFragment.show(parentFragmentManager, "AddressDialog")
         }
-                setFragmentResultListener("addressData") { _, bundle ->
-                    address = bundle.getString("address", "")
-                    address?.let {
-                        binding.address2.setText(it)
-                    }
-                }
+        setFragmentResultListener("addressData") { _, bundle ->
+            address = bundle.getString("address", "")
+            address?.let {
+                binding.address2.setText(it)
+            }
+        }
 
 
         // 카메라 버튼 클릭 시 카메라/갤러리 창 띄우기
