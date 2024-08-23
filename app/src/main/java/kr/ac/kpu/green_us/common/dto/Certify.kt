@@ -9,6 +9,6 @@ class Certify (
     @SerializedName("certifyImg") @Expose val certifyImg:String?= null,
     @SerializedName("certifyDate") @Expose val certifyDate: String? = null,
     @SerializedName("userSeq") @Expose val userSeq:Int? = null,
-    @SerializedName("gSeq") @Expose val gSeq: Int? = null,
-    @SerializedName("pSeq") @Expose val pSeq:Int? = null
+    @SerializedName("gseq") @Expose val gSeq: Int? = null,
+    @SerializedName("pseq") @Expose val pSeq:Int? = null
 )

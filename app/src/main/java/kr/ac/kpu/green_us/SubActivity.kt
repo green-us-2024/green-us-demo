@@ -12,6 +12,7 @@ import kr.ac.kpu.green_us.databinding.ActivitySubBinding
 class SubActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySubBinding
     val manager = supportFragmentManager
+    var gSeq = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +57,8 @@ class SubActivity : AppCompatActivity() {
         // 3 내리뷰 작성
         val value3 = intent.getStringExtra("3")
         if(value3 == "my_review_write"){
+            val gSeqValue = intent.getIntExtra("gSeq", -1)
+            gSeq = gSeqValue
             binding.subject.text = "리뷰 작성"
             MyReviewWriteFragment().changeFragment()
         }
@@ -146,6 +149,10 @@ class SubActivity : AppCompatActivity() {
 
     fun changeVisibility(){
         binding.edit.visibility = View.VISIBLE
+    }
+
+    fun gSeqCheck(): Int{
+        return gSeq
     }
 
 }

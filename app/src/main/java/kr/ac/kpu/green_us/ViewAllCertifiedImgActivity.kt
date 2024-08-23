@@ -22,7 +22,7 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewAllCertifiedImgBinding
     private val representImgList = mutableListOf<String>()
-    private var gSeq : Int = -1
+    private var gSeq: Int = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewAllCertifiedImgBinding.inflate(layoutInflater)
@@ -33,7 +33,7 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
         if (gSeq != -1) {
             // 초기 세팅
             viewInit()
-        }else{
+        } else {
             Toast.makeText(this, "다시 시도해주세요.", Toast.LENGTH_SHORT).show()
             finish()
         }
@@ -43,30 +43,31 @@ class ViewAllCertifiedImgActivity : AppCompatActivity() {
             this.finish()
         }
     }
-    fun viewInit(){
+
+    fun viewInit() {
         val layoutAdapter = CertifiedImgAdapter(representImgList)
         layoutAdapter.notifyDataSetChanged()
 
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference.child("certificationImgs/${gSeq}/")
         // 스토리지 이미지 전체 가져옴
-        storageRef.listAll().addOnSuccessListener {
-            listResult -> for (img in listResult.items){
-                img.downloadUrl.addOnSuccessListener {
-                    uri -> representImgList.add(uri.toString())
+        storageRef.listAll().addOnSuccessListener { listResult ->
+            for (img in listResult.items) {
+                img.downloadUrl.addOnSuccessListener { uri ->
+                    representImgList.add(uri.toString())
                 }.addOnSuccessListener {
                     binding.layoutAllCertifiedImgs.apply {
-                        layoutManager = GridLayoutManager(this.context,3)
+                        layoutManager = GridLayoutManager(this.context, 3)
                         adapter = layoutAdapter
                         setHasFixedSize(true)
                     }
                 }
             }
         }
-        layoutAdapter.itemClickListener = object :CertifiedImgAdapter.OnItemClickListener{
-            override fun onItemClick(url:String) {
-                val intent = Intent(applicationContext,CertificationImgDetailActivity::class.java)
-                intent.putExtra("imgUrl",url)
+        layoutAdapter.itemClickListener = object : CertifiedImgAdapter.OnItemClickListener {
+            override fun onItemClick(url: String) {
+                val intent = Intent(applicationContext, CertificationImgDetailActivity::class.java)
+                intent.putExtra("imgUrl", url)
                 intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
 
