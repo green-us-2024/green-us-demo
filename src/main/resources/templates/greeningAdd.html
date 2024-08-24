@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>그리닝 추가</title>
+
     <link rel="stylesheet" href="/css/green-theme.css">
     <style>
         body {
@@ -89,6 +90,7 @@
             opacity: 0.8;
         }
     </style>
+
 </head>
 <body>
 <nav class="navbar">
@@ -104,7 +106,7 @@
 <div class="container">
     <div class="content">
         <h2>그리닝 추가</h2>
-        <form th:action="@{/greening/save}" method="post">
+        <form id="greeningForm" th:action="@{/greening/save}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="form-group">
                 <label for="gName">이름</label>
@@ -146,10 +148,71 @@
                 <label for="gNumber">번호</label>
                 <input type="number" id="gNumber" name="gNumber"/>
             </div>
+            <div class="form-group">
+                <label for="gImage">이미지</label>
+                <input type="file" id="gImage" name="gImage" accept="image/*"/>
+            </div>
+
             <button type="submit" class="btn btn-update">저장</button>
             <a href="/greening/listPage" class="btn btn-danger">취소</a>
         </form>
     </div>
 </div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4fySAoPu0_DmDckdd8exXP1bqzadbVAA",
+        authDomain: "greenus-e1888.firebaseapp.com",
+        projectId: "greenus-e1888",
+        storageBucket: "greenus-e1888.appspot.com",
+        messagingSenderId: "369481686994",
+        appId: "1:369481686994:web:06b009375a8ee83ea1b20b",
+        measurementId: "G-40CK5WREC9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    document.getElementById('greeningForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // 기본 폼 제출 방지
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const gImage = document.getElementById('gImage').files[0];
+
+        if (gImage) {
+            const storageRef = ref(storage, 'officialGreeningImgs/' + gImage.name);
+            const uploadTask = uploadBytes(storageRef, gImage);
+
+            uploadTask.then((snapshot) => {
+                console.log('파일 업로드 완료', snapshot);
+                return getDownloadURL(storageRef);
+            }).then((downloadURL) => {
+                console.log('파일 다운로드 URL:', downloadURL);
+                formData.append('gImageURL', downloadURL);
+
+                fetch('/greening/save', {
+                    method: 'POST',
+                    body: formData,
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = '/greening/listPage';
+                    } else {
+                        console.error('서버 오류:', response.statusText);
+                    }
+                }).catch(error => {
+                    console.error('폼 데이터 전송 실패:', error);
+                });
+
+            }).catch((error) => {
+                console.error('파일 업로드 또는 다운로드 URL 가져오기 실패:', error);
+            });
+        } else {
+            console.log('파일을 선택해주세요.');
+        }
+    });
+</script>
 </body>
 </html>
