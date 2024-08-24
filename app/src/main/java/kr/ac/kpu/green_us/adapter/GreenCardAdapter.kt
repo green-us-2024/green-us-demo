@@ -51,9 +51,9 @@ class GreenCardAdapter() : RecyclerView.Adapter<GreenCardAdapter.GreenCardHolder
 
     inner class GreenCardHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-         val cardView: ConstraintLayout = itemView.findViewById(R.id.card_container)
-         var itemimage: ImageView = itemView.findViewById(R.id.greening_img)
-         var itemtitle: TextView = itemView.findViewById(R.id.greeng_title)
+        val cardView: ConstraintLayout = itemView.findViewById(R.id.card_container)
+        var itemimage: ImageView = itemView.findViewById(R.id.greening_img)
+        var itemtitle: TextView = itemView.findViewById(R.id.greeng_title)
 
         init{
             itemView.setOnClickListener{ itemClickListener?.onItemClick("notIn") }

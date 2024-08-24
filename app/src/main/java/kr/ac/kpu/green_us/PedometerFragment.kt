@@ -54,7 +54,7 @@ class PedometerFragment : Fragment(), SensorEventListener {
                 // 센서 이벤트가 발생할때 마다 걸음수 증가
                 currentSteps++
                 binding.stepCounter.setText(currentSteps.toString())
-                var progressNum = (currentSteps/100).toInt()
+                var progressNum = currentSteps
                 binding.pedometerDegree.setProgress(progressNum)
 
             }

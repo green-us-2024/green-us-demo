@@ -319,7 +319,7 @@ class GreenOpenFragment : Fragment() {
             start_date = "$year-$month-$date"
             binding.startDateEt.setText(start_date)
         }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH))
-        dpd.datePicker.minDate = System.currentTimeMillis() - 1000;
+        dpd.datePicker.minDate = (System.currentTimeMillis() - 1000)+24*60*60*1000
         dpd.show()
     }
 

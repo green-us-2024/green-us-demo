@@ -23,28 +23,44 @@
         android:id="@+id/green_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="그리닝 명"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:isIndicator="false"
+        android:stepSize="0.5"
+        android:numStars="5"
+        android:rating="0"
+        android:progressTint="@color/yellow"
+        android:progressBackgroundTint="@color/grey"
+        android:secondaryProgressTint="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/green_name"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"/>
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:inputType="textMultiLine"
         android:background="@drawable/rectangle"
-        android:paddingLeft="9dp"
-        android:paddingTop="10dp"
-        android:paddingRight="9dp"
-        android:paddingBottom="10dp"
+        android:inputType="textMultiLine"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="9dp"
+        android:layout_marginTop="32dp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/green_name" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
     <TextView
         android:id="@+id/text_num"

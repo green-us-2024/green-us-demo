@@ -16,6 +16,7 @@
     <string name="name">이름</string>
     <string name="email">이메일</string>
     <string name="phone">휴대전화번호(예:01012345678)</string>
+    <string name="phone2">휴대전화번호</string>
     <string name="address">주소</string>
     <string name="find_address">주소찾기</string>
     <string name="address_detail">상세주소</string>
@@ -58,6 +59,7 @@
     <string name="ing_total_greening_num">진행중인 그리닝:</string>
     <string name="ing_total_greening_more">진행중인 그리닝 전체보기</string>
     <string name="end_total_greening_more">완료 그리닝 전체보기</string>
+    <string name="review_more">리뷰 전체보기</string>
     <string name="end_greening_statistics">완료 그리닝 통계</string>
     <string name="end_greening">완료한 그리닝</string>
     <string name="tiotal_gain_point">총 획득 포인트</string>
