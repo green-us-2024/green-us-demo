@@ -81,10 +81,10 @@ class MypageFragment : Fragment() {
         }
 
         // FAQ
-        binding.faq.setOnClickListener {
-            val intent = Intent(getActivity(), FaqActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.faq.setOnClickListener {
+//            val intent = Intent(getActivity(), FaqActivity::class.java)
+//            startActivity(intent)
+//        }
 
         // 고객센터
         binding.csc.setOnClickListener {

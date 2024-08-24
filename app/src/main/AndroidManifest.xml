@@ -52,9 +52,9 @@
             android:name=".MapActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".FaqActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".FaqActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".PointWithdrawActivity"
             android:exported="false" />

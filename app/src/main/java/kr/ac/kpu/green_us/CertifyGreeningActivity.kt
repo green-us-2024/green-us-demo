@@ -169,17 +169,17 @@ class CertifyGreeningActivity : AppCompatActivity() {
 
         //3개의 사진을 가져와서 각각의 url representImgList에 저장함
         storageRef.list(3).addOnSuccessListener {
-            listResult -> for (img in listResult.items){
-                img.downloadUrl.addOnSuccessListener { uri ->
-                    representImgList.add(uri.toString())
-                }.addOnSuccessListener {// url 가져오기 성공하면 화면에 뷰 어댑팅
-                    binding.representImgArea.apply {
-                        layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                        adapter = layoutAdapter
-                        setHasFixedSize(true)
-                    }
+                listResult -> for (img in listResult.items){
+            img.downloadUrl.addOnSuccessListener { uri ->
+                representImgList.add(uri.toString())
+            }.addOnSuccessListener {// url 가져오기 성공하면 화면에 뷰 어댑팅
+                binding.representImgArea.apply {
+                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                    adapter = layoutAdapter
+                    setHasFixedSize(true)
                 }
             }
+        }
         }
         // 대표 인증사진 3개 클릭 리스너
         // 받은 url값을 담아 디테일 액티비티로 보냄
@@ -411,6 +411,5 @@ class CertifyGreeningActivity : AppCompatActivity() {
         return localDateTime.format(formatter)
     }
 }
-
 
 
