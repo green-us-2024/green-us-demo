@@ -17,16 +17,16 @@ class WithdrawService(private val withdrawRepository: WithdrawRepository) {
     @Transactional
     fun updateWithdraw(withdrawSeq: Int, newWithdraw: Withdraw) {
         val existingWithdraw = withdrawRepository.findOne(withdrawSeq)
-        if (existingWithdraw != null) { // 필드를 직접 업데이트
+        if (existingWithdraw != null) {
             existingWithdraw.withdrawContent = newWithdraw.withdrawContent ?: existingWithdraw.withdrawContent
             existingWithdraw.withdrawDate = newWithdraw.withdrawDate ?: existingWithdraw.withdrawDate
+            existingWithdraw.withdrawAmount = newWithdraw.withdrawAmount // 수정됨: Int로 변경
 
             withdrawRepository.save(existingWithdraw)
         } else {
             throw IllegalStateException("출금이 존재하지 않습니다.")
         }
     }
-
 
     @Transactional
     fun deleteWithdraw(withdrawSeq: Int) {

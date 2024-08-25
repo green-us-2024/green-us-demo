@@ -12,9 +12,9 @@ class WithdrawRepository {
     private lateinit var em: EntityManager
 
     fun save(withdraw: Withdraw) {
-        if(withdraw.withdrawSeq == 0) {
+        if (withdraw.withdrawSeq == 0) {
             em.persist(withdraw)
-        }else{
+        } else {
             em.merge(withdraw)
         }
     }
@@ -34,39 +34,24 @@ class WithdrawRepository {
         }
     }
 
-    fun findOne(id : Int) : Withdraw?{
-        return try{
-            em.find(Withdraw::class.java, id)
-        }catch(e: Exception){
-            null
-        }
+    fun findOne(id: Int): Withdraw? {
+        return em.find(Withdraw::class.java, id)
     }
 
-    fun findAll() : List<Withdraw>{
-        return try{
-            em.createQuery("select w from Withdraw w", Withdraw::class.java).resultList
-        }catch(e: Exception){
-            emptyList()
-        }
+    fun findAll(): List<Withdraw> {
+        return em.createQuery("select w from Withdraw w", Withdraw::class.java).resultList
     }
 
     fun findById(withdrawSeq: Int): Withdraw? {
-        return try{
-            em.createQuery("select w from Withdraw w where w.withdrawSeq = :withdrawSeq", Withdraw::class.java)
-                    .setParameter("withdrawSeq", withdrawSeq)
-                    .singleResult
-        }catch(e: IllegalStateException){
-            null
-        }
+        return em.createQuery("select w from Withdraw w where w.withdrawSeq = :withdrawSeq", Withdraw::class.java)
+            .setParameter("withdrawSeq", withdrawSeq)
+            .resultList
+            .firstOrNull()
     }
 
     fun findByUser(userSeq: Int): List<Withdraw> {
-        return try{
-            em.createQuery("select w from Withdraw w where w.user.userSeq = :userSeq", Withdraw::class.java)
-                    .setParameter("userSeq", userSeq)
-                    .resultList
-        }catch(e: Exception){
-            emptyList()
-        }
+        return em.createQuery("select w from Withdraw w where w.user.userSeq = :userSeq", Withdraw::class.java)
+            .setParameter("userSeq", userSeq)
+            .resultList
     }
 }

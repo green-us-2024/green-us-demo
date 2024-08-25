@@ -5,7 +5,6 @@ import com.example.greening.service.WithdrawService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-
 @RestController
 @RequestMapping("/withdraw")
 class WithdrawController(private val withdrawService: WithdrawService) {
@@ -52,5 +51,4 @@ class WithdrawController(private val withdrawService: WithdrawService) {
         val withdraw = withdrawService.findByUserSeq(userSeq)
         return ResponseEntity.ok(withdraw)
     }
-
 }
