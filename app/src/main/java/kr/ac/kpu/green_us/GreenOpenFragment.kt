@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.github.dhaval2404.imagepicker.ImagePicker
+//import com.google.android.gms.cast.framework.media.ImagePicker
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -81,6 +82,10 @@ class GreenOpenFragment : Fragment() {
             try {
                 if(fee.isEmpty()){
                     Toast.makeText(context, "예치금을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if(fee.toInt()>100000){
+                    Toast.makeText(context, "10만원 이하의 예치금을 입력해주세요.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
                 gDeposit = fee.toInt()
@@ -282,7 +287,7 @@ class GreenOpenFragment : Fragment() {
             }
             //권한이 있는 경우
             if ((galleryPermissionCheck == PackageManager.PERMISSION_GRANTED)&&(cameraPermissionCheck == PackageManager.PERMISSION_GRANTED)) {
-                ImagePicker.with(this)
+                com.github.dhaval2404.imagepicker.ImagePicker.with(this)
                     .crop()
                     .compress(1024)
                     .maxResultSize(150,75)

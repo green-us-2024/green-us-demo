@@ -32,12 +32,15 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageException
 import com.google.firebase.storage.storage
+import com.google.gson.annotations.SerializedName
 import kr.ac.kpu.green_us.adapter.CertifiedRepresentAdapter
 import kr.ac.kpu.green_us.adapter.StampAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Certify
 import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.Participate
+import kr.ac.kpu.green_us.common.dto.Prize
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.data.CertifiedImgs
 import kr.ac.kpu.green_us.databinding.ActivityCertifyGreeningBinding
@@ -45,11 +48,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class CertifyGreeningActivity : AppCompatActivity() {
 
@@ -61,6 +68,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private val representImgList = mutableListOf<String>()
     private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
     private var gSeq: Int = -1
+    var currentCertifyNum = 0
     private val startForProfileImageResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             val resultCode = result.resultCode
@@ -87,8 +95,8 @@ class CertifyGreeningActivity : AppCompatActivity() {
 
         // auth 인스턴스 초기화
         auth = Firebase.auth
-//        val userEmail = auth.currentUser?.email.toString()
-//        loadCertifyData(userEmail)
+        val userEmail = auth.currentUser?.email.toString()
+        loadCertifyData(userEmail){
 
         gSeq = intent.getIntExtra("gSeq", -1)
         if(gSeq <= -1){
@@ -130,6 +138,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                             binding.tagFreq.text = "주${greening.gFreq}회"
                             val totalNum = (greenWeek * greening.gFreq!!)
                             binding.totalCertifiNum.text = totalNum.toString()
+                            binding.currentCertifiNum.text = currentCertifyNum.toString()
                             binding.tagCertifi.text = greening.gCertiWay
                             binding.button.setOnClickListener {
                                 checkMethod(greening.gCertiWay.toString())
@@ -152,7 +161,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                     Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
                 }
             })
-        }
+        }}
         // 초기화면셋팅
         viewInit()
 
@@ -356,7 +365,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                             Log.d("storageUploadFail", "인증사진 스토리지 업로드 실패")
                         }
                 } else {
-                    Toast.makeText(this, "인증 번호를 생성할 수 없습니다.", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this, "인증 번호를 생성할 수 없습니다.", Toast.LENGTH_SHORT).show()
                     Log.d("CertifyError", "certifySeq null 에러")
                 }
             }
@@ -381,59 +390,195 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private fun registerCertify(userEmail: String, date: String, callback: (Int?) -> Unit) {
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        apiService.registerCertify(userEmail, gSeq, date).enqueue(object : Callback<Certify> {
-            override fun onResponse(call: Call<Certify>, response: Response<Certify>) {
+        var greening : Greening? = null
+        apiService.getGreeningById(gSeq).enqueue(object : Callback<Greening> {
+            override fun onResponse(call: Call<Greening>, response: Response<Greening>) {
                 if (response.isSuccessful) {
-                    val certify = response.body()
-                    val certifySeq = certify?.certifySeq
-                    Log.d("CertifyGreeningActivity", "데이터 저장 성공 : $certifySeq")
-                    callback(certifySeq)
+                    greening = response.body()
+                    if(greening != null && greening!!.gStartDate != null) {
+                        val gStartDate = greening!!.gStartDate
+
+                        // 현재 날짜와 주차 계산을 위한 날짜 포맷터
+                        val dateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+
+                        try {
+                            val today = Date()
+                            val startDate = dateFormatter.parse(gStartDate)
+
+                            if (startDate != null) {
+                                // 주차 계산
+                                val diffInMillis = today.time - startDate.time
+                                val diffInDays = (diffInMillis / (1000 * 60 * 60 * 24)).toInt()
+                                val currentWeek = (diffInDays / 7) + 1
+
+                                // 오늘이 포함된 주차의 시작과 끝 날짜 계산
+                                val currentWeekStart = Calendar.getInstance().apply {
+                                    time = startDate
+                                    add(Calendar.DAY_OF_YEAR, (currentWeek - 1) * 7)
+                                }.time
+
+                                val currentWeekEnd = Calendar.getInstance().apply {
+                                    time = currentWeekStart
+                                    add(Calendar.DAY_OF_YEAR, 6)
+                                }.time
+
+                                apiService.getCertifyByUserEmailAndGSeq(userEmail, gSeq)
+                                    .enqueue(object : Callback<List<Certify>> {
+                                        override fun onResponse(call: Call<List<Certify>>, response: Response<List<Certify>>) {
+                                            if (response.isSuccessful) {
+                                                val participateList = response.body()
+
+                                                // 현재 주차에 해당하는 certifyDate 필터링
+                                                val currentWeekCertifies = participateList?.filter { certify ->
+                                                        val certifyDate = dateFormatter.parse(certify.certifyDate)
+                                                        certifyDate != null && certifyDate >= currentWeekStart && certifyDate <= currentWeekEnd
+                                                }
+
+                                                // 오늘 날짜의 인증 필터링
+                                                val todayCertifies = currentWeekCertifies?.filter { certify ->
+                                                        val certifyDate = dateFormatter.parse(certify.certifyDate)
+                                                        certifyDate != null && certifyDate == dateFormatter.parse(date)
+                                                }
+
+                                                // 이번 주차에 해당하는 인증이 이미 3개 이상인 경우
+                                                if (currentWeekCertifies?.size ?: 0 >= greening!!.gFreq ?:0) {
+                                                    if(participateList!!.size >= greening!!.gNumber!!){
+                                                        Toast.makeText(this@CertifyGreeningActivity, "이미 전체 인증이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                                                        Log.d("CertifyGreeningActivity", "parciaipteList Size : ${participateList.size}, greening Number : ${greening!!.gNumber!!}")
+                                                        registerPrizeData(userEmail, greening)
+                                                    }else{
+                                                        Toast.makeText(this@CertifyGreeningActivity, "이번 주 인증을 이미 완료했습니다.", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                    callback(null)
+                                                    return  // 작업을 멈춤
+                                                }
+
+                                                // 오늘 이미 인증이 있는 경우
+                                                if (todayCertifies != null && todayCertifies.isNotEmpty()) {
+                                                    if(participateList!!.size >= greening!!.gNumber!!){
+                                                        Toast.makeText(this@CertifyGreeningActivity, "이미 전체 인증이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                                                        Log.d("CertifyGreeningActivity", "parciaipteList Size : ${participateList.size}, greening Number : ${greening!!.gNumber!!}")
+                                                        registerPrizeData(userEmail, greening)
+                                                    }else{
+                                                        Toast.makeText(this@CertifyGreeningActivity,
+                                                            "오늘 이미 인증을 완료했습니다.", Toast.LENGTH_SHORT).show()
+                                                    }
+                                                    callback(null)
+                                                    return  // 전체 작업을 종료합니다.
+                                                }
+
+                                                if(participateList!!.size >= greening!!.gNumber!!){
+                                                    Toast.makeText(this@CertifyGreeningActivity, "이미 전체 인증이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                                                    Log.d("CertifyGreeningActivity", "parciaipteList Size : ${participateList.size}, greening Number : ${greening!!.gNumber!!}")
+                                                    registerPrizeData(userEmail, greening)
+                                                }
+
+                                                apiService.registerCertify(userEmail, gSeq, date).enqueue(object : Callback<Certify> {
+                                                        override fun onResponse(call: Call<Certify>, response: Response<Certify>
+                                                        ) {
+                                                            if (response.isSuccessful) {
+                                                                val certify = response.body()
+                                                                val certifySeq = certify?.certifySeq
+                                                                Log.d("CertifyGreeningActivity", "데이터 저장 성공 : $certifySeq")
+                                                                callback(certifySeq)
+                                                            } else {
+                                                                when (response.code()) {
+                                                                    409 -> {
+                                                                        Toast.makeText(this@CertifyGreeningActivity, "이미 전체 인증이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                                                                        registerPrizeData(userEmail, greening)}
+                                                                }
+                                                                Log.e("CertifyGreeningActivity", "데이터 저장 실패: ${response.code()}")
+                                                                callback(null)
+                                                            }
+                                                        }
+
+                                                        override fun onFailure(
+                                                            call: Call<Certify>,
+                                                            t: Throwable
+                                                        ) {
+                                                            Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+                                                            callback(null)
+                                                        }
+                                                    })
+
+                                            } else {
+                                                Log.e("CertifyGreeningActivity", "데이터 저장 실패: ${response.code()}")
+                                                callback(null)
+                                            }
+                                        }
+
+                                        override fun onFailure(call: Call<List<Certify>>, t: Throwable) {
+                                            Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+                                            callback(null)
+                                        }
+                                    })
+                            }
+                        }catch (e: ParseException){
+                            Log.e("CertifyGreeningActivity","날짜 파싱 오류",e)
+                            callback(null)
+                        }
+                    }
                 } else {
+                    when (response.code()) {
+                        409 -> {
+                            Toast.makeText(this@CertifyGreeningActivity, "잘못된 요청입니다.", Toast.LENGTH_SHORT).show()
+                            registerPrizeData(userEmail, greening)
+                        }
+                        else -> Toast.makeText(this@CertifyGreeningActivity, "데이터 저장 실패", Toast.LENGTH_SHORT).show()
+                    }
                     Log.e("CertifyGreeningActivity", "데이터 저장 실패: ${response.code()}")
                     callback(null)
                 }
             }
-
-            override fun onFailure(call: Call<Certify>, t: Throwable) {
+            override fun onFailure(call: Call<Greening>, t: Throwable) {
                 Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
                 callback(null)
             }
         })
     }
 
-    private fun loadCertifyData(userEmail:String){
+    private fun loadCertifyData(userEmail:String, callback: () -> Unit){
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
-        var user: User?
-        var userSeq: Int = 0
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        apiService.getUserbyEmail(userEmail).enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
-                if (response.isSuccessful) {
-                    user = response.body()
-                    userSeq = user!!.userSeq
-                }else{
-                    Log.e("CertifyGreeningActivity", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
-                    user = null
-                    //실패 처리 로직
-                }
-            }
-            override fun onFailure(call: Call<User>, t: Throwable) {
-                Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
-                user = null
-            }
-        })
-        apiService.getCertifyByUserSeqAndGSeq(userSeq, gSeq).enqueue(object : Callback<List<Certify>> {
+        apiService.getCertifyByUserEmailAndGSeq(userEmail, gSeq).enqueue(object : Callback<List<Certify>> {
             override fun onResponse(call: Call<List<Certify>>, response: Response<List<Certify>>) {
                 if (response.isSuccessful) {
                     val certifyList = response.body()
+                    if(certifyList != null) { currentCertifyNum = certifyList.size }
+
+                    //여기서 스탬프로 데이터 넘기면 됩니다! List 문제없이 넘어오게 수정했습니다!
+
                     Log.d("certifyList",certifyList.toString())
                     Log.d("CertifyGreeningActivity", "인증 정보 불러오기 성공 ")
+                    callback()
                 } else {
                     Log.e("CertifyGreeningActivity", "인증 정보 불러오기 실패: ${response.code()}")
+                    callback()
                 }
             }
 
             override fun onFailure(call: Call<List<Certify>>, t: Throwable) {
+                Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
+                callback()
+            }
+        })
+    }
+
+    private fun registerPrizeData(userEmail:String, greening: Greening?){
+        val gSeq: Int = intent.getIntExtra("gSeq", -1)
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        val money = greening!!.gDeposit ?: 0
+        apiService.registerPrize(userEmail, gSeq, money).enqueue(object : Callback<Prize> {
+            override fun onResponse(call: Call<Prize>, response: Response<Prize>) {
+                if (response.isSuccessful) {
+                    val prize = response.body()
+                    Log.d("CertifyGreeningActivity", "상금 지급 완료 : ${prize!!.prizeSeq}")
+                } else {
+                    Log.e("CertifyGreeningActivity", "상금 저장 실패: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<Prize>, t: Throwable) {
                 Log.e("CertifyGreeningActivity", "서버 통신 중 오류 발생", t)
             }
         })

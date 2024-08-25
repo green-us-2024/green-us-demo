@@ -11,8 +11,9 @@ data class User(
     @SerializedName("userPwd") @Expose val userPwd: String? = null,
     @SerializedName("userEmail") @Expose val userEmail: String? = null,
     @SerializedName("userAddr") @Expose val userAddr: String? = null,
+    @SerializedName("userAddrDetail")@Expose val userAddrDetail : String?=null,
     @SerializedName("userPhone") @Expose val userPhone: String? = null,
     @SerializedName("userPhoto") @Expose val userPhoto: String? = null,
-    //    @SerializedName("userAccount") val userAccount: String? = null,
+    @SerializedName("userPedometer")@Expose val userPedometer: Int = 0,
     @SerializedName("userWCount") @Expose val userWCount: Int? = null
 )
