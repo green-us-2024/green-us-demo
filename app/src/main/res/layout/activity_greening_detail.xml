@@ -196,6 +196,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/greening_infos_layout"
+                android:visibility="visible"
                 app:layout_constraintTop_toBottomOf="@+id/layout_main_info">
                 <LinearLayout
                     android:id="@+id/layout_infos"

@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.common.dto.Certify
 
-class StampAdapter():RecyclerView.Adapter<StampAdapter.StampHolder>() {
+class StampAdapter(val list : ArrayList<String>):RecyclerView.Adapter<StampAdapter.StampHolder>() {
     override fun getItemCount(): Int {
         // return 스탬프 인증횟수만큼
-        return 5
+        return list.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StampHolder {
@@ -22,6 +23,6 @@ class StampAdapter():RecyclerView.Adapter<StampAdapter.StampHolder>() {
         var stampDate : TextView = view.findViewById(R.id.stamp_date)
     }
     override fun onBindViewHolder(holder: StampAdapter.StampHolder, position: Int) {
-        holder.stampDate.text = "7.31"
+        holder.stampDate.text = list[position]
     }
 }

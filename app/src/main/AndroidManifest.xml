@@ -103,6 +103,7 @@
         <activity
             android:name=".MyProfileEditActivity"
             android:exported="false" />
+
         <activity
             android:name=".CameraGalleryActivity"
             android:exported="false" />

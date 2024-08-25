@@ -2,7 +2,8 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-//        maven { url 'https://jitpack.io' }
+        jcenter()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.4.2'
@@ -10,7 +11,13 @@ buildscript {
 }
 
 plugins {
-    id 'com.android.application' version '8.4.0' apply false
-    id 'com.android.library' version '8.4.0' apply false
+    id 'com.android.application' version '8.5.1' apply false
+    id 'com.android.library' version '8.5.1' apply false
     id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> 935feedb869e417e45ae6dd12144dca193d7ee57

@@ -2,6 +2,7 @@ package kr.ac.kpu.green_us
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.Intent.ACTION_PICK
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -15,6 +16,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -254,25 +256,57 @@ class GreenOpenFragment : Fragment() {
 
         // 사진 업로드 이미지
         binding.btnUpload.setOnClickListener {
+            // 변수 선언
             val galleryPermissionCheck = ContextCompat.checkSelfPermission(
                 requireContext(),
                 android.Manifest.permission.READ_MEDIA_IMAGES
             )
-            if (galleryPermissionCheck != PackageManager.PERMISSION_GRANTED) { // 권한이 없는 경우
+            val cameraPermissionCheck = ContextCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.CAMERA
+            )
+            // 권한이 없는 경우
+            if (galleryPermissionCheck != PackageManager.PERMISSION_GRANTED) { // 갤러리
                 ActivityCompat.requestPermissions(
                     requireActivity(),
                     arrayOf(android.Manifest.permission.READ_MEDIA_IMAGES),
                     1000
                 )
             }
-            if (galleryPermissionCheck == PackageManager.PERMISSION_GRANTED) { //권한이 있는 경우
-                val intent = Intent(Intent.ACTION_PICK)
-                intent.type = "image/*"
-                activityResult.launch(intent)
+            if (cameraPermissionCheck != PackageManager.PERMISSION_GRANTED) { // 카메라
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(android.Manifest.permission.CAMERA),
+                    1000
+                )
+            }
+            //권한이 있는 경우
+            if ((galleryPermissionCheck == PackageManager.PERMISSION_GRANTED)&&(cameraPermissionCheck == PackageManager.PERMISSION_GRANTED)) {
+                ImagePicker.with(this)
+                    .crop()
+                    .compress(1024)
+                    .maxResultSize(150,75)
+                    .createIntent { intent ->
+                        intent.type = "image/*"
+                        intent.action = ACTION_PICK
+                        activityResult.launch(intent)
+                    }
             }
         }
 
         return binding.root
+    }
+    // 이미지 저장
+    private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        val resultUri = it.data?.data
+        if (resultUri != null) {
+            uri = resultUri
+            binding.uploadPictureEt.setText(uri?.getLastPathSegment())
+        } else {
+            Toast.makeText(requireContext(), "사진을 선택하지 않았습니다.", Toast.LENGTH_SHORT).show()
+        }
     }
     private fun imageUpload(uri: Uri?) {
         if (uri != null) {
@@ -333,19 +367,6 @@ class GreenOpenFragment : Fragment() {
         cal.time = date
         cal.add(Calendar.DAY_OF_YEAR, 7*week)
         return sdf.format(cal.time)
-    }
-
-    // 이미지 저장
-    private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        val resultUri = it.data?.data
-        if (resultUri != null) {
-            uri = resultUri
-            binding.uploadPictureEt.setText(uri?.getLastPathSegment())
-        } else {
-            Toast.makeText(requireContext(), "사진을 선택하지 않았습니다.", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun getUserByEmail() {

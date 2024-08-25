@@ -28,6 +28,9 @@ android {
         buildConfigField "String", "MAP_ID", properties.getProperty('mapApi_id')
         buildConfigField "String", "MAP_SECRET", properties.getProperty('mapApi_secret')
 
+        // 결제 api id
+        buildConfigField "String","PAYMENT_ID",properties.getProperty('payment_id')
+
 
     }
 
@@ -119,5 +122,9 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
 
+    //이미지크롭 라이브러리
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+    implementation "androidx.activity:activity-ktx:1.2.3"
+    implementation "androidx.fragment:fragment-ktx:1.3.3"
 
 }
