@@ -66,17 +66,21 @@ class MyProfileEditFragment : Fragment() {
                         userPhone1 = userPhone.substring(0,2)
                         userPhone2 = userPhone.substring(2,6)
                         userPhone3 = userPhone.substring(6 .. userPhone.lastIndex)
+                        binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
                     }
-                    else {
+                    else if(userPhone.length == 11){
                         userPhone1 = userPhone.substring(0,3)
                         userPhone2 = userPhone.substring(3,7)
                         userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
+                        binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
+                    }
+                    else{
+                        binding.phone2.text = userPhone
                     }
                     val userAddr = response.body()?.userAddr.toString()
 
                     binding.name2.text = userName
                     binding.email2.text = userEmail
-                    binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
                     binding.address2.text = userAddr
                 }
             }

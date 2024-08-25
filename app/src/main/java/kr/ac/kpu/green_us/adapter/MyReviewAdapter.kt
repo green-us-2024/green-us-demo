@@ -11,7 +11,7 @@ import kr.ac.kpu.green_us.MyReviewActivity
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Review
 
-class MyReviewAdapter(private var reviewList: List<Review> = emptyList()) :
+class MyReviewAdapter() :
 
     RecyclerView.Adapter<MyReviewAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -32,11 +32,10 @@ class MyReviewAdapter(private var reviewList: List<Review> = emptyList()) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val review = reviewList[position]
 
-        holder.title.text = review.greening.gName
-        holder.review.text = review.reviewContent
-        holder.date.text = review.reviewDate
+        holder.title.text = "굿"
+        holder.review.text = "좋다"
+        holder.date.text = "2022.2.2"
         holder.delete.setOnClickListener {
             val dlg = DeleteCheckActivity(holder.itemView.context as MyReviewActivity)
             dlg.setOnDeleteClickedListener { content ->
@@ -48,11 +47,6 @@ class MyReviewAdapter(private var reviewList: List<Review> = emptyList()) :
     }
 
     override fun getItemCount(): Int {
-        return reviewList.size
-    }
-
-    fun updateData(newList: List<Review>) {
-        reviewList = newList
-        notifyDataSetChanged()
+        return 5
     }
 }
