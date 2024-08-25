@@ -4,6 +4,7 @@ import com.example.greening.domain.item.Certify
 import com.example.greening.repository.CertifyRepository
 import com.example.greening.repository.GreeningRepository
 import com.example.greening.repository.UserRepository
+import org.hibernate.query.sqm.tree.SqmNode.log
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -25,24 +26,26 @@ class CertifyService(
         val user = userRepository.findByEmail(userEmail) ?: return null
         val participate = participateService.findByUserSeqAndgSeq(user.userSeq, gSeq)
         val pSeq = participate?.pSeq ?: -1
-        return if (participate != null && participate.pComplete == "N") {
-            val certify = Certify(
-                certifySeq = 0,
-                certifyImg = null,
-                certifyDate = certifyDate,
-                user = user,
-                greening = greeningRepository.findById(gSeq),
-                pSeq = pSeq
-            )
-            participateService.updateParticipate(pSeq)
-            certifyRepository.save(certify)
-        }else if(participate!= null && participate.pComplete == "Y"){
-            throw ResponseStatusException(
-                    HttpStatus.BAD_REQUEST,
-                    "Participation is already completed."
-            )
-        } else {
-            null
+
+        return when {
+            participate == null -> null
+            participate.pComplete == "N" -> {
+                val certify = Certify(
+                        certifySeq = 0,
+                        certifyImg = null,
+                        certifyDate = certifyDate,
+                        user = user,
+                        greening = greeningRepository.findById(gSeq),
+                        pSeq = pSeq
+                )
+                participateService.updateParticipate(pSeq)
+                certifyRepository.save(certify)
+            }
+            participate.pComplete == "Y" -> {
+                log.debug("Participation already copleted: ${participate.pComplete}")
+                throw ParticipationAlreadyCompletedException("Participation is already completed.")
+            }
+            else -> null
         }
     }
     @Transactional
@@ -92,3 +95,5 @@ class CertifyService(
         return certifyRepository.findByUserSeqAndGSeqAndCertifyDate(userSeq, gSeq, CertifyDate)
     }
 }
+
+class ParticipationAlreadyCompletedException(message: String) : RuntimeException(message)

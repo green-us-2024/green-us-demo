@@ -27,10 +27,10 @@ class UserService(private val userRepository: UserRepository) {
             existingUser.userPwd = newUser.userPwd ?: existingUser.userPwd
             existingUser.userEmail = newUser.userEmail ?: existingUser.userEmail
             existingUser.userAddr = newUser.userAddr ?: existingUser.userAddr
-            //existingUser.userAddrDetail = newUser.userAddrDetail ?: existingUser.userAddr
+            existingUser.userAddrDetail = newUser.userAddrDetail ?: existingUser.userAddr
             existingUser.userPhone = newUser.userPhone ?: existingUser.userPhone
             existingUser.userPhoto = newUser.userPhoto ?: existingUser.userPhoto
-//            existingUser.userAccount = newUser.userAccount ?: existingUser.userAccount
+            existingUser.userPedometer = newUser.userPedometer ?: existingUser.userPedometer
             existingUser.userWCount = newUser.userWCount ?: existingUser.userWCount
             // 관리자, 리뷰 및 결제 정보를 업데이트하지 않고 기존 정보 유지한다는 가정 -> 추후 필요에 따라 코드 변경
             existingUser.admins = existingUser.admins

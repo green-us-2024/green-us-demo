@@ -24,8 +24,8 @@ open class User (
     @Column(name="user_addr")
     var userAddr : String?=null,
 
-    //@Column(name="user_addr_detail")
-    //var userAddrDetail : String?=null,
+    @Column(name="user_addr_detail")
+    var userAddrDetail : String?=null,
 
     @Column(name="user_phone")
     var userPhone : String?=null,
@@ -33,8 +33,8 @@ open class User (
     @Column(name="user_photo")
     var userPhoto : String?=null,
 
-//    @Column(name="user_account")
-//    var userAccount : String?=null,
+    @Column(name="user_pedometer")
+    var userPedometer : Int ?= 0,
 
     @Column(name="user_w_count")
     var userWCount : Int?= 0,

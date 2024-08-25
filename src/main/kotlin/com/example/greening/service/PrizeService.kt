@@ -7,6 +7,7 @@ import com.example.greening.repository.PrizeRepository
 import com.example.greening.repository.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.LocalDate
 
 @Service
 @Transactional(readOnly = true)
@@ -16,27 +17,28 @@ class PrizeService(private val prizeRepository: PrizeRepository,
                    private val participateRepository: ParticipateRepository){
 
     @Transactional
-    fun savePrize(prize: Prize) {
-        val user = prize.user?.let { userRepository.findById(it.userSeq)}
-        val greening = prize.greening?.let { greeningRepository.findById(it.gSeq)}
-        val participate = prize.participate?.let { participateRepository.findById(it.pSeq).orElse(null)}
-        if (user != null) {
-            prize.user = user
+    fun savePrize(userEmail: String, gSeq:Int, prizeMoney :Int) : Prize? {
+        val user = userRepository.findByEmail(userEmail)
+        val greening = greeningRepository.findById(gSeq)
+        if (user != null && greening != null) {
+            val participate = participateRepository.findByUserSeqAndGSeq(user.userSeq, greening.gSeq)
+            if(participate != null){
+                val prize = Prize(
+                        user = user,
+                        greening = greening,
+                        participate = participate,
+                        prizeDate = LocalDate.now(),
+                        prizeMoney = prizeMoney)
+                return prizeRepository.save(prize)
+            }
         }
-        if (greening != null) {
-            prize.greening = greening
-        }
-        if (participate != null) {
-            prize.participate = participate
-        }
-        prizeRepository.save(prize)
+        return null
     }
 
     @Transactional
     fun updatePrize(prizeSeq: Int, newPrize: Prize) {
-        val existingPrize = prizeRepository.findById(prizeSeq)
+        val existingPrize = prizeRepository.findById(prizeSeq).orElse(null)
         if (existingPrize != null) { // 필드를 직접 업데이트
-            existingPrize.prizeName = newPrize.prizeName ?: existingPrize.prizeName
             existingPrize.prizeMoney = newPrize.prizeMoney ?: existingPrize.prizeMoney
             existingPrize.prizeDate = newPrize.prizeDate ?: existingPrize.prizeDate
 
@@ -56,15 +58,11 @@ class PrizeService(private val prizeRepository: PrizeRepository,
         return prizeRepository.findAll()
     }
 
-    fun findOne(prizeSeq: Int): Prize? {
-        return prizeRepository.findById(prizeSeq)
-    }
-
     fun findById(prizeSeq: Int): Prize? {
-        return prizeRepository.findById(prizeSeq)
+        return prizeRepository.findById(prizeSeq).orElse(null)
     }
 
     fun findByUserSeq(userSeq: Int): List<Prize> {
-        return prizeRepository.findByUserSeq(userSeq)
+        return prizeRepository.findByUser_UserSeq(userSeq)
     }
 }

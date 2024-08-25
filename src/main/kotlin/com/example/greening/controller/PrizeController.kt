@@ -12,7 +12,7 @@ class PrizeController(private val prizeService: PrizeService) {
 
     @GetMapping("/byId/{id}")
     fun getPrizeById(@PathVariable id: Int): ResponseEntity<Prize> {
-        val prize = prizeService.findOne(id)
+        val prize = prizeService.findById(id)
         return if (prize != null) {
             ResponseEntity.ok(prize)
         } else {
@@ -21,9 +21,13 @@ class PrizeController(private val prizeService: PrizeService) {
     }
 
     @PostMapping("/new")
-    fun createPrize(@RequestBody prize: Prize): ResponseEntity<Prize> {
-        prizeService.savePrize(prize)
-        return ResponseEntity.status(HttpStatus.CREATED).body(prize)
+    fun createPrize(@RequestParam userEmail: String,@RequestParam gSeq: Int,@RequestParam prizeMoney : Int): ResponseEntity<Prize> {
+        val prize = prizeService.savePrize(userEmail, gSeq, prizeMoney)
+        return if (prize != null) {
+            ResponseEntity.status(HttpStatus.CREATED).body(prize)
+        } else {
+            ResponseEntity.badRequest().build()
+        }
     }
 
     @PutMapping("/update/{prizeSeq}")
