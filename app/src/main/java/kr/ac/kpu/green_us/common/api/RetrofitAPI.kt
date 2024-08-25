@@ -6,6 +6,7 @@ import kr.ac.kpu.green_us.common.dto.Notice
 import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.Payment
 import kr.ac.kpu.green_us.common.dto.Report
+import kr.ac.kpu.green_us.common.dto.Review
 import kr.ac.kpu.green_us.common.dto.Users
 import kr.ac.kpu.green_us.common.dto.User
 import retrofit2.Call
@@ -101,5 +102,11 @@ interface RetrofitAPI {
 
     @POST("/payment/new")
     fun createPayment(@Body payment: Payment): Call<Payment>
+
+    @GET("/review/byUserSeq/{userSeq}")
+    fun getReviewByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Review>>
+
+    @POST("/review/new")
+    fun createReview(@Body review: Review): Call<Review>
 
 }

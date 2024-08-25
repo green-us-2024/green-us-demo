@@ -3,11 +3,20 @@ package kr.ac.kpu.green_us
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import kr.ac.kpu.green_us.adapter.MyReviewAdapter
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Review
+import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.ActivityMyReviewBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // 내리뷰 - 리뷰 리스트로 확인, 삭제 가능
 class MyReviewActivity : AppCompatActivity() {
@@ -15,19 +24,42 @@ class MyReviewActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private val callback = object : OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            val intent = Intent(this@MyReviewActivity, MainActivity::class.java)
-            intent.putExtra("key3","mypage")
-            startActivity(intent)
-            finish()
-        }
-    }
+
+    lateinit var auth: FirebaseAuth
+    var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMyReviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        auth = FirebaseAuth.getInstance()
+
+        // 데이터 가져오기
+        getUserByEmail { user ->
+/*            if (user != null) {
+                val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+
+                // 1. review 데이터 가져오기
+                apiService.getReviewByUserSeq(user.userSeq).enqueue(object :
+                    Callback<List<Review>> {
+                    override fun onResponse(call: Call<List<Review>>, response: Response<List<Review>>) {
+                        if (response.isSuccessful) {
+                            var reviewList = response.body() ?: emptyList()
+                            setupReviewRecyclerViews(reviewList)
+                        } else {
+                            Log.e("MyReviewActivity", "Review 데이터 로딩 실패: ${response.code()}")
+                        }
+                    }
+
+                    override fun onFailure(call: Call<List<Review>>, t: Throwable) {
+                        Log.e("MyReviewActivity", "서버 통신 중 오류 발생", t)
+                    }
+                })
+            } else {
+                Log.d("MyReviewActivity", "사용자의 리뷰를 확인할 수 없음")
+            }*/
+        }
 
         // 이전버튼
         binding.btnEsc.setOnClickListener {
@@ -37,7 +69,52 @@ class MyReviewActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, true)
+        this.onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    private val callback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            val intent = Intent(this@MyReviewActivity, MainActivity::class.java)
+            intent.putExtra("key3","mypage")
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    private fun getUserByEmail(callback: (User?) -> Unit) {
+        val currentUser = auth.currentUser
+        val currentEmail = currentUser?.email.toString()
+        Log.d("currentEmail", currentEmail)
+
+        if (currentEmail.isNotEmpty()) {
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        user = response.body()
+                        if (user != null) {
+                            Log.d("MyReviewActivity", "회원 찾음 : ${user!!.userSeq}")
+                        } else {
+                            Log.e("MyReviewActivity", "회원 못찾음")
+                        }
+                    } else {
+                        Log.e("MyReviewActivity", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                    }
+                    callback(user)
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("MyReviewActivity", "서버 통신 중 오류 발생", t)
+                    callback(null)
+                }
+            })
+        } else {
+            callback(null)
+        }
+    }
+
+    private fun setupReviewRecyclerViews(reviewList: List<Review>) {
+        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         viewAdapter = MyReviewAdapter()
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview_review).apply {
             setHasFixedSize(true)
@@ -47,7 +124,7 @@ class MyReviewActivity : AppCompatActivity() {
 
         }
 
-        this.onBackPressedDispatcher.addCallback(this, callback)
+        (viewAdapter as MyReviewAdapter).updateData(reviewList)
     }
 
 }

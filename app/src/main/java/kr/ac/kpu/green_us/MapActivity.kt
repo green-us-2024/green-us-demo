@@ -149,22 +149,22 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         // 위치 변경시 위치 정보 업데이트 코드
         // 위치 권한 확인하고, 부여됐으면
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
-                mLocationManager!!.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER, // gps 이용해서
-                    3000L, // 3초 간격 또는
-                    30f, // 거리가 30미터 변할 때마다 위치 정보를 업데이트 함
-                    mLocationListener as LocationListener
-                )
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            mLocationManager!!.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER, // gps 이용해서
+                3000L, // 3초 간격 또는
+                30f, // 거리가 30미터 변할 때마다 위치 정보를 업데이트 함
+                mLocationListener as LocationListener
+            )
 
-            }
+        }
     }
     private fun filterAddress(words:String){
         val totalKeyword: String

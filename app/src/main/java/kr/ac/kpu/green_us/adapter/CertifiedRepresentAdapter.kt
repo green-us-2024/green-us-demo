@@ -30,7 +30,7 @@ class CertifiedRepresentAdapter (private val representImgList: MutableList<Strin
     }
 
     override fun onBindViewHolder(holder: CertifiedRepresentViewHolder, position: Int) {
-            // 매개변수로 받은 url 리스트를 인덱스순으로 뷰에 붙임
+        // 매개변수로 받은 url 리스트를 인덱스순으로 뷰에 붙임
         Glide.with(holder.itemView.context).load(representImgList[position]).into(holder.imgs)
     }
 

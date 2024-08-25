@@ -203,7 +203,6 @@ class MyGreenIngFragment : Fragment() {
         (viewAdapterIng as MyGreenIngAdapter).itemClickListener = object : MyGreenIngAdapter.OnItemClickListener {
             override fun onItemClick(gSeq: Int) {
                 val intent = Intent(requireActivity(), CertifyGreeningActivity::class.java)
-//                intent.putExtra("ing", "ing_state")
                 intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
             }

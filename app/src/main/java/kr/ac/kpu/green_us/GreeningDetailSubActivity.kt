@@ -4,18 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.storage
+import kr.ac.kpu.green_us.adapter.ReviewAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
-import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.ActivityGreeningDetailSubBinding
 import retrofit2.Call
@@ -23,21 +22,24 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import kotlin.math.abs
 
 // 간단한 그리닝 정보만 담은 상세페이지 보여줌
 class GreeningDetailSubActivity : AppCompatActivity() {
     private lateinit var binding : ActivityGreeningDetailSubBinding
     lateinit var auth: FirebaseAuth
     var user: User? = null
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGreeningDetailSubBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var green_state1 = intent.getStringExtra("ing")
-        var green_state2 = intent.getStringExtra("end")
-        var green_state3 = intent.getStringExtra("open")
+        var green_state1 = intent.getStringExtra("end")
+        var green_state2 = intent.getStringExtra("open")
 
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
 
@@ -83,17 +85,8 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                 else -> ""
                             }
 
-                            if(green_state1 == "ing_state"){
-                                binding.button.setText("인증하기")
-                                // 리뷰 작성 버튼 클릭 시
-                                binding.button.setOnClickListener{
-                                    val intent = Intent(this@GreeningDetailSubActivity, CertifyGreeningActivity::class.java)
-                                    intent.putExtra("gSeq", gSeq)
-                                    startActivity(intent)
-                                }
-                            }
-                            else if(green_state2 == "end_state"){
-                                binding.button.setText("리뷰 작성")
+                            if(green_state1 == "end_state"){
+                                binding.button.text = "리뷰 작성"
                                 // 리뷰 작성 버튼 클릭 시
                                 binding.button.setOnClickListener{
                                     val intent = Intent(this@GreeningDetailSubActivity, SubActivity::class.java)
@@ -102,9 +95,12 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                     startActivity(intent)
                                 }
                             }
-                            else if(green_state3 == "open_state"){
+                            else if(green_state2 == "open_state"){
                                 binding.button.visibility = View.GONE
                             }
+
+                            setupReviewRecyclerViews()
+
 /*
                             //참여하기 버튼
                             binding.button.setOnClickListener {
@@ -156,6 +152,18 @@ class GreeningDetailSubActivity : AppCompatActivity() {
         binding.btnEsc.setOnClickListener {
             finish()
         }
+    }
+
+    private fun setupReviewRecyclerViews() {
+
+        binding.recyclerviewThisReview.adapter = ReviewAdapter()
+        binding.recyclerviewThisReview.offscreenPageLimit = 4
+        binding.recyclerviewThisReview.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                Log.e("ViewPagerFragment", "Page ${position+1}")
+            }
+        })
     }
 
     private fun getUserByEmail(callback: (User?)->Unit) {

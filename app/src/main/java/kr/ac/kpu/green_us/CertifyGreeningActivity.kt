@@ -124,6 +124,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
                                     uri -> Glide.with(this@CertifyGreeningActivity).load(uri).into(binding.imgGreening)
                             }
 
+                            binding.subject.text = greening.gName ?: ""
                             binding.greeningTitle.text = greening.gName ?: ""
                             binding.tagTerm.text = "${greenWeek}주"
                             binding.tagFreq.text = "주${greening.gFreq}회"
@@ -155,7 +156,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
         // 초기화면셋팅
         viewInit()
 
-        // 이전 버큰 클릭
+        // 이전 버튼 클릭
         binding.btnEsc.setOnClickListener {
             this.finish()
         }

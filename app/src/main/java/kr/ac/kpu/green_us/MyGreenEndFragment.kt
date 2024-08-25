@@ -51,7 +51,6 @@ class MyGreenEndFragment : Fragment() {
         val today = LocalDate.now()
 
         // 데이터 가져오기
-        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
         getUserByEmail { user ->
             if (user != null) {
                 val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)

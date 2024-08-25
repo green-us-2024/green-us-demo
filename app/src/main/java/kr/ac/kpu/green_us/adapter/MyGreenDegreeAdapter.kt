@@ -46,7 +46,7 @@ class MyGreenDegreeAdapter(private var participateList: List<Participate>, priva
     }
 
     override fun getItemCount(): Int {
-        return participateList.size
+        return greeningList.size
     }
 
     fun updateData(newList1: List<Participate>, newList2: List<Greening>) {
