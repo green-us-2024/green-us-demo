@@ -81,8 +81,14 @@ class CertifyController(private val certifyService: CertifyService) {
         return "certifyList" // 인증 목록 페이지로 이동
     }
 
+    @GetMapping("/byUSerEmailAndGSeq/{userEmail}/{gSeq}")
+    fun findByUserEmailAndGSeq(@PathVariable userEmail:String, @PathVariable gSeq:Int):ResponseEntity<List<Certify>>{
+        val certify = certifyService.findByUserEmailAndGSeq(userEmail, gSeq)
+        return ResponseEntity.ok(certify)
+    }
+
     @GetMapping("/byUserSeqAndGSeqAneCertifyDate/{userSeq}/{gSeq}/{CertifyDate}")
-    fun findByUserSeqAndGSeqAndCertifyDate(userSeq: Int, gSeq: Int, CertifyDate: LocalDateTime): ResponseEntity<Certify> {
+    fun findByUserSeqAndGSeqAndCertifyDate(@PathVariable userSeq: Int,@PathVariable gSeq: Int,@PathVariable CertifyDate: LocalDateTime): ResponseEntity<Certify> {
         val certify = certifyService.findByUserSeqAndGSeqAndCertifyDate(userSeq, gSeq, CertifyDate)
         return ResponseEntity.ok(certify)
     }

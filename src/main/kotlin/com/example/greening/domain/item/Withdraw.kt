@@ -13,6 +13,7 @@ data class Withdraw(
         @Column(name = "withdraw_seq")
         var withdrawSeq: Int = 0,
 
+        @JsonBackReference(value = "user-withdraw")
         @ManyToOne(fetch = FetchType.LAZY, optional = false)
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
         var user: User? = null,

@@ -1,5 +1,7 @@
 package com.example.greening.domain.item
 
+import com.fasterxml.jackson.annotation.JsonBackReference
+import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -17,18 +19,20 @@ open class Certify (
         @Column(name="certify_date")
         var certifyDate:LocalDateTime? = null,
 
+        @JsonBackReference(value = "user-certify")
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name="user_seq", referencedColumnName = "user_seq")
         var user: User? = null,
 
+        @JsonBackReference(value = "greening-certify")
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name="g_seq", referencedColumnName = "g_seq")
         var greening: Greening? = null,
 
-
         @JoinColumn(name="p_seq", referencedColumnName = "p_seq")
         var pSeq:Int? = null,
 
+        @JsonManagedReference(value = "report-certify")
         @OneToOne(mappedBy = "certify")
         var report: Report? = null
 

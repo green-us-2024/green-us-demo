@@ -24,6 +24,12 @@ interface CertifyRepository : JpaRepository<Certify, Int> {
         @Param("gSeq") gSeq: Int
     ): List<Certify>
 
+    @Query("SELECT c FROM Certify c WHERE c.user.userEmail = :userEmail AND c.greening.gSeq = :gSeq")
+    fun findByUserEmailAndGSeq(
+            @Param("userEmail") userEmail: String,
+            @Param("gSeq") gSeq: Int
+    ): List<Certify>
+
     @Query("SELECT c FROM Certify c WHERE c.user.userSeq = :userSeq AND c.greening.gSeq = :gSeq AND c.certifyDate = :certifyDate")
     fun findByUserSeqAndGSeqAndCertifyDate(@Param("userSeq")userSeq: Int,@Param("gSeq") gSeq: Int,@Param("certifyDate")certifyDate: LocalDateTime): Certify?
 

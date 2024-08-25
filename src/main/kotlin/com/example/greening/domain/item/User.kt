@@ -24,6 +24,9 @@ open class User (
     @Column(name="user_addr")
     var userAddr : String?=null,
 
+    //@Column(name="user_addr_detail")
+    //var userAddrDetail : String?=null,
+
     @Column(name="user_phone")
     var userPhone : String?=null,
 
@@ -45,7 +48,7 @@ open class User (
     @JoinColumn(name = "admin_seq", referencedColumnName = "admin_seq", nullable = true)
     var admins: Admin? = null,
 
-    @JsonManagedReference(value = "user-reviews")
+    @JsonManagedReference(value = "user-review")
     @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)
     val reviews: List<Review> = mutableListOf(),
 

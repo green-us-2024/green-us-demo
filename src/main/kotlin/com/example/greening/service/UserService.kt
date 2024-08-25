@@ -27,6 +27,7 @@ class UserService(private val userRepository: UserRepository) {
             existingUser.userPwd = newUser.userPwd ?: existingUser.userPwd
             existingUser.userEmail = newUser.userEmail ?: existingUser.userEmail
             existingUser.userAddr = newUser.userAddr ?: existingUser.userAddr
+            //existingUser.userAddrDetail = newUser.userAddrDetail ?: existingUser.userAddr
             existingUser.userPhone = newUser.userPhone ?: existingUser.userPhone
             existingUser.userPhoto = newUser.userPhoto ?: existingUser.userPhoto
 //            existingUser.userAccount = newUser.userAccount ?: existingUser.userAccount

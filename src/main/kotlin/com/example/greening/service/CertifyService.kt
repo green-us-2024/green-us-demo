@@ -4,8 +4,10 @@ import com.example.greening.domain.item.Certify
 import com.example.greening.repository.CertifyRepository
 import com.example.greening.repository.GreeningRepository
 import com.example.greening.repository.UserRepository
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import org.springframework.web.server.ResponseStatusException
 import java.time.LocalDateTime
 
 @Service
@@ -34,6 +36,11 @@ class CertifyService(
             )
             participateService.updateParticipate(pSeq)
             certifyRepository.save(certify)
+        }else if(participate!= null && participate.pComplete == "Y"){
+            throw ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Participation is already completed."
+            )
         } else {
             null
         }
@@ -75,6 +82,10 @@ class CertifyService(
 
     fun findByUserSeqAndGSeq(userSeq: Int, gSeq: Int): List<Certify> {
         return certifyRepository.findByUserSeqAndGSeq(userSeq, gSeq)
+    }
+
+    fun findByUserEmailAndGSeq(userEmail: String, gSeq: Int): List<Certify> {
+        return certifyRepository.findByUserEmailAndGSeq(userEmail, gSeq)
     }
 
     fun findByUserSeqAndGSeqAndCertifyDate(userSeq: Int, gSeq: Int, CertifyDate: LocalDateTime): Certify? {

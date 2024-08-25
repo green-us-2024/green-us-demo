@@ -14,18 +14,18 @@ open class Prize(
         @Column(name = "prize_seq")
         var prizeSeq: Int = 0,
 
-        //@JsonBackReference
+        @JsonBackReference(value = "user-prize")
         @ManyToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
         var user: User? = null,
 
-        //@JsonBackReference
+        @JsonBackReference(value = "greening-prize")
         @ManyToOne(cascade = [CascadeType.PERSIST, CascadeType.MERGE])
         @JoinColumn(name = "g_seq", referencedColumnName = "g_seq")
         @OnDelete(action = OnDeleteAction.SET_NULL)
         var greening: Greening? = null,
 
-        //@JsonBackReference
+        @JsonBackReference(value = "participate-prize")
         @ManyToOne(cascade = [CascadeType.PERSIST, CascadeType.MERGE])
         @JoinColumn(name = "p_seq", referencedColumnName = "p_seq")
         @OnDelete(action = OnDeleteAction.SET_NULL)

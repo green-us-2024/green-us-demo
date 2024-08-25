@@ -12,12 +12,12 @@ open class Review(
         @Column(name = "review_seq")
         var reviewSeq: Int = 0,
 
-        //@JsonBackReference
+        @JsonBackReference(value = "user-review")
         @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
         @JoinColumn(name = "user_seq", referencedColumnName = "user_seq")
         var user: User? = null,
 
-        //@JsonBackReference
+        @JsonBackReference(value = "greening-review")
         @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
         @JoinColumn(name = "g_seq", referencedColumnName = "g_seq")
         var greening: Greening? = null,

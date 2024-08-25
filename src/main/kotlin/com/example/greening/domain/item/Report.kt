@@ -1,5 +1,6 @@
 package com.example.greening.domain.item
 
+import com.fasterxml.jackson.annotation.JsonBackReference
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -13,6 +14,7 @@ open class Report(
 
         @OneToOne
         @JoinColumn(name = "certify_seq", referencedColumnName = "certify_seq")
+        @JsonBackReference(value = "report-certify")
         var certify: Certify? = null,
 
         @Column(name = "report_date")
