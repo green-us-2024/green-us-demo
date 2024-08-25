@@ -36,8 +36,8 @@ class MyReviewActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         // 데이터 가져오기
-        getUserByEmail { user ->
-/*            if (user != null) {
+/*        getUserByEmail { user ->
+            if (user != null) {
                 val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
 
                 // 1. review 데이터 가져오기
@@ -58,7 +58,17 @@ class MyReviewActivity : AppCompatActivity() {
                 })
             } else {
                 Log.d("MyReviewActivity", "사용자의 리뷰를 확인할 수 없음")
-            }*/
+            }
+        }*/
+
+        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        viewAdapter = MyReviewAdapter()
+        recyclerView = findViewById<RecyclerView>(R.id.recyclerview_review).apply {
+            setHasFixedSize(true)
+            suppressLayout(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+
         }
 
         // 이전버튼
@@ -112,19 +122,4 @@ class MyReviewActivity : AppCompatActivity() {
             callback(null)
         }
     }
-
-    private fun setupReviewRecyclerViews(reviewList: List<Review>) {
-        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        viewAdapter = MyReviewAdapter()
-        recyclerView = findViewById<RecyclerView>(R.id.recyclerview_review).apply {
-            setHasFixedSize(true)
-            suppressLayout(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-
-        }
-
-        (viewAdapter as MyReviewAdapter).updateData(reviewList)
-    }
-
 }

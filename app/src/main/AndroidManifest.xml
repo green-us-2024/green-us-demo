@@ -51,10 +51,9 @@
         <activity
             android:name=".MapActivity"
             android:exported="false" />
-
-<!--        <activity-->
-<!--            android:name=".FaqActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".FaqActivity"
+            android:exported="false" />
         <activity
             android:name=".PointWithdrawActivity"
             android:exported="false" />
@@ -97,13 +96,6 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".MyProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MyProfileEditActivity"
-            android:exported="false" />
-
         <activity
             android:name=".CameraGalleryActivity"
             android:exported="false" />
