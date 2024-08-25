@@ -260,7 +260,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
         val layoutAdapter = CertifiedRepresentAdapter(representImgList)
         layoutAdapter.notifyDataSetChanged()
 
-<<<<<<< HEAD
+
         val storage = FirebaseStorage.getInstance()
         //certificationImgs경로의 사진들 참조함
         val storageRef = storage.reference.child("certificationImgs/${gSeq}/")
@@ -279,8 +279,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
             }
         }
         }
-=======
->>>>>>> 935feedb869e417e45ae6dd12144dca193d7ee57
+
         // 대표 인증사진 3개 클릭 리스너
         // 받은 url값을 담아 디테일 액티비티로 보냄
         layoutAdapter.itemClickListener = object :CertifiedRepresentAdapter.OnItemClickListener{
@@ -292,9 +291,6 @@ class CertifyGreeningActivity : AppCompatActivity() {
             }
         }
 
-        val storage = FirebaseStorage.getInstance()
-        //certificationImgs경로의 사진들 참조함
-        val storageRef = storage.reference.child("certificationImgs/${gSeq}")
         //3개의 사진을 가져와서 각각의 url representImgList에 저장함
         storageRef.list(3).addOnSuccessListener { listResult ->
             if (listResult.items.size == 0){
