@@ -25,8 +25,8 @@ class PointActivity : AppCompatActivity() {
     lateinit var pointAdapter: PointAdapter
     private var allPrizes: List<Prize> = emptyList()
     private var selectedMonth: Int = Calendar.getInstance().get(Calendar.MONTH) + 1 // 기본값은 현재 월
-    private var currentBalance: Int = 0 // 현재 잔액
-    private var totalWithdrawn: Int = 0 // 총 출금 금액 추가
+    private var currentBalance: Int = 0
+    private var totalWithdrawn: Int = 0
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +54,7 @@ class PointActivity : AppCompatActivity() {
         // 출금하기 버튼 설정
         binding.pointWithdraw.setOnClickListener {
             val intent = Intent(this, PointWithdrawActivity::class.java)
+            intent.putExtra("currentBalance", currentBalance) // 현재 잔액 전달
             startActivity(intent)
         }
 
@@ -72,15 +73,14 @@ class PointActivity : AppCompatActivity() {
             }
         }
         sharedPreferences = getSharedPreferences("point_prefs", Context.MODE_PRIVATE)
-        totalWithdrawn = sharedPreferences.getInt("totalWithdrawn", 0) // 저장된 출금 금액 불러오기
+        totalWithdrawn = sharedPreferences.getInt("totalWithdrawn", 0)
 
 
-        // 출금액이 전달되었는지 확인하고 잔액을 업데이트합니다.
         val withdrawAmount = intent.getIntExtra("withdrawAmount", 0)
-        Log.d("PointActivity", "받은 출금 금액: $withdrawAmount") // 로그 출력
+        Log.d("PointActivity", "받은 출금 금액: $withdrawAmount")
         if (withdrawAmount > 0) {
-            totalWithdrawn += withdrawAmount // 총 출금 금액을 누적시킴
-            saveWithdrawnAmount(totalWithdrawn) // 출금 금액 저장
+            totalWithdrawn += withdrawAmount
+            saveWithdrawnAmount(totalWithdrawn)
         }
         fetchPrizes()
     }
@@ -95,7 +95,7 @@ class PointActivity : AppCompatActivity() {
                     Log.d(
                         "PointActivity",
                         "총 포인트: ${allPrizes.sumOf { it.prizeMoney ?: 0 }}"
-                    ) // 포인트 합계 로그
+                    )
                 } else {
                     Log.d("PointActivity", "API 응답 실패: ${response.message()}")
                 }
@@ -109,7 +109,13 @@ class PointActivity : AppCompatActivity() {
 
     private fun updateRecyclerView() {
         val totalPoints = allPrizes.sumOf { it.prizeMoney ?: 0 }
-        currentBalance = totalPoints - totalWithdrawn // 출금 금액을 반영하여 잔액 초기화
+        currentBalance = totalPoints - totalWithdrawn
+
+        // 잔액이 음수가 되지 않도록 처리
+        if (currentBalance < 0) {
+            currentBalance = 0
+        }
+
         Log.d("PointActivity", "총 포인트(출금 반영): $currentBalance") // 포인트 합계 로그
         binding.remainingPoint.text = "$currentBalance"
 
@@ -124,15 +130,21 @@ class PointActivity : AppCompatActivity() {
     }
 
 
+
     private fun updateBalance(amount: Int) {
         Log.d("PointActivity", "잔액 업데이트 전: $currentBalance, 출금액: $amount") // 로그 출력
         currentBalance += amount
+        if (currentBalance < 0) {
+            currentBalance = 0
+        }
         totalWithdrawn += -amount // 총 출금 금액 누적
         saveWithdrawnAmount(totalWithdrawn) // 출금 금액 저장
+
         Log.d("PointActivity", "잔액 업데이트 후: $currentBalance, 총 출금: $totalWithdrawn") // 로그 출력
         binding.remainingPoint.text = "$currentBalance"
         fetchPrizes() // 최신 데이터를 다시 가져옵니다.
     }
+
 
     private fun saveWithdrawnAmount(amount: Int) {
         with(sharedPreferences.edit()) {
