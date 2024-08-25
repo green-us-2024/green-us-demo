@@ -165,7 +165,7 @@ class GreeningDetailActivity : AppCompatActivity() {
 
 
 
-    var applicationId = "66b478b9cc5274a3ac3fbfc5" // 결제 프로그램 아이디
+    var applicationId = "" // 결제 프로그램 아이디
     fun paymentTest(v: View?, price: Double, orderName: String, user1: User, greening: Greening) {
         val extra = BootExtra()
             .setCardQuota("0,2,3") // 일시불, 2개월, 3개월 할부 허용

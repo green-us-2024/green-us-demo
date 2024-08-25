@@ -5,10 +5,12 @@ import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Notice
 import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.Payment
+import kr.ac.kpu.green_us.common.dto.Prize
 import kr.ac.kpu.green_us.common.dto.Report
 import kr.ac.kpu.green_us.common.dto.Review
 import kr.ac.kpu.green_us.common.dto.Users
 import kr.ac.kpu.green_us.common.dto.User
+import kr.ac.kpu.green_us.common.dto.Withdraw
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -108,5 +110,11 @@ interface RetrofitAPI {
 
     @POST("/review/new")
     fun createReview(@Body review: Review): Call<Review>
+
+    @GET("/prize/list")
+    fun getPrizes(): Call<List<Prize>>
+
+    @POST("/withdraw/new")
+    fun createWithdraw(@Body withdraw: Withdraw) : Call<Withdraw>
 
 }
