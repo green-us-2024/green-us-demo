@@ -17,7 +17,7 @@ class HeroAdapter(bannerList:MutableList<String>): RecyclerView.Adapter<HeroAdap
     val itemList = bannerList // 이미지 배열 리스트가 될 것
 //    private val context : Context
 //        get() {
-//            TODO()
+//            
 //        }
 
     interface OnItemClickListener {
