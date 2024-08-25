@@ -15,13 +15,11 @@ import kr.ac.kpu.green_us.data.CertifiedImgs
 @SuppressLint("NotifyDataSetChanged")
 //private val representImgList: MutableList<String>
 class CertifiedRepresentAdapter (private val representImgList: MutableList<String>) : RecyclerView.Adapter<CertifiedRepresentAdapter.CertifiedRepresentViewHolder>(){
-
     // 이미지 클릭 위한 인터페이스 지정
     interface OnItemClickListener {
         fun onItemClick(url:String){} // 클릭한 이미지의 url 넘겨준다
     }
     var itemClickListener: OnItemClickListener? = null
-
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): CertifiedRepresentViewHolder {
         // view 생성

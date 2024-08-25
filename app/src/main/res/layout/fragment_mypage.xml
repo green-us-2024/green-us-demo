@@ -106,6 +106,22 @@
                     app:layout_constraintStart_toEndOf="@+id/user_img"
                     app:layout_constraintTop_toTopOf="@+id/user_img" />
 
+                <TextView
+                    android:id="@+id/warning"
+                    android:layout_width="wrap_content"
+                    android:maxWidth="240dp"
+                    android:maxLines="2"
+                    android:layout_height="wrap_content"
+                    android:text="신고 5회 이상 받았을 시 들어갈 문구 영역"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/name"
+                    app:layout_constraintStart_toEndOf="@+id/name"
+                    app:layout_constraintTop_toTopOf="@+id/name" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/point_v"
                     android:layout_width="0dp"

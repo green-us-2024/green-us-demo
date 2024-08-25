@@ -74,7 +74,7 @@ class HomeBuyMoreAdapter() :
         val deadLind = if (duration.isNegative){
             "모집마감"
         }else{
-            "마감까지 ${days}일 ${hours}시간 ${minutes}분"
+            "${days}일 ${hours}시간 ${minutes}분"
         }
 
         var greenWeek = 0

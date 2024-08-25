@@ -175,18 +175,19 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/represent_img_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="16dp"
-                android:gravity="center"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@+id/layout_main_info"
-                tools:listitem="@layout/certified_img_represent"
-                android:id="@+id/represent_img_area"/>
-
+                tools:layout_editor_absoluteX="0dp"
+                tools:listitem="@layout/certified_img_represent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -233,6 +234,35 @@
                 android:layout_marginTop="16dp"
                 android:text="인증현황"
                 />
+
+
+            <TextView
+                android:id="@+id/current_certifi_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
+                app:layout_constraintTop_toTopOf="@+id/textView9"
+                app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                android:text="현재인증한개수" />
+            <TextView
+                android:id="@+id/dash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/current_certifi_num"
+                app:layout_constraintTop_toTopOf="@+id/current_certifi_num"
+                app:layout_constraintBottom_toBottomOf="@+id/current_certifi_num"
+                app:layout_constraintEnd_toStartOf="@+id/total_certifi_num"
+                android:layout_marginStart="4dp"
+                android:text="/" />
+            <TextView
+                android:id="@+id/total_certifi_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/dash"
+                app:layout_constraintTop_toTopOf="@+id/dash"
+                app:layout_constraintBottom_toBottomOf="@+id/dash"
+                android:layout_marginStart="4dp"
+                android:text="인증해야할 개수" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
