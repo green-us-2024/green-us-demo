@@ -1,20 +1,14 @@
 package kr.ac.kpu.green_us
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.content.Intent.ACTION_PICK
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
-import android.provider.MediaStore.ACTION_IMAGE_CAPTURE
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -30,24 +24,19 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageException
 import com.google.firebase.storage.storage
-import com.google.gson.annotations.SerializedName
 import kr.ac.kpu.green_us.adapter.CertifiedRepresentAdapter
 import kr.ac.kpu.green_us.adapter.StampAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Certify
 import kr.ac.kpu.green_us.common.dto.Greening
-import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.Prize
-import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.data.CertifiedImgs
 import kr.ac.kpu.green_us.databinding.ActivityCertifyGreeningBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.ByteArrayOutputStream
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -61,9 +50,7 @@ import java.util.Locale
 class CertifyGreeningActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCertifyGreeningBinding
-    lateinit var bitmap: Bitmap
     lateinit var uri: Uri
-    var cameraOrGallery: Int = 0
     private lateinit var auth: FirebaseAuth
     private val representImgList = mutableListOf<String>()
     private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
@@ -103,6 +90,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
             //gSeq조회 실패한 경우 예외처리 -> 로그아웃하고 초기화면으로
             Log.e("CertifyGreeningActivity","gSeq 실패")
         }else{
+            viewInit()
             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
             apiService.getGreeningById(gSeq).enqueue(object : Callback<Greening> {
                 override fun onResponse(call: Call<Greening>, response: Response<Greening>) {
@@ -162,8 +150,6 @@ class CertifyGreeningActivity : AppCompatActivity() {
                 }
             })
         }}
-        // 초기화면셋팅
-        viewInit()
 
         // 이전 버튼 클릭
         binding.btnEsc.setOnClickListener {
@@ -258,37 +244,35 @@ class CertifyGreeningActivity : AppCompatActivity() {
     }
 
     private fun viewInit(){
-        // 스탬프영역
-        val list : ArrayList<String> = arrayListOf("0820","0821","0822")
-        binding.stampsLayout.apply {
-            adapter = StampAdapter(list)
-            layoutManager = GridLayoutManager(context,3)
-            setHasFixedSize(true)
-        }
-        // 대표이미지 영역
+
         val layoutAdapter = CertifiedRepresentAdapter(representImgList)
         layoutAdapter.notifyDataSetChanged()
-
 
         val storage = FirebaseStorage.getInstance()
         //certificationImgs경로의 사진들 참조함
         val storageRef = storage.reference.child("certificationImgs/${gSeq}/")
 
         //3개의 사진을 가져와서 각각의 url representImgList에 저장함
-        storageRef.list(3).addOnSuccessListener {
-                listResult -> for (img in listResult.items){
-            img.downloadUrl.addOnSuccessListener { uri ->
-                representImgList.add(uri.toString())
-            }.addOnSuccessListener {// url 가져오기 성공하면 화면에 뷰 어댑팅
-                binding.representImgArea.apply {
-                    layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                    adapter = layoutAdapter
-                    setHasFixedSize(true)
+        storageRef.list(3).addOnSuccessListener { listResult ->
+            if (listResult.items.size == 0) {
+                binding.representImgArea.isGone = true
+                binding.btnMoreLayout.isGone = true
+            }else{
+                for (img in listResult.items){
+                    img.downloadUrl.addOnSuccessListener { uri ->
+                        representImgList.add(uri.toString())
+//                        Log.d("representImgList",representImgList.toString())
+                    }.addOnSuccessListener {// url 가져오기 성공하면 화면에 뷰 어댑팅
+                        // 이미지 3개 불러와서 인증사진 대표 3개에 어댑팅
+                        binding.representImgArea.apply {
+                            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+                            adapter = layoutAdapter
+                            setHasFixedSize(true) //데이터가 나가고 들어올 때 아이템들의 자리만 다시 잡음 -> 비용작업 줄이기
+                        }
+                    }
                 }
             }
         }
-        }
-
         // 대표 인증사진 3개 클릭 리스너
         // 받은 url값을 담아 디테일 액티비티로 보냄
         layoutAdapter.itemClickListener = object :CertifiedRepresentAdapter.OnItemClickListener{
@@ -297,27 +281,6 @@ class CertifyGreeningActivity : AppCompatActivity() {
                 intent.putExtra("imgUrl",url)
                 intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
-            }
-        }
-
-        //3개의 사진을 가져와서 각각의 url representImgList에 저장함
-        storageRef.list(3).addOnSuccessListener { listResult ->
-            if (listResult.items.size == 0){
-                binding.representImgArea.isGone = true
-                binding.btnMoreLayout.isGone = true
-            }else{
-                for (img in listResult.items){
-                    img.downloadUrl.addOnSuccessListener { uri ->
-                        representImgList.add(uri.toString())
-                    }.addOnSuccessListener {// url 가져오기 성공하면 화면에 뷰 어댑팅
-                        // 이미지 3개 불러와서 인증사진 대표 3개에 어댑팅
-                        binding.representImgArea.apply {
-                            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                            adapter = layoutAdapter
-                            setHasFixedSize(true) //데이터가 나가고 들어올 때 아이템들의 자리만 다시 잡음 -> 비용작업 줄이기
-                        }
-                    }
-                }
             }
         }
     }
@@ -544,12 +507,18 @@ class CertifyGreeningActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Certify>>, response: Response<List<Certify>>) {
                 if (response.isSuccessful) {
                     val certifyList = response.body()
-                    if(certifyList != null) { currentCertifyNum = certifyList.size }
-
-                    //여기서 스탬프로 데이터 넘기면 됩니다! List 문제없이 넘어오게 수정했습니다!
-
-                    Log.d("certifyList",certifyList.toString())
-                    Log.d("CertifyGreeningActivity", "인증 정보 불러오기 성공 ")
+                    if(certifyList != null) {
+                        //여기서 스탬프로 데이터 넘기면 됩니다! List 문제없이 넘어오게 수정했습니다!
+                        Log.d("certifyList",certifyList.toString())
+                        Log.d("CertifyGreeningActivity", "인증 정보 불러오기 성공 ")
+                        currentCertifyNum = certifyList.size
+                        // 스탬프영역
+                        binding.stampsLayout.apply {
+                            adapter = StampAdapter(certifyList)
+                            layoutManager = GridLayoutManager(context,3)
+                            setHasFixedSize(true)
+                        }
+                    }
                     callback()
                 } else {
                     Log.e("CertifyGreeningActivity", "인증 정보 불러오기 실패: ${response.code()}")
