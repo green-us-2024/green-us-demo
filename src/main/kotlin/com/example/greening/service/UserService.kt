@@ -19,7 +19,7 @@ class UserService(private val userRepository: UserRepository) {
     }
 
     @Transactional
-    fun updateUser(userSeq: Int, newUser: User) {
+    fun updateUser(userSeq: Int, newUser: User) :User? {
         val existingUser = userRepository.findOne(userSeq)
         if (existingUser != null) {
             // 필드를 직접 업데이트
@@ -38,6 +38,7 @@ class UserService(private val userRepository: UserRepository) {
 //            existingUser.payments = newUser.payments
 
             userRepository.save(existingUser)
+            return existingUser
         } else {
             throw IllegalStateException("회원이 존재하지 않습니다.")
         }

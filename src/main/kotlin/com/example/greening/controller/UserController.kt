@@ -39,8 +39,9 @@ class UserController(private val userService: UserService) {
     }
 
     @PutMapping("/update/{userSeq}")
-    fun updateUser(@PathVariable userSeq:Int, @RequestBody user: User){
-        userService.updateUser(userSeq,user)
+    fun updateUser(@PathVariable userSeq:Int, @RequestBody user: User) : ResponseEntity<User>{
+        val updateUser = userService.updateUser(userSeq,user)
+        return ResponseEntity.ok(updateUser)
     }
 
     @PostMapping("/delete/{userSeq}")
