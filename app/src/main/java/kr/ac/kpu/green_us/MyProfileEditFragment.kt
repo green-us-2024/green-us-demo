@@ -35,6 +35,7 @@ import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMyProfileEditBinding
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.util.Calendar
 
@@ -47,6 +48,10 @@ class MyProfileEditFragment : Fragment() {
     private lateinit var userEmail: String
     private var address = ""
     private lateinit var compltCode : String
+    var user: User? = null
+    lateinit var userAddr:String
+    lateinit var userAddrDetail:String
+
     private val startForProfileImageResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             val resultCode = result.resultCode
@@ -81,43 +86,35 @@ class MyProfileEditFragment : Fragment() {
         binding.userImg.clipToOutline = true
         uploadImgToProfile(uid)
 
-        // 사용자 정보 불러오기
-        val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        retrofitAPI.getUserbyEmail(userEmail).enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: retrofit2.Response<User>) {
-                if(response.isSuccessful){
-                    val userName = response.body()?.userName.toString()
-                    val userPhone = response.body()?.userPhone.toString()
-                    var userPhone1:String = "000"
-                    var userPhone2:String = "0000"
-                    var userPhone3:String = "0000"
-                    if(userPhone.length == 10){
-                        userPhone1 = userPhone.substring(0,2)
-                        userPhone2 = userPhone.substring(2,6)
-                        userPhone3 = userPhone.substring(6 .. userPhone.lastIndex)
-                        binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
-                    }
-                    else if(userPhone.length == 11){
-                        userPhone1 = userPhone.substring(0,3)
-                        userPhone2 = userPhone.substring(3,7)
-                        userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
-                        binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
-                    }
-                    else{
-                        binding.phone2.text = userPhone
-                    }
-                    val userAddr = response.body()?.userAddr.toString()
-
-                    binding.name2.text = userName
-                    binding.email2.text = userEmail
-                    binding.address2.text = userAddr
-                }
+        getUserByEmail{ user ->
+            val userName = user!!.userName.toString()
+            val userPhone = user.userPhone.toString()
+            var userPhone1:String = "000"
+            var userPhone2:String = "0000"
+            var userPhone3:String = "0000"
+            if(userPhone.length == 10){
+                userPhone1 = userPhone.substring(0,2)
+                userPhone2 = userPhone.substring(2,6)
+                userPhone3 = userPhone.substring(6 .. userPhone.lastIndex)
+                binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
             }
-            override fun onFailure(call: Call<User>, t: Throwable) {
-                Log.d("MyProfileActivity","사용자 정보 조회 실패")
+            else if(userPhone.length == 11){
+                userPhone1 = userPhone.substring(0,3)
+                userPhone2 = userPhone.substring(3,7)
+                userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
+                binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
             }
+            else{
+                binding.phone2.text = userPhone
+            }
+            userAddr = user.userAddr.toString()
+            userAddrDetail = user.userAddrDetail.toString()
 
-        })
+            binding.name2.text = userName
+            binding.email2.text = userEmail
+            binding.address2.text = userAddr
+            binding.addressDetail.setText(userAddrDetail)
+        }
 
         // 주소찾기 버튼 클릭 시
         binding.btnSearchAddress.setOnClickListener {
@@ -128,6 +125,7 @@ class MyProfileEditFragment : Fragment() {
             address = bundle.getString("address", "")
             address?.let {
                 binding.address2.setText(it)
+                binding.addressDetail.setText("")
             }
         }
 
@@ -145,12 +143,34 @@ class MyProfileEditFragment : Fragment() {
             // 이미지 바꾸면 업로드함
             if (compltCode == "changed"){
                 imageUpload(uri,uid)
-            }else{
-                // 안 바꾸면 업로드 하지 않고 화면 이동 및 편집 et 보이기
-                (activity as SubActivity).supportFragmentManager.beginTransaction()
-                    .replace(kr.ac.kpu.green_us.R.id.sub_frame,MyProfileFragment()).commit()
-                (activity as SubActivity).hidingEdit("show")
             }
+//            else{
+                // 안 바꾸면 업로드 하지 않고 화면 이동 및 편집 et 보이기
+//                (activity as SubActivity).supportFragmentManager.beginTransaction()
+//                    .replace(kr.ac.kpu.green_us.R.id.sub_frame,MyProfileFragment()).commit()
+//                (activity as SubActivity).hidingEdit("show")
+//            }
+            user!!.userAddr = binding.address2.text.toString()
+            user!!.userAddrDetail = binding.addressDetail.text.toString()
+            Log.d("MyProfileEditFragment", "${user!!.userAddr}, ${user!!.userAddrDetail}")
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.updateUser(user!!.userSeq, user!!).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        Log.d("MyProfileEditFragment", "서버로 데이터 전송 성공")
+
+                    } else {
+                        Log.e("MyProfileEditFragment", "서버로 데이터 전송 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("MyProfileEditFragment", "서버 통신 중 오류 발생", t)
+                }
+            })
+            (activity as SubActivity).changeVisibility()
+            //activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+            (activity as SubActivity).changeFragment()
         }
         return binding.root
     }
@@ -222,6 +242,38 @@ class MyProfileEditFragment : Fragment() {
             Glide.with(this).load(it).into(binding.userImg)
         }.addOnFailureListener {
             Log.d("profileImg","사진 불러오기 실패")
+        }
+    }
+
+    private fun getUserByEmail(callback: (User?) -> Unit) {
+        val currentUser = auth.currentUser
+        val currentEmail = currentUser?.email.toString()
+        Log.d("currentEmail", currentEmail)
+
+        if (currentEmail.isNotEmpty()) {
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        user = response.body()
+                        if (user != null) {
+                            Log.d("MyProfileEditFragment", "회원 찾음 : ${user!!.userSeq}")
+                        } else {
+                            Log.e("MyProfileEditFragment", "회원 못찾음")
+                        }
+                    } else {
+                        Log.e("MyProfileEditFragment", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                    }
+                    callback(user)
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("MyProfileEditFragment", "서버 통신 중 오류 발생", t)
+                    callback(null)
+                }
+            })
+        } else {
+            callback(null)
         }
     }
 }

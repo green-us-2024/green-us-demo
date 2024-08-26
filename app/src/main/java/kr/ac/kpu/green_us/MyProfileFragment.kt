@@ -18,12 +18,14 @@ import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMyProfileBinding
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 
 class MyProfileFragment : Fragment() {
     lateinit var binding:FragmentMyProfileBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var uid: String
     private lateinit var userEmail: String
+    var user: User? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,43 +42,34 @@ class MyProfileFragment : Fragment() {
         binding.userImg.clipToOutline = true
         uploadImgToProfile(uid)
 
-        // 사용자 정보 불러오기
-        val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        retrofitAPI.getUserbyEmail(userEmail).enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: retrofit2.Response<User>) {
-                if(response.isSuccessful){
-                    val userName = response.body()?.userName.toString()
-                    val userPhone = response.body()?.userPhone.toString()
-                    var userPhone1:String = "000"
-                    var userPhone2:String = "0000"
-                    var userPhone3:String = "0000"
-                    if(userPhone.length == 10){
-                        userPhone1 = userPhone.substring(0,2)
-                        userPhone2 = userPhone.substring(2,6)
-                        userPhone3 = userPhone.substring(6 .. userPhone.lastIndex)
-                        binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
-                    }
-                    else if(userPhone.length == 11){
-                        userPhone1 = userPhone.substring(0,3)
-                        userPhone2 = userPhone.substring(3,7)
-                        userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
-                        binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
-                    }
-                    else{
-                        binding.phone2.text = userPhone
-                    }
-                    val userAddr = response.body()?.userAddr.toString()
-
-                    binding.name2.text = userName
-                    binding.email2.text = userEmail
-                    binding.address2.text = userAddr
-                }
+        getUserByEmail{ user ->
+            val userName = user!!.userName.toString()
+            val userPhone = user.userPhone.toString()
+            var userPhone1:String = "000"
+            var userPhone2:String = "0000"
+            var userPhone3:String = "0000"
+            if(userPhone.length == 10){
+                userPhone1 = userPhone.substring(0,2)
+                userPhone2 = userPhone.substring(2,6)
+                userPhone3 = userPhone.substring(6 .. userPhone.lastIndex)
+                binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
             }
-            override fun onFailure(call: Call<User>, t: Throwable) {
-                Log.d("MyProfileActivity","사용자 정보 조회 실패")
+            else if(userPhone.length == 11){
+                userPhone1 = userPhone.substring(0,3)
+                userPhone2 = userPhone.substring(3,7)
+                userPhone3 = userPhone.substring(7 .. userPhone.lastIndex)
+                binding.phone2.text = userPhone1 + "-"+userPhone2 + "-" + userPhone3
             }
+            else{
+                binding.phone2.text = userPhone
+            }
+            val userAddr = user.userAddr.toString()
+            val userAddrDetail = user.userAddrDetail.toString()
 
-        })
+            binding.name2.text = userName
+            binding.email2.text = userEmail
+            binding.address2.text = userAddr + " " + userAddrDetail
+        }
 
         return binding.root
     }
@@ -89,6 +82,38 @@ class MyProfileFragment : Fragment() {
             Glide.with(this).load(it).into(binding.userImg)
         }.addOnFailureListener {
             Log.d("profileImg","사진 불러오기 실패")
+        }
+    }
+
+    private fun getUserByEmail(callback: (User?) -> Unit) {
+        val currentUser = auth.currentUser
+        val currentEmail = currentUser?.email.toString()
+        Log.d("currentEmail", currentEmail)
+
+        if (currentEmail.isNotEmpty()) {
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        user = response.body()
+                        if (user != null) {
+                            Log.d("MyProfileFragment", "회원 찾음 : ${user!!.userSeq}")
+                        } else {
+                            Log.e("MyProfileFragment", "회원 못찾음")
+                        }
+                    } else {
+                        Log.e("MyProfileFragment", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                    }
+                    callback(user)
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("MyProfileFragment", "서버 통신 중 오류 발생", t)
+                    callback(null)
+                }
+            })
+        } else {
+            callback(null)
         }
     }
 
