@@ -20,21 +20,19 @@ import kotlin.math.log
 class PointWithdrawActivity : AppCompatActivity() {
     lateinit var binding: ActivityPointWithdrawBinding
     private val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-    private var userSeq: Int = 0 // userSeq 변수를 선언
-
+    private var userSeq: Int = 0
+    private var currentBalance: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPointWithdrawBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        currentBalance = intent.getIntExtra("currentBalance", 0)
         // 이전 버튼 설정
         binding.btnEsc.setOnClickListener {
-            finish() // 현재 액티비티 종료
+            finish()
         }
-
         // 출금 버튼 설정
         binding.complete.setOnClickListener {
-            // 사용자 정보를 가져온 후 출금 요청
             getUserByEmail { user ->
                 user?.let {
                     userSeq = it.userSeq
@@ -53,11 +51,25 @@ class PointWithdrawActivity : AppCompatActivity() {
         val user = User(userSeq = userSeq)
         if (amountStr.isNotEmpty() && bank.isNotEmpty() && accountHolder.isNotEmpty()) {
             val amount = amountStr.toInt()
-            Log.d("PointWithdrawActivity", "출금 금액: $amount")
+            // 출금액이 5000원 이하이면 출금을 막음
+            if (amount <= 4999) {
+                Toast.makeText(this, "출금액이 5000원 이하일 경우 출금이 불가능합니다.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            // 잔액이 5000원 이하이면 출금을 막음
+            if (currentBalance <= 4999) {
+                Toast.makeText(this, "잔액이 5000원 이하일 경우 출금이 불가능합니다.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            // 출금액이 현재 잔액보다 큰지 확인
+            if (amount > currentBalance) {
+                Toast.makeText(this, "잔액이 부족합니다.", Toast.LENGTH_SHORT).show()
+                return
+            }
 
             val withdraw = Withdraw(
-                withdrawSeq = 0, // 서버에서 자동 생성됨
-                user = user, // 사용자 ID를 설정
+                withdrawSeq = 0,
+                user = user,
                 withdrawContent = "출금 요청 - $bank, $accountHolder",
                 withdrawDate = LocalDate.now().toString(),
                 withdrawAmount = amount

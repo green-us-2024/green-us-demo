@@ -39,9 +39,6 @@ interface RetrofitAPI {
     @GET("/greening/byId/{id}")
     fun getGreeningById(@Path("id") id: Int): Call<Greening>
 
-    @GET("/greening/list")
-    fun getGreening(): Call<List<Greening>>
-
     @GET("/greening/list/do")
     fun getDoGreening(): Call<List<Greening>>
 
@@ -62,6 +59,9 @@ interface RetrofitAPI {
 
     @GET("/participate/GreeningByUserSeq/{userSeq}")
     fun findGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
+
+    @GET("/certify/byUSerEmailAndGSeq/{userEmail}/{gSeq}")
+    fun getCertifyByUserEmailAndGSeq(@Path("userEmail") userEmail: String, @Path("gSeq") gSeq: Int): Call<List<Certify>>
 
     @GET("/participate/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
     fun findPSeqByGSeqAndUserEmail(
@@ -113,6 +113,12 @@ interface RetrofitAPI {
 
     @GET("/prize/list")
     fun getPrizes(): Call<List<Prize>>
+
+    @FormUrlEncoded
+    @POST("/prize/new")
+    fun registerPrize( @Field("userEmail") userEmail:String,
+                       @Field("gSeq") gSeq:Int,
+                       @Field("prizeMoney") prizeMoney:Int): Call<Prize>
 
     @POST("/withdraw/new")
     fun createWithdraw(@Body withdraw: Withdraw) : Call<Withdraw>

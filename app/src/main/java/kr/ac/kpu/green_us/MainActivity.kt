@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager
     private val multiplePermissionsCode = 100
 
-
-
     private val requiredPermissions = arrayOf(
         android.Manifest.permission.CAMERA,
         android.Manifest.permission.READ_MEDIA_IMAGES,
@@ -129,8 +127,7 @@ class MainActivity : AppCompatActivity() {
         manager.beginTransaction().replace(R.id.main_frame,this).commit()
     }
     private fun showInit(){
-        val transaction = manager.beginTransaction()
-            .add(R.id.main_frame,HomeFragment())
-        transaction.commit()
+            val transaction = manager.beginTransaction().add(R.id.main_frame,HomeFragment())
+            transaction.commit()
     }
 }

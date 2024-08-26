@@ -68,7 +68,7 @@ class TabOfHomeFragment : Fragment() {
                     representImgList.add(uri.toString())
                 }.addOnSuccessListener {
                     total_banner_num = representImgList.size
-                    viewAdapter = context?.let { it1 -> HeroAdapter(representImgList, it1) }!!
+                    viewAdapter = HeroAdapter(representImgList)
                     viewAdapter.notifyDataSetChanged()
                     (viewAdapter as HeroAdapter).itemClickListener = object : HeroAdapter.OnItemClickListener{
                         override fun onItemClick(url:String) {
