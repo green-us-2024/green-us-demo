@@ -64,12 +64,24 @@ interface RetrofitAPI {
     @GET("/participate/GreeningByUserSeq/{userSeq}")
     fun findGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
 
+    @GET("/participate/YGreeningByUserSeq/{userSeq}")
+    fun findYGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
+
     @GET("/certify/byUSerEmailAndGSeq/{userEmail}/{gSeq}")
     fun getCertifyByUserEmailAndGSeq(@Path("userEmail") userEmail: String, @Path("gSeq") gSeq: Int): Call<List<Certify>>
 
     @GET("/participate/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
     fun findPSeqByGSeqAndUserEmail(
         @Path("userEmail") userEmail: String,
+        @Path("gSeq") gSeq: Int,
+    ): Call<Int>
+
+    @GET("/participate/byUserSeq/{userSeq}")
+    fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
+
+    @GET("/participate/gSeqByUserAndGreening/{gSeq}/{userSeq}")
+    fun findpSeqByUserSeqAndgSeq(
+        @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int,
     ): Call<Int>
 
@@ -86,15 +98,6 @@ interface RetrofitAPI {
         @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int,
     ): Call<List<Certify>>
-
-    @GET("/participate/byUserSeq/{userSeq}")
-    fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
-
-    @GET("/participate/gSeqByUserAndGreening/{gSeq}/{userSeq}")
-    fun findpSeqByUserSeqAndgSeq(
-        @Path("userSeq") userSeq: Int,
-        @Path("gSeq") gSeq: Int,
-    ): Call<Int>
 
     @FormUrlEncoded
     @POST("/report/new")
