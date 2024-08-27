@@ -67,6 +67,12 @@ class ParticipateController(private val participateService: ParticipateService) 
         return ResponseEntity.ok(greening)
     }
 
+    @GetMapping("/YGreeningByUserSeq/{userSeq}")
+    fun findYGreeningByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Greening>> {
+        val greening = participateService.findYGreeningByUserSeq(userSeq)
+        return ResponseEntity.ok(greening)
+    }
+
     @GetMapping("/gSeqByUserAndGreening/{gSeq}/{userSeq}")
     fun findpSeqByUserSeqAndgSeq(@PathVariable userSeq: Int,@PathVariable gSeq: Int): ResponseEntity<Int> {
         val pSeq = participateService.findPSeqByUserSeqAndgSeq(userSeq,gSeq)
