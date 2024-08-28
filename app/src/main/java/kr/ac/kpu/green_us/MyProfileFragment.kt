@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +39,11 @@ class MyProfileFragment : Fragment() {
         uid = auth.currentUser?.uid.toString()
         userEmail = auth.currentUser?.email.toString()
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         // 현재 사용자 uid에 맞는 프로필 이미지 셋팅
         binding.userImg.clipToOutline = true
         uploadImgToProfile(uid)
@@ -70,15 +76,12 @@ class MyProfileFragment : Fragment() {
             binding.email2.text = userEmail
             binding.address2.text = userAddr + " " + userAddrDetail
         }
-
-        return binding.root
     }
 
     private fun uploadImgToProfile(uid:String){
         val storage = Firebase.storage
-        val storageRef = storage.getReference("profileImgs/${uid}")
-        storageRef.downloadUrl.addOnSuccessListener {
-            Log.d("profileImg",it.toString())
+        val storageRef = storage.getReference("profileImgs/$uid")
+        storageRef.downloadUrl.addOnSuccessListener { it ->
             Glide.with(this).load(it).into(binding.userImg)
         }.addOnFailureListener {
             Log.d("profileImg","사진 불러오기 실패")

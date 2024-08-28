@@ -5,10 +5,14 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.compose.ui.graphics.Color
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.replace
@@ -23,11 +27,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     val manager = supportFragmentManager
     private val multiplePermissionsCode = 100
-
     private val requiredPermissions = arrayOf(
         android.Manifest.permission.CAMERA,
         android.Manifest.permission.READ_MEDIA_IMAGES,
         android.Manifest.permission.ACTIVITY_RECOGNITION)
+//    private val BackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+//        override fun handleOnBackPressed() {
+//            return
+//        }
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
         setContentView(binding.root)
-
+//        BackPressedCallback
         checkPermissions()
 
         showInit() //최초 프래그먼트

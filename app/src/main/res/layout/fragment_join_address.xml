@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_address_detail"
         android:layout_marginTop="60dp"
         android:background="@drawable/button_custom"
-        android:text="다음"
+        android:text="가입하기"
         android:textColor="@color/white"
         android:textStyle="bold"
         />
