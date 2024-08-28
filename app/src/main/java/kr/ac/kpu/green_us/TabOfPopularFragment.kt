@@ -79,8 +79,6 @@ class TabOfPopularFragment : Fragment() {
             override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                 if (response.isSuccessful) {
                     val greeningList = response.body() ?: emptyList()
-
-
                     // 데이터를 어댑터에 설정
                     adapter.updateData(greeningList)
                 } else {

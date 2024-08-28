@@ -89,16 +89,15 @@ class TabOfNewFragment : Fragment() {
                 if (response.isSuccessful) {
                     val greeningList = response.body() ?: emptyList()
 
-                    val selectedGreeningList = greeningList.filter{ greening->
-                        try {
-                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                            (today.isEqual(startDate) ||startDate.isAfter(today))
-                        }catch (e: Exception){
-                            false
-                        }
-                    }
+//                    val selectedGreeningList = greeningList.filter{ greening->
+//                        try {
+//                            val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+//                            (startDate.isAfter(today))
+//                        }catch (e: Exception){
+//                            false
+//                        }
+                    adapter.updateData(greeningList)
                     // 데이터를 어댑터에 설정
-                    adapter.updateData(selectedGreeningList)
                 } else {
                     Log.e("TabOfNewFragment", "Greening 데이터 로딩 실패: ${response.code()}")
                 }
