@@ -60,6 +60,12 @@ class CertifyService(
 
     @Transactional
     fun deleteCertify(certifySeq: Int) {
+        //관리자가 인증을 삭제하는 경우 -> 신고를 처리하는 경우
+        val certify = certifyRepository.findById(certifySeq).orElse(null)
+        if (certify != null) {
+            certify.pSeq?.let { participateService.warnedParticipation(it) } //참여횟수 -1
+            certify.user?.let { userService.updateUserWCount(it.userSeq) } // 회원 경고횟수 +1
+        }
         certifyRepository.deleteById(certifySeq)
     }
 

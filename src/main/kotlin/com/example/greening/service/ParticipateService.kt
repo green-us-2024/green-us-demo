@@ -42,6 +42,26 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
         }
     }
 
+    @Transactional
+    fun warnedParticipation(pSeq: Int) {
+        val existingParticipate = if(pSeq > -1)participateRepository.findById(pSeq).orElse(null) else null
+        if(existingParticipate != null ) {
+            if (existingParticipate.pCount!! > 0) {
+                existingParticipate.pCount = existingParticipate.pCount!! - 1
+                if (existingParticipate.greening!!.gNumber!! == existingParticipate.pCount!!) {
+                    existingParticipate.pComplete = "Y"
+                }else if (existingParticipate.greening!!.gNumber!! > existingParticipate.pCount!!) {
+                    existingParticipate.pComplete = "N"
+                }
+                participateRepository.save(existingParticipate)
+            } else {
+                existingParticipate.pCount = 0
+                participateRepository.save(existingParticipate)
+            }
+        }else{
+            throw IllegalStateException("참여가 존재하지 않습니다.")
+        }
+    }
 
     @Transactional
     fun deleteParticipate(pSeq: Int) {

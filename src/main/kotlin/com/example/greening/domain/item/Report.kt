@@ -12,7 +12,7 @@ open class Report(
         @Column(name = "report_seq")
         var reportSeq: Int = 0,
 
-        @OneToOne
+        @OneToOne(cascade = [CascadeType.REMOVE])
         @JoinColumn(name = "certify_seq", referencedColumnName = "certify_seq")
         @JsonBackReference(value = "report-certify")
         var certify: Certify? = null,
@@ -22,5 +22,4 @@ open class Report(
 
         @Column(name = "report_result")
         var reportResult: String? = "신고접수"
-        // "신고접수" or "처리완료"
 )

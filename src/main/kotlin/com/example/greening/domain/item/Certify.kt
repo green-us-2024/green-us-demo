@@ -33,7 +33,7 @@ open class Certify (
         var pSeq:Int? = null,
 
         @JsonManagedReference(value = "report-certify")
-        @OneToOne(mappedBy = "certify")
+        @OneToOne(mappedBy = "certify", cascade = [CascadeType.REMOVE])
         var report: Report? = null
 
 )
