@@ -38,6 +38,7 @@ class MyGreenEndMoreAdapter() :
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
+        var tvUtil: TextView = view.findViewById(R.id.tv_util)
 //        init{
 //            view.setOnClickListener{ itemClickListener?.onItemClick() }
 //        }
@@ -89,6 +90,7 @@ class MyGreenEndMoreAdapter() :
         ref.downloadUrl.addOnSuccessListener {
                 uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
         }
+        holder.tvUtil.visibility = View.GONE
         holder.title.text = greening.gName ?: ""
         holder.deadLine.text = deadLind
         //holder.deadLineLayout
