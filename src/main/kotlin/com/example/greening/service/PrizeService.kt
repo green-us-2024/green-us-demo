@@ -27,6 +27,7 @@ class PrizeService(private val prizeRepository: PrizeRepository,
                         user = user,
                         greening = greening,
                         participate = participate,
+                        prizeName = greening.gName,
                         prizeDate = LocalDate.now(),
                         prizeMoney = prizeMoney)
                 return prizeRepository.save(prize)

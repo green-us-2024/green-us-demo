@@ -14,6 +14,9 @@ open class Prize(
         @Column(name = "prize_seq")
         var prizeSeq: Int = 0,
 
+        @Column(name = "prize_name")
+        var prizeName: String? = null,
+
         @Column(name = "prize_money")
         var prizeMoney: Int? = null,
 
