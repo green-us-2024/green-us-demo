@@ -90,7 +90,7 @@ class GreeningRepository {
 
     fun findNewGreen(): List<Greening> {
         return try {
-            em.createQuery("select g from Greening g order by g.gSeq desc", Greening::class.java).resultList
+            em.createQuery("select g from Greening g where g.gStartDate > CURRENT_DATE order by g.gSeq desc", Greening::class.java).resultList
         }catch(e: Exception){
             emptyList()
         }
