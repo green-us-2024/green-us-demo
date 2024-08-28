@@ -13,7 +13,13 @@ import androidx.fragment.app.setFragmentResultListener
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Users
 import kr.ac.kpu.green_us.databinding.FragmentJoinAddressBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,27 +87,40 @@ class JoinAddressFragment : Fragment() {
                 }
             }
         })
-        //다음버튼 클릭시
+        //가입하기 버튼 클릭시
         binding.btnToJoinComplt.setOnClickListener {
-            // 이메일, 휴대폰 인증, 이름받기 성공하면 파이어베이스에 신규 사용자 생성
-            createUser(email,pw)
-            val bundle3 = Bundle()
-            bundle3.putString("email", email)
-            bundle3.putString("pw", pw)
-            bundle3.putString("phone", phoneNumber)
-            bundle3.putString("name", name)
-            bundle3.putString("address", address)
-            bundle3.putString("address_detail", address_detail)
-            val joinLast = JoinCompltFragment()
-            joinLast.arguments = bundle3
-            parentFragmentManager.beginTransaction().replace(R.id.join_container, joinLast).addToBackStack(null).commit()
+            // db로 정보 넘겨서 저장
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+//            val user = Users(email, pw, name,phoneNumber,"$address $address_detail")
+            val user = Users(email, pw, name,phoneNumber,address, address_detail)
+            apiService.registerUser(user).enqueue(object : Callback<Users> {
+                override fun onResponse(call: Call<Users>, response: Response<Users>) {
+                    if (response.isSuccessful) {
+                        Log.d("JoinAddressFragment", "서버로 데이터 전송 성공")
+                        createUser(email,pw)
+                        val bundle3 = Bundle()
+                        bundle3.putString("name", name)
+                        val joinLast = JoinCompltFragment()
+                        joinLast.arguments = bundle3
+                        parentFragmentManager.beginTransaction().replace(R.id.join_container, joinLast).addToBackStack(null).commit()
+                    } else {
+                        Log.e("JoinAddressFragment", "서버로 데이터 전송 실패")
+                        // 실패 처리 로직
+                    }
+                }
+
+                override fun onFailure(call: Call<Users>, t: Throwable) {
+                    Log.e("JoinCompltFragment", "서버 통신 중 오류 발생", t)
+                    // 실패 처리 로직
+                }
+            })
         }
         //이전
         binding.btnEsc.setOnClickListener{
             parentFragmentManager.popBackStack()
         }
     }
-    private fun createUser(userEmail:String,userPw:String){
+    private fun createUser(email:String,pw:String){
         auth.createUserWithEmailAndPassword(email, pw)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {

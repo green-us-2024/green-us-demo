@@ -54,7 +54,7 @@ class MyGreenEndFragment : Fragment() {
         getUserByEmail { user ->
             if (user != null) {
                 val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-                apiService.findGreeningByUserSeq(user.userSeq).enqueue(object : Callback<List<Greening>> {
+                apiService.findYGreeningByUserSeq(user.userSeq).enqueue(object : Callback<List<Greening>> {
                     override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                         if (response.isSuccessful) {
                             val greeningList = response.body() ?: emptyList()
@@ -69,8 +69,13 @@ class MyGreenEndFragment : Fragment() {
                             if(selectedGreeningList.isNotEmpty()){
                                 showDataView()
                             }
+                            binding.endGreenNum.text = greeningList.size.toString()
                             Log.d("MyGreenEndFragment", "Greening Size : ${greeningList.size} -> ${selectedGreeningList.size}")
                             setupRecyclerView(selectedGreeningList)
+
+                            selectedGreeningList.forEachIndexed { index, participate ->
+                                Log.d("MyGreenEndFragment", "Participate $index: ${participate.toString()}")
+                            }
                         } else {
                             Log.e("MyGreenEndFragment", "Greening 데이터 로딩 실패: ${response.code()}")
                             showNoDataView()

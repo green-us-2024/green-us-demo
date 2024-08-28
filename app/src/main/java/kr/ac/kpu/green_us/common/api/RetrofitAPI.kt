@@ -19,6 +19,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 import java.time.LocalDateTime
@@ -32,6 +33,9 @@ interface RetrofitAPI {
 
     @GET("/users/seqByEmail/{email}")
     fun getUserSeqByEmail(@Path("email") email: String): Call<Int>
+
+    @PUT("/users/update/{userSeq}")
+    fun updateUser(@Path("userSeq") userSeq: Int, @Body user: User): Call<User>
 
     @POST("/greening/new")
     fun registerGreening(@Body greening: Greening): Call<Greening>
@@ -60,12 +64,24 @@ interface RetrofitAPI {
     @GET("/participate/GreeningByUserSeq/{userSeq}")
     fun findGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
 
+    @GET("/participate/YGreeningByUserSeq/{userSeq}")
+    fun findYGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
+
     @GET("/certify/byUSerEmailAndGSeq/{userEmail}/{gSeq}")
     fun getCertifyByUserEmailAndGSeq(@Path("userEmail") userEmail: String, @Path("gSeq") gSeq: Int): Call<List<Certify>>
 
     @GET("/participate/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
     fun findPSeqByGSeqAndUserEmail(
         @Path("userEmail") userEmail: String,
+        @Path("gSeq") gSeq: Int,
+    ): Call<Int>
+
+    @GET("/participate/byUserSeq/{userSeq}")
+    fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
+
+    @GET("/participate/gSeqByUserAndGreening/{gSeq}/{userSeq}")
+    fun findpSeqByUserSeqAndgSeq(
+        @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int,
     ): Call<Int>
 
@@ -82,15 +98,6 @@ interface RetrofitAPI {
         @Path("userSeq") userSeq: Int,
         @Path("gSeq") gSeq: Int,
     ): Call<List<Certify>>
-
-    @GET("/participate/byUserSeq/{userSeq}")
-    fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
-
-    @GET("/participate/gSeqByUserAndGreening/{gSeq}/{userSeq}")
-    fun findpSeqByUserSeqAndgSeq(
-        @Path("userSeq") userSeq: Int,
-        @Path("gSeq") gSeq: Int,
-    ): Call<Int>
 
     @FormUrlEncoded
     @POST("/report/new")

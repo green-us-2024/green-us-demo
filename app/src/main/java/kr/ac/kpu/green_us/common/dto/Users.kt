@@ -9,6 +9,7 @@ data class Users(
     @SerializedName("userPwd") val userPwd : String,
     @SerializedName("userName") val userName: String,
     @SerializedName("userPhone") val userPhone: String,
-    @SerializedName("userAddr") val userAddr: String
+    @SerializedName("userAddr") val userAddr: String,
+    @SerializedName("userAddrDetail") val userAddrDetail: String,
 //    @SerializedName("userAccount") val userAccount: String
 )

@@ -8,8 +8,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -18,6 +21,11 @@ import kr.ac.kpu.green_us.databinding.ActivityLoginBinding
 // 로그인 화면 - 이메일, 비밀번호 입력, 자동로그인 지원, 이메일 찾기, 비밀번호 찾기, 회원가입 화면으로 이동 가능
 class LoginActivity: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private val BackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            isEnabled = false
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -25,16 +33,10 @@ class LoginActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         auth = Firebase.auth
-//        val user = Firebase.auth.currentUser
-//        user?.let {
-//            // Name, email address, and profile photo Url
-//            val email = it.email.toString()
-////            Log.d("useremail",email)
-//            // Check if user's email is verified
-//            val emailVerified = it.isEmailVerified.toString()
-////            Log.d("useremail",emailVerified)
-//
-//        }
+
+        // 휴대폰 이전 버튼
+        onBackPressedDispatcher.addCallback(this, BackPressedCallback)
+
         // 진입시 자동로그인버튼 초기화
         btnAutoInit()
 

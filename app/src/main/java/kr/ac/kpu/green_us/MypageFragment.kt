@@ -1,6 +1,7 @@
 package kr.ac.kpu.green_us
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -96,14 +97,14 @@ class MypageFragment : Fragment() {
         binding.logout.setOnClickListener {
             auth.signOut()
             val intent = Intent(getActivity(), LoginActivity::class.java)
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP )
             startActivity(intent)
         }
 
     }
     private fun uploadImgToProfile(uid:String){
         val storage = Firebase.storage
-        val storageRef = storage.getReference("profileImgs/${uid}")
+        val storageRef = storage.getReference("profileImgs/$uid")
         storageRef.downloadUrl.addOnSuccessListener {
             Glide.with(this).load(it).into(binding.userImg)
         }.addOnFailureListener {

@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
 import kr.ac.kpu.green_us.databinding.ActivitySubBinding
 
 
@@ -25,16 +27,23 @@ class SubActivity : AppCompatActivity() {
         // 이전버튼
         binding.btnEsc.setOnClickListener {
             if(binding.subject.text == "프로필관리" && binding.edit.visibility == View.GONE){
+//                binding.edit.visibility = View.VISIBLE
 //                manager?.beginTransaction()?.remove(MyProfileEditFragment())?.commit()
                 MyProfileFragment().changeFragment()
                 hidingEdit("show")
+            }
+            else if (binding.subject.text =="프로필관리" && binding.edit.isVisible){
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("key3","mypage")
+                startActivity(intent)
+                this.finishAffinity()
             }
             else{
                 finish()
             }
         }
-
-//        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
+        // 휴대폰 이전 버튼
+        onBackPressedDispatcher.addCallback(this, profileBackPressedCallback)
 
         // 0 진행중 그리닝 전체보기
         val value0 = intent.getStringExtra("0")
@@ -72,14 +81,9 @@ class SubActivity : AppCompatActivity() {
             binding.subject.text = "프로필관리"
             binding.edit.visibility = View.VISIBLE
             binding.edit.setOnClickListener {
+//                binding.edit.visibility = View.GONE
                 MyProfileEditFragment().changeFragment()
                 hidingEdit("hide")
-            }
-            binding.btnEsc.setOnClickListener {
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("key3","mypage")
-                startActivity(intent)
-                this.finishAffinity()
             }
             MyProfileFragment().changeFragment()
         }
@@ -133,28 +137,36 @@ class SubActivity : AppCompatActivity() {
         }
 
     }
-
-//    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-//        override fun handleOnBackPressed() {
-//            isEnabled = false // 콜백 비활성화 -> 뒤로가기가 한 번만 실행되도록
-//            if(binding.subject.text == "프로필관리" && binding.edit.visibility == View.GONE){
-//                binding.edit.visibility = View.VISIBLE
-//                manager?.beginTransaction()?.remove(MyProfileEditFragment())?.commit()
-//                MyProfileFragment().changeFragment()
-//            }
-//            else{
-//                finish()
-//            }
-//        }
-//    }
+    private val profileBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            // 프로필 편집화면일 경우
+            if(binding.subject.text == "프로필관리" && binding.edit.visibility == View.GONE){
+                MyProfileFragment().changeFragment()
+                hidingEdit("show")
+            }
+            // 프로필 화면일 경우
+            else if (binding.subject.text =="프로필관리" && binding.edit.isVisible){
+                val intent = Intent(this@SubActivity,MainActivity::class.java)
+                intent.putExtra("key3","mypage")
+                startActivity(intent)
+                this@SubActivity.finishAffinity()
+            }
+            // 다른경우
+            else{
+               finish()
+            }
+        }
+    }
 
     fun Fragment.changeFragment(){
         manager.beginTransaction().replace(R.id.sub_frame,this).commit()
     }
 
-    private fun Fragment.addFragment(){
-        manager.beginTransaction().add(R.id.sub_frame,this).commit()
+    fun changeFragment(){
+//        manager.beginTransaction().remove(MyProfileEditFragment()).add(R.id.sub_frame,MyProfileFragment()).commit()
+        manager.beginTransaction().replace(R.id.sub_frame,MyProfileFragment()).commit()
     }
+
 
     fun changeVisibility(){
         binding.edit.visibility = View.VISIBLE

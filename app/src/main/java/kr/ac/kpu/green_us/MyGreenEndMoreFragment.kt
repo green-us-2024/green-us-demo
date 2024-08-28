@@ -46,8 +46,7 @@ class MyGreenEndMoreFragment : Fragment() {
         getUserByEmail { user ->
             if (user != null) {
                 val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-                apiService.findGreeningByUserSeq(user.userSeq).enqueue(object :
-                    Callback<List<Greening>> {
+                apiService.findYGreeningByUserSeq(user.userSeq).enqueue(object : Callback<List<Greening>> {
                     override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
                         if (response.isSuccessful) {
                             val greeningList = response.body() ?: emptyList()
@@ -58,9 +57,13 @@ class MyGreenEndMoreFragment : Fragment() {
                                 } catch (e: Exception) {
                                     false
                                 }
-                            }
+                            }.shuffled().take(4)
                             Log.d("MyGreenEndMoreFragment", "Greening Size : ${greeningList.size} -> ${selectedGreeningList.size}")
                             setupRecyclerView(selectedGreeningList)
+
+                            selectedGreeningList.forEachIndexed { index, participate ->
+                                Log.d("MyGreenEndMoreFragment", "Participate $index: ${participate.toString()}")
+                            }
                         } else {
                             Log.e("MyGreenEndMoreFragment", "Greening 데이터 로딩 실패: ${response.code()}")
                         }
@@ -71,9 +74,9 @@ class MyGreenEndMoreFragment : Fragment() {
                     }
                 })
             } else {
+                Log.d("MyGreenEndMoreFragment", "회원 정보 없음")
             }
         }
-
 
         return binding.root
     }
