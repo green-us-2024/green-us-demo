@@ -1,6 +1,8 @@
 package com.example.greening.controller
 
+import com.example.greening.domain.item.Greening
 import com.example.greening.domain.item.Review
+import com.example.greening.domain.item.User
 import com.example.greening.service.ReviewService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -50,6 +52,30 @@ class ReviewController(private val reviewService: ReviewService) {
     @GetMapping("/byUserSeq/{userSeq}")
     fun getReviewByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Review>> {
         val review = reviewService.findByUserSeq(userSeq)
+        return ResponseEntity.ok(review)
+    }
+
+    @GetMapping("/byReviewSeq/{reviewSeq}")
+    fun getUserByReviewSeq(@PathVariable reviewSeq: Int): ResponseEntity<User> {
+        val user = reviewService.findByReviewSeq(reviewSeq)
+        return ResponseEntity.ok(user)
+    }
+
+    @GetMapping("/greeningByReviewSeq/{reviewSeq}")
+    fun getGreeningByReviewSeq(@PathVariable reviewSeq: Int): ResponseEntity<Greening> {
+        val greening = reviewService.findGreeningByReviewSeq(reviewSeq)
+        return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/greeningbyUserSeq/{userSeq}")
+    fun getMyReviewGreeningByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Greening>> {
+        val greening = reviewService.findMyReviewGreeningByUserSeq(userSeq)
+        return ResponseEntity.ok(greening)
+    }
+
+    @GetMapping("/byUserSeqAndGreening/{gSeq}/{userSeq}")
+    fun getReviewByUserSeqAndgSeq(@PathVariable userSeq: Int, @PathVariable gSeq: Int): ResponseEntity<Review> {
+        val review = reviewService.findByUserSeqAndgSeq(userSeq, gSeq)
         return ResponseEntity.ok(review)
     }
 

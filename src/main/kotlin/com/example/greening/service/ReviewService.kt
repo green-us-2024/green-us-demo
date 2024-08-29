@@ -1,6 +1,8 @@
 package com.example.greening.service
 
+import com.example.greening.domain.item.Greening
 import com.example.greening.domain.item.Review
+import com.example.greening.domain.item.User
 import com.example.greening.repository.GreeningRepository
 import com.example.greening.repository.ReviewRepository
 import com.example.greening.repository.UserRepository
@@ -65,5 +67,21 @@ class ReviewService(private val reviewRepository: ReviewRepository, private val 
 
     fun findByUserSeq(userSeq: Int): List<Review> {
         return reviewRepository.findByUser(userSeq)
+    }
+
+    fun findByReviewSeq(reviewSeq: Int): User? {
+        return reviewRepository.findByReview(reviewSeq)
+    }
+
+    fun findGreeningByReviewSeq(reviewSeq: Int): Greening? {
+        return reviewRepository.findGreeningByReview(reviewSeq)
+    }
+
+    fun findByUserSeqAndgSeq(userSeq: Int, gSeq: Int): Review? {
+        return reviewRepository.findByUserAndgSeq(userSeq, gSeq)
+    }
+
+    fun findMyReviewGreeningByUserSeq(userSeq: Int): List<Greening> {
+        return reviewRepository.findMyReviewGreeningByUserSeq(userSeq)
     }
 }
