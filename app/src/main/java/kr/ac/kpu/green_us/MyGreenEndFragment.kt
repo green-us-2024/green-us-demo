@@ -18,6 +18,7 @@ import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Participate
+import kr.ac.kpu.green_us.common.dto.Prize
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenEndBinding
 import retrofit2.Call
@@ -33,6 +34,7 @@ class MyGreenEndFragment : Fragment() {
     lateinit var viewAdapter: RecyclerView.Adapter<*>
     lateinit var viewManager: RecyclerView.LayoutManager
     var greenExist = true // 데이터에 따라 달라지게
+    private var allPrizes: List<Prize> = emptyList()
 
     lateinit var auth: FirebaseAuth
     var user : User? = null
@@ -53,6 +55,9 @@ class MyGreenEndFragment : Fragment() {
         // 데이터 가져오기
         getUserByEmail { user ->
             if (user != null) {
+                // API 호출
+                fetchPrizes()
+
                 val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
                 apiService.findYGreeningByUserSeq(user.userSeq).enqueue(object : Callback<List<Greening>> {
                     override fun onResponse(call: Call<List<Greening>>, response: Response<List<Greening>>) {
@@ -170,5 +175,27 @@ class MyGreenEndFragment : Fragment() {
         binding.endGreeningStatistics.visibility = View.VISIBLE
         binding.endGreenCnt.visibility = View.VISIBLE
         binding.totalPoint.visibility = View.VISIBLE
+    }
+
+    private fun fetchPrizes() {
+        val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        retrofitAPI.getPrizeByUserSeq(user!!.userSeq).enqueue(object : Callback<List<Prize>> {
+            override fun onResponse(call: Call<List<Prize>>, response: Response<List<Prize>>) {
+                if (response.isSuccessful) {
+                    allPrizes = response.body() ?: emptyList()
+                    binding.totalPointNum.text = allPrizes.sumOf { it.prizeMoney ?: 0 }.toString()
+                    Log.d(
+                        "PointActivity",
+                        "총 포인트: ${allPrizes.sumOf { it.prizeMoney ?: 0 }}"
+                    )
+                } else {
+                    Log.d("PointActivity", "API 응답 실패: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Prize>>, t: Throwable) {
+                Log.d("PointActivity", "API 호출 실패: ${t.message}")
+            }
+        })
     }
 }

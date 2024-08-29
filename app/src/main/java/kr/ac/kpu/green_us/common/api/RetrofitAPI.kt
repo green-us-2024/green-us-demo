@@ -67,9 +67,6 @@ interface RetrofitAPI {
     @GET("/participate/YGreeningByUserSeq/{userSeq}")
     fun findYGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
 
-    @GET("/certify/byUSerEmailAndGSeq/{userEmail}/{gSeq}")
-    fun getCertifyByUserEmailAndGSeq(@Path("userEmail") userEmail: String, @Path("gSeq") gSeq: Int): Call<List<Certify>>
-
     @GET("/participate/ByUserEmailAndGSeq/{gSeq}/{userEmail}")
     fun findPSeqByGSeqAndUserEmail(
         @Path("userEmail") userEmail: String,
@@ -99,6 +96,9 @@ interface RetrofitAPI {
         @Path("gSeq") gSeq: Int,
     ): Call<List<Certify>>
 
+    @GET("/certify/byUSerEmailAndGSeq/{userEmail}/{gSeq}")
+    fun getCertifyByUserEmailAndGSeq(@Path("userEmail") userEmail: String, @Path("gSeq") gSeq: Int): Call<List<Certify>>
+
     @FormUrlEncoded
     @POST("/report/new")
     fun registerReport(
@@ -118,8 +118,29 @@ interface RetrofitAPI {
     @POST("/review/new")
     fun createReview(@Body review: Review): Call<Review>
 
+    @GET("/review/greeningbyUserSeq/{userSeq}")
+    fun getMyReviewGreeningByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Greening>>
+
+    @DELETE("/review/delete/{reviewSeq}")
+    fun deleteReview(@Path("reviewSeq") reviewSeq: Int) : Call<Void>
+
+    @GET("/review/byUserSeqAndGreening/{gSeq}/{userSeq}")
+    fun getReviewByUserSeqAndgSeq(@Path("userSeq") userSeq: Int, @Path("gSeq") gSeq: Int): Call<Review>
+
+    @GET("/review/bygSeq/{gSeq}")
+    fun getReviewByGreeningSeq(@Path("gSeq") gSeq: Int): Call<List<Review>>
+
+    @GET("/review/byReviewSeq/{reviewSeq}")
+    fun getUserByReviewSeq(@Path("reviewSeq") reviewSeq: Int): Call<User>
+
+    @GET("/review/greeningByReviewSeq/{reviewSeq}")
+    fun getGreeningByReviewSeq(@Path("reviewSeq") reviewSeq: Int): Call<Greening>
+
     @GET("/prize/list")
     fun getPrizes(): Call<List<Prize>>
+
+    @GET("/prize/byUserSeq/{userSeq}")
+    fun getPrizeByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Prize>>
 
     @FormUrlEncoded
     @POST("/prize/new")

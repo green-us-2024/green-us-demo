@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kr.ac.kpu.green_us.adapter.MyReviewAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Review
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.ActivityMyReviewBinding
@@ -34,19 +35,23 @@ class MyReviewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        //val gSeq = intent.getStringExtra("gSeq")!!.toInt()
+        //setupRecyclerView(mutableListOf()) // 리뷰 작성 -> 내리뷰 이동 시 데이터 업데이트
 
         // 데이터 가져오기
-/*        getUserByEmail { user ->
+        getUserByEmail { user ->
             if (user != null) {
-                val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-
                 // 1. review 데이터 가져오기
+                val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
                 apiService.getReviewByUserSeq(user.userSeq).enqueue(object :
                     Callback<List<Review>> {
                     override fun onResponse(call: Call<List<Review>>, response: Response<List<Review>>) {
                         if (response.isSuccessful) {
-                            var reviewList = response.body() ?: emptyList()
-                            setupReviewRecyclerViews(reviewList)
+                            var reviewList:MutableList<Review>? = response.body()?.toMutableList() ?: mutableListOf<Review>()
+                            reviewList?.forEachIndexed { index, review ->
+                                Log.d("MyReviewActivity", "reviewList $index: ${review.toString()}")
+                            }
+                            setupRecyclerView(reviewList!!)
                         } else {
                             Log.e("MyReviewActivity", "Review 데이터 로딩 실패: ${response.code()}")
                         }
@@ -56,19 +61,10 @@ class MyReviewActivity : AppCompatActivity() {
                         Log.e("MyReviewActivity", "서버 통신 중 오류 발생", t)
                     }
                 })
+
             } else {
                 Log.d("MyReviewActivity", "사용자의 리뷰를 확인할 수 없음")
             }
-        }*/
-
-        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        viewAdapter = MyReviewAdapter()
-        recyclerView = findViewById<RecyclerView>(R.id.recyclerview_review).apply {
-            setHasFixedSize(true)
-            suppressLayout(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-
         }
 
         // 이전버튼
@@ -89,6 +85,20 @@ class MyReviewActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun setupRecyclerView(reviewList: MutableList<Review>) {
+        viewManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        viewAdapter = MyReviewAdapter(reviewList)
+        recyclerView = findViewById<RecyclerView>(R.id.recyclerview_review).apply {
+            setHasFixedSize(true)
+            suppressLayout(true)
+            layoutManager = viewManager
+            adapter = viewAdapter
+
+        }
+
+        (viewAdapter as MyReviewAdapter).updateData(reviewList)
     }
 
     private fun getUserByEmail(callback: (User?) -> Unit) {
