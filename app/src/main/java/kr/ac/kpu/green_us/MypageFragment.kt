@@ -21,7 +21,7 @@ import retrofit2.Callback
 import retrofit2.Call
 
 // 마이페이지 - 포인트, 개설하기, 내리뷰, 프로필관리, 공지사항, FAQ, 고객센터 화면으로 이동 가능
-class MypageFragment : Fragment() {
+class MypageFragment : Fragment(),ReportDialogInterface {
     private lateinit var auth: FirebaseAuth
     private lateinit var uid: String
     private lateinit var userEmail: String
@@ -100,7 +100,21 @@ class MypageFragment : Fragment() {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP )
             startActivity(intent)
         }
+        // 회원탈퇴
+        binding.quit.setOnClickListener {
+            showDialog()
+        }
 
+    }
+    // 탈퇴 다이얼로그 띄우기
+    private fun showDialog(){
+        val dialog = ReportDialog(this,"quit")
+        dialog.isCancelable = false //다이얼로그 띄워진동안 클릭 막기
+        this.let { dialog.show(it.parentFragmentManager,"ReportDialog") }
+    }
+    // 다이얼로그에서 탈퇴버튼 클릭시
+    override fun ontYesButton() {
+        // 여기에 탈퇴처리
     }
     private fun uploadImgToProfile(uid:String){
         val storage = Firebase.storage

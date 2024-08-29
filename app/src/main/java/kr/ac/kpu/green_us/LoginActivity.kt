@@ -21,9 +21,15 @@ import kr.ac.kpu.green_us.databinding.ActivityLoginBinding
 // 로그인 화면 - 이메일, 비밀번호 입력, 자동로그인 지원, 이메일 찾기, 비밀번호 찾기, 회원가입 화면으로 이동 가능
 class LoginActivity: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private var lastBackPressedTime = 0L
     private val BackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
-            isEnabled = false
+            if (lastBackPressedTime > System.currentTimeMillis() - 1500 ){
+                this@LoginActivity.finishAffinity()
+            }else{
+                Toast.makeText(this@LoginActivity,"앱을 종료하려면 뒤로 가기를 한 번 더 눌러주세요",Toast.LENGTH_SHORT).show()
+                lastBackPressedTime = System.currentTimeMillis()
+            }
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {

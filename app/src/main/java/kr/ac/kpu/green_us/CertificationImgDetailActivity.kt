@@ -121,12 +121,12 @@ class CertificationImgDetailActivity : AppCompatActivity(),ReportDialogInterface
     }
     // 신고 다이얼로그 띄우기
     private fun showDialog(){
-        val dialog = ReportDialog(this)
+        val dialog = ReportDialog(this,"report")
         dialog.isCancelable = false //다이얼로그 띄워진동안 클릭 막기
         this.let { dialog.show(it.supportFragmentManager,"ReportDialog") }
     }
     // 다이얼로그에서 신고버튼 클릭시
-    override fun onReportYesButton() {
+    override fun ontYesButton() {
         searchUrlUid(url)
     }
 

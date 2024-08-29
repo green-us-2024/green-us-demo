@@ -135,7 +135,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                             if (address.size != 0) {
                                 // (반환 값에서) 전체 주소 중 첫번째 값만 사용하여 한국어 주소로 변환하러 간다
                                 filterAddress(address[0].getAddressLine(0))
-//                                println("address -> {$address}")
+                                println("address -> {$address}")
                             }
                         }
                     } else { // API 레벨이 33 미만인 경우
@@ -245,14 +245,17 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 val crawlingURL = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=$address"
                 val doc = Jsoup.connect(crawlingURL).get()
                 val elements: Elements = doc.select("li.VLTHu.JJ4Cd")
+
                 elements.forEach { element ->
-                    val closed = element.select("div.Gvf9B span:nth-child(2)").text()
+                   val closed = element.select("div.Gvf9B span:nth-child(2)").text()
+                    val type = closed.javaClass
+                    println("closedType ->  {$type}")
                     println("closed -> {$closed}")
-                    if (closed.isNotEmpty()) {
-                        val data = MarketTime(closed)
-                        timeList.add(data)
-                    } else { // 웹크롤링으로도 정보가 없는 것은 "정보없음"으로 저장함
+                    if (closed.isNullOrEmpty()) { // 웹크롤링으로도 정보가 없는 것은 "정보없음"으로 저장함
                         val data = MarketTime("정보없음")
+                        timeList.add(data)
+                    } else { 
+                        val data = MarketTime(closed)
                         timeList.add(data)
                     }
                 }

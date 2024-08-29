@@ -103,17 +103,6 @@ class SubActivity : AppCompatActivity() {
 
         // 9 내주변
 
-        // 10 히어로섹션
-        val value10 = intent.getStringExtra("10")
-        if(value10 == "hero_detail"){
-            binding.subject.setText(value10)
-            val value10_0 = intent.getIntExtra("10_num",0)
-            var bundle = Bundle()
-            bundle.putInt("img_num", value10_0)
-            val fm = HeroSectionDetailFragment() //프래그먼트 선언
-            fm.arguments = bundle //fragment의 arguments에 데이터를 담은 bundle을 넘겨줌
-            fm.changeFragment()
-        }
 
         // 11 구매형 그리닝 전체보기
         val value11 = intent.getStringExtra("11")
