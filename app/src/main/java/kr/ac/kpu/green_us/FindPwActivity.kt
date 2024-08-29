@@ -2,9 +2,15 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kr.ac.kpu.green_us.databinding.ActivityFindPwBinding
 
 // 비밀번호 찾기 - 이메일 입력 시 비밀번호 바꾸는 메일 전송
@@ -53,8 +59,27 @@ class FindPwActivity : AppCompatActivity() {
             }
         })
         
-        binding.sendEmail.setOnClickListener { 
-            binding.showText.setText("메일이 전송되었습니다")
+        binding.sendEmail.setOnClickListener {
+            val email = binding.email.getText().toString().trim()
+            if(email.isNotEmpty()){
+                Firebase.auth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Log.d("FindPwActivity", "비밀번호 재설정 Email 전송완료.")
+                            binding.showText.setText("메일이 전송되었습니다")
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                // 5초 뒤 이전 화면으로
+                                finish()
+                            }, 5000)
+                        }else{
+                            Log.e("FindPwActivity", "비밀번호 재설정 Email 전송 실패.")
+                            Toast.makeText(this, "회원을 찾을 수 없습니다", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }else{
+                Toast.makeText(this, "회원을 찾을 수 없습니다", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
         }
 
     }
