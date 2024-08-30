@@ -53,7 +53,7 @@ class MyReviewWriteFragment : Fragment() {
         gSeq = (activity as SubActivity).gSeqCheck()
 
         getUserByEmail()
-/*
+
         if(gSeq <= -1){
             //gSeq조회 실패한 경우 예외처리 -> 로그아웃하고 초기화면으로
             Log.e("MyReviewWriteFragment","gSeq 실패")
@@ -75,7 +75,7 @@ class MyReviewWriteFragment : Fragment() {
                     Log.e("MyReviewWriteFragment", "서버 통신 중 오류 발생", p1)
                 }
             })
-        }*/
+        }
 
         // 리뷰 작성 버튼
         binding.writeReviewBtn.setOnClickListener {
@@ -86,7 +86,7 @@ class MyReviewWriteFragment : Fragment() {
                 Toast.makeText(requireContext(), "리뷰를 작성해 주세요", Toast.LENGTH_SHORT).show()
             }
             else {
-                /*
+
                 var rate = binding.ratingBar.rating
                 var review = Review(
                 reviewSeq = 0,
@@ -112,9 +112,10 @@ class MyReviewWriteFragment : Fragment() {
                 override fun onFailure(p0: Call<Review>, p1: Throwable) {
                     Log.e("MyReviewWriteFragment", "서버 통신 중 오류 발생", p1)
                 }
-            })*/
+            })
                 val intent = Intent(getActivity(), MyReviewActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
             }
         }
