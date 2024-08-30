@@ -26,6 +26,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     val manager = supportFragmentManager
+    private var lastBackPressedTime = 0L
+    private val BackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (lastBackPressedTime > System.currentTimeMillis() - 1500 ){
+                this@MainActivity.finishAffinity()
+            }else{
+                HomeFragment().changeFragment()
+                binding.bottomNavigationView.selectedItemId = R.id.icon_home
+                Toast.makeText(this@MainActivity,"앱을 종료하려면 뒤로 가기를 한 번 더 눌러주세요",Toast.LENGTH_SHORT).show()
+                lastBackPressedTime = System.currentTimeMillis()
+            }
+        }
+    }
     private val multiplePermissionsCode = 100
     private val requiredPermissions = arrayOf(
         android.Manifest.permission.CAMERA,
@@ -44,7 +57,8 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
         setContentView(binding.root)
-//        BackPressedCallback
+        // 휴대폰 이전 버튼
+        onBackPressedDispatcher.addCallback(this, BackPressedCallback)
         checkPermissions()
 
         showInit() //최초 프래그먼트

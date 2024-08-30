@@ -18,12 +18,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.LocationTrackingMode
 import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
+import com.naver.maps.map.NaverMapSdk
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.UiSettings
 import com.naver.maps.map.overlay.Marker
@@ -53,14 +56,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var binding: ActivityMapBinding
     private lateinit var locationSource: FusedLocationSource
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var naverMap: NaverMap
-    var mLocationManager: LocationManager? = null
-    var mLocationListener: LocationListener? = null
     lateinit var keyword :String
     val searchId = BuildConfig.SEARCH_ID
     val searchSecret = BuildConfig.SEARCH_SECRET
     val mapId = BuildConfig.MAP_ID
     val mapSecret = BuildConfig.MAP_SECRET
+
 
 
 
@@ -70,22 +73,17 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // NaverMapSdk 인스턴스 설정
+        NaverMapSdk.getInstance(this).client =
+            NaverMapSdk.NaverCloudPlatformClient(mapId)
 
-        // 위치 권한 요청
-        val requestPermissionLauncher = registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                // 권한이 부여되었으면 지도 초기화
-                initializeMap()
-            }
-        }
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-        } else {
-            initializeMap()
-        }
+        // 위치찾기를 위한 fusedLocationProviderClient 선언
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
+        initializeMap() // 맵뷰 초기화
+
+
+        // 바텀시트
         binding.bottomLayout.recyclerviewMarketList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         val behavior = BottomSheetBehavior.from(binding.bottomLayout.root)
         behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
@@ -99,10 +97,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             override fun onSlide(bottomSheet: View, slideOffset: Float) {}
         })
-        // 이전 버튼
-        binding.btnEsc.setOnClickListener {
-            this.finish()
-        }
         // 바텀 시트 화살표 버튼 클릭시
         binding.bottomLayout.btnArrow.setOnClickListener {
             // 접힌 상태에서 클릭하면 확장시킴
@@ -112,77 +106,50 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 behavior.state = BottomSheetBehavior.STATE_COLLAPSED
             }
         }
-    }
-    private fun getAddress(){
-        mLocationManager = this.getSystemService(LOCATION_SERVICE) as LocationManager
-        // 위치정보의 위도, 경도 값 찾아서 한국어 주소로 변환
-        mLocationListener = object : LocationListener {
-            override fun onLocationChanged(location: Location) {
-                var lat = 0.0
-                var lng = 0.0
-                if (location != null) {
-                    lat = location.latitude
-                    lng = location.longitude
-                    Log.d("GmapViewFragment", "Lat: ${lat}, lon: ${lng}")
 
-                    // 위도, 경도를 주소값으로 변환
-                    val geocoder = Geocoder(applicationContext, Locale.KOREAN)
-                    // 안드로이드 API 레벨이 33 이상인 경우
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        geocoder.getFromLocation(
-                            lat, lng, 1
-                        ) { address ->
-                            if (address.size != 0) {
-                                // (반환 값에서) 전체 주소 중 첫번째 값만 사용하여 한국어 주소로 변환하러 간다
-                                filterAddress(address[0].getAddressLine(0))
-                                println("address -> {$address}")
-                            }
-                        }
-                    } else { // API 레벨이 33 미만인 경우
-                        val addresses = geocoder.getFromLocation(lat, lng, 1)
-                        if (addresses != null) {
-                            filterAddress(addresses[0].getAddressLine(0))
-                        }
+        // 이전 버튼
+        binding.btnEsc.setOnClickListener {
+            this.finishAffinity()
+        }
+    }
+    private fun getAddress(lati:Double,longi:Double){
+        if (lati != null  && longi != null) {
+            Log.d("getAddress", "Lat: ${lati}, lon: ${longi}")
+
+            // 위도, 경도를 주소값으로 변환
+            val geocoder = Geocoder(applicationContext, Locale.KOREAN)
+            // 안드로이드 API 레벨이 33 이상인 경우
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                geocoder.getFromLocation(
+                    lati, longi, 1
+                ) { address ->
+                    if (address.size != 0) {
+                        // (반환 값에서) 전체 주소 중 첫번째 값만 사용하여 한국어 주소로 변환하러 간다
+                        filterAddress(address[0].getAddressLine(0))
                     }
+                }
+            } else { // API 레벨이 33 미만인 경우
+                val addresses = geocoder.getFromLocation(lati, longi, 1)
+                if (addresses != null) {
+                    filterAddress(addresses[0].getAddressLine(0))
                 }
             }
         }
-        // 위치 변경시 위치 정보 업데이트 코드
-        // 위치 권한 확인하고, 부여됐으면
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            mLocationManager!!.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER, // gps 이용해서
-                3000L, // 3초 간격 또는
-                30f, // 거리가 30미터 변할 때마다 위치 정보를 업데이트 함
-                mLocationListener as LocationListener
-            )
-
-        }
     }
     private fun filterAddress(words:String){
-        val totalKeyword: String
-        var result = ""
-        var cursor = 0
+        val seletedWords: String
+        var result:String
 
-        cursor = words.indexOf("시 ") // oo시를 찾고 자른다. 없으면 커서 -1
-        if (cursor == -1) { //'시' 없으면 '군'을 찾음
-            cursor = words.indexOf("군 ")
-        }
-        cursor += 2 // 두 칸 이동
+        val splitWords = words.split(" ")
+        println("splitWords -> {$splitWords}")
+        // **로까지 포함하면 제로웨이스트샵이 많이 없어서 검색되지 않음
+        // 그래서 **시 **구 로 검색합니다
+        seletedWords = splitWords[1]+" "+splitWords[2]
+        println("splitWords selected ->{$seletedWords} ")
 
-        // 시 및 군의 다음 3글자를 추출함
-        // 3글자 이상인 것도 있으나, 네이버 검색 api에서 잘 인식하여 찾아줌
-        result = words.substring(cursor, cursor + 3)
         val filterAddress =
             try {
-                URLEncoder.encode(result, "UTF-8")
+                URLEncoder.encode(seletedWords, "UTF-8")
             }catch (e: UnsupportedEncodingException){
                 throw RuntimeException("검색어 인코딩 실패", e)
             }
@@ -192,9 +159,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             } catch (e: UnsupportedEncodingException) {
                 throw RuntimeException("검색어 인코딩 실패", e)
             }
-        totalKeyword = filterAddress+" "+keyword // 예시) 해운대구 제로웨이스트
-//        println("totalKeyword -> {$totalKeyword}")
-        conHttp(totalKeyword) // url에 붙일 query로 네트워킹 작업하러 감
+        result = filterAddress+" "+keyword // 예시) 해운대구 제로웨이스트
+        conHttp(result) // url에 붙일 query로 네트워킹 작업하러 감
     }
     //네이버 검색,geocoding api 통신 및 웹크롤링 함수
     private fun conHttp(address:String){
@@ -209,7 +175,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 )
                 val httpReslt = get(apiURL, requestHeaders) // 검색 api 요청 및 응답
                 marketList = jsonData(httpReslt) // 마켓 데이터 추출
-
                 // geocoding api -> 마커 찍기를 위해 마켓 주소로 위도, 경도 불러와서 marketList에 추가함
                 for (i in 0 until marketList.size){
                     val query =
@@ -249,7 +214,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 elements.forEach { element ->
                    val closed = element.select("div.Gvf9B span:nth-child(2)").text()
                     val type = closed.javaClass
-                    println("closedType ->  {$type}")
                     println("closed -> {$closed}")
                     if (closed.isNullOrEmpty()) { // 웹크롤링으로도 정보가 없는 것은 "정보없음"으로 저장함
                         val data = MarketTime("정보없음")
@@ -344,36 +308,95 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         return marketInfos
     }
 
+    // 위치 권한 요청
+    private fun requestLocationPermission() {
+        ActivityCompat.requestPermissions(
+            this@MapActivity,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            LOCATION_PERMISSION_REQUEST_CODE
+        )
+    }
+//    override fun onRequestPermissionsResult(requestCode: Int,
+//                                            permissions: Array<String>,
+//                                            grantResults: IntArray) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        if (locationSource.onRequestPermissionsResult(requestCode, permissions,
+//                grantResults)) {
+//            if (!locationSource.isActivated) { // 권한 거부됨
+//                Log.d("MapActivity","권한 거부됨")
+//                naverMap.locationTrackingMode = LocationTrackingMode.None //위치추적기능 비활성화
+//                requestLocationPermission()
+//            }else{
+//                Log.d("MapActivity","권한 승인됨")
+//                naverMap.locationTrackingMode = LocationTrackingMode.Follow //위치추적기능 활성화
+//            }
+//        }
+//    }
+    override fun onMapReady(naverMap: NaverMap) {
+        this.naverMap = naverMap
+        naverMap.locationSource = locationSource
+        val uiSettings: UiSettings = naverMap.uiSettings
+        uiSettings.isLocationButtonEnabled = true // 현위치버튼 활성화
+        naverMap.locationTrackingMode = LocationTrackingMode.Follow
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestLocationPermission()
+            Log.d("MapActivity","권한 없음")
+        }else{
+            Log.d("MapActivity","권한 승인")
+            fusedLocationProviderClient.lastLocation
+                .addOnSuccessListener { location: Location? ->
+                    location?.let {
+                        // 위치 오버레이의 가시성은 기본적으로 false로 지정되어 있습니다. 가시성을 true로 변경하면 지도에 위치 오버레이가 나타납니다.
+                        // 파랑색 점으로 현재 위치 표시
+                        naverMap.locationOverlay.run {
+                            isVisible = true
+                            position = LatLng(it.latitude, it.longitude)
+                        }
+
+                        // 네이워킹 시작
+                        getAddress(it.latitude,it.longitude)
+
+                        // 카메라 현재위치로 이동
+                        val cameraUpdate = CameraUpdate.scrollTo(
+                            LatLng(it.latitude, it.longitude)
+                        )
+                        naverMap.moveCamera(cameraUpdate)
+                    }
+                }
+            naverMap.addOnLocationChangeListener { location ->
+                val latitude = location.latitude
+                val longitude = location.longitude
+                getAddress(latitude,longitude)
+                val cameraUpdate = CameraUpdate.scrollTo(
+                    LatLng(latitude, longitude)
+                )
+                naverMap.moveCamera(cameraUpdate)
+            }
+        }
+    }
     private fun initializeMap() {
-        locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
         val fm = supportFragmentManager
         val mapFragment = fm.findFragmentById(R.id.map_fragment) as MapFragment?
             ?: MapFragment.newInstance().also {
                 fm.beginTransaction().add(R.id.map_fragment, it).commit()
             }
+
         mapFragment.getMapAsync(this)
-
-
+        locationSource =
+            FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
     }
 
-    override fun onMapReady(naverMap: NaverMap) {
-        this.naverMap = naverMap
-        naverMap.locationSource = locationSource
-        naverMap.locationTrackingMode = LocationTrackingMode.Follow
-
-        val uiSettings: UiSettings = naverMap.uiSettings
-        uiSettings.isLocationButtonEnabled = true
-
-        // 현재 위치로 카메라 이동
-        val cameraUpdate = CameraUpdate.scrollTo(locationSource.lastLocation?.let {
-            com.naver.maps.geometry.LatLng(it.latitude, it.longitude)
-        } ?: com.naver.maps.geometry.LatLng(37.5666102, 126.9783881)) // 기본 위치는 서울로 설정
-        naverMap.moveCamera(cameraUpdate)
-        getAddress()
-
-    }
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
+
     }
 }
