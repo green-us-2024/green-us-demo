@@ -117,6 +117,9 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="dt86obehkg" />
+        <activity
+            android:name=".WithdrawsActivity"
+            android:exported="false" />
 
     </application>
 

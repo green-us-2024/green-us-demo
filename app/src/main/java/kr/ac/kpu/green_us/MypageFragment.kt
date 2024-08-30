@@ -1,7 +1,9 @@
 package kr.ac.kpu.green_us
 
+import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -31,18 +33,17 @@ class MypageFragment : Fragment(),ReportDialogInterface {
     private lateinit var uid: String
     private lateinit var userEmail: String
     lateinit var binding: FragmentMypageBinding
+    private lateinit var sharedPreferencesToMypage: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMypageBinding.inflate(inflater,container,false)
-
+        sharedPreferencesToMypage = requireActivity().getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         auth = Firebase.auth
         uid = auth.currentUser?.uid.toString()
         userEmail = auth.currentUser?.email.toString()
 
-
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -50,6 +51,7 @@ class MypageFragment : Fragment(),ReportDialogInterface {
         super.onViewCreated(view, savedInstanceState)
 
         getAdvImgList()
+        updatePointBalance()
 
         // 프로필
         binding.userImg.clipToOutline = true //이미지 둥글게
@@ -163,5 +165,8 @@ class MypageFragment : Fragment(),ReportDialogInterface {
 
         })
     }
-
+    private fun updatePointBalance() {
+        val pointBalance = sharedPreferencesToMypage.getInt("point_balance", -1)
+        binding.point.text = pointBalance.toString()
+    }
 }

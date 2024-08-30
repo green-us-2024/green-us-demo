@@ -151,4 +151,6 @@ interface RetrofitAPI {
     @POST("/withdraw/new")
     fun createWithdraw(@Body withdraw: Withdraw) : Call<Withdraw>
 
+    @GET("/withdraw/list")
+    fun getWithdraws(): Call<List<Withdraw>>
 }
