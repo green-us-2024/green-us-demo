@@ -2,23 +2,28 @@ package kr.ac.kpu.green_us
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.storage.storage
+import kr.ac.kpu.green_us.adapter.AdvAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMypageBinding
 import retrofit2.Callback
 import retrofit2.Call
+import java.net.URI
+import java.net.URL
 
 // 마이페이지 - 포인트, 개설하기, 내리뷰, 프로필관리, 공지사항, FAQ, 고객센터 화면으로 이동 가능
 class MypageFragment : Fragment(),ReportDialogInterface {
@@ -43,6 +48,8 @@ class MypageFragment : Fragment(),ReportDialogInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        getAdvImgList()
 
         // 프로필
         binding.userImg.clipToOutline = true //이미지 둥글게
@@ -105,6 +112,22 @@ class MypageFragment : Fragment(),ReportDialogInterface {
             showDialog()
         }
 
+    }
+    private fun getAdvImgList(){
+        var imgList = arrayListOf<Uri>()
+        val storageRef = Firebase.storage.reference.child("advImgs")
+        storageRef.listAll().addOnSuccessListener { list ->
+            for (img in list.items){
+                img.downloadUrl.addOnSuccessListener {uri->
+                    imgList.add(uri)
+                }.addOnSuccessListener {
+                    val advAdapter = AdvAdapter(imgList)
+                    advAdapter.notifyDataSetChanged()
+                    binding.adv.adapter = advAdapter
+                    binding.adv.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+                }
+            }
+        }
     }
     // 탈퇴 다이얼로그 띄우기
     private fun showDialog(){

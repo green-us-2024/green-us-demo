@@ -172,16 +172,15 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <ImageView
+                <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/adv"
-                    android:layout_width="0dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/green"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/point_v" />
+                    app:layout_constraintBottom_toTopOf="@+id/go_to_green_open"
+                    app:layout_constraintTop_toBottomOf="@+id/point_v">
+                </androidx.viewpager2.widget.ViewPager2>
 
                 <Button
                     android:id="@+id/go_to_green_open"
