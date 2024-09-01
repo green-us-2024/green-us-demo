@@ -63,7 +63,7 @@ class ReviewRepository {
 
     fun findByGreening(gSeq: Int): List<Review> {
         return try {
-            em.createQuery("select r from Review r where r.greening.gSeq = :gSeq", Review::class.java)
+            em.createQuery("select r from Review r where r.greening.gSeq = :gSeq order by r.reviewDate DESC", Review::class.java)
                     .setParameter("gSeq", gSeq)
                     .resultList
         } catch(e: Exception){
