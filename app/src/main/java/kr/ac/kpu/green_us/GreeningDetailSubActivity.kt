@@ -127,7 +127,6 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                             }
 
                             // 그리닝 리뷰 설정
-
                             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
                             apiService.getReviewByGreeningSeq(gSeq).enqueue(object : Callback<List<Review>> {
                                 override fun onResponse(call: Call<List<Review>>, response: Response<List<Review>>,
@@ -137,13 +136,21 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                                         var greeningReview = response.body()
                                         var revieweStar = 0.0f
                                         greeningReview?.forEachIndexed { index, review ->
-                                            Log.d("MyReviewActivity", "reviewList $index: ${review.toString()}")
-                                            revieweStar = revieweStar + review.reviewRate!!
+                                            Log.d("GreeningDetailSubActivity", "reviewList $index: ${review.toString()}")
+                                            revieweStar += review.reviewRate!!
                                         }
-                                        revieweStar = revieweStar/ greeningReview!!.size.toFloat()
+                                        revieweStar /= greeningReview!!.size.toFloat()
                                         revieweStar = ceil(revieweStar*10)/10
-                                        binding.ratingBar2.rating = revieweStar
-                                        binding.reviewRating.text = revieweStar.toString()
+                                        if(revieweStar.isNaN()){
+                                            binding.ratingBar2.rating = 0.0f
+                                            binding.reviewRating.text = "0 (0)"
+                                            binding.moreBtn.visibility = View.GONE
+                                        }
+                                        else{
+                                            binding.ratingBar2.rating = revieweStar
+                                            binding.reviewRating.text = "${revieweStar.toString()} (${greeningReview.size})"
+                                        }
+                                        Log.d("GreeningDetailSubActivity", "review: ${revieweStar.toString()}")
                                         greeningReview = greeningReview?.shuffled()?.take(5)
                                         setupGreeningReviewRecyclerViews(greeningReview!!)
                                     } else {
@@ -202,6 +209,12 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                     Log.e("GreeningDetailSubActivity", "서버 통신 중 오류 발생", p1)
                 }
             })
+        }
+
+        binding.btnMore.setOnClickListener {
+            val intent = Intent(this, GreeningReviewActivity::class.java)
+            intent.putExtra("gSeq", gSeq)
+            startActivity(intent)
         }
 
         binding.btnEsc.setOnClickListener {

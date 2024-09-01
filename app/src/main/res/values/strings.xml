@@ -101,6 +101,7 @@
     <string name="frequency7">주 7회</string>
     <string name="write_review">리뷰 작성</string>
     <string name="pedometer">만보기</string>
+    <string name="start">시작</string>
     <string name="logout">로그아웃</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
