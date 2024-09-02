@@ -35,6 +35,20 @@ class UserRepository {
         }
     }
 
+    fun deleteByEmail(Email: String): User? {
+        val user = findByEmail(Email)
+        return try {
+            if (user != null) {
+                delete(user)
+                user
+            }else{
+                null
+            }
+        }catch (e: Exception) {
+            throw e
+        }
+    }
+
     fun findOne(id : Int) : User?{
         return try{
             em.find(User::class.java, id)

@@ -50,6 +50,12 @@ class UserController(private val userService: UserService) {
         return "redirect:/users/listPage" // 삭제 후 회원 목록 페이지로 리디렉션
     }
 
+    @PostMapping("/deleteByEmail/{userEmail}")
+    fun deleteUserByEmail(@PathVariable userEmail: String): ResponseEntity<User> {
+       val deleteUser = userService.deleteUserByEmail(userEmail)
+        return ResponseEntity.ok(deleteUser)
+    }
+
     @GetMapping("/list")
     fun getAllUsers(): ResponseEntity<List<User>> {
         val users = userService.findUsers()

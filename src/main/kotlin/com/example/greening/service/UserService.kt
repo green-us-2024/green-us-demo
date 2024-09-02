@@ -67,6 +67,11 @@ class UserService(private val userRepository: UserRepository) {
     }
 
     @Transactional
+    fun deleteUserByEmail(userEmail : String): User? {
+        return userRepository.deleteByEmail(userEmail)
+    }
+
+    @Transactional
     fun deleteUser(userId: Int) {
         userRepository.deleteById(userId)
     }

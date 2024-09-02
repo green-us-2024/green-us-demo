@@ -40,7 +40,7 @@ open class User (
     var userWCount : Int?= 0,
 
     @JsonManagedReference(value = "user-participates")
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
     val participates: List<Participate> = mutableListOf(),
 
     @JsonBackReference(value = "admin-user")
@@ -49,14 +49,18 @@ open class User (
     var admins: Admin? = null,
 
     @JsonManagedReference(value = "user-review")
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
     val reviews: List<Review> = mutableListOf(),
 
     @JsonManagedReference(value = "user-payments")
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE], orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
     val payments: List<Payment> = mutableListOf(),
 
     @JsonManagedReference(value = "user-greening")
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.DETACH, CascadeType.MERGE], orphanRemoval = true, fetch = FetchType.LAZY)
-    val greening: List<Greening> = mutableListOf()
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
+    val greening: List<Greening> = mutableListOf(),
+
+    @JsonManagedReference(value = "user-certify")
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
+    val certifies: List<Certify> = mutableListOf()
 )
