@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
@@ -20,10 +21,12 @@ import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.adapter.AdvAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
+import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMypageBinding
 import retrofit2.Callback
 import retrofit2.Call
+import retrofit2.Response
 import java.net.URI
 import java.net.URL
 
@@ -139,7 +142,47 @@ class MypageFragment : Fragment(),ReportDialogInterface {
     }
     // 다이얼로그에서 탈퇴버튼 클릭시
     override fun ontYesButton() {
-        // 여기에 탈퇴처리
+        val user = Firebase.auth.currentUser!!
+        val Email = user.email?:""
+        val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        apiService.deleteUserByEmail(Email).enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if (response.isSuccessful) {
+                    user.delete()
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Log.d("MypageFragment", "User account deleted.")
+                            }
+                        }
+                    val user = response.body()
+                    if(user != null) {
+                        Toast.makeText(context, "${user.userName}님의 탈퇴를 완료했습니다", Toast.LENGTH_SHORT).show()
+                        // LoginActivity로 이동하는 Intent 생성
+                        val intent = Intent(context, LoginActivity::class.java)
+
+                        // 기존 액티비티 스택을 지우고 새로운 스택으로 시작하는 플래그를 설정
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                        // 새로운 액티비티 시작
+                        startActivity(intent)
+
+                        // 현재 액티비티 종료
+                        activity?.finish()
+                    }
+                    Log.d("MypageFragment", "서버에서 데이터 삭제 성공")
+
+                } else {
+                    Log.e("MypageFragment", "서버에서 데이터 삭제 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                    Toast.makeText(context, "다시 시도해주세요", Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.e("MypageFragment", "서버 통신 중 오류 발생", t)
+                Toast.makeText(context, "다시 시도해주세요", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+
     }
     private fun uploadImgToProfile(uid:String){
         val storage = Firebase.storage

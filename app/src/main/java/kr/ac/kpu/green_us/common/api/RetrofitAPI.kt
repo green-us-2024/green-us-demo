@@ -150,4 +150,7 @@ interface RetrofitAPI {
 
     @GET("/withdraw/list")
     fun getWithdraws(): Call<List<Withdraw>>
+
+    @POST("/users/deleteByEmail/{userEmail}")
+    fun deleteUserByEmail(@Path("userEmail") userEmail: String): Call<User>
 }
