@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
@@ -13,6 +14,7 @@ import com.google.firebase.storage.storage
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Greening
 import kr.ac.kpu.green_us.common.dto.Participate
+import org.w3c.dom.Text
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -37,6 +39,7 @@ class MyGreenIngAdapter(private var greeningList: List<Greening> = emptyList()) 
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
+        var until : TextView = view.findViewById(R.id.tv_util) // 마감까지 텍스트뷰
 //        init{
 //            view.setOnClickListener{ itemClickListener?.onItemClick() }
 //        }
@@ -89,6 +92,9 @@ class MyGreenIngAdapter(private var greeningList: List<Greening> = emptyList()) 
                 uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
         }
         holder.title.text = greening.gName
+        if (deadLind == "모집마감"){
+            holder.until.isVisible = false
+        }
         holder.deadLine.text = deadLind
         //holder.deadLineLayout
         holder.term.text = "${greenWeek}주"

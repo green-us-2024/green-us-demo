@@ -109,7 +109,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // 이전 버튼
         binding.btnEsc.setOnClickListener {
-            this.finishAffinity()
+            this.finish()
         }
     }
     private fun getAddress(lati:Double,longi:Double){
@@ -361,7 +361,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                             position = LatLng(it.latitude, it.longitude)
                         }
 
-                        // 네이워킹 시작
+                        // 네트워킹 시작
                         getAddress(it.latitude,it.longitude)
 
                         // 카메라 현재위치로 이동
