@@ -31,6 +31,15 @@ class UserController(private val userService: UserService) {
             ResponseEntity.notFound().build()
         }
     }
+    @GetMapping("/byPhone/{phone}")
+    fun getUserByPhone(@PathVariable phone: String): ResponseEntity<User> {
+        val user = userService.findByPhone(phone)
+        return if (user != null) {
+            ResponseEntity.ok(user)
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
 
     @PostMapping("/new")
     fun createUser(@RequestBody user: User) : ResponseEntity<User>{

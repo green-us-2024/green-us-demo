@@ -84,6 +84,15 @@ class UserRepository {
             null
         }
     }
+    fun findByPhone(userPhone: String): User? {
+        return try{
+            em.createQuery("select u from User u where u.userPhone = :userPhone", User::class.java)
+                .setParameter("userPhone", userPhone)
+                .singleResult
+        }catch(e: Exception){
+            null
+        }
+    }
 
     fun findUserSeqByEmail(userEmail: String): Int? {
         return try{
