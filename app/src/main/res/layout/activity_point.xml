@@ -112,13 +112,13 @@
                 android:id="@+id/btn_view_withdraws"
                 android:layout_width="77dp"
                 android:layout_height="22dp"
-                android:layout_marginStart="128dp"
+                android:layout_marginEnd="25dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/button_background"
                 android:text="출금 내역 보기"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/point_withdraw" />
 
             <View

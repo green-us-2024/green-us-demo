@@ -28,6 +28,9 @@ interface RetrofitAPI {
     @GET("/users/byEmail/{email}")
     fun getUserbyEmail(@Path("email") email: String): Call<User>
 
+    @GET("/users/byPhone/{phone}")
+    fun getUserByPhone(@Path("phone") phone: String): Call<User>
+
     @GET("/users/seqByEmail/{email}")
     fun getUserSeqByEmail(@Path("email") email: String): Call<Int>
 
