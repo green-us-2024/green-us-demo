@@ -23,7 +23,7 @@ import java.time.format.DateTimeFormatter
 class TabPopAdapter():RecyclerView.Adapter<TabPopAdapter.TabPopViewHolder>() {
 
     interface OnItemClickListener {
-        fun onItemClick(status:String, gSeq: Int)
+        fun onItemClick(gSeq: Int)
     }
     var itemClickListener: OnItemClickListener? = null
     private var greeningList: List<Greening> = emptyList()
@@ -78,7 +78,6 @@ class TabPopAdapter():RecyclerView.Adapter<TabPopAdapter.TabPopViewHolder>() {
         }
         holder.title.text = greening.gName ?: ""
         holder.deadLine.text = deadLind
-        //holder.deadLineLayout
         holder.term.text = "${greenWeek}주"
         holder.freq.text = "주${greening.gFreq}회"
         holder.method.text = greening.gCertiWay
@@ -88,7 +87,7 @@ class TabPopAdapter():RecyclerView.Adapter<TabPopAdapter.TabPopViewHolder>() {
             else -> ""
         }
         holder.itemView.setOnClickListener{
-            itemClickListener?.onItemClick("notIn", greening.gSeq)
+            itemClickListener?.onItemClick(greening.gSeq)
         }
 
     }

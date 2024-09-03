@@ -24,7 +24,7 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
     RecyclerView.Adapter<HomeDoAdapter.HomeDoViewHolder>(){
 
     interface OnItemClickListener {
-        fun onItemClick(status:String,gSeq:Int){}
+        fun onItemClick(gSeq:Int){}
     }
 
     var itemClickListener: OnItemClickListener? = null
@@ -99,7 +99,7 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
             else -> ""
         }
         holder.itemView.setOnClickListener{
-            itemClickListener?.onItemClick("in", greening.gSeq)
+            itemClickListener?.onItemClick(greening.gSeq)
         }
     }
 

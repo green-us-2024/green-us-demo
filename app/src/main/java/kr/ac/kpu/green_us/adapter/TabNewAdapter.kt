@@ -1,5 +1,7 @@
 package kr.ac.kpu.green_us.adapter
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,12 +9,20 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import com.google.firebase.storage.storage
+import kr.ac.kpu.green_us.MainActivity
 import kr.ac.kpu.green_us.R
+import kr.ac.kpu.green_us.common.RetrofitManager
+import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.Duration
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -22,7 +32,7 @@ import java.time.format.DateTimeFormatter
 class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
 
     interface OnItemClickListener {
-        fun onItemClick(status:String, gSeq:Int){}
+        fun onItemClick(gSeq:Int){}
     }
     var itemClickListener: OnItemClickListener? = null
     private var greeningList: List<Greening> = emptyList()
@@ -86,10 +96,15 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
             2,4 -> "구매형"
             else -> ""
         }
+//        calculateStatus(greening.gSeq){status ->
+//            holder.itemView.setOnClickListener{
+//                itemClickListener?.onItemClick(status,greening.gSeq)
+//            }
+//        }
 
         holder.itemView.setOnClickListener{
-            itemClickListener?.onItemClick("in", greening.gSeq)
-        }
+                itemClickListener?.onItemClick(greening.gSeq)
+            }
     }
 
     inner class TabNewViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -109,6 +124,34 @@ class TabNewAdapter(): RecyclerView.Adapter<TabNewAdapter.TabNewViewHolder>() {
     fun updateData(newList: List<Greening>) {
         greeningList = newList
         notifyDataSetChanged()
+    }
+
+    private fun calculateStatus(gSeq: Int, callback: (String)-> Unit){
+        val user = Firebase.auth.currentUser
+        if(user != null){
+            val email = user.email?:""
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.findPSeqByGSeqAndUserEmail(email,gSeq).enqueue(object : Callback<Int> {
+                override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                        if (response.isSuccessful) {
+                            val pSeq = response.body()?:-1
+                            Log.d("TabOfNewAdapter", "pSeq : ${pSeq}")
+                            callback(if (pSeq >= 0) "in" else "notIn")
+                        } else {
+                            Log.e("TabOfNewAdapter", "Participate 데이터 로딩 실패: ${response.code()}")
+                            callback("notIn")
+                        }
+                }
+                override fun onFailure(call: Call<Int>, t: Throwable) {
+                        Log.e("TabOfNewAdapter", "서버 통신 중 오류 발생", t)
+                        callback("notIn")
+                }
+            })
+
+        }else{
+            callback("notIn")
+        }
+
     }
 
 }

@@ -7,8 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import kr.ac.kpu.green_us.adapter.HomeBuyMoreAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
@@ -25,6 +29,7 @@ class MyGreenBuyMoreFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var viewAdapter: RecyclerView.Adapter<*>
     lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +47,8 @@ class MyGreenBuyMoreFragment : Fragment() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
+
+        auth = Firebase.auth
 
         // 데이터 가져오기
         val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
@@ -74,20 +81,52 @@ class MyGreenBuyMoreFragment : Fragment() {
         })
 
         (viewAdapter as HomeBuyMoreAdapter).itemClickListener = object : HomeBuyMoreAdapter.OnItemClickListener{
-            override fun onItemClick(status: String, gSeq: Int) {
-                val status = "$status"
-                if (status == "notIn"){
-                    // 진행중인지 아닌지에 따라 해당 내용을 intent에 값을 전달 해야 함
-                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
-                    intent.putExtra("status","notIn")
-                    intent.putExtra("gSeq", gSeq)
+            override fun onItemClick(gSeq: Int) {
+                val user = Firebase.auth.currentUser
+                if(user != null){
+                    val email = user.email?:""
+                    Log.d("TabOfNewFragment","$email")
+                    val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+                    apiService.findPSeqByGSeqAndUserEmail(email,gSeq).enqueue(object : Callback<Int> {
+                        override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                            if (response.isSuccessful) {
+                                val pSeq = response.body()?:-1
+                                Log.d("MyGreenBuyMoreFragment", "pSeq : ${pSeq}")
+                                if (pSeq >= 0) {
+                                    Log.d("MyGreenBuyMoreFragment", "in")
+                                    val intent = Intent(requireActivity(),CertifyGreeningActivity::class.java)
+                                    intent.putExtra("status","in")
+                                    intent.putExtra("gSeq", gSeq)
+                                    startActivity(intent)
+                                }else{
+                                    Log.d("MyGreenBuyMoreFragment", "notIn")
+                                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
+                                    intent.putExtra("status","notIn")
+                                    intent.putExtra("gSeq", gSeq)
+                                    startActivity(intent)
+                                }
+                            } else {
+                                Log.e("MyGreenBuyMoreFragment", "Participate 데이터 로딩 실패: ${response.code()}")
+                                Toast.makeText(context, "다시 시도하세요", Toast.LENGTH_SHORT).show()
+                                //오류 처리
+                            }
+                        }
+                        override fun onFailure(call: Call<Int>, t: Throwable) {
+                            Log.e("MyGreenBuyMoreFragment", "서버 통신 중 오류 발생", t)
+                            Toast.makeText(context, "오류가 발생했습니다", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(getActivity(), MainActivity::class.java)
+                            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP )
+                            startActivity(intent)
+                        }
+                    })
+
+                }else{
+                    Toast.makeText(context, "오류가 발생했습니다", Toast.LENGTH_SHORT).show()
+                    auth.signOut()
+                    val intent = Intent(getActivity(), LoginActivity::class.java)
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP )
                     startActivity(intent)
-                }
-                else if (status == "in"){
-                    val intent = Intent(requireActivity(),GreeningDetailActivity::class.java)
-                    intent.putExtra("status","in")
-                    intent.putExtra("gSeq", gSeq)
-                    startActivity(intent)
+                    Log.d("MyGreenBuyMoreFragment", "user null")
                 }
             }
 

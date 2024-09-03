@@ -137,7 +137,6 @@ class MyGreenIngFragment : Fragment() {
                                         Log.e("MyGreenDegreeFragment", "Participate 데이터 로딩 실패: ${response.code()}")
                                     }
                                 }
-
                                 override fun onFailure(call: Call<List<Participate>>, t: Throwable) {
                                     Log.e("MyGreenDegreeFragment", "서버 통신 중 오류 발생", t)
                                 }
@@ -203,6 +202,7 @@ class MyGreenIngFragment : Fragment() {
         (viewAdapterIng as MyGreenIngAdapter).itemClickListener = object : MyGreenIngAdapter.OnItemClickListener {
             override fun onItemClick(gSeq: Int) {
                 val intent = Intent(requireActivity(), CertifyGreeningActivity::class.java)
+                intent.putExtra("status","ing")
                 intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
             }

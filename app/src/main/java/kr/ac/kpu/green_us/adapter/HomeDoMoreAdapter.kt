@@ -24,7 +24,7 @@ class HomeDoMoreAdapter() :
     RecyclerView.Adapter<HomeDoMoreAdapter.HomeDoViewHolder>(){
 
     interface OnItemClickListener {
-        fun onItemClick(status:String, gSeq:Int){}
+        fun onItemClick(gSeq:Int){}
     }
 
     var itemClickListener: OnItemClickListener? = null
@@ -102,7 +102,7 @@ class HomeDoMoreAdapter() :
         }
 
         holder.itemView.setOnClickListener{
-            itemClickListener?.onItemClick("in", greening.gSeq)
+            itemClickListener?.onItemClick(greening.gSeq)
         }
     }
 

@@ -100,7 +100,6 @@ class MyGreenIngMoreFragment : Fragment() {
                     }
                     callback(user)
                 }
-
                 override fun onFailure(call: Call<User>, t: Throwable) {
                     Log.e("MyGreenIngMoreFragment", "서버 통신 중 오류 발생", t)
                     callback(null)
@@ -126,6 +125,7 @@ class MyGreenIngMoreFragment : Fragment() {
             //onItemClick(position: Int)
             override fun onItemClick(gSeq:Int) {
                 val intent = Intent(requireActivity(), CertifyGreeningActivity::class.java)
+                intent.putExtra("status","ing")
                 intent.putExtra("gSeq", gSeq)
                 startActivity(intent)
             }
