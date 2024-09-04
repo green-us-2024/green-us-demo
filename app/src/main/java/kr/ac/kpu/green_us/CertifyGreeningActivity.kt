@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -56,6 +57,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
     private var gSeq: Int = -1
     var currentCertifyNum = 0
+    private lateinit var receivedStatus:String
     private val startForProfileImageResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             val resultCode = result.resultCode
@@ -79,6 +81,26 @@ class CertifyGreeningActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCertifyGreeningBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 참여상태로 넘어왔다면 버튼 비활성화 및 관련 뷰 가리기
+        receivedStatus = intent.getStringExtra("status").toString()
+        if (receivedStatus == "in"){
+            binding.button.isEnabled = false
+            binding.button.setAlpha(0.5f)
+            binding.stampsLayout.isGone = true
+            binding.textView9.isVisible = false
+            binding.currentCertifiNum.isVisible = false
+            binding.totalCertifiNum.isVisible = false
+            binding.dash.isVisible = false
+        }else{
+            binding.button.isEnabled = true
+            binding.button.setAlpha(1f)
+            binding.stampsLayout.isGone = false
+            binding.textView9.isVisible = true
+            binding.currentCertifiNum.isVisible = true
+            binding.totalCertifiNum.isVisible = true
+            binding.dash.isVisible = true
+        }
 
         // auth 인스턴스 초기화
         auth = Firebase.auth
