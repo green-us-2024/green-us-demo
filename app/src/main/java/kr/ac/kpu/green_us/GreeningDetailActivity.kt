@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -57,15 +58,26 @@ class GreeningDetailActivity : AppCompatActivity() {
                             // greening.gStartDate는 "yyyy-MM-dd" 형식의 문자열
                             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
                             val startDate = LocalDate.parse(greening.gStartDate, formatter)
-
-
                             // 이미지 로드
                             val gseq = gSeq.toString()
                             val imgName = gseq
                             val storage = Firebase.storage
-                            val ref = storage.getReference("greeningImgs/").child(imgName)
-                            ref.downloadUrl.addOnSuccessListener {
-                                    uri -> Glide.with(this@GreeningDetailActivity).load(uri).into(binding.imgGreening)
+                            if ((greening.gKind == 1).or(greening.gKind == 2)){
+                                binding.imgWhenOfficial.isGone = false
+                                val ref = storage.getReference("officialGreeningImgs/").child(imgName)
+                                ref.downloadUrl.addOnSuccessListener {
+                                        uri -> Glide.with(this@GreeningDetailActivity).load(uri).into(binding.imgGreening)
+                                }
+                                val detailRef = storage.getReference("officialGreeningImgs/content").child(imgName)
+                                detailRef.downloadUrl.addOnSuccessListener {
+                                    uri-> Glide.with(this@GreeningDetailActivity).load(uri).into(binding.imgWhenOfficial)
+                                }
+                            }else{
+                                val ref = storage.getReference("greeningImgs/").child(imgName)
+                                ref.downloadUrl.addOnSuccessListener {
+                                        uri -> Glide.with(this@GreeningDetailActivity).load(uri).into(binding.imgGreening)
+                                }
+
                             }
 
                             binding.barTitle.text = greening.gName ?: ""
@@ -76,7 +88,9 @@ class GreeningDetailActivity : AppCompatActivity() {
                             binding.tvStartDate.text =
                                 "${startDate.monthValue}월 ${startDate.dayOfMonth}일부터 시작"
                             binding.tvParticipateFee.text = "${greening.gDeposit}"
-                            binding.tvHowto.text = "${greening.gInfo}"
+                            val rawText = greening.gInfo.toString()
+                            val replacedText = rawText.replace("<br>","\n")
+                            binding.tvHowto.text = replacedText
                             binding.textView10.text = when(greening.gKind){
                                 1,3 -> "활동형" //1->공식 3->회원
                                 2,4 -> "구매형" //2->공식 4->회원

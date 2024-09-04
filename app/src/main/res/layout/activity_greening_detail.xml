@@ -197,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/greening_infos_layout"
                 android:visibility="visible"
-                app:layout_constraintTop_toBottomOf="@+id/layout_main_info">
+                app:layout_constraintTop_toBottomOf="@+id/img_when_official">
                 <LinearLayout
                     android:id="@+id/layout_infos"
                     android:layout_width="match_parent"

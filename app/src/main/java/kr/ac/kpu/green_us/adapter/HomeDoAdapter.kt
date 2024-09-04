@@ -83,9 +83,16 @@ class HomeDoAdapter(private var greeningList: List<Greening> = emptyList()) :
         val gseq = greeningList[position].gSeq.toString()
         val imgName = gseq
         val storage = Firebase.storage
-        val ref = storage.getReference("greeningImgs/").child(imgName)
-        ref.downloadUrl.addOnSuccessListener {
-                uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+        if ((greening.gKind == 1).or(greening.gKind == 2)){
+            val ref = storage.getReference("officialGreeningImgs/").child(imgName)
+            ref.downloadUrl.addOnSuccessListener {
+                    uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+            }
+        }else{
+            val ref = storage.getReference("greeningImgs/").child(imgName)
+            ref.downloadUrl.addOnSuccessListener {
+                    uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+            }
         }
         holder.title.text = greening.gName
         holder.deadLine.text = deadLind
