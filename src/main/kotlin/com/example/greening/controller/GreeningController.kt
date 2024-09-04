@@ -129,6 +129,20 @@ class GreeningController(private val greeningService: GreeningService) {
         redirectAttributes.addFlashAttribute("message", "그리닝이 성공적으로 추가되었습니다.")
         return "redirect:/greening/listPage"
     }
+    @PostMapping("/save-initial")
+    fun saveInitialGreening(@ModelAttribute greening: Greening): ResponseEntity<Map<String, Int>> {
+        greeningService.saveGreening(greening)  
+        val response = mapOf("gSeq" to greening.gSeq)
+        return ResponseEntity.ok(response)
+    }
+
+    @PostMapping("/save-final")
+    fun saveFinalGreening(@ModelAttribute greening: Greening, redirectAttributes: RedirectAttributes): String {
+        greeningService.updateGreening(greening.gSeq, greening)
+        redirectAttributes.addFlashAttribute("message", "그리닝이 성공적으로 추가되었습니다.")
+        return "redirect:/greening/listPage"
+    }
+
 
 
 }

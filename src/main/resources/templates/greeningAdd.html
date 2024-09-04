@@ -121,20 +121,35 @@
                 <input type="date" id="gEndDate" name="gEndDate" required/>
             </div>
             <div class="form-group">
-                <label for="gCertiWay">인증 방법</label>
-                <input type="text" id="gCertiWay" name="gCertiWay"/>
+                <label for="gKind">구분 (1: 활동형 / 2: 구매형)</label>
+                <select id="gKind" name="gKind" required>
+                    <option value="1">활동형</option>
+                    <option value="2">구매형</option>
+                </select>
             </div>
+
+            <div class="form-group">
+                <label for="gCertiWay">인증 방법</label>
+                <select id="gCertiWay" name="gCertiWay" required>
+                    <option value="활동 사진">활동 사진</option>
+                    <option value="영수증">영수증</option>
+                    <option value="활동내역 인증서">활동내역 인증서</option>
+                    <option value="그리닝 물품">그리닝 물품</option>
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="gInfo">정보</label>
                 <textarea id="gInfo" name="gInfo"></textarea>
             </div>
+
             <div class="form-group">
                 <label for="gMemberNum">참가자 수</label>
                 <input type="number" id="gMemberNum" name="gMemberNum" value= "0"/>
             </div>
             <div class="form-group">
                 <label for="gFreq">빈도</label>
-                <input type="number" id="gFreq" name="gFreq"/>
+                <input type="number" id="gFreq" name="gFreq" value= "0"/>
             </div>
             <div class="form-group">
                 <label for="gDeposit">예치금</label>
@@ -146,13 +161,16 @@
             </div>
             <div class="form-group">
                 <label for="gNumber">총 인증 횟수</label>
-                <input type="number" id="gNumber" name="gNumber"/>
+                <input type="number" id="gNumber" name="gNumber" value= "0"/>
             </div>
             <div class="form-group">
                 <label for="gImage">이미지</label>
                 <input type="file" id="gImage" name="gImage" accept="image/*"/>
             </div>
-
+            <div class="form-group">
+                <label for="gContentImage">내용 이미지</label>
+                <input type="file" id="gContentImage" name="gContentImage" accept="image/*"/>
+            </div>
             <button type="submit" class="btn btn-update">저장</button>
             <a href="/greening/listPage" class="btn btn-danger">취소</a>
         </form>
@@ -172,47 +190,66 @@
         measurementId: "G-40CK5WREC9"
     };
 
+
     const app = initializeApp(firebaseConfig);
     const storage = getStorage(app);
 
     document.getElementById('greeningForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // 기본 폼 제출 방지
+        e.preventDefault();
 
         const form = e.target;
         const formData = new FormData(form);
-        const gImage = document.getElementById('gImage').files[0];
 
-        if (gImage) {
-            const storageRef = ref(storage, 'officialGreeningImgs/' + gImage.name);
-            const uploadTask = uploadBytes(storageRef, gImage);
+        fetch('/greening/save-initial', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+                const gSeq = data.gSeq;
 
-            uploadTask.then((snapshot) => {
-                console.log('파일 업로드 완료', snapshot);
-                return getDownloadURL(storageRef);
-            }).then((downloadURL) => {
-                console.log('파일 다운로드 URL:', downloadURL);
-                formData.append('gImageURL', downloadURL);
+                const gImage = document.getElementById('gImage').files[0];
+                const gContentImage = document.getElementById('gContentImage').files[0];
 
-                fetch('/greening/save', {
-                    method: 'POST',
-                    body: formData,
-                }).then(response => {
-                    if (response.ok) {
-                        window.location.href = '/greening/listPage';
-                    } else {
-                        console.error('서버 오류:', response.statusText);
-                    }
-                }).catch(error => {
-                    console.error('폼 데이터 전송 실패:', error);
-                });
+                if (gImage) {
+                    const gImageName = `${gSeq}`;
+                    const storageRef = ref(storage, `officialGreeningImgs/${gImageName}`);
+                    const uploadTask = uploadBytes(storageRef, gImage);
 
-            }).catch((error) => {
-                console.error('파일 업로드 또는 다운로드 URL 가져오기 실패:', error);
-            });
-        } else {
-            console.log('파일을 선택해주세요.');
-        }
+                    uploadTask.then((snapshot) => {
+                        return getDownloadURL(storageRef);
+                    }).then((downloadURL) => {
+                        formData.append('gImageURL', downloadURL);
+
+                        if (gContentImage) {
+                            const contentStorageRef = ref(storage, `officialGreeningImgs/content/${gImageName}`);
+                            return uploadBytes(contentStorageRef, gContentImage).then(() => {
+                                return getDownloadURL(contentStorageRef);
+                            }).then((contentDownloadURL) => {
+                                formData.append('gContentImageURL', contentDownloadURL);
+                                return submitFinalForm(formData, gSeq);
+                            });
+                        } else {
+                            return submitFinalForm(formData, gSeq);
+                        }
+                    })
+                }
+            })
+
     });
+
+    function submitFinalForm(formData, gSeq) {
+        formData.append('gSeq', gSeq);
+
+        return fetch('/greening/save-final', {
+            method: 'POST',
+            body: formData,
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = '/greening/listPage';
+            }
+        })
+    }
 </script>
 </body>
 </html>

@@ -48,4 +48,6 @@ class WithdrawService(private val withdrawRepository: WithdrawRepository) {
     fun findByUserSeq(userSeq: Int): List<Withdraw> {
         return withdrawRepository.findByUser(userSeq)
     }
+
+
 }
