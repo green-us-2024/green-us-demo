@@ -58,7 +58,8 @@ class MyGreenDoMoreFragment : Fragment() {
                     val selectedGreeningList = allDoGreeningList.filter{ greening->
                         try {
                             val startDate = LocalDate.parse(greening.gStartDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                            (today.isEqual(startDate) ||startDate.isAfter(today))
+//                            (today.isEqual(startDate) ||startDate.isAfter(today))
+                            (startDate.isAfter(today))
                         }catch (e: Exception){
                             false
                         }

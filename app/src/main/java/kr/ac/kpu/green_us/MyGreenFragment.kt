@@ -1,6 +1,7 @@
 package kr.ac.kpu.green_us
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,12 +16,15 @@ class MyGreenFragment : Fragment() {
 
     private lateinit var greenAdapter: GreenAdapter
     private lateinit var viewPager: ViewPager2
+    private lateinit var bundleArgs:String
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        bundleArgs = arguments?.getString("from").toString()
+        Log.d("MyGreenFragment","bundleArgs : "+ bundleArgs)
         return inflater.inflate(R.layout.fragment_my_green, container, false)
     }
 
@@ -42,6 +46,9 @@ class MyGreenFragment : Fragment() {
                 tab.text = "개설"
             }
         }.attach()
+        if (bundleArgs =="open"){
+            viewPager.currentItem = 2
+        }
     }
 
 }

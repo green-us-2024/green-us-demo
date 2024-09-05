@@ -120,6 +120,7 @@ class MyGreenOpenFragment : Fragment() {
                     // 순서대로 20개의 그리닝 선택
                     val selectedGreeningList = greeningList.take(20)
 
+
                     // 데이터를 어댑터에 설정
                     adapter.updateData(selectedGreeningList)
                 } else {

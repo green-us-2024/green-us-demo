@@ -16,6 +16,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.replace
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.Firebase
 import com.google.firebase.appcheck.appCheck
@@ -23,6 +24,7 @@ import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderF
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.initialize
+import kr.ac.kpu.green_us.adapter.GreenAdapter
 import kr.ac.kpu.green_us.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -128,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
         val value3 = intent.getStringExtra("key2_3")
         if(value3 == "open"){
-            MyGreenFragment().changeFragment()
+            changeFragmentByOpening()
             binding.bottomNavigationView.selectedItemId = R.id.icon_mygreen
         }
 
@@ -156,6 +158,13 @@ class MainActivity : AppCompatActivity() {
     }
     private fun Fragment.changeFragment(){
         manager.beginTransaction().replace(R.id.main_frame,this).commit()
+    }
+    private fun changeFragmentByOpening(){
+        val bundle = Bundle()
+        bundle.putString("from", "open")
+        val fragment = MyGreenFragment()
+        fragment.arguments = bundle
+        manager.beginTransaction().replace(R.id.main_frame,fragment).commit()
     }
     private fun showInit(){
             val transaction = manager.beginTransaction().add(R.id.main_frame,HomeFragment())
