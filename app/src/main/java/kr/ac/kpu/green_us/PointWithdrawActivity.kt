@@ -37,9 +37,9 @@ class PointWithdrawActivity : AppCompatActivity() {
             if (withdrawAmountStr.isNotEmpty()) {
                 val withdrawAmount = withdrawAmountStr.toInt()
 
-                // 현재 잔액을 가져옵니다.
+                // 현재 잔액을 가져오기
                 val currentBalance = intent.getIntExtra("currentBalance", 0)
-                if (withdrawAmount <= currentBalance && withdrawAmount > 5000) {
+                if (withdrawAmount <= currentBalance && withdrawAmount > 4999) {
                     getUserByEmail { user ->
                         user?.let {
                             val userSeq = it.userSeq
@@ -86,15 +86,23 @@ class PointWithdrawActivity : AppCompatActivity() {
                 }
             })
         } else {
-            Toast.makeText(this, "모든 필드를 입력해주세요", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "모든 값을 입력해주세요", Toast.LENGTH_SHORT).show()
         }
     }
     private fun updatePointInActivity(amount: Int) {
-        val intent = Intent(this, PointActivity::class.java).apply {
-            putExtra("withdrawAmount", amount)
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        getUserByEmail { user ->
+            user?.let {
+                val userSeq = it.userSeq
+                val intent = Intent(this, PointActivity::class.java).apply {
+                    putExtra("withdrawAmount", amount)
+                    putExtra("userSeq", userSeq) // userSeq를 전달
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                }
+                startActivity(intent)
+            } ?: run {
+                Toast.makeText(this, "사용자 정보를 가져오는 데 실패했습니다.", Toast.LENGTH_SHORT).show()
+            }
         }
-        startActivity(intent)
     }
 
     private fun getUserByEmail(callback: (User?) -> Unit) {
@@ -109,18 +117,15 @@ class PointWithdrawActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         callback(response.body())
                     } else {
-                        Log.e("GetUserByEmail", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
                         callback(null)
                     }
                 }
 
                 override fun onFailure(call: Call<User>, t: Throwable) {
-                    Log.e("GetUserByEmail", "서버 통신 중 오류 발생", t)
                     callback(null)
                 }
             })
         } else {
-            Log.e("GetUserByEmail", "로그인된 이메일을 가져올 수 없습니다.")
             callback(null)
         }
     }

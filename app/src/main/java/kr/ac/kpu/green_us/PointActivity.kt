@@ -10,10 +10,12 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import kr.ac.kpu.green_us.adapter.PointAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Prize
+import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.common.dto.Withdraw
 import kr.ac.kpu.green_us.databinding.ActivityPointBinding
 import retrofit2.Call
@@ -52,8 +54,14 @@ class PointActivity : AppCompatActivity() {
         pointAdapter = PointAdapter(emptyList())
         recyclerView.adapter = pointAdapter
 
-        // API 호출
-        fetchPrizes() // 포인트 데이터를 먼저 가져옵니다
+        getUserByEmail { user ->
+            user?.let {
+                Log.d("PointActivity", "가져온 userSeq: ${it.userSeq}")
+                fetchPrizes(it.userSeq)  // userSeq를 fetchPrizes에 전달
+            } ?: run {
+                Log.e("PointActivity", "사용자 정보를 가져오지 못했습니다.")
+            }
+        }
 
         // 출금하기 버튼 설정
         binding.pointWithdraw.setOnClickListener {
@@ -85,28 +93,56 @@ class PointActivity : AppCompatActivity() {
         val withdrawAmount = intent.getIntExtra("withdrawAmount", 0)
         Log.d("PointActivity", "받은 출금 금액: $withdrawAmount")
         if (withdrawAmount > 0) {
-            fetchPrizes() // 출금액이 있는 경우에도 포인트 데이터를 가져오도록 함
+            getUserByEmail { user ->
+                user?.let {
+                    fetchPrizes(it.userSeq)  // 출금 금액이 있을 때도 userSeq로 fetchPrizes 호출
+                }
+            }
         }
     }
 
-    private fun fetchPrizes() {
+    private fun getUserByEmail(callback: (User?) -> Unit) {
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        val currentEmail = currentUser?.email
+
+        if (currentEmail != null) {
+            val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+            apiService.getUserbyEmail(currentEmail).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    if (response.isSuccessful) {
+                        callback(response.body())
+                    } else {
+                        Log.e("GetUserByEmail", "사용자 조회 실패: ${response.code()}, ${response.errorBody()?.string()}")
+                        callback(null)
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Log.e("GetUserByEmail", "서버 통신 중 오류 발생", t)
+                    callback(null)
+                }
+            })
+        } else {
+            Log.e("GetUserByEmail", "로그인된 이메일을 가져올 수 없습니다.")
+            callback(null)
+        }
+    }
+    private fun fetchPrizes(userSeq: Int) {
         val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
 
-        retrofitAPI.getPrizes().enqueue(object : Callback<List<Prize>> {
+        retrofitAPI.getPrizeByUserSeq(userSeq).enqueue(object : Callback<List<Prize>> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<List<Prize>>, response: Response<List<Prize>>) {
                 if (response.isSuccessful) {
                     allPrizes = response.body() ?: emptyList()
-
-                    // 로그 확인
-                    Log.d("PointActivity", "받은 포인트 리스트: $allPrizes")
 
                     // 포인트 총액 계산
                     val totalPoints = allPrizes.sumOf { it.prizeMoney ?: 0 }
                     Log.d("PointActivity", "포인트 총액: $totalPoints")
 
                     // 출금 내역을 가져오는 함수 호출
-                    fetchWithdraws(totalPoints)
+                    fetchWithdraws(userSeq, totalPoints)
                 } else {
                     Log.d("PointActivity", "API 응답 실패: ${response.message()}")
                 }
@@ -118,9 +154,9 @@ class PointActivity : AppCompatActivity() {
         })
     }
 
-    private fun fetchWithdraws(totalPoints: Int) {
+    private fun fetchWithdraws(userSeq: Int, totalPoints: Int) {
         val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
-        retrofitAPI.getWithdraws().enqueue(object : Callback<List<Withdraw>> {
+        retrofitAPI.getWithdrawByUserSeq(userSeq).enqueue(object : Callback<List<Withdraw>> {
             override fun onResponse(call: Call<List<Withdraw>>, response: Response<List<Withdraw>>) {
                 if (response.isSuccessful) {
                     withdraws = response.body() ?: emptyList()
