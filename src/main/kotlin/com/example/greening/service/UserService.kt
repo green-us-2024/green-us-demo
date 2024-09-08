@@ -24,7 +24,6 @@ class UserService(private val userRepository: UserRepository) {
         if (existingUser != null) {
             // 필드를 직접 업데이트
             existingUser.userName = newUser.userName ?: existingUser.userName
-            existingUser.userPwd = newUser.userPwd ?: existingUser.userPwd
             existingUser.userEmail = newUser.userEmail ?: existingUser.userEmail
             existingUser.userAddr = newUser.userAddr ?: existingUser.userAddr
             existingUser.userAddrDetail = newUser.userAddrDetail ?: existingUser.userAddr

@@ -15,9 +15,6 @@ open class User (
     @Column(name="user_name")
     var userName : String?=null,
 
-    @Column(name="user_pwd")
-    var userPwd : String?=null,
-
     @Column(name="user_email")
     var userEmail : String?=null,
 
