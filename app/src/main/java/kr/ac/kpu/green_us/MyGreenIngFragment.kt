@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -135,19 +136,27 @@ class MyGreenIngFragment : Fragment() {
                                         }
                                     } else {
                                         Log.e("MyGreenDegreeFragment", "Participate 데이터 로딩 실패: ${response.code()}")
+                                        Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                                        startActivity(Intent(getActivity(),MainActivity::class.java))
                                     }
                                 }
                                 override fun onFailure(call: Call<List<Participate>>, t: Throwable) {
                                     Log.e("MyGreenDegreeFragment", "서버 통신 중 오류 발생", t)
+                                    Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(getActivity(),MainActivity::class.java))
                                 }
                             })
                         } else {
                             Log.e("MyGreenIngFragment", "Greening 데이터 로딩 실패: ${response.code()}")
+                            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(getActivity(),MainActivity::class.java))
                         }
                     }
 
                     override fun onFailure(call: Call<List<Greening>>, t: Throwable) {
                         Log.e("MyGreenIngFragment", "서버 통신 중 오류 발생", t)
+                        Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(getActivity(),MainActivity::class.java))
                     }
                 })
             } else {

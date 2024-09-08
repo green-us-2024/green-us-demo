@@ -201,13 +201,15 @@ class GreenOpenFragment : Fragment() {
 
                         } else {
                             Log.e("GreenOpenFragment", "서버로 데이터 전송 실패: ${response.code()}, ${response.errorBody()?.string()}")
-                            // 실패 처리 로직
+                            Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(getActivity(),MainActivity::class.java))
                         }
                     }
 
                     override fun onFailure(call: Call<Greening>, t: Throwable) {
                         Log.e("GreenOpenFragment", "서버 통신 중 오류 발생", t)
-                        // 실패 처리 로직
+                        Toast.makeText(context, "오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(getActivity(),MainActivity::class.java))
                     }
                 })
 
