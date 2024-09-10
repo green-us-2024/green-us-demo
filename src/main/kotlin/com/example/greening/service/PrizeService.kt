@@ -41,8 +41,6 @@ class PrizeService(private val prizeRepository: PrizeRepository,
         val existingPrize = prizeRepository.findById(prizeSeq).orElse(null)
         if (existingPrize != null) { // 필드를 직접 업데이트
             existingPrize.prizeMoney = newPrize.prizeMoney ?: existingPrize.prizeMoney
-            existingPrize.prizeDate = newPrize.prizeDate ?: existingPrize.prizeDate
-
             prizeRepository.save(existingPrize)
         } else {
             throw IllegalStateException("상금이 존재하지 않습니다.")
@@ -61,6 +59,10 @@ class PrizeService(private val prizeRepository: PrizeRepository,
 
     fun findById(prizeSeq: Int): Prize? {
         return prizeRepository.findById(prizeSeq).orElse(null)
+    }
+
+    fun findByParticipate_PSeq(pSeq: Int): Prize? {
+        return prizeRepository.findByParticipate_PSeq(pSeq)
     }
 
     fun findByUserSeq(userSeq: Int): List<Prize> {

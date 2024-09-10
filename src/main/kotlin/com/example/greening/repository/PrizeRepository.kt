@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository
 interface PrizeRepository : JpaRepository<Prize, Int> {
     fun findByUser_UserSeq(userSeq: Int): List<Prize>
 
+    fun findByParticipate_PSeq(pSeq: Int): Prize?
+
 }

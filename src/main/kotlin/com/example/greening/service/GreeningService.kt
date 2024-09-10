@@ -5,6 +5,7 @@ import com.example.greening.repository.GreeningRepository
 import com.example.greening.repository.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.LocalDate
 
 
 @Service
@@ -77,6 +78,10 @@ class GreeningService(private val greeningRepository: GreeningRepository, privat
 
     fun findPopGreen(): List<Greening>{
         return greeningRepository.findPopGreen()
+    }
+
+    fun findByGEndDate(date: LocalDate): List<Greening> {
+        return greeningRepository.findByGEndDate(date)
     }
 
     fun findByUserId(userSeq: Int): List<Greening> {

@@ -33,6 +33,8 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
                 existingParticipate.pCount = existingParticipate.pCount!! + 1
                 if (existingParticipate.greening!!.gNumber!! == existingParticipate.pCount!!)
                     existingParticipate.pComplete = "Y"
+                if ((existingParticipate.greening!!.gNumber!!)* 0.7 >= existingParticipate.pCount!!)
+                    existingParticipate.pComplete = "Y"
                 participateRepository.save(existingParticipate)
             } else {
                 throw IllegalStateException("가능한 횟수를 넘었습니다.")

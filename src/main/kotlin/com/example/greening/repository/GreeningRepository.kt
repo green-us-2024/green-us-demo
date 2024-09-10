@@ -96,6 +96,14 @@ class GreeningRepository {
         }
     }
 
+    fun findByGEndDate(date: LocalDate): List<Greening> {
+        return try {
+            em.createQuery("select g from Greening g where g.gEndDate = :date", Greening::class.java).resultList
+        }catch(e: Exception){
+            emptyList()
+        }
+    }
+
     fun findPopGreen(): List<Greening> {
         return try {
             em.createQuery("select g from Greening g where g.gStartDate > CURRENT_DATE order by g.gMemberNum desc", Greening::class.java).resultList
