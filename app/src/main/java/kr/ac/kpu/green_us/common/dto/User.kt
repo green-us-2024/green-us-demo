@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName
 data class User(
     @SerializedName("userSeq") @Expose val userSeq: Int = 0,
     @SerializedName("userName") @Expose val userName: String? = null,
-    @SerializedName("userPwd") @Expose val userPwd: String? = null,
     @SerializedName("userEmail") @Expose val userEmail: String? = null,
     @SerializedName("userAddr") @Expose var userAddr: String? = null,
     @SerializedName("userAddrDetail")@Expose var userAddrDetail : String?=null,

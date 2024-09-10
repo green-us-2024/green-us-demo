@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kr.ac.kpu.green_us.R
 import kr.ac.kpu.green_us.common.dto.Withdraw
 
-
-class WithdrawAdapter(private val withdrawList: List<Withdraw>) :
+class WithdrawAdapter(private var withdrawList: List<Withdraw>) :
     RecyclerView.Adapter<WithdrawAdapter.WithdrawViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WithdrawViewHolder {
@@ -27,9 +26,15 @@ class WithdrawAdapter(private val withdrawList: List<Withdraw>) :
         return withdrawList.size
     }
 
+    // 데이터 업데이트 메서드
+    fun updateData(newWithdraws: List<Withdraw>) {
+        withdrawList = newWithdraws
+        notifyDataSetChanged() // 데이터 변경을 RecyclerView에 알림
+    }
+
     class WithdrawViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val amountTextView = itemView.findViewById<TextView>(R.id.withdraw_amount)
-        private val dateTextView = itemView.findViewById<TextView>(R.id.withdraw_date)
+        private val amountTextView: TextView = itemView.findViewById(R.id.withdraw_amount)
+        private val dateTextView: TextView = itemView.findViewById(R.id.withdraw_date)
 
         fun bind(withdraw: Withdraw) {
             amountTextView.text = withdraw.withdrawAmount.toString()

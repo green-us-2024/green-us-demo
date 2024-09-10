@@ -92,7 +92,7 @@ class JoinAddressFragment : Fragment() {
             // db로 정보 넘겨서 저장
             val apiService = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
 //            val user = Users(email, pw, name,phoneNumber,"$address $address_detail")
-            val user = Users(email, pw, name,phoneNumber,address, address_detail)
+            val user = Users(email, name,phoneNumber,address, address_detail)
             apiService.registerUser(user).enqueue(object : Callback<Users> {
                 override fun onResponse(call: Call<Users>, response: Response<Users>) {
                     if (response.isSuccessful) {
