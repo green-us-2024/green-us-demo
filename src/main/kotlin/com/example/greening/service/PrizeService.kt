@@ -23,6 +23,10 @@ class PrizeService(private val prizeRepository: PrizeRepository,
         if (user != null && greening != null) {
             val participate = participateRepository.findByUserSeqAndGSeq(user.userSeq, greening.gSeq)
             if(participate != null){
+                val existingPrize = prizeRepository.findByUserSeqAndGSeq(user.userSeq, greening.gSeq)
+                if(existingPrize != null){
+                    return null
+                }
                 val prize = Prize(
                         user = user,
                         greening = greening,
@@ -32,6 +36,14 @@ class PrizeService(private val prizeRepository: PrizeRepository,
                         prizeMoney = prizeMoney)
                 return prizeRepository.save(prize)
             }
+        }
+        return null
+    }
+
+    @Transactional
+    fun saveNewPrize(prize: Prize) : Prize? {
+        if(prize != null){
+            return prizeRepository.save(prize)
         }
         return null
     }

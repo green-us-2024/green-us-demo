@@ -15,4 +15,7 @@ interface PrizeRepository : JpaRepository<Prize, Int> {
     @Query("select p from Prize p where p.participate.pSeq = :pSeq")
     fun findByParticipate_PSeq(pSeq: Int): Prize?
 
+    @Query("select p from Prize p where p.user.userSeq = :userSeq and p.greening.gSeq = :gSeq")
+    fun findByUserSeqAndGSeq(userSeq: Int, gSeq:Int): Prize?
+
 }

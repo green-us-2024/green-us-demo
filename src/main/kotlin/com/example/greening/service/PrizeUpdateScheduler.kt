@@ -1,5 +1,6 @@
 package com.example.greening.service
 
+import com.example.greening.domain.item.Prize
 import com.example.greening.repository.GreeningRepository
 import com.example.greening.repository.ParticipateRepository
 import com.example.greening.repository.PrizeRepository
@@ -33,12 +34,21 @@ class PrizeUpdateScheduler(
                 // 보상금 계산: (pComplete가 "N"인 참가자의 수 * Greening.gDeposit) / pComplete가 "Y"인 참가자의 수
                 val depositAmount = (notCompletedParticipates.size * (greening.gDeposit ?: 0)) / completedParticipates.size
 
-                // 각 pComplete가 "Y"인 참가자의 상금을 업데이트
-                completedParticipates.forEach { participate ->
-                    val prize = prizeService.findByParticipate_PSeq(participate.pSeq)
-                    prize?.let {
-                        it.prizeMoney = (it.prizeMoney ?: 0) + depositAmount
-                        prizeService.updatePrize(it.prizeSeq, it)
+                    if(depositAmount > 0){
+                    // 각 pComplete가 "Y"인 참가자의 상금을 업데이트
+                    completedParticipates.forEach { participate ->
+                        val oldPrize = prizeService.findByParticipate_PSeq(participate.pSeq)
+                        oldPrize?.let {
+                            val newPrize = Prize(
+                                    user = it.user,
+                                    greening = it.greening,
+                                    participate = participate,
+                                    prizeName = it.prizeName+" 추가 상금",
+                                    prizeDate = LocalDate.now(),
+                                    prizeMoney = depositAmount
+                            )
+                            prizeService.saveNewPrize(newPrize)
+                        }
                     }
                 }
             }
