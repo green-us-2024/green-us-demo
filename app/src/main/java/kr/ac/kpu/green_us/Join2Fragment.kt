@@ -46,7 +46,7 @@ class Join2Fragment : Fragment() {
         // 인스턴스 초기화
         auth = Firebase.auth
         // reCAPTCHA로 강제 적용
-        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
+//        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
         // 이전 프래그먼트로부터 온 bundle 데이터 받기
         email = arguments?.getString("email").toString()
         pw = arguments?.getString("pw").toString()

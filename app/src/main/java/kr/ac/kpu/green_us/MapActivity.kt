@@ -195,9 +195,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                     for (index in 0 until dataArray.length()){
                         val data = dataArray.getJSONObject(index)
                         val lati = data.getDouble("y")
-//                    println("geocoding -> {$lati}")
                         val longi = data.getDouble("x")
-//                    println("geocoding -> {$longi}")
                         marketList[i].lati = lati
                         marketList[i].longi = longi
                     }
@@ -213,7 +211,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 elements.forEach { element ->
                    val closed = element.select("div.Gvf9B span:nth-child(2)").text()
-                    val type = closed.javaClass
                     println("closed -> {$closed}")
                     if (closed.isNullOrEmpty()) { // 웹크롤링으로도 정보가 없는 것은 "정보없음"으로 저장함
                         val data = MarketTime("정보없음")
@@ -316,22 +313,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             LOCATION_PERMISSION_REQUEST_CODE
         )
     }
-//    override fun onRequestPermissionsResult(requestCode: Int,
-//                                            permissions: Array<String>,
-//                                            grantResults: IntArray) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//        if (locationSource.onRequestPermissionsResult(requestCode, permissions,
-//                grantResults)) {
-//            if (!locationSource.isActivated) { // 권한 거부됨
-//                Log.d("MapActivity","권한 거부됨")
-//                naverMap.locationTrackingMode = LocationTrackingMode.None //위치추적기능 비활성화
-//                requestLocationPermission()
-//            }else{
-//                Log.d("MapActivity","권한 승인됨")
-//                naverMap.locationTrackingMode = LocationTrackingMode.Follow //위치추적기능 활성화
-//            }
-//        }
-//    }
     override fun onMapReady(naverMap: NaverMap) {
         this.naverMap = naverMap
         naverMap.locationSource = locationSource

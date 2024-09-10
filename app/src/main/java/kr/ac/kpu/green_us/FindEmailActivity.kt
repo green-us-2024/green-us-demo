@@ -41,7 +41,7 @@ class FindEmailActivity : AppCompatActivity() {
         // 인스턴스 초기화
         auth = Firebase.auth
         // reCAPTCHA로 강제 적용
-        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
+//        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
 
         // 인증번호 받기 버튼 비활성화
         binding.btn.isEnabled = false
