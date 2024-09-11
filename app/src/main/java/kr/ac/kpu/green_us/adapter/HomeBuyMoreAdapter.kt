@@ -84,7 +84,6 @@ class HomeBuyMoreAdapter() :
         val gseq = greeningList[position].gSeq.toString()
         val imgName = gseq
         val storage = Firebase.storage
-        val ref = storage.getReference("greeningImgs/").child(imgName)
         if ((greening.gKind == 1).or(greening.gKind == 2)){
             val ref = storage.getReference("officialGreeningImgs/").child(imgName)
             ref.downloadUrl.addOnSuccessListener {

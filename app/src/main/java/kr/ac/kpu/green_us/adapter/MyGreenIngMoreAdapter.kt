@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
@@ -38,6 +39,7 @@ class MyGreenIngMoreAdapter() :
         var freq : TextView = view.findViewById(R.id.tag_freq)// 인증빈도
         var method : TextView = view.findViewById(R.id.tag_certifi)// 인증수단
         var type : TextView = view.findViewById(R.id.type) //그리닝 유형
+        var until : TextView = view.findViewById(R.id.tv_util) // 마감까지 텍스트뷰
 //        init{
 //            view.setOnClickListener{ itemClickListener?.onItemClick() }
 //        }
@@ -86,11 +88,21 @@ class MyGreenIngMoreAdapter() :
         val gseq = greeningList[position].gSeq.toString()
         val imgName = gseq
         val storage = Firebase.storage
-        val ref = storage.getReference("greeningImgs/").child(imgName)
-        ref.downloadUrl.addOnSuccessListener {
-                uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+        if ((greening.gKind == 1).or(greening.gKind == 2)){
+            val ref = storage.getReference("officialGreeningImgs/").child(imgName)
+            ref.downloadUrl.addOnSuccessListener {
+                    uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+            }
+        }else{
+            val ref = storage.getReference("greeningImgs/").child(imgName)
+            ref.downloadUrl.addOnSuccessListener {
+                    uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+            }
         }
         holder.title.text = greening.gName
+        if (deadLind == "모집마감"){
+            holder.until.isVisible = false
+        }
         holder.deadLine.text = deadLind
         //holder.deadLineLayout
         holder.term.text = "${greenWeek}주"

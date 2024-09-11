@@ -88,9 +88,16 @@ class MyGreenOpenAdapter() :
         val gseq = greeningList[position].gSeq.toString()
         val imgName = gseq
         val storage = Firebase.storage
-        val ref = storage.getReference("greeningImgs/").child(imgName)
-        ref.downloadUrl.addOnSuccessListener {
-                uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+        if ((greening.gKind == 1).or(greening.gKind == 2)){
+            val ref = storage.getReference("officialGreeningImgs/").child(imgName)
+            ref.downloadUrl.addOnSuccessListener {
+                    uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+            }
+        }else{
+            val ref = storage.getReference("greeningImgs/").child(imgName)
+            ref.downloadUrl.addOnSuccessListener {
+                    uri -> Glide.with(holder.itemView.context).load(uri).into(holder.img)
+            }
         }
         if(deadLind == "모집마감"){
             holder.tvUtil.visibility = View.GONE
