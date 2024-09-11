@@ -103,7 +103,7 @@ class MyGreenIngFragment : Fragment() {
                             setupGreenIngRecyclerViews(selectedGreeningList)
 
                             // 2. Participate 데이터 가져오기
-                            apiService.getNParticipateByUserSeq(user.userSeq).enqueue(object :
+                            apiService.getGreeningParticipateByUserSeq(user.userSeq).enqueue(object :
                                 Callback<List<Participate>> {
                                 override fun onResponse(call: Call<List<Participate>>, response: Response<List<Participate>>) {
                                     if (response.isSuccessful) {

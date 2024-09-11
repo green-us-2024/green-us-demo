@@ -74,7 +74,7 @@ class MyGreenEndFragment : Fragment() {
                             if(selectedGreeningList.isNotEmpty()){
                                 showDataView()
                             }
-                            binding.endGreenNum.text = greeningList.size.toString()
+                            binding.endGreenNum.text = selectedGreeningList.size.toString()
                             Log.d("MyGreenEndFragment", "Greening Size : ${greeningList.size} -> ${selectedGreeningList.size}")
                             setupRecyclerView(selectedGreeningList)
 
