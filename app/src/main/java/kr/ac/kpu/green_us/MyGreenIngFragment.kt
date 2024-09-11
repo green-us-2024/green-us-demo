@@ -103,7 +103,7 @@ class MyGreenIngFragment : Fragment() {
                             setupGreenIngRecyclerViews(selectedGreeningList)
 
                             // 2. Participate 데이터 가져오기
-                            apiService.getParticipateByUserSeq(user.userSeq).enqueue(object :
+                            apiService.getNParticipateByUserSeq(user.userSeq).enqueue(object :
                                 Callback<List<Participate>> {
                                 override fun onResponse(call: Call<List<Participate>>, response: Response<List<Participate>>) {
                                     if (response.isSuccessful) {
@@ -114,7 +114,7 @@ class MyGreenIngFragment : Fragment() {
                                         participateList.forEachIndexed { index, participate ->
                                             Log.d("MyGreenIngFragment", "Participate $index: ${participate.toString()}")
                                         }
-                                        setupDegreeRecyclerViews(participateList, greeningList)
+                                        setupDegreeRecyclerViews(participateList)
 
                                         // 전체 진척도 표시
                                         var totalDegree = 0
@@ -227,10 +227,10 @@ class MyGreenIngFragment : Fragment() {
         (viewAdapterIng as MyGreenIngAdapter).updateData(greeningList)
     }
 
-    private fun setupDegreeRecyclerViews(participateList: List<Participate>, greeningList: List<Greening>) {
+    private fun setupDegreeRecyclerViews(participateList: List<Participate>) {
         // 그리닝 개별 진척도 리사이클러뷰 설정
         viewManagerDegree = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        viewAdapterDegree = MyGreenDegreeAdapter(participateList, greeningList)
+        viewAdapterDegree = MyGreenDegreeAdapter(participateList)
         recyclerViewDegree = binding.recyclerviewGreenDegree.apply {
             setHasFixedSize(true)
             layoutManager = viewManagerDegree
@@ -238,7 +238,7 @@ class MyGreenIngFragment : Fragment() {
         }
 
         // 데이터 업데이트
-        (viewAdapterDegree as MyGreenDegreeAdapter).updateData(participateList, greeningList)
+        (viewAdapterDegree as MyGreenDegreeAdapter).updateData(participateList)
     }
 
     private fun showNoDataView() {

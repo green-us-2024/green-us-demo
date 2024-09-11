@@ -53,6 +53,7 @@ class CertifyGreeningActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCertifyGreeningBinding
     lateinit var uri: Uri
     private lateinit var auth: FirebaseAuth
+    val today = LocalDate.now()
     private val representImgList = mutableListOf<String>()
     private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1000
     private var gSeq: Int = -1
@@ -137,9 +138,20 @@ class CertifyGreeningActivity : AppCompatActivity() {
                             val gseq = gSeq.toString()
                             val imgName = gseq
                             val storage = Firebase.storage
-                            val ref = storage.getReference("greeningImgs/").child(imgName)
-                            ref.downloadUrl.addOnSuccessListener {
-                                    uri -> Glide.with(this@CertifyGreeningActivity).load(uri).into(binding.imgGreening)
+                            if ((greening.gKind == 1).or(greening.gKind == 2)){
+                                val ref = storage.getReference("officialGreeningImgs/").child(imgName)
+                                ref.downloadUrl.addOnSuccessListener {
+                                        uri -> Glide.with(this@CertifyGreeningActivity).load(uri).into(binding.imgGreening)
+                                }
+                            }else{
+                                val ref = storage.getReference("greeningImgs/").child(imgName)
+                                ref.downloadUrl.addOnSuccessListener {
+                                        uri -> Glide.with(this@CertifyGreeningActivity).load(uri).into(binding.imgGreening)
+                                }
+
+                            }
+                            if(today.isEqual(startDate) || today.isAfter(startDate)){
+                                binding.button.isEnabled = true
                             }
 
                             binding.subject.text = greening.gName ?: ""
