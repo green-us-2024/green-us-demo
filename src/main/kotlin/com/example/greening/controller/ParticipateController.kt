@@ -49,9 +49,21 @@ class ParticipateController(private val participateService: ParticipateService) 
         return ResponseEntity.ok(participate)
     }
 
+    @GetMapping("/greening/byId/{id}")
+    fun getParticipateByPId(@PathVariable id: Int): ResponseEntity<Greening> {
+        val greening = participateService.findGreening(id)
+        return ResponseEntity.ok(greening)
+    }
+
     @GetMapping("/byUserSeq/{userSeq}")
     fun getParticipateByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Participate>> {
         val participate = participateService.findByUserSeq(userSeq)
+        return ResponseEntity.ok(participate)
+    }
+
+    @GetMapping("/NbyUserSeq/{userSeq}")
+    fun getNParticipateByUserSeq(@PathVariable userSeq: Int): ResponseEntity<List<Participate>> {
+        val participate = participateService.findNByUserSeq(userSeq)
         return ResponseEntity.ok(participate)
     }
 

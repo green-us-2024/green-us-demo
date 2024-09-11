@@ -14,8 +14,14 @@ interface ParticipateRepository : JpaRepository<Participate, Int> {
     @Query("SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq")
     fun findByUserSeq(@Param("userSeq") userSeq: Int): List<Participate>
 
+    @Query("SELECT p FROM Participate p WHERE p.user.userSeq = :userSeq AND p.pComplete = 'N'")
+    fun findNByUserSeq(@Param("userSeq") userSeq: Int): List<Participate>
+
     @Query("SELECT p FROM Participate p WHERE p.greening.gSeq = :gSeq")
     fun findBygSeq(@Param("gSeq") gSeq: Int): List<Participate>
+
+    @Query("SELECT p.greening FROM Participate p WHERE p.pSeq = :pSeq")
+    fun findByParticipateId(@Param("pSeq") gSeq: Int): Greening?
 
     @Query("SELECT p.greening FROM Participate p WHERE p.user.userSeq = :userSeq")
     fun findGreeningByUserSeq(@Param("userSeq") userSeq: Int): List<Greening>

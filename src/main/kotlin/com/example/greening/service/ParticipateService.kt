@@ -82,8 +82,16 @@ class ParticipateService(private val participateRepository: ParticipateRepositor
         return participateRepository.findById(pSeq).orElse(null)
     }
 
+    fun findGreening(pSeq: Int): Greening? {
+        return participateRepository.findByParticipateId(pSeq)
+    }
+
     fun findByUserSeq(userSeq: Int): List<Participate> {
         return participateRepository.findByUserSeq(userSeq)
+    }
+
+    fun findNByUserSeq(userSeq: Int): List<Participate> {
+        return participateRepository.findNByUserSeq(userSeq)
     }
 
     fun findBygSeq(gSeq: Int): List<Participate> {
