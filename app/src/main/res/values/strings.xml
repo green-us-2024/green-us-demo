@@ -46,6 +46,7 @@
     <string name="gallery">갤러리</string>
     <string name="edit">편집</string>
     <string name="point">포인트</string>
+    <string name="bank_acc">계좌번호</string>
     <string name="withdraw">출금하기</string>
     <string name="delete">삭제</string>
     <string name="total">전체</string>

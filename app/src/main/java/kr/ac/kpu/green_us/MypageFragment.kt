@@ -1,5 +1,6 @@
 package kr.ac.kpu.green_us
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -22,6 +23,7 @@ import kr.ac.kpu.green_us.adapter.AdvAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
+import kr.ac.kpu.green_us.common.dto.Prize
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMypageBinding
 import retrofit2.Callback
@@ -35,6 +37,7 @@ class MypageFragment : Fragment(),ReportDialogInterface {
     private lateinit var auth: FirebaseAuth
     private lateinit var uid: String
     private lateinit var userEmail: String
+    private var allPrizes: List<Prize> = emptyList()
     lateinit var binding: FragmentMypageBinding
     private lateinit var sharedPreferencesToMypage: SharedPreferences
     override fun onCreateView(
@@ -211,5 +214,29 @@ class MypageFragment : Fragment(),ReportDialogInterface {
     private fun updatePointBalance() {
         val pointBalance = sharedPreferencesToMypage.getInt("point_balance", -1)
         binding.point.text = pointBalance.toString()
+    }
+
+    private fun fetchPrizes(userSeq: Int) {
+        val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+
+        retrofitAPI.getPrizeByUserSeq(userSeq).enqueue(object : Callback<List<Prize>> {
+            @SuppressLint("SetTextI18n")
+            override fun onResponse(call: Call<List<Prize>>, response: Response<List<Prize>>) {
+                if (response.isSuccessful) {
+                    allPrizes = response.body() ?: emptyList()
+
+                    // 포인트 총액 계산
+                    val totalPoints = allPrizes.sumOf { it.prizeMoney ?: 0 }
+                    Log.d("PointActivity", "포인트 총액: $totalPoints")
+
+                } else {
+                    Log.d("PointActivity", "API 응답 실패: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Prize>>, t: Throwable) {
+                Log.d("PointActivity", "API 호출 실패: ${t.message}")
+            }
+        })
     }
 }

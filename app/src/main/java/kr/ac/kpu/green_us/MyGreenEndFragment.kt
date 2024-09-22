@@ -12,12 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import kr.ac.kpu.green_us.adapter.HomeBuyMoreAdapter
 import kr.ac.kpu.green_us.adapter.MyGreenEndAdapter
 import kr.ac.kpu.green_us.common.RetrofitManager
 import kr.ac.kpu.green_us.common.api.RetrofitAPI
 import kr.ac.kpu.green_us.common.dto.Greening
-import kr.ac.kpu.green_us.common.dto.Participate
 import kr.ac.kpu.green_us.common.dto.Prize
 import kr.ac.kpu.green_us.common.dto.User
 import kr.ac.kpu.green_us.databinding.FragmentMyGreenEndBinding
