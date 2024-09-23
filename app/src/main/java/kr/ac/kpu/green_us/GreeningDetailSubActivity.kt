@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
@@ -69,10 +68,17 @@ class GreeningDetailSubActivity : AppCompatActivity() {
                             val gseq = gSeq.toString()
                             val imgName = gseq
                             val storage = Firebase.storage
-                            val ref = storage.getReference("greeningImgs/").child(imgName)
-                            ref.downloadUrl.addOnSuccessListener { uri ->
-                                Glide.with(this@GreeningDetailSubActivity).load(uri)
-                                    .into(binding.imgGreening)
+                            if ((greening.gKind == 1).or(greening.gKind == 2)){
+                                val ref = storage.getReference("officialGreeningImgs/").child(imgName)
+                                ref.downloadUrl.addOnSuccessListener {
+                                        uri -> Glide.with(this@GreeningDetailSubActivity).load(uri).into(binding.imgGreening)
+                                }
+                            }else{
+                                val ref = storage.getReference("greeningImgs/").child(imgName)
+                                ref.downloadUrl.addOnSuccessListener {
+                                        uri -> Glide.with(this@GreeningDetailSubActivity).load(uri).into(binding.imgGreening)
+                                }
+
                             }
 
                             binding.barTitle.text = greening.gName ?: ""

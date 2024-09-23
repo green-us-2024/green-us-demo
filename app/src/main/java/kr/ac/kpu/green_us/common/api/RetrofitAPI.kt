@@ -73,8 +73,14 @@ interface RetrofitAPI {
         @Path("gSeq") gSeq: Int,
     ): Call<Int>
 
+    @GET("/participate/greening/byId/{id}")
+    fun getParticipateByPId(@Path("id") id: Int): Call<Greening>
+
+    @GET("/participate/NbyUserSeq/{userSeq}")
+    fun getNParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
+
     @GET("/participate/byUserSeq/{userSeq}")
-    fun getParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
+    fun getGreeningParticipateByUserSeq(@Path("userSeq") userSeq: Int): Call<List<Participate>>
 
     @GET("/participate/gSeqByUserAndGreening/{gSeq}/{userSeq}")
     fun findpSeqByUserSeqAndgSeq(
