@@ -46,12 +46,10 @@ class Join2Fragment : Fragment() {
         // 인스턴스 초기화
         auth = Firebase.auth
         // reCAPTCHA로 강제 적용
-//        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
+        auth.firebaseAuthSettings.forceRecaptchaFlowForTesting(true)
         // 이전 프래그먼트로부터 온 bundle 데이터 받기
         email = arguments?.getString("email").toString()
         pw = arguments?.getString("pw").toString()
-//        Log.d("userEmail",email)
-//        Log.d("userPw",pw)
 
         return binding.root
     }
@@ -92,8 +90,8 @@ class Join2Fragment : Fragment() {
         binding.btnSentCode.setOnClickListener {
 
             phoneNumber = binding.etPhone.text.toString().trim()
-            // 번호를 국제코드로 변환
-            val editedNum = replacePhoneNum(phoneNumber)
+            // 번호를 국제코드로 변환 -> firebase 정책 변경으로 인한 9월1일자로 사용 불가
+//            val editedNum = replacePhoneNum(phoneNumber)
             // 콜백 정의
             val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 override fun onVerificationCompleted(credential: PhoneAuthCredential) { }
@@ -106,8 +104,8 @@ class Join2Fragment : Fragment() {
             }
             // 인증번호 전송에 대한 코드
             val optionsCompat =  PhoneAuthOptions.newBuilder(auth)
-//               .setPhoneNumber(editedNum) //실제 작동하는 코드입니다
-                .setPhoneNumber("+821020192024") //실제 실행 환경에선 인증코드 발송 횟수가 정해져 있어서 테스트 시에는 이 번호로 테스트해주세요 인증번호는 789078입니다
+//               .setPhoneNumber(editedNum) //실제 작동하는 코드입니다 -> firebase 정책 변경으로 인한 9월1일자로 사용 불가
+                .setPhoneNumber("+821020192024")
                 .setTimeout(60L, TimeUnit.SECONDS)
                 .setActivity(requireActivity())
                 .setCallbacks(callbacks)
