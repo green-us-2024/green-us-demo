@@ -254,7 +254,7 @@ class MypageFragment : Fragment(),ReportDialogInterface {
 
                     if (waringCounts != null) {
                         if (waringCounts >= 5){
-                            binding.warning.text = "신고 횟수가 5회이상이므로\n7일간 그리닝 참여가 제한됩니다."
+                            binding.warning.text = "신고 횟수가 5회이상이므로\n그리닝 참여가 제한됩니다."
                             binding.warning.isVisible = true
                         }else{
                             binding.warning.text = ""
