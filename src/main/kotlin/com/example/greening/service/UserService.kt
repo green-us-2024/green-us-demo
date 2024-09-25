@@ -94,4 +94,8 @@ class UserService(private val userRepository: UserRepository) {
     fun findUserSeqByEmail(userEmail: String): Int? {
         return userRepository.findUserSeqByEmail(userEmail)
     }
+
+    fun findUserWCountByEmail(userEmail: String): Int? {
+        return userRepository.findUserWCountByEmail(userEmail)
+    }
 }

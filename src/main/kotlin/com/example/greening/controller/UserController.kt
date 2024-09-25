@@ -88,5 +88,15 @@ class UserController(private val userService: UserService) {
         }
     }
 
+    @GetMapping("/wCountByEmail/{userEmail}")
+    fun getUserWCountByEmail(@PathVariable userEmail: String): ResponseEntity<Int> {
+        val userWCount = userService.findUserWCountByEmail(userEmail)
+        return if (userWCount != null) {
+            ResponseEntity.ok(userWCount)
+        } else {
+            ResponseEntity.notFound().build()
+        }
+    }
+
 
 }

@@ -104,4 +104,14 @@ class UserRepository {
         }
     }
 
+    fun findUserWCountByEmail(userEmail: String): Int? {
+        return try{
+            em.createQuery("select u.userWCount from User u where u.userEmail = :userEmail", Int::class.java)
+                    .setParameter("userEmail", userEmail)
+                    .singleResult as? Int
+        }catch(e: Exception){
+            null
+        }
+    }
+
 }
