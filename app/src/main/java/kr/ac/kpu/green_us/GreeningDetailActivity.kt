@@ -39,6 +39,8 @@ class GreeningDetailActivity : AppCompatActivity() {
         binding = ActivityGreeningDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        checkWarningCounts()
+
         val gSeq: Int = intent.getIntExtra("gSeq", -1)
 
         if(gSeq <= -1){
@@ -177,6 +179,34 @@ class GreeningDetailActivity : AppCompatActivity() {
             //로그아웃 시키고 처음 화면으로 가도록
         }
     }
+    private fun checkWarningCounts(){
+        auth = FirebaseAuth.getInstance()
+        val userEmail = auth.currentUser?.email.toString()
+        val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        retrofitAPI.getUserWCountByUserEmail(userEmail).enqueue(object :Callback<Int>{
+            override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                if (response.isSuccessful){
+                    val waringCounts = response.body()
+                    Log.d("MypageFragment","신고당한횟수: $waringCounts ")
+
+                    if (waringCounts != null) {
+                        if (waringCounts >= 5){
+                            binding.button.isEnabled = false
+                            binding.button.alpha = 0.5f
+                            binding.button.text = "그리닝 참여 제한됨"
+                        }else{
+                            binding.button.isEnabled = true
+                            binding.button.alpha = 1f
+                            binding.button.text = "그리닝 참여하기"
+                        }
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Int>, t: Throwable) {
+                Log.d("MypageFragment", "API 호출 실패: ${t.message}")
+            }
+        })
+    }
 
 
 
@@ -278,6 +308,7 @@ class GreeningDetailActivity : AppCompatActivity() {
                         })
                 }
             }).requestPayment()
+
     }
 
 }

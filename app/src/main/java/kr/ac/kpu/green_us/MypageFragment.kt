@@ -13,6 +13,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.firebase.Firebase
@@ -31,6 +33,7 @@ import retrofit2.Call
 import retrofit2.Response
 import java.net.URI
 import java.net.URL
+import kotlin.math.log
 
 // 마이페이지 - 포인트, 개설하기, 내리뷰, 프로필관리, 공지사항, FAQ, 고객센터 화면으로 이동 가능
 class MypageFragment : Fragment(),ReportDialogInterface {
@@ -58,6 +61,7 @@ class MypageFragment : Fragment(),ReportDialogInterface {
 
         getAdvImgList()
         updatePointBalance()
+        checkWarningCounts()
 
         // 프로필
         binding.userImg.clipToOutline = true //이미지 둥글게
@@ -237,6 +241,33 @@ class MypageFragment : Fragment(),ReportDialogInterface {
             override fun onFailure(call: Call<List<Prize>>, t: Throwable) {
                 Log.d("PointActivity", "API 호출 실패: ${t.message}")
             }
+        })
+    }
+    private fun checkWarningCounts(){
+        val userEmail = auth.currentUser?.email.toString()
+        val retrofitAPI = RetrofitManager.retrofit.create(RetrofitAPI::class.java)
+        retrofitAPI.getUserWCountByUserEmail(userEmail).enqueue(object :Callback<Int>{
+            override fun onResponse(call: Call<Int>, response: Response<Int>) {
+                if (response.isSuccessful){
+                    val waringCounts = response.body()
+                    Log.d("MypageFragment","신고당한횟수: $waringCounts ")
+
+                    if (waringCounts != null) {
+                        if (waringCounts >= 5){
+                            binding.warning.text = "신고 횟수가 5회이상이므로\n7일간 그리닝 참여가 제한됩니다."
+                            binding.warning.isVisible = true
+                        }else{
+                            binding.warning.text = ""
+                            binding.warning.isGone = true
+                        }
+                    }
+                }
+            }
+            override fun onFailure(call: Call<Int>, t: Throwable) {
+                Log.d("MypageFragment", "API 호출 실패: ${t.message}")
+            }
+
+
         })
     }
 }
