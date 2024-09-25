@@ -165,4 +165,7 @@ interface RetrofitAPI {
 
     @POST("/users/deleteByEmail/{userEmail}")
     fun deleteUserByEmail(@Path("userEmail") userEmail: String): Call<User>
+
+    @GET("/users/wCountByEmail/{userEmail}")
+    fun getUserWCountByUserEmail(@Path("userEmail") userEmail: String): Call<Int>
 }
