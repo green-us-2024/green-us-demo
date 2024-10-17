@@ -45,7 +45,7 @@ val view = inflater.inflate(R.layout.fragment_address_search, container, false)
  ```xml
 spring.datasource.password=????
 ```
-+ SQL을 직접 실행해도 되지만, 서버를 실행시키면 자동으로 생성 됌.
++ SQL을 직접 실행해도 되지만, 서버를 실행시키면 자동으로 생성 됩니다.
 
 ## 주요 기능 ✔️
 * 환경부 정책 정보 나눔
